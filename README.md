@@ -1,37 +1,30 @@
-# thesis-notes
+# Bozza
 
-## stuff
+## Introduzione
 
-1. Descrizione del problema
-  - passenger mutations
-  - driver mutations
-  - pathways
-  - driver pathways
-
-## Bozza
+### Contesto
 
 Il cancro è una condizione patologica caratterizzata da una proliferazione incontrollata di cellule, permettendone l'infiltrazione in organi e tessuti del paziente, ed alterandone conseguentemente struttura e funzionamento. La crescita esponenziale delle cellule è causata da mutazioni del DNA all'interno delle cellule; infatti, il DNA cellulare contiene le informazioni che descrivono come le cellule debano svilupparsi e moltiplicarsi, ma errori in queste istruzioni possono portare a rendere la cellula cancerosa. Alcuni tumori possono svilupparsi a partire da una singola mutazione, ma nella maggior parte dei tipi di cancro una sola mutazione non è sufficiente alla loro formazione, e sono necessarie una moltitudine di mutazioni, alcune presenti alla nascita come errori nelle informazioni del DNA cellulare, altre acquisite nel corso del tempo sia per mutazioni casuali, sia per scorretti comportamenti nel proprio stile di vita. Infatti, la maggior parte dei tumori si sviluppano a partire da una sola cellula, ma affinché il tumore possa proliferare sono necessarie mutazioni tumorali attraverso le quali tale cellula possa progressivamente acquisire vantaggio evolutivo sulle cellule limitrofe, entrando in un processo detto di _evoluzione clonale_. Ma affinché le cellule inizino il processo di proliferazione e divisione incontrollata, le mutazioni devono intaccare geni che regolano e promuovono la crescita cellulare, detti _proto-oncogeni_, che divengono a loro volta _oncogeni_ quando mutazioni al loro interno ne modificano la funzione, aumentando la quantità delle proteine prodotte. Una volta oncogeni, le cellule hanno maggior probabilità di dividersi incontrollatamente.
 
+Il _cell signaling_ è il processo per mezzo del quale una cellula può interagire con sé stessa, con altre cellule, o con l'ambiente circostante; attraverso il cell signaling viene trasdotto e trasmesso un segnale. I segnali possono essere di vario tipo, generalmente chimici ma anche di pressione, tensione, temperatura o luce. Un _pathway_ è una serie di azioni tra molecole all'interno di una cellula che portano ad una sua modifica o alla creazione di un prodotto. Per lo studio del cancro, sono di particolare interesse sono i _signaling pathways_, i pathway che permettono la trasmissione dei segnali delle cellule, poiché individuare e bloccare i pathway che sono responsabili delle funzioni principali della crescita del tumore, e che ne permettono la proliferazione, può terminarne lo sviluppo. I pathway hanno una "direzione" in cui le azioni avvengono, e si utilizzano i termini _upstream_ e _downstream_ per indicare rispettivamente ciò che avviene al suo inizio o alla sua fine.
+
+### Mutazioni
+
 All'interno del cancro si distinguono due tipi di mutazioni: le mutazioni _passenger_ e le mutazioni _driver_. Le mutazioni _passenger_ sono mutazioni che non forniscono benefici diretti alla crescita e allo sviluppo del tumore, mentre le mutazioni _driver_ sono in grado di influenzare in maniera diretta il cancro, conferendo vantaggio di selezione evolutiva e permettendo di accrescere le cellule tumorali. Con _gene driver_ si intende un gene che contiene almeno una mutazione driver, ma può contenere anche mutazioni passenger. Poiché rivestono un ruolo decisivo nella proliferazione e nello sviluppo del cancro, le mutazioni driver suscitano grande interesse scientifico, nell'intento di sviluppare tecniche per ridurre il vantaggio evolutivo per l'eccessiva crescita della cellula.
 
-TODO PENSO CANCELLA QUESTA PARTE
-Le mutazioni possono essere classificate nelle due categorie in base a diversi criteri:
-  - per frequenza, poiché le mutazioni driver sono proporzionatamente più mutate delle altre;
-  - per frequenza delle mutazioni di un singolo gene rispetto alla frequenza delle mutazioni degli altri geni del tumore
-  - TODO INSERIRLO??? by prediction of functional impact (either via in-silico algorithms or cell/model-base assays).
-  - TODO INSERIRE PRIMO PARAGRAFO MULTI-DENDRIX
-
-
-Per categorizzare le mutazioni nelle due tipologie, è necessario verificarne la funzionalità biologica, attualmente di difficile attuazione. Esistono metodi che permettono di predire l'impatto funzionale delle mutazioni attraverso conoscenze _a priori_, ma generalmente questi approcci non riescono ad integrare le informazioni adeguatamente sui vari tipi di mutazioni (TODO MENZIONARLI?), e non sono efficaci per le proteine meno studiate. Grazie al costo in decremento del sequenziamento del DNA nel corso degli anni, è possibile distinguere le mutazioni nelle due categorie attraverso un altro approccio, studiandone la frequenza.
-
-
-
-Il _cell signaling_ è il processo per mezzo del quale una cellula può interagire con sé stessa, con altre cellule, o con l'ambiente circostante; attraverso il cell signaling viene trasdotto e trasmesso un segnale. I segnali possono essere di vario tipo, generalmente chimici ma anche di pressione, tensione, temperatura o luce. Un _pathway_ è una serie di azioni tra molecole all'interno di una cellula che portano ad una sua modifica o alla creazione di un prodotto. Per lo studio del cancro, sono di particolare interesse sono i _signaling pathways_, i pathway che permettono la trasmissione dei segnali delle cellule, poiché individuare e bloccare i pathway che sono responsabili delle funzioni principali della crescita del tumore, e che ne permettono la proliferazione, può terminarne lo sviluppo.
-
-
-
-TODO INSERIRE QUESTA PARTE?
+TODO INSERIRE (ED ESPANDERE) QUESTA PARTE?
 I geni driver possono essre classificati in 12 signaling pathway, che regolano le funzioni di sopravvivenza, destino e riparazione genomica delle cellule.
 
+### Classificazione delle mutazioni
 
+Per categorizzare le mutazioni nelle due tipologie, è necessario verificarne la funzionalità biologica, ad oggi di difficile attuazione. Esistono metodi che permettono di predire l'impatto funzionale delle mutazioni attraverso conoscenze _a priori_, ma generalmente questi approcci non riescono ad integrare le informazioni adeguatamente sui vari tipi di mutazioni (TODO MENZIONARLI?), e non sono efficaci per le proteine meno studiate. Grazie al costo in decremento del sequenziamento del DNA nel corso degli anni, è possibile distinguere le mutazioni nelle due categorie attraverso un altro approccio, studiandone la frequenza. In particolre, le mutazioni driver sono proporzionatamente le più mutate all'interno del genoma dei pazienti oncologici, e la frequenza con la quale risultano mutate è nettamente superiore al COMPLETA LA FRASE. Ma la difficoltà di questo approccio è che le mutazioni driver variano tra i pazienti oncologici, anche aventi lo stesso tipo di cancro, e questa eterogeneità non permette di determinare le mutazioni driver in maniera decisiva attraverso la sola analisi di frequenza. Questa eterogeneità è principalmente giustificata dal fatto che le mutazioni driver bersagliano geni facenti parte dei signaling pathway delle cellule, dunque diversi pazienti potrebbero avere mutazioni dislocate in punti diversi del pathway. Di conseguenza non è sufficiente effettuare ricerche per frequenza sui singoli geni, ma sono necessarie analisi per verificare se interi gruppi di geni risultano frequentemente mutati.
 
+### Mutua esclusività
+
+La maggior parte delle tecniche che nel tempo sono state sviluppate per la ricerca delle mutazioni driver sfrutta un principio che si evince statisticamente dai dati dei pazienti oncologici, e riguarda la *mutua esclusività* delle mutazioni driver: ogni paziente possiede un numero relativemente basso di mutazioni, le quali perturbano molteplici pathway cellulari, di conseguenza ogni pathway conterrà mediamente 1 sola mutazione driver per paziente. Questo concetto di _mutua esclusività_ tra le mutazioni driver all'interno di uno stesso pathway, statisticamente osservato nei pazienti, viene assiomatizzato negli algoritmi di ricerca delle mutazioni driver. Non è ancora nota una spiegazione che possa giustificare questo fenomeno, ma sono state avanzate le seguenti ipotesi:
+- un'ipotesi è che geni mutuamente esclusivi siano funzionalmente legati all'interno di un pathway in comune, dunque agirebbero sugli stessi effettori downstream; questo determinerebbe ridondanza funzionale, e di conseguenza condividerebbero vantaggio selettivo, e l'aberrazione di anche solo dei geni mutuamente esclusivi è sufficiente a deteriorare del tutto i pathway in comune, rendendo innecessario alterare gli altri; questa spiegazione non è comunque in grado di giustificare a pieno il fenomeno, poiché se questa fosse la causa la co-alterazione di geni mutuamente esclusivi non dovrebbe comunque apportare conseguenze negative alla cellula;
+- un'altra ipotesi è che la co-occorrenza di alterazioni mutuamente esclusive siano dannose per la sopravvivenza del cancro, dunque le cellule che presentano tali co-occorrenze verrebbero eliminate dalla popolazione; potrebbe succedere infatti che l'alterazione di uno dei due geni della coppia sia compatibile con la sopravvivenza della cellula, mentre l'aberrazione simulanea di entrambe non lo sia, rendendo la coppia _synthetic lethal_; questo potrebbe portare allo sviluppo di target terapia che vada a bersagliare le coppie di questo tipo, andando ad attivare o disattivare geni intenzionalmente per sfruttare la proprietà di _synthetic lethality_, cessando la vita della cellula. TODO A QUESTO PROPOSITO IN UNA VECCHIA MAIL HO FATTO UNA GRANDE DISAMINA DI UN CASO PARTICOLARE, FORSE SAREBBE INTERESSANTE RIPORTARLO
+
+### Approcci _de novo_ e _knowledge-based_
+
+Nononstante non sia ancora stata scoperta la ragione del fenomeno della mutua eslcusività, e non sia noto se sia possibile sfruttarla terapeuticamente, è un comportamento che si verifica molto spesso nei dati, ed è dunque interessante provare ad utilizzarla per poter eventualmente far emergere nuove informazioni. Poiché verificare ogni possibile gruppo di geni richiede dimensioni dei sample proibitive (per via del _multiple hypothesis testing correction_ TODO IN CHE SENSO?), gli approcci che sono stati sviluppati nel tempo rientrano principalmente in due grandi categorie: gli approcci _de novo_, che effettuano la ricerca utilizzando solamente dati dei genomi dei pazienti, per scovare pattern di mutua esclusività, ed i metodi _knoledge-based_, che integrano l'analisi con altre informazioni, derivata dai signaling pathway, reti interazioni tra proteine o altri dati sui fenotipi. TODO METTERE SVANTAGGI DE NOVO. Di contro, la conoscenza attuale delle interazioni di geni e proteine è attualmente incompleta, e la maggior parte dei database che contengono i pathway noti non rispecchiano precisamente le interazioni che avvengono all'interno di una cellula cancerosa. Dunque, gli approcci knowledge-based potrebbero limitare la possibilità di effettuare scoperte biologiche nuove.
