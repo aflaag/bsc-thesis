@@ -1,0 +1,194 @@
+% ============================================== %
+% Author: Alessio Bandiera
+%
+% Thesis Title: ?
+% 
+% Bachelor of Science in Computer Science, Sapienza University of Rome.
+%
+% https://github.com/Exyss/?
+%
+% ============================================== %
+
+% Document Class
+\documentclass[binding=0.6cm, noexaminfo]{sapthesis}
+
+% Packages
+\usepackage{microtype}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{xspace}
+\usepackage{geometry} 
+\usepackage{caption}  
+\usepackage[edges]{forest}
+\usepackage{subcaption}
+\usepackage{float}    
+\usepackage{lipsum}  
+\usepackage{xargs}              
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{threeparttable}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{cleveref}
+\usepackage[Algoritmo]{algorithm}      
+\usepackage{algpseudocode}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+\usepackage[
+  backend=biber,
+  style=alphabetic,
+  sorting=anyt,
+  minnames=3,
+  minalphanames=3
+]{biblatex}
+
+% Commands and Settings
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcounter{boxlblcounter}  
+\newcommand{\makeboxlabel}[1]{\fbox{#1.}\hfill}
+\newenvironment{boxlabel}
+  {\begin{list}
+    {\arabic{boxlblcounter}}
+    {\usecounter{boxlblcounter}
+     \setlength{\labelwidth}{3em}
+     \setlength{\labelsep}{0em}
+     \setlength{\itemsep}{2pt}
+     \setlength{\leftmargin}{1.5cm}
+     \setlength{\rightmargin}{2cm}
+     \setlength{\itemindent}{0em} 
+     \let\makelabel=\makeboxlabel
+    }
+  }
+{\end{list}}
+\lstdefinestyle{myStyle}{
+    belowcaptionskip=1\baselineskip,
+    breaklines=true,
+    numberstyle=\tiny\color{gray},
+    captionpos=b,
+    frame=tb,
+    basicstyle=\footnotesize\ttfamily,
+    keywordstyle=\bfseries\color{green!40!black},
+    commentstyle=\itshape\color{blue!40!black},
+    identifierstyle=\color{black},
+    backgroundcolor=\color{white},
+}
+\lstset{style=mystyle}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+% Metadata
+\hypersetup{pdftitle={Thesis},pdfauthor={Alessio Bandiera}, urlcolor=black, linkcolor=black, colorlinks=true}
+\title{TODO Titolo}
+\author{Alessio Bandiera}
+\IDnumber{1986936}
+\course{Bachelor's Degree in Computer Science}
+\courseorganizer{Faculty of Information Engineering, Computer Science and Statistics}
+\AcademicYear{2023/2024}
+\advisor{Prof. Ivano Salvo}
+% \coadvisor{Prof. Massimo Lauria}
+\authoremail{alessio.bandiera02@gmail.com}
+\copyyear{2024}
+\thesistype{Bachelor's Thesis}
+
+% % ================== CUSTOM ENVIRONMENTS ==================
+%
+% \newtheorem{lemma}{Lemma}[chapter]
+% \newtheorem{theorem}{Theorem}[chapter]
+% \newtheorem{proposition}{Proposition}[chapter]
+% \newtheorem{corollary}{Corollary}[chapter]
+%
+% \theoremstyle{definition}
+% \newtheorem{claimlemma}{Claim}[lemma]
+% \newtheorem{claimtheorem}{Claim}[theorem]
+% \newtheorem{definition}{Definition}[chapter]
+%
+% % ================== CUSTOM MACROS ==================
+%
+% \renewcommand{\lnot}{\overline}
+% \newcommand{\abs}[1]{\left|#1\right|}
+% \newcommand{\say}[1]{\flqq\textit{#1}\frqq}
+% \newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
+% \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
+% \newcommand{\abk}[1]{\left\langle#1\right\rangle}
+%
+% \newcommand{\TFNP}{\textsf{TFNP}\xspace}
+% \newcommand{\TFNPdt}{\mathsf{TFNP}^{dt}\xspace}
+%
+% \newcommand{\N}{\mathbb{N}}
+% \renewcommand{\P}{\mathbb{P}}
+% \newcommand{\Z}{\mathbb{Z}}
+% \newcommand{\F}{\mathbb{F}}
+%
+% \newcommand{\Res}{\mathsf{Res}}
+% \newcommand{\ResP}{\mathsf{Res(\oplus)}}
+% \newcommand{\NS}{\mathsf{NS}}
+% \newcommand{\FNS}{\F_2\text{-}\mathsf{NS}}
+% \newcommand{\enc}{\mathrm{enc}}
+
+% ================== DOCUMENT ==================
+
+\addbibresource{./references.bib}
+
+\begin{document}
+
+\lstset{language=Python}
+
+\frontmatter
+
+\maketitle
+
+% ================== DEDICATION ==================
+\dedication{
+    TODO.
+}
+% ================== ABSTRACT ==================
+
+% \input{./chapter/abstract}
+
+\cleardoublepage
+
+\tableofcontents
+\let\cleardoublepage\clearpage
+
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=red}
+
+
+\mainmatter
+
+% ================== CHAPTERS ==================
+\input{./chapter/1}
+\input{./chapter/2}
+\input{./chapter/3}
+\input{./chapter/4}
+\input{./chapter/5}
+
+% ================== Notes ==================
+% \input{./chapter/notes}
+
+% ================== ACKNOWLEDGMENTS ==================
+\input{./chapter/ack}
+
+\backmatter
+\phantomsection
+
+% ================== BIBLIOGRAPHY ==================
+\addcontentsline{toc}{chapter}{Bibliography}
+% \bibliographystyle{sapthesis}
+% \bibliography{./references.bib}
+\printbibliography
+
+\end{document}
