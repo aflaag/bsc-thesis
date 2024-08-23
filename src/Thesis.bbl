@@ -1,0 +1,141 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{Vogelstein2004}{article}{}
+    \name{author}{2}{}{%
+      {{hash=VB}{%
+         family={Vogelstein},
+         familyi={V\bibinitperiod},
+         given={Bert},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KKW}{%
+         family={Kinzler},
+         familyi={K\bibinitperiod},
+         given={Kenneth\bibnamedelima W},
+         giveni={K\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{VBKKW1}
+    \strng{fullhash}{VBKKW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1038/nm1087
+    \endverb
+    \field{issn}{1546-170X}
+    \field{number}{8}
+    \field{pages}{789–799}
+    \field{title}{Cancer genes and the pathways they control}
+    \verb{url}
+    \verb http://dx.doi.org/10.1038/nm1087
+    \endverb
+    \field{volume}{10}
+    \field{journaltitle}{Nature Medicine}
+    \field{year}{2004}
+  \endentry
+
+  \entry{cancer_treat}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{{Cancro: la cura}}
+    \verb{url}
+    \verb https://www.airc.it/cancro/affronta-la-malattia/guida-alle-terapie/ca
+    \verb ncro-la-cura
+    \endverb
+  \endentry
+
+  \entry{target_therapy1}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{{Targeted therapy for cancer}}
+    \verb{url}
+    \verb https://www.cancer.gov/about-cancer/treatment/types/targeted-therapie
+    \verb s
+    \endverb
+    \field{month}{05}
+    \field{year}{2022}
+  \endentry
+
+  \entry{target_therapy3}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=PCCM}{%
+         family={Professional},
+         familyi={P\bibinitperiod},
+         given={Cleveland Clinic\bibnamedelima Medical},
+         giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PCCM1}
+    \strng{fullhash}{PCCM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{{Targeted therapy}}
+    \verb{url}
+    \verb https://my.clevelandclinic.org/health/treatments/22733-targeted-thera
+    \verb py
+    \endverb
+    \field{month}{05}
+    \field{year}{2024}
+  \endentry
+
+  \entry{cell_signaling}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=cW}{%
+         family={contributors},
+         familyi={c\bibinitperiod},
+         given={Wikipedia},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{cW1}
+    \strng{fullhash}{cW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{{Cell signaling}}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/Cell_signaling
+    \endverb
+    \field{month}{08}
+    \field{year}{2024}
+  \endentry
+
+  \entry{pathway}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=N}{%
+         family={Nhgri},
+         familyi={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{N1}
+    \strng{fullhash}{N1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{{Biological Pathways Fact sheet}}
+    \verb{url}
+    \verb https://www.genome.gov/about-genomics/fact-sheets/Biological-Pathways
+    \verb -Fact-Sheet
+    \endverb
+    \field{month}{03}
+    \field{year}{2019}
+  \endentry
+\enddatalist
+\endinput

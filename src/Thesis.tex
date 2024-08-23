@@ -43,12 +43,14 @@
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 
 \usepackage[
-  backend=biber,
-  style=alphabetic,
-  sorting=anyt,
+  backend=bibtex,
+  style=numeric,
+  sorting=none,
   minnames=3,
   minalphanames=3
 ]{biblatex}
+
+% \nocite{*}
 
 % Commands and Settings
 \newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
@@ -186,9 +188,7 @@
 \phantomsection
 
 % ================== BIBLIOGRAPHY ==================
-\addcontentsline{toc}{chapter}{Bibliography}
-% \bibliographystyle{sapthesis}
-% \bibliography{./references.bib}
+% \addcontentsline{toc}{chapter}{Bibliography}
 \printbibliography
 
 \end{document}

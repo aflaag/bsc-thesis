@@ -1,4 +1,12 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Context}{1}{section.1.1}%
-\contentsline {chapter}{Acknowledgements}{2}{chapter*.2}%
+\contentsline {subsection}{\numberline {1.1.1}Cancer}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Cancer treatment}{1}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Mutations}{2}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Cell signaling and signaling pathways}{2}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Passenger and driver mutations}{2}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Classifying mutations}{3}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Mutual exclusivity}{3}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}\textit {De novo} and \textit {knowledge-based} approaches}{3}{subsection.1.2.5}%
+\contentsline {chapter}{Acknowledgements}{4}{chapter*.8}%
