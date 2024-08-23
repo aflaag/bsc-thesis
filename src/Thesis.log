@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  22 AUG 2024 18:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  23 AUG 2024 11:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1277,7 +1277,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<sapienzalogo.pdf, id=31, 288.07625pt x 89.33376pt>
+<sapienzalogo.pdf, id=19, 288.07625pt x 89.33376pt>
 File: sapienzalogo.pdf Graphic file (type pdf)
 <use sapienzalogo.pdf>
 Package pdftex.def Info: sapienzalogo.pdf  used on input line 153.
@@ -1340,7 +1340,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 153--153
 
 ] [4
 
-] (./Thesis.toc)
+] (./Thesis.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 3.
+)
 \tf@toc=\write7
 \openout7 = `Thesis.toc'.
 
@@ -1353,30 +1360,13 @@ Package hyperref Warning: Option `colorlinks' has already been used,
 
 ] (./chapter/1.tex
 Chapter 1.
+
+LaTeX Warning: Citation 'Vogelstein2004' on page 1 undefined on input line 6.
+
 [1
 
 
-]) (./chapter/2.tex
-Chapter 2.
-[2
-
-
-]) (./chapter/3.tex
-Chapter 3.
-[3
-
-
-]) (./chapter/4.tex
-Chapter 4.
-[4
-
-
-]) (./chapter/5.tex
-Chapter 5.
-[5
-
-
-]) (./chapter/ack.tex) [6
+]) (./chapter/ack.tex) [2
 
 
 ]
@@ -1393,7 +1383,7 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 10FB29A3ACB4E7B98FFEA7089AEA2287;744.
+(rerunfilecheck)             Checksum: 5CB5CE4AEEF6DE2CAE482FC28BD94F53;316.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                Thesis
@@ -1404,18 +1394,18 @@ Package logreq Info: Writing requests to 'Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48730 strings out of 476024
- 1015887 string characters out of 5792397
- 1945399 words of memory out of 5000000
- 70070 multiletter control sequences out of 15000+600000
- 617472 words of font info for 105 fonts, out of 8000000 for 9000
+ 48934 strings out of 476024
+ 1019695 string characters out of 5792397
+ 1945153 words of memory out of 5000000
+ 70260 multiletter control sequences out of 15000+600000
+ 633807 words of font info for 134 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 98i,12n,131p,1605b,1874s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,12n,131p,1605b,1865s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on Thesis.pdf (11 pages, 196487 bytes).
+Output written on Thesis.pdf (7 pages, 193339 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
- 112 compressed objects within 2 object streams
- 19 named destinations out of 1000 (max. 500000)
- 36930 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
+ 45098 words of extra memory for PDF output out of 51595 (max. 10000000)
 
