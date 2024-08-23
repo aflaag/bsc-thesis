@@ -52,6 +52,7 @@
     \endverb
     \field{volume}{10}
     \field{journaltitle}{Nature Medicine}
+    \field{month}{07}
     \field{year}{2004}
   \endentry
 
@@ -244,6 +245,142 @@
     \field{journaltitle}{Bioinformatics}
     \field{month}{09}
     \field{year}{2012}
+  \endentry
+
+  \entry{survey}{article}{}
+    \name{author}{12}{}{%
+      {{hash=DY}{%
+         family={Deng},
+         familyi={D\bibinitperiod},
+         given={Yulan},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Luo},
+         familyi={L\bibinitperiod},
+         given={Shangyi},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=DC}{%
+         family={Deng},
+         familyi={D\bibinitperiod},
+         given={Chunyu},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=LT}{%
+         family={Luo},
+         familyi={L\bibinitperiod},
+         given={Tao},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=YW}{%
+         family={Yin},
+         familyi={Y\bibinitperiod},
+         given={Wenkang},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=ZH}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Hongyi},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=ZY}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Yong},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=ZX}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Xinxin},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Lan},
+         familyi={L\bibinitperiod},
+         given={Yujia},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=PY}{%
+         family={Ping},
+         familyi={P\bibinitperiod},
+         given={Yanyan},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=XY}{%
+         family={Xiao},
+         familyi={X\bibinitperiod},
+         given={Yun},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LX}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Xia},
+         giveni={X\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press (OUP)}%
+    }
+    \strng{namehash}{DYLSDC+1}
+    \strng{fullhash}{DYLSDCLTYWZHZYZXLYPYXYLX1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1093/bib/bbx109
+    \endverb
+    \field{issn}{1477-4054}
+    \field{number}{1}
+    \field{pages}{254–266}
+    \field{title}{Identifying mutual exclusivity across cancer genomes: computational approaches to discover genetic interaction and reveal tumor vulnerability}
+    \verb{url}
+    \verb http://dx.doi.org/10.1093/bib/bbx109
+    \endverb
+    \field{volume}{20}
+    \field{journaltitle}{Briefings in Bioinformatics}
+    \field{month}{08}
+    \field{year}{2017}
+  \endentry
+
+  \entry{mutual_exclusivity_expls}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CJ}{%
+         family={Cisowski},
+         familyi={C\bibinitperiod},
+         given={Jaroslaw},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BMO}{%
+         family={Bergo},
+         familyi={B\bibinitperiod},
+         given={Martin\bibnamedelima O.},
+         giveni={M\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Informa UK Limited}%
+    }
+    \strng{namehash}{CJBMO1}
+    \strng{fullhash}{CJBMO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1080/21541248.2016.1212689
+    \endverb
+    \field{issn}{2154-1256}
+    \field{number}{3}
+    \field{pages}{187–192}
+    \field{title}{What makes oncogenes mutually exclusive?}
+    \verb{url}
+    \verb http://dx.doi.org/10.1080/21541248.2016.1212689
+    \endverb
+    \field{volume}{8}
+    \field{journaltitle}{Small GTPases}
+    \field{month}{07}
+    \field{year}{2016}
   \endentry
 \enddatalist
 \endinput
