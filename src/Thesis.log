@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  23 AUG 2024 13:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  23 AUG 2024 17:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1421,18 +1421,18 @@ Package logreq Info: Writing requests to 'Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49388 strings out of 476024
- 1028612 string characters out of 5792397
- 1948187 words of memory out of 5000000
- 70600 multiletter control sequences out of 15000+600000
- 659919 words of font info for 180 fonts, out of 8000000 for 9000
+ 49409 strings out of 476024
+ 1029101 string characters out of 5792397
+ 1950187 words of memory out of 5000000
+ 70609 multiletter control sequences out of 15000+600000
+ 660363 words of font info for 185 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,12n,131p,1852b,1870s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Thesis.pdf (10 pages, 302062 bytes).
+Output written on Thesis.pdf (10 pages, 306635 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
- 187 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
+ 241 PDF objects out of 1000 (max. 8388607)
+ 197 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
  60010 words of extra memory for PDF output out of 61914 (max. 10000000)
 

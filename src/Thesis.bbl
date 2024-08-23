@@ -137,5 +137,113 @@
     \field{month}{03}
     \field{year}{2019}
   \endentry
+
+  \entry{multi-dendrix}{article}{}
+    \name{author}{4}{}{%
+      {{hash=LMDM}{%
+         family={Leiserson},
+         familyi={L\bibinitperiod},
+         given={Mark D.\bibnamedelima M.},
+         giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Blokh},
+         familyi={B\bibinitperiod},
+         given={Dima},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Sharan},
+         familyi={S\bibinitperiod},
+         given={Roded},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=RBJ}{%
+         family={Raphael},
+         familyi={R\bibinitperiod},
+         given={Benjamin\bibnamedelima J.},
+         giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BN}{%
+         family={Beerenwinkel},
+         familyi={B\bibinitperiod},
+         given={Niko},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Public Library of Science (PLoS)}%
+    }
+    \strng{namehash}{LMDMBDSR+1}
+    \strng{fullhash}{LMDMBDSRRBJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1371/journal.pcbi.1003054
+    \endverb
+    \field{issn}{1553-7358}
+    \field{number}{5}
+    \field{pages}{e1003054}
+    \field{title}{Simultaneous Identification of Multiple Driver Pathways in Cancer}
+    \verb{url}
+    \verb http://dx.doi.org/10.1371/journal.pcbi.1003054
+    \endverb
+    \field{volume}{9}
+    \field{journaltitle}{PLoS Computational Biology}
+    \field{month}{05}
+    \field{year}{2013}
+  \endentry
+
+  \entry{mdpfinder}{article}{}
+    \name{author}{4}{}{%
+      {{hash=ZJ}{%
+         family={Zhao},
+         familyi={Z\bibinitperiod},
+         given={Junfei},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=ZS}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Shihua},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=WLY}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Ling-Yun},
+         giveni={L\bibinithyphendelim Y\bibinitperiod},
+      }}%
+      {{hash=ZXS}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Xiang-Sun},
+         giveni={X\bibinithyphendelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press (OUP)}%
+    }
+    \strng{namehash}{ZJZSWLY+1}
+    \strng{fullhash}{ZJZSWLYZXS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1093/bioinformatics/bts564
+    \endverb
+    \field{issn}{1367-4803}
+    \field{number}{22}
+    \field{pages}{2940–2947}
+    \field{title}{Efficient methods for identifying mutated driver pathways in cancer}
+    \verb{url}
+    \verb http://dx.doi.org/10.1093/bioinformatics/bts564
+    \endverb
+    \field{volume}{28}
+    \field{journaltitle}{Bioinformatics}
+    \field{month}{09}
+    \field{year}{2012}
+  \endentry
 \enddatalist
 \endinput
