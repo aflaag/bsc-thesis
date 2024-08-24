@@ -56,6 +56,27 @@
     \field{year}{2004}
   \endentry
 
+  \entry{carcinogenesis}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=cW}{%
+         family={contributors},
+         familyi={c\bibinitperiod},
+         given={Wikipedia},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{cW1}
+    \strng{fullhash}{cW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{{Carcinogenesis}}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/Carcinogenesis
+    \endverb
+    \field{month}{07}
+    \field{year}{2024}
+  \endentry
+
   \entry{cancer_treat}{misc}{}
     \field{labeltitlesource}{title}
     \field{title}{{Cancro: la cura}}
@@ -195,6 +216,155 @@
     \field{journaltitle}{PLoS Computational Biology}
     \field{month}{05}
     \field{year}{2013}
+  \endentry
+
+  \entry{dendrix}{article}{}
+    \name{author}{12}{}{%
+      {{hash=DY}{%
+         family={Deng},
+         familyi={D\bibinitperiod},
+         given={Yulan},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Luo},
+         familyi={L\bibinitperiod},
+         given={Shangyi},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=DC}{%
+         family={Deng},
+         familyi={D\bibinitperiod},
+         given={Chunyu},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=LT}{%
+         family={Luo},
+         familyi={L\bibinitperiod},
+         given={Tao},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=YW}{%
+         family={Yin},
+         familyi={Y\bibinitperiod},
+         given={Wenkang},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=ZH}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Hongyi},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=ZY}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Yong},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=ZX}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Xinxin},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Lan},
+         familyi={L\bibinitperiod},
+         given={Yujia},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=PY}{%
+         family={Ping},
+         familyi={P\bibinitperiod},
+         given={Yanyan},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=XY}{%
+         family={Xiao},
+         familyi={X\bibinitperiod},
+         given={Yun},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LX}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Xia},
+         giveni={X\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press (OUP)}%
+    }
+    \strng{namehash}{DYLSDC+1}
+    \strng{fullhash}{DYLSDCLTYWZHZYZXLYPYXYLX1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1093/bib/bbx109
+    \endverb
+    \field{issn}{1477-4054}
+    \field{number}{1}
+    \field{pages}{254–266}
+    \field{title}{Identifying mutual exclusivity across cancer genomes: computational approaches to discover genetic interaction and reveal tumor vulnerability}
+    \verb{url}
+    \verb http://dx.doi.org/10.1093/bib/bbx109
+    \endverb
+    \field{volume}{20}
+    \field{journaltitle}{Briefings in Bioinformatics}
+    \field{month}{08}
+    \field{year}{2017}
+  \endentry
+
+  \entry{n-genes}{article}{}
+    \name{author}{4}{}{%
+      {{hash=FC}{%
+         family={Fields},
+         familyi={F\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=AMD}{%
+         family={Adams},
+         familyi={A\bibinitperiod},
+         given={Mark\bibnamedelima D.},
+         giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=WO}{%
+         family={White},
+         familyi={W\bibinitperiod},
+         given={Owen},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=VJC}{%
+         family={Venter},
+         familyi={V\bibinitperiod},
+         given={J.\bibnamedelima Craig},
+         giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{FCAMDWO+1}
+    \strng{fullhash}{FCAMDWOVJC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1038/ng0794-345
+    \endverb
+    \field{issn}{1546-1718}
+    \field{number}{3}
+    \field{pages}{345–346}
+    \field{title}{How many genes in the human genome?}
+    \verb{url}
+    \verb http://dx.doi.org/10.1038/ng0794-345
+    \endverb
+    \field{volume}{7}
+    \field{journaltitle}{Nature Genetics}
+    \field{month}{07}
+    \field{year}{1994}
   \endentry
 
   \entry{mdpfinder}{article}{}

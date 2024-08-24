@@ -540,6 +540,11 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ts1-lmr10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbxi10.tfm
+INPUT ./chapter/2.tex
+INPUT ./chapter/2.tex
+INPUT ./chapter/2.tex
+INPUT ./chapter/2.tex
+INPUT ./chapter/2.tex
 INPUT ./chapter/ack.tex
 INPUT ./chapter/ack.tex
 INPUT ./chapter/ack.tex
