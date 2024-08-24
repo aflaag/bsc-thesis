@@ -55,7 +55,7 @@ Searching for the most mutually exclusive gene group is equivalent to identifyin
 
 \subsection{Dendrix's definition}
 
-A very well-known paper, which developed two algorithms called \curlyquotes{Dendrix} \cite{dendrix}, gave the following mathematical formalization to the properties of mutual exclusivity and coverage for a set of genes. Consider a so-called \curlyquotes{mutation matrix} $A$, with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene; the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
+A very well-known paper, which developed two algorithms called \curlyquotes{Dendrix} \cite{dendrix} \todo{change this first sentence}, gave the following mathematical formalization to the properties of mutual exclusivity and coverage for a set of genes. Consider a so-called \curlyquotes{mutation matrix} $A$, with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene; the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
 
 \begin{table}[H]
     \centering
@@ -124,7 +124,7 @@ Finding the solution to this problem is computationally unfeasible even for smal
 
 Multi-Dendrix aims to refine Dendrix's weight function to extend the metric to assess mutual exclusivity across multiple driver pathways. In particular, while identifying individual driver pathways is crucial, most cancer patients are likely to have driver mutations across multiple pathways.
 
-To effectively identify multiple driver pathways, it is necessary to establish criteria for evaluating potential \textit{collections of gene sets}. Based on the same biological reasoning mentioned earlier, it is expected that each pathway will contain approximately one driver mutation. Furthermore, since each driver pathway is crucial for cancer development, it is expected that most patients will harbor a driver mutation in most driver pathways. Consequently, high exclusivity is predicted within the genes of each pathway, along with high coverage of each pathway individually \cite{multi-dendrix}. One metric that meets these criteria is to find a collection $M = \{M_1, \ldots, M_t\}$ of gene sets, which maximizes the sum of individual weights, i.e. $\sum_{i = 1}^t {W(M_i)}$.
+To effectively identify multiple driver pathways, it is necessary to establish criteria for evaluating potential \textit{collections of gene sets}. Based on the same biological reasoning mentioned earlier, it is expected that each pathway will contain approximately one driver mutation. Furthermore, since each driver pathway is crucial for cancer development, it is expected that most patients will harbor a driver mutation in most driver pathways. Consequently, high exclusivity is predicted within the genes of each pathway, along with high coverage of each pathway individually. One metric that meets these criteria is to find a collection $M = \{M_1, \ldots, M_t\}$ of gene sets, which maximizes the sum of individual weights, i.e. $\sum_{i = 1}^t {W(M_i)}$ \cite{multi-dendrix}.
 
 \subsection{Mutex's approach}
 
