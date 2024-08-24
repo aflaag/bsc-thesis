@@ -16,7 +16,6 @@
 \usepackage{microtype}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{csquotes}
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage[dvipsnames]{xcolor}
@@ -37,15 +36,18 @@
 \usepackage{threeparttable}
 \usepackage{amsthm}
 \usepackage{amssymb}
-\usepackage{cleveref}
 \usepackage[Algoritmo]{algorithm}      
 \usepackage{algpseudocode}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage[capitalize,nameinlink,english]{cleveref}
+
 \usepackage[
   backend=bibtex,
   style=numeric,
-  sorting=none,
+  sorting=anyt,
   minnames=3,
   minalphanames=3
 ]{biblatex}
@@ -118,10 +120,12 @@
 % \newtheorem{claimtheorem}{Claim}[theorem]
 % \newtheorem{definition}{Definition}[chapter]
 %
-% % ================== CUSTOM MACROS ==================
-%
+% ================== CUSTOM MACROS ==================
+
+\newcommand{\curlyquotes}[1]{\textquotedblleft #1\textquotedblright}    % Curly quotes
+
 % \renewcommand{\lnot}{\overline}
-% \newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\abs}[1]{\left|#1\right|}
 % \newcommand{\say}[1]{\flqq\textit{#1}\frqq}
 % \newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
 % \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
@@ -155,7 +159,7 @@
 
 % ================== DEDICATION ==================
 \dedication{
-    TODO.
+    TODO. test
 }
 % ================== ABSTRACT ==================
 
@@ -174,7 +178,7 @@
 % ================== CHAPTERS ==================
 \input{./chapter/1}
 \input{./chapter/2}
-% \input{./chapter/3}
+\input{./chapter/3}
 % \input{./chapter/4}
 % \input{./chapter/5}
 

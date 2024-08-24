@@ -16,44 +16,126 @@
   {}
 \endgroup
 
-\datalist[entry]{none/global//global/global}
-  \entry{Vogelstein2004}{article}{}
-    \name{author}{2}{}{%
-      {{hash=VB}{%
-         family={Vogelstein},
-         familyi={V\bibinitperiod},
-         given={Bert},
-         giveni={B\bibinitperiod},
+\datalist[entry]{anyt/global//global/global}
+  \entry{mutex}{article}{}
+    \name{author}{7}{}{%
+      {{hash=BO}{%
+         family={Babur},
+         familyi={B\bibinitperiod},
+         given={\"{O}zg\"{u}n},
+         giveni={O\bibinitperiod},
       }}%
-      {{hash=KKW}{%
-         family={Kinzler},
-         familyi={K\bibinitperiod},
-         given={Kenneth\bibnamedelima W},
-         giveni={K\bibinitperiod\bibinitdelim W\bibinitperiod},
+      {{hash=GM}{%
+         family={G\"{o}nen},
+         familyi={G\bibinitperiod},
+         given={Mithat},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ABA}{%
+         family={Aksoy},
+         familyi={A\bibinitperiod},
+         given={B\"{u}lent\bibnamedelima Arman},
+         giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Schultz},
+         familyi={S\bibinitperiod},
+         given={Nikolaus},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=CG}{%
+         family={Ciriello},
+         familyi={C\bibinitperiod},
+         given={Giovanni},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Sander},
+         familyi={S\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=DE}{%
+         family={Demir},
+         familyi={D\bibinitperiod},
+         given={Emek},
+         giveni={E\bibinitperiod},
       }}%
     }
     \list{publisher}{2}{%
       {Springer Science}%
       {Business Media LLC}%
     }
-    \strng{namehash}{VBKKW1}
-    \strng{fullhash}{VBKKW1}
+    \strng{namehash}{BOGMABA+1}
+    \strng{fullhash}{BOGMABASNCGSCDE1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
     \verb{doi}
-    \verb 10.1038/nm1087
+    \verb 10.1186/s13059-015-0612-6
     \endverb
-    \field{issn}{1546-170X}
-    \field{number}{8}
-    \field{pages}{789–799}
-    \field{title}{Cancer genes and the pathways they control}
+    \field{issn}{1474-760X}
+    \field{number}{1}
+    \field{title}{Systematic identification of cancer driving signaling pathways based on mutual exclusivity of genomic alterations}
     \verb{url}
-    \verb http://dx.doi.org/10.1038/nm1087
+    \verb http://dx.doi.org/10.1186/s13059-015-0612-6
     \endverb
-    \field{volume}{10}
-    \field{journaltitle}{Nature Medicine}
+    \field{volume}{16}
+    \field{journaltitle}{Genome Biology}
+    \field{month}{02}
+    \field{year}{2015}
+  \endentry
+
+  \entry{cancer_treat}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{{Cancro: la cura}}
+    \verb{url}
+    \verb https://www.airc.it/cancro/affronta-la-malattia/guida-alle-terapie/ca
+    \verb ncro-la-cura
+    \endverb
+  \endentry
+
+  \entry{mutual_exclusivity_expls}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CJ}{%
+         family={Cisowski},
+         familyi={C\bibinitperiod},
+         given={Jaroslaw},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BMO}{%
+         family={Bergo},
+         familyi={B\bibinitperiod},
+         given={Martin\bibnamedelima O.},
+         giveni={M\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Informa UK Limited}%
+    }
+    \strng{namehash}{CJBMO1}
+    \strng{fullhash}{CJBMO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1080/21541248.2016.1212689
+    \endverb
+    \field{issn}{2154-1256}
+    \field{number}{3}
+    \field{pages}{187–192}
+    \field{title}{What makes oncogenes mutually exclusive?}
+    \verb{url}
+    \verb http://dx.doi.org/10.1080/21541248.2016.1212689
+    \endverb
+    \field{volume}{8}
+    \field{journaltitle}{Small GTPases}
     \field{month}{07}
-    \field{year}{2004}
+    \field{year}{2016}
   \endentry
 
   \entry{carcinogenesis}{misc}{}
@@ -69,53 +151,13 @@
     \strng{fullhash}{cW1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
     \field{title}{{Carcinogenesis}}
     \verb{url}
     \verb https://en.wikipedia.org/wiki/Carcinogenesis
     \endverb
     \field{month}{07}
-    \field{year}{2024}
-  \endentry
-
-  \entry{cancer_treat}{misc}{}
-    \field{labeltitlesource}{title}
-    \field{title}{{Cancro: la cura}}
-    \verb{url}
-    \verb https://www.airc.it/cancro/affronta-la-malattia/guida-alle-terapie/ca
-    \verb ncro-la-cura
-    \endverb
-  \endentry
-
-  \entry{target_therapy1}{misc}{}
-    \field{labeltitlesource}{title}
-    \field{title}{{Targeted therapy for cancer}}
-    \verb{url}
-    \verb https://www.cancer.gov/about-cancer/treatment/types/targeted-therapie
-    \verb s
-    \endverb
-    \field{month}{05}
-    \field{year}{2022}
-  \endentry
-
-  \entry{target_therapy3}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=PCCM}{%
-         family={Professional},
-         familyi={P\bibinitperiod},
-         given={Cleveland Clinic\bibnamedelima Medical},
-         giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{PCCM1}
-    \strng{fullhash}{PCCM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{{Targeted therapy}}
-    \verb{url}
-    \verb https://my.clevelandclinic.org/health/treatments/22733-targeted-thera
-    \verb py
-    \endverb
-    \field{month}{05}
     \field{year}{2024}
   \endentry
 
@@ -132,90 +174,14 @@
     \strng{fullhash}{cW1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
     \field{title}{{Cell signaling}}
     \verb{url}
     \verb https://en.wikipedia.org/wiki/Cell_signaling
     \endverb
     \field{month}{08}
     \field{year}{2024}
-  \endentry
-
-  \entry{pathway}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=N}{%
-         family={Nhgri},
-         familyi={N\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{N1}
-    \strng{fullhash}{N1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{{Biological Pathways Fact sheet}}
-    \verb{url}
-    \verb https://www.genome.gov/about-genomics/fact-sheets/Biological-Pathways
-    \verb -Fact-Sheet
-    \endverb
-    \field{month}{03}
-    \field{year}{2019}
-  \endentry
-
-  \entry{multi-dendrix}{article}{}
-    \name{author}{4}{}{%
-      {{hash=LMDM}{%
-         family={Leiserson},
-         familyi={L\bibinitperiod},
-         given={Mark D.\bibnamedelima M.},
-         giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim M\bibinitperiod},
-      }}%
-      {{hash=BD}{%
-         family={Blokh},
-         familyi={B\bibinitperiod},
-         given={Dima},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=SR}{%
-         family={Sharan},
-         familyi={S\bibinitperiod},
-         given={Roded},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=RBJ}{%
-         family={Raphael},
-         familyi={R\bibinitperiod},
-         given={Benjamin\bibnamedelima J.},
-         giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod},
-      }}%
-    }
-    \name{editor}{1}{}{%
-      {{hash=BN}{%
-         family={Beerenwinkel},
-         familyi={B\bibinitperiod},
-         given={Niko},
-         giveni={N\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Public Library of Science (PLoS)}%
-    }
-    \strng{namehash}{LMDMBDSR+1}
-    \strng{fullhash}{LMDMBDSRRBJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb 10.1371/journal.pcbi.1003054
-    \endverb
-    \field{issn}{1553-7358}
-    \field{number}{5}
-    \field{pages}{e1003054}
-    \field{title}{Simultaneous Identification of Multiple Driver Pathways in Cancer}
-    \verb{url}
-    \verb http://dx.doi.org/10.1371/journal.pcbi.1003054
-    \endverb
-    \field{volume}{9}
-    \field{journaltitle}{PLoS Computational Biology}
-    \field{month}{05}
-    \field{year}{2013}
   \endentry
 
   \entry{dendrix}{article}{}
@@ -300,6 +266,8 @@
     \strng{fullhash}{DYLSDCLTYWZHZYZXLYPYXYLX1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
     \verb{doi}
     \verb 10.1093/bib/bbx109
     \endverb
@@ -314,107 +282,6 @@
     \field{journaltitle}{Briefings in Bioinformatics}
     \field{month}{08}
     \field{year}{2017}
-  \endentry
-
-  \entry{n-genes}{article}{}
-    \name{author}{4}{}{%
-      {{hash=FC}{%
-         family={Fields},
-         familyi={F\bibinitperiod},
-         given={Chris},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=AMD}{%
-         family={Adams},
-         familyi={A\bibinitperiod},
-         given={Mark\bibnamedelima D.},
-         giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
-      }}%
-      {{hash=WO}{%
-         family={White},
-         familyi={W\bibinitperiod},
-         given={Owen},
-         giveni={O\bibinitperiod},
-      }}%
-      {{hash=VJC}{%
-         family={Venter},
-         familyi={V\bibinitperiod},
-         given={J.\bibnamedelima Craig},
-         giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{2}{%
-      {Springer Science}%
-      {Business Media LLC}%
-    }
-    \strng{namehash}{FCAMDWO+1}
-    \strng{fullhash}{FCAMDWOVJC1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb 10.1038/ng0794-345
-    \endverb
-    \field{issn}{1546-1718}
-    \field{number}{3}
-    \field{pages}{345–346}
-    \field{title}{How many genes in the human genome?}
-    \verb{url}
-    \verb http://dx.doi.org/10.1038/ng0794-345
-    \endverb
-    \field{volume}{7}
-    \field{journaltitle}{Nature Genetics}
-    \field{month}{07}
-    \field{year}{1994}
-  \endentry
-
-  \entry{mdpfinder}{article}{}
-    \name{author}{4}{}{%
-      {{hash=ZJ}{%
-         family={Zhao},
-         familyi={Z\bibinitperiod},
-         given={Junfei},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=ZS}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={Shihua},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=WLY}{%
-         family={Wu},
-         familyi={W\bibinitperiod},
-         given={Ling-Yun},
-         giveni={L\bibinithyphendelim Y\bibinitperiod},
-      }}%
-      {{hash=ZXS}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={Xiang-Sun},
-         giveni={X\bibinithyphendelim S\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Oxford University Press (OUP)}%
-    }
-    \strng{namehash}{ZJZSWLY+1}
-    \strng{fullhash}{ZJZSWLYZXS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb 10.1093/bioinformatics/bts564
-    \endverb
-    \field{issn}{1367-4803}
-    \field{number}{22}
-    \field{pages}{2940–2947}
-    \field{title}{Efficient methods for identifying mutated driver pathways in cancer}
-    \verb{url}
-    \verb http://dx.doi.org/10.1093/bioinformatics/bts564
-    \endverb
-    \field{volume}{28}
-    \field{journaltitle}{Bioinformatics}
-    \field{month}{09}
-    \field{year}{2012}
   \endentry
 
   \entry{survey}{article}{}
@@ -499,6 +366,8 @@
     \strng{fullhash}{DYLSDCLTYWZHZYZXLYPYXYLX1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
     \verb{doi}
     \verb 10.1093/bib/bbx109
     \endverb
@@ -515,42 +384,269 @@
     \field{year}{2017}
   \endentry
 
-  \entry{mutual_exclusivity_expls}{article}{}
-    \name{author}{2}{}{%
-      {{hash=CJ}{%
-         family={Cisowski},
-         familyi={C\bibinitperiod},
-         given={Jaroslaw},
-         giveni={J\bibinitperiod},
+  \entry{n-genes}{article}{}
+    \name{author}{4}{}{%
+      {{hash=FC}{%
+         family={Fields},
+         familyi={F\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
       }}%
-      {{hash=BMO}{%
-         family={Bergo},
+      {{hash=AMD}{%
+         family={Adams},
+         familyi={A\bibinitperiod},
+         given={Mark\bibnamedelima D.},
+         giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=WO}{%
+         family={White},
+         familyi={W\bibinitperiod},
+         given={Owen},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=VJC}{%
+         family={Venter},
+         familyi={V\bibinitperiod},
+         given={J.\bibnamedelima Craig},
+         giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{FCAMDWO+1}
+    \strng{fullhash}{FCAMDWOVJC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \verb{doi}
+    \verb 10.1038/ng0794-345
+    \endverb
+    \field{issn}{1546-1718}
+    \field{number}{3}
+    \field{pages}{345–346}
+    \field{title}{How many genes in the human genome?}
+    \verb{url}
+    \verb http://dx.doi.org/10.1038/ng0794-345
+    \endverb
+    \field{volume}{7}
+    \field{journaltitle}{Nature Genetics}
+    \field{month}{07}
+    \field{year}{1994}
+  \endentry
+
+  \entry{multi-dendrix}{article}{}
+    \name{author}{4}{}{%
+      {{hash=LMDM}{%
+         family={Leiserson},
+         familyi={L\bibinitperiod},
+         given={Mark D.\bibnamedelima M.},
+         giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Blokh},
          familyi={B\bibinitperiod},
-         given={Martin\bibnamedelima O.},
-         giveni={M\bibinitperiod\bibinitdelim O\bibinitperiod},
+         given={Dima},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Sharan},
+         familyi={S\bibinitperiod},
+         given={Roded},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=RBJ}{%
+         family={Raphael},
+         familyi={R\bibinitperiod},
+         given={Benjamin\bibnamedelima J.},
+         giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BN}{%
+         family={Beerenwinkel},
+         familyi={B\bibinitperiod},
+         given={Niko},
+         giveni={N\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {Informa UK Limited}%
+      {Public Library of Science (PLoS)}%
     }
-    \strng{namehash}{CJBMO1}
-    \strng{fullhash}{CJBMO1}
+    \strng{namehash}{LMDMBDSR+1}
+    \strng{fullhash}{LMDMBDSRRBJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
     \verb{doi}
-    \verb 10.1080/21541248.2016.1212689
+    \verb 10.1371/journal.pcbi.1003054
     \endverb
-    \field{issn}{2154-1256}
-    \field{number}{3}
-    \field{pages}{187–192}
-    \field{title}{What makes oncogenes mutually exclusive?}
+    \field{issn}{1553-7358}
+    \field{number}{5}
+    \field{pages}{e1003054}
+    \field{title}{Simultaneous Identification of Multiple Driver Pathways in Cancer}
     \verb{url}
-    \verb http://dx.doi.org/10.1080/21541248.2016.1212689
+    \verb http://dx.doi.org/10.1371/journal.pcbi.1003054
     \endverb
-    \field{volume}{8}
-    \field{journaltitle}{Small GTPases}
+    \field{volume}{9}
+    \field{journaltitle}{PLoS Computational Biology}
+    \field{month}{05}
+    \field{year}{2013}
+  \endentry
+
+  \entry{pathway}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=N}{%
+         family={Nhgri},
+         familyi={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{N1}
+    \strng{fullhash}{N1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{{Biological Pathways Fact sheet}}
+    \verb{url}
+    \verb https://www.genome.gov/about-genomics/fact-sheets/Biological-Pathways
+    \verb -Fact-Sheet
+    \endverb
+    \field{month}{03}
+    \field{year}{2019}
+  \endentry
+
+  \entry{target_therapy3}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=PCCM}{%
+         family={Professional},
+         familyi={P\bibinitperiod},
+         given={Cleveland Clinic\bibnamedelima Medical},
+         giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PCCM1}
+    \strng{fullhash}{PCCM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{{Targeted therapy}}
+    \verb{url}
+    \verb https://my.clevelandclinic.org/health/treatments/22733-targeted-thera
+    \verb py
+    \endverb
+    \field{month}{05}
+    \field{year}{2024}
+  \endentry
+
+  \entry{target_therapy1}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{title}{{Targeted therapy for cancer}}
+    \verb{url}
+    \verb https://www.cancer.gov/about-cancer/treatment/types/targeted-therapie
+    \verb s
+    \endverb
+    \field{month}{05}
+    \field{year}{2022}
+  \endentry
+
+  \entry{Vogelstein2004}{article}{}
+    \name{author}{2}{}{%
+      {{hash=VB}{%
+         family={Vogelstein},
+         familyi={V\bibinitperiod},
+         given={Bert},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KKW}{%
+         family={Kinzler},
+         familyi={K\bibinitperiod},
+         given={Kenneth\bibnamedelima W},
+         giveni={K\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{VBKKW1}
+    \strng{fullhash}{VBKKW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \verb{doi}
+    \verb 10.1038/nm1087
+    \endverb
+    \field{issn}{1546-170X}
+    \field{number}{8}
+    \field{pages}{789–799}
+    \field{title}{Cancer genes and the pathways they control}
+    \verb{url}
+    \verb http://dx.doi.org/10.1038/nm1087
+    \endverb
+    \field{volume}{10}
+    \field{journaltitle}{Nature Medicine}
     \field{month}{07}
-    \field{year}{2016}
+    \field{year}{2004}
+  \endentry
+
+  \entry{mdpfinder}{article}{}
+    \name{author}{4}{}{%
+      {{hash=ZJ}{%
+         family={Zhao},
+         familyi={Z\bibinitperiod},
+         given={Junfei},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=ZS}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Shihua},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=WLY}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Ling-Yun},
+         giveni={L\bibinithyphendelim Y\bibinitperiod},
+      }}%
+      {{hash=ZXS}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Xiang-Sun},
+         giveni={X\bibinithyphendelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press (OUP)}%
+    }
+    \strng{namehash}{ZJZSWLY+1}
+    \strng{fullhash}{ZJZSWLYZXS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \verb{doi}
+    \verb 10.1093/bioinformatics/bts564
+    \endverb
+    \field{issn}{1367-4803}
+    \field{number}{22}
+    \field{pages}{2940–2947}
+    \field{title}{Efficient methods for identifying mutated driver pathways in cancer}
+    \verb{url}
+    \verb http://dx.doi.org/10.1093/bioinformatics/bts564
+    \endverb
+    \field{volume}{28}
+    \field{journaltitle}{Bioinformatics}
+    \field{month}{09}
+    \field{year}{2012}
   \endentry
 \enddatalist
 \endinput

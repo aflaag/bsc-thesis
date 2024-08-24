@@ -1,5 +1,47 @@
 
-\chapter{Search problems} \label{chap:search_problems}
+\chapter{TODO} \label{chap:TODO}
 
+\section{Multi-Dendrix}
+
+\subsection{Dendrix}
+
+A very well known paper, which developed two algorithms called \curlyquotes{Dendrix} \cite{dendrix}, gave the following mathematical formalization to the properties of \textbf{mutual exclusivity} and \textbf{coverage}. Consider a so called \curlyquotes{mutation matrix} $A$, with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene; the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$ \todo{add table as example?}.
+
+
+
+Given a gene $g$, let
+
+\begin{equation}
+    \Gamma(g) = \{i : a_{i, g} = 1\}
+\end{equation}
+
+denote the set of patients which have $g$ mutated; futhermore, given a set of $M$ genes, let the \textbf{coverage} be
+
+\begin{equation}
+    \Gamma(M) = \bigcup_{g \in M}{\Gamma(g)}
+\end{equation}
+
+which denotes the set of patients in which at least one of the genes in $M$ is mutated. In accordance with the previous definitions of mutual exclusivity, we say that a set $M$ of genes is \textbf{mutually exclusive} \textit{if no patient has more than one mutated gene}, formally
+
+\begin{equation}
+    \forall g, g' \in M \quad \Gamma(g) \cap \Gamma(g') = \varnothing
+\end{equation}
+
+Any gene set can be thought as a $m \times k$ submatrix of a mutation matrix $A$, up to rearranging $A$'s columns --- their order does not matter since they represent genes. Accordingly, such a submatrix is said to be \textbf{mutually exclusive} \textit{if each row contains at most one 1}.
+
+Furhermore, given a gene set $M$, the following properties are formalized:
+
+\begin{enumerate}[label=\roman*), font=\itshape]
+    \item \textit{coverage}: most patients have at least one mutation in $M$;
+    \item \textit{approximate exclusivity}: most patients have exactly one mutation in $M$.
+\end{enumerate}
+
+To measure these two attributes, a measure what quantifies the trade-off between coverage and mutual exclusivity is introduced. Given a set $M$ of genes, the \textit{coverage overlap} is defined as follows:
+
+\begin{equation}\label{cov_over}
+    \omega(M) = \sum_{g \in M}{\abs{\Gamma(g)}} - \abs{\Gamma(M)}
+\end{equation}
+
+Note that the sum in \cref{cov_over} is the number of 1s in $M$'s corresponding submatrix; hence, the 
 
 \cleardoublepage
