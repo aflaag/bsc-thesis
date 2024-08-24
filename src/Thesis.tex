@@ -42,7 +42,8 @@
 
 \usepackage{csquotes}
 \usepackage{enumitem}
-\usepackage[capitalize,nameinlink,english]{cleveref}
+\usepackage[noabbrev,capitalize,nameinlink,english]{cleveref}
+\creflabelformat{equation}{#2\textup{#1}#3}
 
 \usepackage[
   backend=bibtex,
@@ -122,10 +123,10 @@
 %
 % ================== CUSTOM MACROS ==================
 
-\newcommand{\curlyquotes}[1]{\textquotedblleft #1\textquotedblright}    % Curly quotes
-
-% \renewcommand{\lnot}{\overline}
+\newcommand{\curlyquotes}[1]{\textquotedblleft #1\textquotedblright}
 \newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\rbk}[1]{\left(#1\right)}
+
 % \newcommand{\say}[1]{\flqq\textit{#1}\frqq}
 % \newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
 % \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
