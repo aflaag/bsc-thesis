@@ -437,6 +437,64 @@
     \field{year}{1994}
   \endentry
 
+  \entry{c3}{article}{}
+    \name{author}{5}{}{%
+      {{hash=HJP}{%
+         family={Hou},
+         familyi={H\bibinitperiod},
+         given={Jack\bibnamedelima P.},
+         giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=EA}{%
+         family={Emad},
+         familyi={E\bibinitperiod},
+         given={Amin},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=PGJ}{%
+         family={Puleo},
+         familyi={P\bibinitperiod},
+         given={Gregory\bibnamedelima J.},
+         giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=MJ}{%
+         family={Ma},
+         familyi={M\bibinitperiod},
+         given={Jian},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=MO}{%
+         family={Milenkovic},
+         familyi={M\bibinitperiod},
+         given={Olgica},
+         giveni={O\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press (OUP)}%
+    }
+    \strng{namehash}{HJPEAPGJ+1}
+    \strng{fullhash}{HJPEAPGJMJMO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \verb{doi}
+    \verb 10.1093/bioinformatics/btw546
+    \endverb
+    \field{issn}{1367-4811}
+    \field{number}{24}
+    \field{pages}{3717–3728}
+    \field{title}{A new correlation clustering method for cancer mutation analysis}
+    \verb{url}
+    \verb http://dx.doi.org/10.1093/bioinformatics/btw546
+    \endverb
+    \field{volume}{32}
+    \field{journaltitle}{Bioinformatics}
+    \field{month}{08}
+    \field{year}{2016}
+  \endentry
+
   \entry{multi-dendrix}{article}{}
     \name{author}{4}{}{%
       {{hash=LMDM}{%

@@ -8,6 +8,13 @@
 - [target therapy](https://www.cancer.org/cancer/managing-cancer/treatment-types/targeted-therapy/what-is.html)
 - [SPOP and ERG](https://www.nature.com/articles/s41467-020-20820-x#Sec2)
 
+BASED ON SURVEY PAPER
+Dendrix: de novo
+Multi-Dendrix: de novo
+MDPFinder: knowledge-based
+Mutex: knowledge-based
+C3: knowledge-based
+
 ## TODO list
 
 - capire come aumentare lo spazio tra table e caption

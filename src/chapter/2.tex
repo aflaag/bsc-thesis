@@ -1,12 +1,10 @@
 \chapter{Driver mutations} \label{chap:driver_mutations}
 
-\section{Mutations}
-
-\subsection{Cell signaling and signaling pathways}
-
 \textbf{Cell signaling} is the process by which cells interact with each other, themselves, or their environment. It concerns the transduction of signals, which can be chemical, or can involve various types such as pressure, temperature, or light signals \cite{cell_signaling}. \textbf{Pathways} are sequences of molecular interactions within a cell that lead to a change in the cell or the production of a specific product \cite{pathway}. These pathways have a direction in which the actions occur, with the terms \textit{upstream} and \textit{downstream} indicating the initial and final stages of these processes, respectively.
 
 In cancer research, \textbf{signaling pathways} are of particular interest because they mediate the transduction of cell signals. Identifying and targeting the signaling pathways responsible for cancer growth could potentially halt the development of the disease. \todo{\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8002322/}{check this out}, also check if what i wrote is actually true, i think i read it somewhere but can't find the source right now; expand on cell signaling? expand of pathways? if yes, make subsections}
+
+\section{Mutations}
 
 \subsection{Passenger and driver mutations}
 
@@ -39,10 +37,6 @@ In addition, another key property of driver pathways is \textbf{coverage}, i.e. 
 
 Thus, \textit{a driver pathway consists of genes that are mutated in numerous patients, with mutations being approximately mutually exclusive}. It is also observed that pathways exhibiting these characteristics are generally shorter and comprised of fewer genes on average \cite{multi-dendrix}.
 
-\subsection{\textit{De novo} and \textit{knowledge-based} approaches}
-
-Although the true explanation for mutual exclusivity remains unknown, and its therapeutic potential is still uncertain, this phenomenon is frequently observed in data and is thought to potentially lead to discoveries in cancer treatment. Existing approaches can be categorized into two types: \textit{de novo} approaches, which identify mutually exclusive patterns using only genomic data from patients, and \textit{knowledge-based} methods, which integrate the analysis with external \textit{a priori} information \cite{survey}. De novo approaches might lack sufficient information as they do not utilize existing databases. Conversely, given that our understanding of gene and protein interactions in humans is still incomplete and many pathway databases fail to accurately represent the specific pathways and interactions present in cancer cells, \textit{knowledge-based} approaches may be limited by their dependence on existing data sources. Consequently, \textit{de novo} methods might yield new but potentially less accurate results, while \textit{knowledge-based} approaches may limit the discovery of novel biological insights \cite{multi-dendrix}.
-
 \section{Mutual exclusivity formalization}
 
 \subsection{Hard and soft mutual exclusivity}
@@ -53,7 +47,7 @@ In the statistical literature, two types of mutual exclusivity are defined: \tex
 
 Searching for the most mutually exclusive gene group is equivalent to identifying a single driver pathway, for the aforementioned reasons. For a pair of genes, soft mutual exclusivity can be assessed using the \href{https://en.wikipedia.org/wiki/Fisher\%27s_exact_test}{Fisher's exact test}. However, there is no agreed-upon method for analytically testing mutual exclusivity among more than two genes. One approach could involve checking whether each pair of genes within the group exhibits mutual exclusivity; this method, however, may be overly strict, as a gene set can exhibit a strong mutual exclusivity pattern as a whole even if no individual pairs show any \cite{mutex}.
 
-\subsection{Dendrix's definition}
+\subsection{Dendrix}
 
 The author's of a very well-known paper, which developed two algorithms called \curlyquotes{Dendrix} \cite{dendrix}, gave the following mathematical formalization to the properties of mutual exclusivity and coverage for a set of genes. Consider a so-called \curlyquotes{mutation matrix} $A$, with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene; the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
 
@@ -74,13 +68,13 @@ The author's of a very well-known paper, which developed two algorithms called \
 Given a gene $g$, let
 
 \begin{equation}
-    \Gamma(g) = \{i : a_{i, g} = 1\}
+    \Gamma(g) := \{i \mid a_{i, g} = 1\}
 \end{equation}
 
 denote the set of patients which have $g$ mutated; futhermore, given a set of $M$ genes, let the \textbf{coverage} be
 
 \begin{equation}
-    \Gamma(M) = \bigcup_{g \in M}{\Gamma(g)}
+    \Gamma(M) := \bigcup_{g \in M}{\Gamma(g)}
 \end{equation}
 
 which denotes \textit{the set of patients in which at least one of the genes in $M$ is mutated}. Under the previous definitions of mutual exclusivity, we say that a set $M$ of genes is \textbf{mutually exclusive} \textit{if no patient has more than one mutated gene}, formally
@@ -101,7 +95,7 @@ Furhermore, given a gene set $M$, the following properties are formalized:
 To evaluate these two attributes, a measure that quantifies the trade-off between coverage and mutual exclusivity is introduced. Given a set $M$ of genes, the \textbf{coverage overlap} is defined as follows:
 
 \begin{equation}\label{cov_over}
-    \omega(M) = \sum_{g \in M}{\abs{\Gamma(g)}} - \abs{\Gamma(M)}
+    \omega(M) := \sum_{g \in M}{\abs{\Gamma(g)}} - \abs{\Gamma(M)}
 \end{equation}
 
 Note that the sum in \cref{cov_over} is the number of 1s in $M$'s corresponding submatrix; e.g. considering \cref{mutation_matrix}, if $M=\{g_1, g_2\}$ then $$\omega(M)=\abs{\Gamma(g_1)} + \abs{\Gamma(g_2)} - \abs{\Gamma(\{g_1, g_2\})} = \abs{\{p_2\}} + \abs{\{p_1, p_2\}} - \abs{\{p_1, p_2\}} = 1 + 2 - 2 = 1$$ which shows that $\omega(M)$ is the \textit{number of patients that are counted more than once in the sum}. Indeed, $\omega(M) = 0$ only if the sum equals the coverage of $M$, and this can only happen if no patient has more than one mutated gene of $M$; in fact, when $\omega(M) \ge 0$ \todo{come fa ad essere negativo?}, $M$ is said to be \textbf{mutually exclusive}.
@@ -109,10 +103,10 @@ Note that the sum in \cref{cov_over} is the number of 1s in $M$'s corresponding 
 Given a set of genes $M$, to take into account both coverage and coverage overlap, the following measure is introduced:
 
 \begin{equation}\label{weight}
-    W(M) = \abs{\Gamma(M)} - \omega(M) = 2 \abs{\Gamma(M)} - \sum_{g \in M} {\abs{\Gamma(g)}}
+    W(M): = \abs{\Gamma(M)} - \omega(M) = 2 \abs{\Gamma(M)} - \sum_{g \in M} {\abs{\Gamma(g)}}
 \end{equation}
 
-Note that $W(M) = \Gamma(M)$ when $M$ is mutually exclusive. In conclusion, in order to find an optimal gene set, the following problem has to be solved:
+Note that $W(M) = \Gamma(M)$ when $M$ is mutually exclusive. In order to find an optimal gene set, the following problem has to be solved:
 
 \begin{displayquote}
     \textbf{Maximum Weight Submatrix Problem}: Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find the $m \times k$ submatrix of $A$ that maximizes $W(M)$.
@@ -120,17 +114,17 @@ Note that $W(M) = \Gamma(M)$ when $M$ is mutually exclusive. In conclusion, in o
 
 Finding the solution to this problem is computationally difficult even for small values of $k$ (e.g there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes), and it can be proven that it is NP-Hard. \todo{nei materiali supplementari mettono la dimostrazione che questo problema è NP-Hard, lo devo fare?}
 
-\subsection{Multi-Dendrix's modifications}
+\subsection{Multi-Dendrix}
 
 Multi-Dendrix aims to refine Dendrix's weight function to extend the metric to assess mutual exclusivity across multiple driver pathways. In particular, while identifying individual driver pathways is crucial, most cancer patients are likely to have driver mutations across multiple pathways.
 
 To effectively identify multiple driver pathways, it is necessary to establish criteria for evaluating potential \textit{collections of gene sets}. Based on the same biological reasoning mentioned earlier, it is expected that each pathway will contain approximately one driver mutation. Furthermore, since each driver pathway is crucial for cancer development, it is expected that most patients will harbor a driver mutation in most driver pathways. Consequently, high exclusivity is predicted within the genes of each pathway, along with high coverage of each pathway individually. One metric that meets these criteria is to find a collection $M = \{M_1, \ldots, M_t\}$ of gene sets which maximizes the sum of individual weights, i.e. $\sum_{i = 1}^t {W(M_i)}$ \cite{multi-dendrix}.
 
-\subsection{Mutex's approach}
+\subsection{Mutex}
 
 Mutex's authors \todo{in questo ambito si riferiscono tutti per cognome, esempio Vandin et. al, dovrei farlo anche io o posso limitarmi a scrivere "authors?"} criticize Dendrix's metric because has a strong bias toward highly mutated genes, and in some instances, the excessive emphasis on coverage leads to both false positives and negatives. \todo{ci sono esempi in file supplementari, li guardo?}. They propose a metric that extends Fisher's exact test --- also known as \textit{hypergeometric test} --- to quantify the mutual exclusivity between multiple measurements \cite{mutex}.
 
-Specifically, the alteration of a pair of genes is defined to be \textbf{mutually exclusive} \textit{if their overlap in samples is significantly less than expected by chance}, and this can be assessed through a hypergeometric test. \todo{\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4590705/}{QUESTO} paper fa vedere in dettaglio come si fa, sono sicuro al 99\% che si tratti della stessa cosa, lo inserisco?} It is important to note that a uniform alteration frequency across may not always hold true, particularly for hyper-mutated samples often resulting from prior mutations in DNA repair mechanisms. Addressing this heterogeneity is challenging, as each overlap in the null model has a different probability. This remains an open problem, and to partially mitigate it, albeit at the cost of statistical power, hyper-altered samples are excluded from the analysis. \todo{specificare quali di preciso? non mi sembra rilevante}
+Specifically, the alteration of a pair of genes is defined to be \textbf{mutually exclusive} \textit{if their overlap in samples is significantly less than expected by chance}, and this can be assessed through a hypergeometric test. \todo{\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4590705/}{QUESTO} paper fa vedere in dettaglio come si fa, sono sicuro al 99\% che si tratti della stessa cosa, lo inserisco?} It is important to note that a uniform alteration frequency across may not always hold, particularly for hyper-mutated samples often resulting from prior mutations in DNA repair mechanisms. Addressing this heterogeneity is challenging, as each overlap in the null model has a different probability. This remains an open problem, and to partially mitigate it, albeit at the cost of statistical power, hyper-altered samples are excluded from the analysis. \todo{specificare quali di preciso? non mi sembra rilevante}
 
 Mutex's authors also developed a metric to assess the mutual exclusivity of a group of genes. Consider the following null hypothesis:
 
@@ -138,7 +132,7 @@ Mutex's authors also developed a metric to assess the mutual exclusivity of a gr
     $H_0$: \textit{The specific member gene in the group is altered independently from the union of other alterations in the group}.
 \end{displayquote}
 
-Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $i \in M$, mutations in $\Gamma(i)$ are independent from alterations in $\Gamma(M - \{i\})$. $H_0$ is then tested for each $i \in M$ by evaluating the codistribution of $i$ with the union of the others through Fisher's exact test \todo{non so come funziona di preciso il test di Fisher, dovrei vederlo?}, generating $\abs{M}$ $p$-values. Each of these $p$-values represent the probabilities for the independent distribution of each member gene \todo{i'm not sure i know what this means}. To ensure that every member of the group contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of the group. Using Dendrix's notation
+Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $i \in M$, mutations in $\Gamma(i)$ are independent of alterations in $\Gamma(M - \{i\})$. $H_0$ is then tested for each $i \in M$ by evaluating the co-distribution of $i$ with the union of the others through Fisher's exact test \todo{non so come funziona di preciso il test di Fisher, dovrei vederlo?}, generating $\abs{M}$ $p$-values. These $p$-values represent the probabilities for the independent distribution of each member gene \todo{i'm not sure i know what this means}. To ensure that every member of the group contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of the group. Using Dendrix's notation
 
 \begin{equation}
     s_0 := \max_{i \in M} {H \abk{\Gamma(i), \Gamma(M - \{i\})}}
@@ -146,6 +140,84 @@ Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every 
 
 where $s_0$ is the initial score, and $H$ is the hypergeometric test. Since multiple groups are being tested, $s_0$ is affected by multiple hypothesis testing \todo{add link?}. To account for it, first the null distribution of the initial $p$-values must be estimated for each gene, then it must be calculated the significance of the observed initial $p$-values for each member \todo{non ho la minima idea di cosa voglia dire tutta questa frase; successivamente, qui viene spiegato in che modo stimano la "null distribution of the initial $p$-value", ma oltre che non riesco a capire che cosa facciano di preciso, per farlo riciclano l'algoritmo con il quale poi andranno a risolvere il problema generale, ma io non l'ho menzionato perché intendevo parlare di come questi paper risolvono indipendentemente il problema in un capitolo successivo, cosa dovrei fare? saltare? non sono neanche in grado di stabilire quanto sia rilevante}
 
-From this second set of $p$-values, the least significant one is selected as the multiple hypothesis testing corrected final score. \todo{talk about last paragraph, which is even less comprehensible}
+From this second set of $p$-values, the least significant one is selected as the multiple hypothesis testing corrected final score. \todo{talk about the last paragraph, which is even less comprehensible}
+
+\subsection{C3}
+
+Another notable approach utilized in several papers involves constructing gene graphs and identifying clusters based on specific criteria. An example of this method is demonstrated by the authors of C3 \cite{c3}.
+
+Let $G = (V, E)$ be a \textit{complete graph} of genes, thus an edge exists between any pair of vertices. Each edge $(u, v) \in E(G)$ is assigned two weights:
+
+\begin{itemize}
+    \item a \textbf{positive weight} $w_{uv}^+$, which represents \textit{the cost of placing $u$ and $v$ in different clusters};
+    \item a \textbf{negative weight} $w_{uv}^-$, which represents \textit{the cost of placing $u$ and $v$ in the same cluster};
+\end{itemize}
+
+i.e. by making $w_{uv}^+$ large, placing $u$ and $v$ in different clusters is discouraged, and viceversa; the same concept applies for $w_{uv}^-$. Indeed, as weights representations suggest, \textit{genes in the same cluster are likely to be mutually exclusive}.
+
+Weights are calculated using four types of datasets: gene mutation data, \href{https://www.genome.gov/genetics-glossary/Copy-Number-Variation}{copy number variation (CNV)}, network information, and gene expression data. To appropriately combine the sources from which the information was obtained, linear combinations were utilized to account for the reliability of the sources from which the data was drawn.
+
+Additionally, as each type of data contributes differently to the driver discovery process, linear combinations are used, based on the importance or accuracy of each, specifically:
+
+\begin{itemize}
+    \item the $(\mathrm e)$ label refers to \textit{exclusivity};
+    \item the $(\mathrm c)$ label refers to \textit{coverage};
+    \item the $(\mathrm n)$ label refers to \textit{network information};
+    \item the $(\mathrm x)$ label refers to \textit{expression data}.
+\end{itemize}
+
+Let $A$ be a $m \times n$ mutation matrix, as described in \cref{mutation_matrix}. In addition, let $C$ be a $m \times n$ matrix representing the CNV data, where $c_{i, j} = 0$ means that there is no change in the copy number of gene $j$ in sample $i$, otherwise, the corresponding number reflects the deviation of the CNV number from its baseline --- hence, $C$ contains both positive and negative values. Following this, a binary matrix $M$ is constructed combining $A$ and $C$ as follows:
+
+\begin{equation}
+    m_{i, j} = 0 \iff \soe{l}{a_{i, j} = 0 \\ l_{\mathrm{cnv}} < c_{i, j} < h_{\mathrm{cnv}}}
+\end{equation}
+
+where $l_{\mathrm{cnv}}$ and $h_{\mathrm{cnv}}$ are lower and upper bounds on copy numbers that determine the significance level. \todo{menziono i valori che hanno usato loro? menziono le conseguenze che valori alti/bassi di queste soglie hanno, secondo loro?} Therefore, if $m_{i, j} = 0$, no mutation of gene $j$ is recorded in sample $i$, otherwise gene $j$ is \textit{deemed mutated}.
+
+Given a gene $u$, i.e. a vertex of $G$, C3's authors use $\mathscr{S}(u)$ to denote the \textit{set of patients in which $u$ is altered}, namely
+
+\begin{equation}
+    \mathscr{S}(u) := \{i \mid m_{i, u} = 1\}
+\end{equation}
+
+which corresponds to $\Gamma(u)$ under Dendrix's notation, defined through the $M$ matrix respectively.
+
+Negative weights only depend on the \textbf{mutual exclusivity} component, which is defined as follows:
+
+\begin{equation}
+    w_{uv}^- := w_{uv}^-(\mathrm e) = a \cdot \dfrac{\abs{\mathscr{S}(u) \cap \mathscr{S}(v)}}{\min(\abs{\mathscr{S}(u)}, \abs{\mathscr{S}(v)})}
+\end{equation}
+
+where $a$ is a user-defined scaling parameter. This ratio is often referred to as \textbf{IoM} (\textit{Intersection over Minimum}), and suits the criteria of mutual exclusivity because the fewer patients who have both $u$ and $v$ mutated, the smaller the weight, making it more plausible that $u$ and $v$ are mutually exclusive, therefore the cost of placing them in the same cluster should be low. Note that
+
+\begin{equation}\label{neg_weight_constraint}
+    \forall u, v \in V(G) \quad a = 1 \implies 0 \le w_{uv}^- \le 1
+\end{equation}
+
+By contrast, positive weights can depend on multiple factors which will be presented in the following sections \todo{va bene se la metto su questo piano?}. Focusing on \textbf{coverage}, if two genes $u$ and $v$ increase the coverage of the set significantly, $w_{uv}^+(\mathrm c)$ should be large such that they are encouraged to be placed in the same cluster. Let
+
+\begin{equation}
+    D(u, v) := \abs{\mathscr{S}(u) \Delta \mathscr{S}(v)}
+\end{equation}
+
+where $\Delta$ denotes the symmetric difference of two sets; a large value of $D(u, v)$ suggests that $u$ and $v$ should be placed in the same cluster. Also, let
+
+\begin{equation}
+    \mathscr{D} := \{D(u, v) \mid u, v \in V(G)\}
+\end{equation}
+
+and let $T(J)$ be the $J$-th percentile of the values in $\mathscr{D}$. The coverage component of positive weights is defined as follows:
+
+\begin{equation}
+    w_{uv}^+(\mathrm c) := \soe{ll}{1 & D(u, v) > T(J) \\ \dfrac{D(u, v)}{T(J)} & D(u, v) \le T(J)}
+\end{equation}
+
+Note that, similar to \cref{neg_weight_constraint}
+
+\begin{equation}
+    \forall u, v \in V(G) \quad 0 \le w_{uv}^+(\mathrm c) \le 1
+\end{equation}
+
+The linear combinations that define $w_{uv}^+$ will be discussed afterward.
 
 \cleardoublepage
