@@ -55,7 +55,7 @@ Searching for the most mutually exclusive gene group is equivalent to identifyin
 
 \subsection{Dendrix's definition}
 
-A very well-known paper, which developed two algorithms called \curlyquotes{Dendrix} \cite{dendrix} \todo{change this first sentence}, gave the following mathematical formalization to the properties of mutual exclusivity and coverage for a set of genes. Consider a so-called \curlyquotes{mutation matrix} $A$, with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene; the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
+The author's of a very well-known paper, which developed two algorithms called \curlyquotes{Dendrix} \cite{dendrix}, gave the following mathematical formalization to the properties of mutual exclusivity and coverage for a set of genes. Consider a so-called \curlyquotes{mutation matrix} $A$, with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene; the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
 
 \begin{table}[H]
     \centering
@@ -118,16 +118,34 @@ Note that $W(M) = \Gamma(M)$ when $M$ is mutually exclusive. In conclusion, in o
     \textbf{Maximum Weight Submatrix Problem}: Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find the $m \times k$ submatrix of $A$ that maximizes $W(M)$.
 \end{displayquote}
 
-Finding the solution to this problem is computationally unfeasible even for small values of $k$ (e.g there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes), and it can be proven that it is NP-Hard. \todo{nei materiali supplementari mettono la dimostrazione che questo problema è NP-Hard, lo devo fare?}
+Finding the solution to this problem is computationally difficult even for small values of $k$ (e.g there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes), and it can be proven that it is NP-Hard. \todo{nei materiali supplementari mettono la dimostrazione che questo problema è NP-Hard, lo devo fare?}
 
 \subsection{Multi-Dendrix's modifications}
 
 Multi-Dendrix aims to refine Dendrix's weight function to extend the metric to assess mutual exclusivity across multiple driver pathways. In particular, while identifying individual driver pathways is crucial, most cancer patients are likely to have driver mutations across multiple pathways.
 
-To effectively identify multiple driver pathways, it is necessary to establish criteria for evaluating potential \textit{collections of gene sets}. Based on the same biological reasoning mentioned earlier, it is expected that each pathway will contain approximately one driver mutation. Furthermore, since each driver pathway is crucial for cancer development, it is expected that most patients will harbor a driver mutation in most driver pathways. Consequently, high exclusivity is predicted within the genes of each pathway, along with high coverage of each pathway individually. One metric that meets these criteria is to find a collection $M = \{M_1, \ldots, M_t\}$ of gene sets, which maximizes the sum of individual weights, i.e. $\sum_{i = 1}^t {W(M_i)}$ \cite{multi-dendrix}.
+To effectively identify multiple driver pathways, it is necessary to establish criteria for evaluating potential \textit{collections of gene sets}. Based on the same biological reasoning mentioned earlier, it is expected that each pathway will contain approximately one driver mutation. Furthermore, since each driver pathway is crucial for cancer development, it is expected that most patients will harbor a driver mutation in most driver pathways. Consequently, high exclusivity is predicted within the genes of each pathway, along with high coverage of each pathway individually. One metric that meets these criteria is to find a collection $M = \{M_1, \ldots, M_t\}$ of gene sets which maximizes the sum of individual weights, i.e. $\sum_{i = 1}^t {W(M_i)}$ \cite{multi-dendrix}.
 
 \subsection{Mutex's approach}
 
-Mutex's authors \todo{in questo ambito si riferiscono tutti per cognome, esempio Vandin et. al, dovrei farlo anche io o posso limitarmi a scrivere "authors?"} criticize Dendrix's metric because has a strong bias toward highly mutated genes, and in some instances, the excessive emphasis on coverage leads to both false positives and negatives. \todo{ci sono esempi in file supplementari, li guardo?}. They propose a metric that extends Fisher's exact test --- also known as \textit{hypergeometric test} --- to quantify the mutual exclusivity between multiple measurements \cite{mutex}. \todo{sezione methods mutex}
+Mutex's authors \todo{in questo ambito si riferiscono tutti per cognome, esempio Vandin et. al, dovrei farlo anche io o posso limitarmi a scrivere "authors?"} criticize Dendrix's metric because has a strong bias toward highly mutated genes, and in some instances, the excessive emphasis on coverage leads to both false positives and negatives. \todo{ci sono esempi in file supplementari, li guardo?}. They propose a metric that extends Fisher's exact test --- also known as \textit{hypergeometric test} --- to quantify the mutual exclusivity between multiple measurements.
+
+Specifically, the alteration of a pair of genes is defined to be \textbf{mutually exclusive} \textit{if their overlap in samples is significantly less than expected by chance}, and this can be assessed through a hypergeometric test. It is important to note that a uniform alteration frequency across may not always hold true, particularly for hyper-mutated samples often resulting from prior mutations in DNA repair mechanisms. Addressing this heterogeneity is challenging, as each overlap in the null model has a different probability. This remains an open problem, and to partially mitigate it, albeit at the cost of statistical power, hyper-altered samples are excluded from the analysis. \todo{specificare quali di preciso? non mi sembra rilevante}
+
+Mutex's authors also developed a metric to assess the mutual exclusivity of a group of genes. Consider the following null hypothesis:
+
+\begin{displayquote}
+    $H_0$: \textit{The specific member gene in the group is altered independently from the union of other alterations in the group}.
+\end{displayquote}
+
+Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $i \in M$, mutations in $\Gamma(i)$ are independent from alterations in $\Gamma(M - \{i\})$. $H_0$ is then tested for each $i \in M$ by evaluating the codistribution of $i$ with the union of the others through Fisher's exact test \todo{i don't know how Fisher's exact test work, dovrei vederlo?}, generating $\abs{M}$ $p$-values. Each of these $p$-values represent the probabilities for the independent distribution of each member gene \todo{i'm not sure i know what this means}. To ensure that every member of the group contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of the group. Using Dendrix's notation
+
+\begin{equation}
+    s_0 := \max_{i \in M} {H \abk{\Gamma(i), \Gamma(M - \{i\})}}
+\end{equation}
+
+where $s_0$ is the initial score, and $H$ is the hypergeometric test. Since multiple groups are being tested, $s_0$ is affected by multiple hypothesis testing \todo{add link?}. To account for it, first the null distribution of the initial $p$-values must be estimated for each gene, then it must be calculated the significance of the observed initial $p$-values for each member \todo{non ho la minima idea di cosa voglia dire tutta questa frase; successivamente, qui viene spiegato in che modo stimano la "null distribution of the initial $p$-value", ma oltre che non riesco a capire che cosa facciano di preciso, per farlo riciclano l'algoritmo con il quale poi andranno a risolvere il problema generale, ma io non l'ho menzionato perché intendevo parlare di come questi paper risolvono indipendentemente il problema in un capitolo successivo, cosa dovrei fare? saltare? non sono neanche in grado di stabilire quanto sia rilevante}
+
+From this second set of $p$-values, the least significant one is selected as the multiple hypothesis testing corrected final score. \todo{talk about last paragraph, which is even less comprehensible}
 
 \cleardoublepage
