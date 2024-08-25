@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  25 AUG 2024 17:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  25 AUG 2024 17:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1308,7 +1308,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<sapienzalogo.pdf, id=107, 288.07625pt x 89.33376pt>
+<sapienzalogo.pdf, id=111, 288.07625pt x 89.33376pt>
 File: sapienzalogo.pdf Graphic file (type pdf)
 <use sapienzalogo.pdf>
 Package pdftex.def Info: sapienzalogo.pdf  used on input line 164.
@@ -1383,9 +1383,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 3.
-
-Underfull \vbox (badness 2600) has occurred while \output is active []
-
  [5
 
 ])
@@ -1405,7 +1402,7 @@ Package hyperref Info: bookmark level for unknown todo defaults to 0 on input li
 
 
 ]
-Package cleveref Info: loaded `english' language definitions on input line 22.
+Package cleveref Info: loaded `english' language definitions on input line 26.
  [2]) (./chapter/2.tex
 Chapter 2.
 
@@ -1417,8 +1414,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 Package cleveref Info: loaded `english' language definitions on input line 32.
  [4]
+
+LaTeX Warning: Marginpar on page 5 moved.
+
 Package cleveref Info: loaded `english' language definitions on input line 49.
- [5]
+[5]
 Package cleveref Info: loaded `english' language definitions on input line 96.
  [6{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 Package cleveref Info: loaded `english' language definitions on input line 126.
@@ -1480,24 +1480,24 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: FE93C6AB203D00E2D24C5EBDB9C02BD4;3400.
+(rerunfilecheck)             Checksum: 280C71E9F67F414745BCC770D08E52FF;3514.
 Package logreq Info: Writing requests to 'Thesis.run.xml'.
 \openout1 = `Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50168 strings out of 476024
- 1043094 string characters out of 5792397
- 1970124 words of memory out of 5000000
- 71193 multiletter control sequences out of 15000+600000
- 665750 words of font info for 235 fonts, out of 8000000 for 9000
+ 50188 strings out of 476024
+ 1043577 string characters out of 5792397
+ 1972424 words of memory out of 5000000
+ 71212 multiletter control sequences out of 15000+600000
+ 665615 words of font info for 234 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,13n,131p,1852b,2595s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (20 pages, 420703 bytes).
+Output written on Thesis.pdf (20 pages, 421926 bytes).
 PDF statistics:
- 506 PDF objects out of 1000 (max. 8388607)
- 428 compressed objects within 5 object streams
- 102 named destinations out of 1000 (max. 500000)
- 60122 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 514 PDF objects out of 1000 (max. 8388607)
+ 436 compressed objects within 5 object streams
+ 105 named destinations out of 1000 (max. 500000)
+ 60130 words of extra memory for PDF output out of 61914 (max. 10000000)
 
