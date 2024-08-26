@@ -6,9 +6,51 @@ Although the true explanation for mutual exclusivity remains unknown, and its th
 
 \subsection{Dendrix}
 
-\todo{nel capitolo precedente l'ho menzionato, cosa dovrei fare? parlarne? io non l'ho analizzato perché parla di Catene di Markov e Monte Carlo (MCMC), lascio perdere e non faccio una sezione per lui?}
+placeholder. \todo{nel capitolo precedente l'ho menzionato, cosa dovrei fare? parlarne? io non l'ho analizzato perché parla di Catene di Markov e Monte Carlo (MCMC), lascio perdere e non faccio una sezione per lui?}
 
 \subsection{Multi-Dendrix}
+
+Multi-Dendrix trys to solve Dendrix's same problem, described in \cref{mwsp}. \todo{qui manca una sezione iniziale in cui multi-dendrix descrive i motivi per cui l'approccio greedy di dendrix potrebbe non trovare soluzioni ottimali, e perché il loro approccio che trova le soluzioni tutte in un colpo solo è migliore, ma per ora non lo inserisco perché non so come trattare dendrix}
+
+For these reasons, Multi-Dendrix's authors formulate Dendrix's problem as an \textbf{ILP} (\textit{Integer Linear Program}), which they refer to as $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$. Consider a gene set $M$ defined by a set of indicator variables, one for each gene $j \in M$ as follows
+
+\begin{equation}
+    I_M(j) = 1 \iff j \in M
+\end{equation}
+
+and a set of indicator variables, one for each patient $i$, described like this
+
+\begin{equation}
+    C_i(M) = 1 \iff \exists g \in M \mid i \in \Gamma(g)
+\end{equation}
+
+Then, $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$ is defined by the following ILP:
+
+\begin{equation}\label{weight_dendrix_ilp}
+    \mathrm{maximize} \sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}}
+\end{equation}
+
+\begin{equation}
+    \mathrm{subject \ to} \sum_{j = 1}^n{I_M(j) = k}
+\end{equation}
+
+\begin{equation}
+    \sum_{j = 1}^n I_M(j) \cdot {a_{i, j}} \ge C_i(M),
+\end{equation}
+
+\begin{equation*}
+    \mathrm{for\ } 1 \le i \le m
+\end{equation*}
+
+
+Note that the sum in \cref{weight_dendrix_ilp} the second version of the definition provided in \cref{weight}.
+
+\begin{lemma}[Correctness of $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$] Given a gene set $M$, the sum in \cref{weight_dendrix_ilp} correctly evaluates $W(M)$.
+\end{lemma}
+
+\begin{proof}
+    Rearranging the terms in \cref{weight_dendrix_ilp} $$\sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}} = 2\sum_{i = 1}^m {C_i(M)} - \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ and it is trivial to check that $$\abs{\Gamma(M)} = \sum_{i = 1}^m {C_i(M)}$$ because TODO SPIEGA, and $$\sum_{g \in M}{\abs{\Gamma(g)}} = \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ since TODO SPIEGA.
+\end{proof}
 
 \subsection{MDPFinder}
 

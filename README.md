@@ -1,5 +1,9 @@
 # thesis-notes
 
+## Domande
+
+- scrivere "Vandin et al." al posto di "Dendrix's authors"?
+
 ## Paper per allungare
 
 - [co-occorrenza e mutua esclusività](https://www.sciencedirect.com/science/article/abs/pii/S2405803321001011) ([sci-hub](https://sci-hub.ru/https://doi.org/10.1016/j.trecan.2021.04.009)))

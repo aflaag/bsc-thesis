@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  25 AUG 2024 17:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  26 AUG 2024 13:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1151,6 +1151,7 @@ Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 ))
 \c@boxlblcounter=\count524
 Package hyperref Info: Option `colorlinks' set `true' on input line 102.
+\c@lemma=\count525
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -1234,16 +1235,16 @@ Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count525
+\scratchcounter=\count526
 \scratchdimen=\dimen315
 \scratchbox=\box100
-\nofMPsegments=\count526
-\nofMParguments=\count527
+\nofMPsegments=\count527
+\nofMParguments=\count528
 \everyMPshowfont=\toks79
-\MPscratchCnt=\count528
+\MPscratchCnt=\count529
 \MPscratchDim=\dimen316
-\MPnumerator=\count529
-\makeMPintoPDFobject=\count530
+\MPnumerator=\count530
+\makeMPintoPDFobject=\count531
 \everyMPtoPDFconversion=\toks80
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1276,7 +1277,7 @@ Package hyperref Info: Link coloring ON on input line 157.
 \@outlinefile=\write6
 \openout6 = `Thesis.out'.
 
-\c@lstlisting=\count531
+\c@lstlisting=\count532
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1439,10 +1440,15 @@ Package cleveref Info: loaded `english' language definitions on input line 185.
 Package cleveref Info: loaded `english' language definitions on input line 223.
  [10]) (./chapter/3.tex
 Chapter 3.
+
+LaTeX Warning: Marginpar on page 11 moved.
+
 [11
 
 
-]) (./chapter/ack.tex) [12
+]
+Package cleveref Info: loaded `english' language definitions on input line 61.
+ [12]) (./chapter/ack.tex) [13
 
 
 ]
@@ -1467,12 +1473,12 @@ Overfull \hbox (5.21912pt too wide) in paragraph at lines 202--202
 []\T1/lmr/m/n/10.95 (-20) Wikipedia con-trib-u-tors. \T1/lmr/m/it/10.95 (-20) Cell sig-nal-ing\T1/lmr/m/n/10.95 (-20) . Aug. 2024. \T1/lmr/m/sc/10.95 (-20) url\T1/lmr/m/n/10.95 (-20) : [][]$\T1/lmtt/m/n/10.95 https : / / en . wikipedia .
  []
 
-[13
+[14
 
 
 ]
 Package cleveref Info: loaded `english' language definitions on input line 203.
- [14] (./Thesis.aux
+ [15] (./Thesis.aux
 Package cleveref Info: loaded `english' language definitions on input line 11.
 )
  ***********
@@ -1480,24 +1486,24 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 280C71E9F67F414745BCC770D08E52FF;3514.
+(rerunfilecheck)             Checksum: 16D1A7ADB960664E7DEEF2F8DC3613A3;3514.
 Package logreq Info: Writing requests to 'Thesis.run.xml'.
 \openout1 = `Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50188 strings out of 476024
- 1043577 string characters out of 5792397
- 1972424 words of memory out of 5000000
- 71212 multiletter control sequences out of 15000+600000
- 665615 words of font info for 234 fonts, out of 8000000 for 9000
+ 50247 strings out of 476024
+ 1044455 string characters out of 5792397
+ 1971823 words of memory out of 5000000
+ 71244 multiletter control sequences out of 15000+600000
+ 676676 words of font info for 245 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,13n,131p,1852b,2595s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (20 pages, 421926 bytes).
+</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on Thesis.pdf (21 pages, 437764 bytes).
 PDF statistics:
- 514 PDF objects out of 1000 (max. 8388607)
- 436 compressed objects within 5 object streams
- 105 named destinations out of 1000 (max. 500000)
- 60130 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 537 PDF objects out of 1000 (max. 8388607)
+ 456 compressed objects within 5 object streams
+ 113 named destinations out of 1000 (max. 500000)
+ 66274 words of extra memory for PDF output out of 74296 (max. 10000000)
 
