@@ -49,41 +49,43 @@ Searching for the most mutually exclusive gene group is equivalent to identifyin
 
 \subsection{Dendrix}
 
-The author's of a very well-known paper, which developed two algorithms called \curlyquotes{Dendrix} \cite{dendrix}, gave the following mathematical formalization to the properties of mutual exclusivity and coverage for a set of genes. Consider a so-called \curlyquotes{mutation matrix} $A$, with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene; the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
+The author's of a very well-known paper, which developed two algorithms called \curlyquotes{Dendrix} \cite{dendrix}, gave the following mathematical formalization to the properties of mutual exclusivity and coverage for a set of genes.
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{c|ccc}
-              & $g_1$ & $g_2$ & $g_3$ \\
-        \hline
-        $p_1$ & 0 & 1 & 0 \\
-        \hline
-        $p_2$ & 1 & 1 & 0 \\
-        \hline
-        $p_3$ & 0 & 0 & 1 \\
-    \end{tabular}
-    \caption{A mutation matrix.}\label{mutation_matrix}
-\end{table}
+\begin{definition}[Mutation matrix] \label{mut_matrix_def}
+    A \curlyquotes{mutation matrix} is a matrix with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene, and the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
+\end{definition}
 
-Given a gene $g$, let
+\begin{example} \label{mutation_matrix}
+    An example of a mutation matrix is the following:
 
-\begin{equation}
-    \Gamma(g) := \{i \mid a_{i, g} = 1\}
-\end{equation}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c|ccc}
+                  & $g_1$ & $g_2$ & $g_3$ \\
+            \hline
+            $p_1$ & 0 & 1 & 0 \\
+            \hline
+            $p_2$ & 1 & 1 & 0 \\
+            \hline
+            $p_3$ & 0 & 0 & 1 \\
+        \end{tabular}
+        \caption{A mutation matrix.}
+    \end{table}
+\end{example}
 
-denote the set of patients which have $g$ mutated; futhermore, given a set of $M$ genes, let the \textbf{coverage} be
+\begin{definition}[Coverage of a gene]
+    Given a gene $g$, the \textbf{coverage of $g$} $$\Gamma(g) := \{i \mid a_{i, g} = 1\}$$ denotes the set of patients which have $g$ mutated.
+\end{definition}
 
-\begin{equation}
-    \Gamma(M) := \bigcup_{g \in M}{\Gamma(g)}
-\end{equation}
+Under the previous definitions of mutual exclusivity, $M$ is \textbf{mutually exclusive} if no patient has more than one mutated gene, formally $$\forall g, g' \in M \quad \Gamma(g) \cap \Gamma(g') = \varnothing$$
 
-which denotes \textit{the set of patients in which at least one of the genes in $M$ is mutated}. Under the previous definitions of mutual exclusivity, we say that a set $M$ of genes is \textbf{mutually exclusive} \textit{if no patient has more than one mutated gene}, formally
+\begin{definition}[Coverage of a set]
+    Given a set of $M$ genes, the \textbf{coverage of $M$} $$\Gamma(M) := \bigcup_{g \in M}{\Gamma(g)}$$
 
-\begin{equation}
-    \forall g, g' \in M \quad \Gamma(g) \cap \Gamma(g') = \varnothing
-\end{equation}
+denotes the set of patients in which at least one of the genes in $M$ is mutated.
+\end{definition}
 
-Any gene set can be thought of as a $m \times k$ submatrix of a mutation matrix $A$, up to rearranging $A$'s columns --- their order does not matter since they represent genes. Accordingly, such a submatrix is said to be \textbf{mutually exclusive} \textit{if each row contains at most one 1}.
+Any gene set can be thought of as a $m \times k$ submatrix of a mutation matrix $A$, up to rearranging $A$'s columns --- their order does not matter since they represent genes. Accordingly, such a submatrix is said to be \textbf{mutually exclusive} if each row contains at most one 1.
 
 Furhermore, given a gene set $M$, the following properties are formalized:
 
@@ -92,33 +94,41 @@ Furhermore, given a gene set $M$, the following properties are formalized:
     \item \textit{approximate exclusivity}: most patients have exactly one mutation in $M$.
 \end{enumerate}
 
-To evaluate these two attributes, a measure that quantifies the trade-off between coverage and mutual exclusivity is introduced. Given a set $M$ of genes, the \textbf{coverage overlap} is defined as follows:
+To evaluate these two attributes, a measure that quantifies the trade-off between coverage and mutual exclusivity is introduced.
 
-\begin{equation}\label{cov_over}
-    \omega(M) := \sum_{g \in M}{\abs{\Gamma(g)}} - \abs{\Gamma(M)}
-\end{equation}
+\begin{definition}[Coverage overlap] \label{cov_over}
+    Given a set $M$ of genes, the \textbf{coverage overlap} is defined as follows: $$\omega(M) := \sum_{g \in M}{\abs{\Gamma(g)}} - \abs{\Gamma(M)}$$
+\end{definition}
 
-Note that the sum in \cref{cov_over} is the number of 1s in $M$'s corresponding submatrix; e.g. considering \cref{mutation_matrix}, if $M=\{g_1, g_2\}$ then $$\omega(M)=\abs{\Gamma(g_1)} + \abs{\Gamma(g_2)} - \abs{\Gamma(\{g_1, g_2\})} = \abs{\{p_2\}} + \abs{\{p_1, p_2\}} - \abs{\{p_1, p_2\}} = 1 + 2 - 2 = 1$$ which shows that $\omega(M)$ is the \textit{number of patients that are counted more than once in the sum}. Indeed, $\omega(M) = 0$ only if the sum equals the coverage of $M$, and this can only happen if no patient has more than one mutated gene of $M$; in fact, when $\omega(M) \ge 0$ \todo{come fa ad essere negativo?}, $M$ is said to be \textbf{mutually exclusive}.
+Note that the sum in \cref{cov_over} is the number of 1s in $M$'s corresponding submatrix.
 
-Given a set of genes $M$, to take into account both coverage and coverage overlap, the following measure is introduced:
+\begin{example}[Coverage overlap]
+    Considering the mutation matrix in \cref{mutation_matrix}, if $M=\{g_1, g_2\}$ then $$\omega(M)=\abs{\Gamma(g_1)} + \abs{\Gamma(g_2)} - \abs{\Gamma(\{g_1, g_2\})} = \abs{\{p_2\}} + \abs{\{p_1, p_2\}} - \abs{\{p_1, p_2\}} = 1 + 2 - 2 = 1$$
+\end{example}
 
-\begin{equation}\label{weight}
-    W(M): = \abs{\Gamma(M)} - \omega(M) = 2 \abs{\Gamma(M)} - \sum_{g \in M} {\abs{\Gamma(g)}}
-\end{equation}
+Indeed, $\omega(M)$ is the \textit{number of patients that are counted more than once in the sum}, and $\omega(M) = 0$ only if the sum equals the coverage of $M$, which means that no patient has more than one mutated gene of $M$.
+
+\begin{definition}[Mutually exclusive set]
+    A gene set $M$ is considered to be \textbf{mutually exclusive} if $\omega(M) \ge 0$ \todo{come fa ad essere negativo?}.
+\end{definition}
+
+\begin{definition}[Weight of gene set] \label{weight}
+    Given a set of genes $M$, to take into account both coverage and coverage overlap, the following measure is introduced: $$W(M): = \abs{\Gamma(M)} - \omega(M) = 2 \abs{\Gamma(M)} - \sum_{g \in M} {\abs{\Gamma(g)}}$$
+\end{definition}
 
 Note that $W(M) = \Gamma(M)$ when $M$ is mutually exclusive. In order to find an optimal gene set, the following problem has to be solved:
 
 \begin{displayquote}\label{mwsp}
-    \textbf{Maximum Weight Submatrix Problem}: Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find the $m \times k$ submatrix of $A$ that maximizes $W(M)$.
+    \textbf{Maximum Weight Submatrix Problem}: Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find a $m \times k$ submatrix of $A$ that maximizes $W(M)$.
 \end{displayquote}
 
 Finding the solution to this problem is computationally difficult even for small values of $k$ (e.g there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes), and it can be proven that it is NP-Hard. \todo{nei materiali supplementari mettono la dimostrazione che questo problema è NP-Hard, lo devo fare?}
 
-\subsection{Multi-Dendrix}
+\subsection{Multi-Dendrix} \label{multi_dendrix_2nd_chap}
 
 Multi-Dendrix aims to refine Dendrix's weight function to extend the metric to assess mutual exclusivity across multiple driver pathways. In particular, while identifying individual driver pathways is crucial, most cancer patients are likely to have driver mutations across multiple pathways.
 
-To effectively identify multiple driver pathways, it is necessary to establish criteria for evaluating potential \textit{collections of gene sets}. Based on the same biological reasoning mentioned earlier, it is expected that each pathway will contain approximately one driver mutation. Furthermore, since each driver pathway is crucial for cancer development, it is expected that most patients will harbor a driver mutation in most driver pathways. Consequently, high exclusivity is predicted within the genes of each pathway, along with high coverage of each pathway individually. One metric that meets these criteria is to find a collection $M = \{M_1, \ldots, M_t\}$ of gene sets which maximizes the sum of individual weights, i.e. $\sum_{i = 1}^t {W(M_i)}$ \cite{multi-dendrix}.
+To effectively identify multiple driver pathways, it is necessary to establish criteria for evaluating potential \textit{collections of gene sets}. Based on the same biological reasoning mentioned earlier, it is expected that each pathway will contain approximately one driver mutation. Furthermore, since each driver pathway is crucial for cancer development, it is expected that most patients will harbor a driver mutation in most driver pathways. Consequently, high exclusivity is predicted within the genes of each pathway, along with high coverage of each pathway individually. One metric that meets these criteria is to find a collection $M = \{M_1, \ldots, M_t\}$ of gene sets which maximizes the sum of individual weights, i.e. $\sum_{\rho = 1}^t {W(M_\rho)}$ \cite{multi-dendrix}.
 
 \subsection{Mutex}
 
@@ -166,7 +176,7 @@ Additionally, as each type of data contributes differently to the driver discove
     \item the $(\mathrm x)$ label refers to \textit{expression data}.
 \end{itemize}
 
-Let $A$ be a $m \times n$ mutation matrix, as described in \cref{mutation_matrix}. In addition, let $C$ be a $m \times n$ matrix representing the CNV data, where $c_{i, j} = 0$ means that there is no change in the copy number of gene $j$ in sample $i$, otherwise, the corresponding number reflects the deviation of the CNV number from its baseline --- hence, $C$ contains both positive and negative values. Following this, a binary matrix $M$ is constructed combining $A$ and $C$ as follows:
+Let $A$ be an $m \times n$ mutation matrix, as described in \cref{mut_matrix_def}. In addition, let $C$ be an $m \times n$ matrix representing the CNV data, where $c_{i, j} = 0$ means that there is no change in the copy number of gene $j$ in sample $i$, otherwise, the corresponding number reflects the deviation of the CNV number from its baseline --- hence, $C$ contains both positive and negative values. Following this, a binary matrix $M$ is constructed combining $A$ and $C$ as follows:
 
 \begin{equation}
     m_{i, j} = 0 \iff \soe{l}{a_{i, j} = 0 \\ l_{\mathrm{cnv}} < c_{i, j} < h_{\mathrm{cnv}}}
@@ -174,25 +184,25 @@ Let $A$ be a $m \times n$ mutation matrix, as described in \cref{mutation_matrix
 
 where $l_{\mathrm{cnv}}$ and $h_{\mathrm{cnv}}$ are lower and upper bounds on copy numbers that determine the significance level. \todo{menziono i valori che hanno usato loro? menziono le conseguenze che valori alti/bassi di queste soglie hanno, secondo loro?} Therefore, if $m_{i, j} = 0$, no mutation of gene $j$ is recorded in sample $i$, otherwise gene $j$ is \textit{deemed mutated}.
 
-Given a gene $u$, i.e. a vertex of $G$, C3's authors use $\mathscr{S}(u)$ to denote the \textit{set of patients in which $u$ is altered}, namely
+\begin{definition}[Coverage of a vertex]
+    Given a vertex $u \in V(G)$, i.e. a gene, the \textbf{coverage of $u$} $$\mathscr{S}(u) := \{i \mid m_{i, u} = 1\}$$ denotes the set of patients in which $u$ is altered.
+\end{definition}
 
-\begin{equation}
-    \mathscr{S}(u) := \{i \mid m_{i, u} = 1\}
-\end{equation}
+Note that $\mathscr{S}(u)$ corresponds to $\Gamma(u)$ under Dendrix's notation, but defined through the $M$ matrix respectively.
 
-which corresponds to $\Gamma(u)$ under Dendrix's notation, defined through the $M$ matrix respectively.
+\begin{definition}[Mutual exclusivity component]
+    The \textbf{mutual exclusivity component} is defined as follows: $$w_{uv}^-(\mathrm e) := a \cdot \dfrac{\abs{\mathscr{S}(u) \cap \mathscr{S}(v)}}{\min(\abs{\mathscr{S}(u)}, \abs{\mathscr{S}(v)})}$$ where $a$ is a user-defined scaling parameter.
+\end{definition}
 
-Negative weights only depend on the \textbf{mutual exclusivity} component, which is defined as follows:
-
-\begin{equation}
-    w_{uv}^- := w_{uv}^-(\mathrm e) = a \cdot \dfrac{\abs{\mathscr{S}(u) \cap \mathscr{S}(v)}}{\min(\abs{\mathscr{S}(u)}, \abs{\mathscr{S}(v)})}
-\end{equation}
-
-where $a$ is a user-defined scaling parameter. This ratio is often referred to as \textbf{IoM} (\textit{Intersection over Minimum}), and suits the criteria of mutual exclusivity because the fewer patients who have both $u$ and $v$ mutated, the smaller the weight, making it more plausible that $u$ and $v$ are mutually exclusive, therefore the cost of placing them in the same cluster should be low. Note that
+This ratio is often referred to as \textbf{IoM} (\textit{Intersection over Minimum}), and suits the criteria of mutual exclusivity because the fewer patients who have both $u$ and $v$ mutated, the smaller the weight, making it more plausible that $u$ and $v$ are mutually exclusive, therefore the cost of placing them in the same cluster should be low. Note that
 
 \begin{equation}\label{neg_weight_constraint}
-    \forall u, v \in V(G) \quad a = 1 \implies 0 \le w_{uv}^- \le 1
+    \forall u, v \in V(G) \quad a = 1 \implies 0 \le w_{uv}^-(\mathrm e) \le 1
 \end{equation}
+
+\begin{definition}[Negative weights]
+    \textbf{Negative weights} only depend on the mutual exclusivity component, i.e. $$w_{uv}^- := w_{uv}^-(\mathrm e)$$
+\end{definition}
 
 By contrast, positive weights can depend on multiple factors which will be presented in the following sections \todo{va bene se la metto su questo piano?}. Focusing on \textbf{coverage}, if two genes $u$ and $v$ increase the coverage of the set significantly, $w_{uv}^+(\mathrm c)$ should be large such that they are encouraged to be placed in the same cluster. Let
 
@@ -206,11 +216,11 @@ where $\Delta$ denotes the symmetric difference of two sets; a large value of $D
     \mathscr{D} := \{D(u, v) \mid u, v \in V(G)\}
 \end{equation}
 
-and let $T(J)$ be the $J$-th percentile of the values in $\mathscr{D}$. The coverage component of positive weights is defined as follows:
+and let $T(J)$ be the $J$-th percentile of the values in $\mathscr{D}$.
 
-\begin{equation}
-    w_{uv}^+(\mathrm c) := \soe{ll}{1 & D(u, v) > T(J) \\ \dfrac{D(u, v)}{T(J)} & D(u, v) \le T(J)}
-\end{equation}
+\begin{definition}[Coverage component]
+    The \textbf{coverage component} is defined as follows: $$w_{uv}^+(\mathrm c) := \soe{ll}{1 & D(u, v) > T(J) \\ \dfrac{D(u, v)}{T(J)} & D(u, v) \le T(J)}$$
+\end{definition}
 
 Note that, similar to \cref{neg_weight_constraint}
 

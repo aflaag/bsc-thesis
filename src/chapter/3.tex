@@ -10,7 +10,7 @@ placeholder. \todo{nel capitolo precedente l'ho menzionato, cosa dovrei fare? pa
 
 \subsection{Multi-Dendrix}
 
-Multi-Dendrix trys to solve Dendrix's same problem, described in \cref{mwsp}. \todo{qui manca una sezione iniziale in cui multi-dendrix descrive i motivi per cui l'approccio greedy di dendrix potrebbe non trovare soluzioni ottimali, e perché il loro approccio che trova le soluzioni tutte in un colpo solo è migliore, ma per ora non lo inserisco perché non so come trattare dendrix}
+Multi-Dendrix \cite{multi-dendrix} trys to solve Dendrix's same problem, described in \cref{mwsp}. \todo{qui manca una sezione iniziale in cui multi-dendrix descrive i motivi per cui l'approccio greedy di dendrix potrebbe non trovare soluzioni ottimali, e perché il loro approccio che trova le soluzioni tutte in un colpo solo è migliore, ma per ora non lo inserisco perché non so come trattare dendrix}
 
 For these reasons, Multi-Dendrix's authors formulate Dendrix's problem as an \textbf{ILP} (\textit{Integer Linear Program}), which they refer to as $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$. Consider a gene set $M$ defined by a set of indicator variables, one for each gene $j \in M$ as follows
 
@@ -20,28 +20,29 @@ For these reasons, Multi-Dendrix's authors formulate Dendrix's problem as an \te
 
 and a set of indicator variables, one for each patient $i$, described like this
 
-\begin{equation}
+\begin{equation} \label{c_idefn}
     C_i(M) = 1 \iff \exists g \in M \mid i \in \Gamma(g)
 \end{equation}
 
-Then, $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$ is defined by the following ILP:
+\begin{definition}[$\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$]
+    $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$ is defined by the following ILP:
 
-\begin{equation}\label{weight_dendrix_ilp}
-    \mathrm{maximize} \sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}}
-\end{equation}
+    \begin{equation} \label{weight_dendrix_ilp}
+        \mathrm{maximize} \sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}}
+    \end{equation}
 
-\begin{equation}
-    \mathrm{subject \ to} \sum_{j = 1}^n{I_M(j) = k}
-\end{equation}
+    \begin{equation} \label{second_constr_dendrix_ilp}
+        \mathrm{subject \ to} \sum_{j = 1}^n{I_M(j) = k},
+    \end{equation}
 
-\begin{equation}
-    \sum_{j = 1}^n I_M(j) \cdot {a_{i, j}} \ge C_i(M),
-\end{equation}
+    \begin{equation} \label{third_constr_dendrix_ilp}
+        \sum_{j = 1}^n I_M(j) \cdot {a_{i, j}} \ge C_i(M),
+    \end{equation}
 
-\begin{equation*}
-    \mathrm{for\ } 1 \le i \le m
-\end{equation*}
-
+    \begin{equation*}
+        \mathrm{for\ } 1 \le i \le m
+    \end{equation*}
+\end{definition}
 
 Note that the sum in \cref{weight_dendrix_ilp} the second version of the definition provided in \cref{weight}.
 
@@ -49,8 +50,52 @@ Note that the sum in \cref{weight_dendrix_ilp} the second version of the definit
 \end{lemma}
 
 \begin{proof}
-    Rearranging the terms in \cref{weight_dendrix_ilp} $$\sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}} = 2\sum_{i = 1}^m {C_i(M)} - \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ and it is trivial to check that $$\abs{\Gamma(M)} = \sum_{i = 1}^m {C_i(M)}$$ because TODO SPIEGA, and $$\sum_{g \in M}{\abs{\Gamma(g)}} = \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ since TODO SPIEGA.
+    Rearranging the terms in \cref{weight_dendrix_ilp} $$\sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}} = 2\sum_{i = 1}^m {C_i(M)} - \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ and it is trivial to check that $$\abs{\Gamma(M)} = \sum_{i = 1}^m {C_i(M)}$$ by definition, and $$\sum_{g \in M}{\abs{\Gamma(g)}} = \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ because the RHS counts the number of cells of $A$ such that $a_{i, j} = 1$ for every $j \in M$.
 \end{proof}
+
+\cref{second_constr_dendrix_ilp} limits the size of $M$ to be exactly $k$; moreover, note that \cref{third_constr_dendrix_ilp} only forces $C_i(M) = 0$ when the $i$-th patient has no mutated genes in $M$, but does not force $C_i(M) = 1$ when the patient has at least one, as required by \cref{c_idefn}. However, the objective function will be maximized when $C_i(M)=1$ thus \cref{c_idefn} is satisfied.
+
+placeholder. \todo{qui manca un pezzo in cui si spiega che multi-dendrix}
+
+As outlined in \cref{multi_dendrix_2nd_chap}, Multi-Dendrix proposes that the most effective approach to conducting the research is to identify a collection of gene sets that maximizes the sum of their individual weights. To achieve this result, they solve the following problem, which is an extension of \cref{mwsp}:
+
+\begin{displayquote}
+    \textbf{Multiple Maximum Weight Submatrices Problem}: Given an $m \times n$ mutation matrix $A$, and integer $t > 0$, find a collection $M = \{M_1, \ldots, M_t\}$ of $m \times k$ \todo{$k$ DOES NOT APPEAR ANYWHERE IN THE ILP???????} column submatrices that maximizes
+
+    \begin{equation}
+        W'(M) := \sum_{\rho = 1}^t {W(M_\rho)}
+    \end{equation}
+\end{displayquote}
+
+Note that this problem is NP-Hard, as for the case $t = 1$. Additionally, while $W'(M)$ increases with greater mutual exclusivity among mutations \textit{within} a gene set, there is no constraint on mutations \textit{between} different gene sets. Furthermore, collections $M$ with a large value of $W'(M)$ are also likely to have higher coverage $\Gamma(M_\rho)$ for each individual gene set $\rho$. As a result, optimal solutions tend to produce collections where many patients have mutations in more than one gene set, or they may be pairs or larger groups of co-occurring mutations, a phenomenon observed in cancer. \todo{qua inseriscono una citazione, potrebbe valere la pena di inserirla e/o indagare?}
+
+\begin{definition}[Multi-Dendrix]
+    $\mathrm{Multi}$-$\mathrm{dendrix}$ is defined by the following ILP:
+
+    \begin{equation} \label{weight_dendrix_ilp}
+        \mathrm{maximize} \sum_{\rho = 1}^t {\sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}}}
+    \end{equation}
+
+    \begin{equation} \label{second_constr_dendrix_ilp}
+        \mathrm{subject \ to} \sum_{j = 1}^n I_M(j) \cdot {a_{i, j}} \ge C_i(M),
+    \end{equation}
+
+    \begin{equation*}
+        \mathrm{for\ } 1 \le i \le m, \ 1 \le \rho \le t,
+    \end{equation*}
+
+    \begin{equation}
+        \sum_{\rho = 1}^t{I_{M_\rho}(j)} \le 1, \ 1 \le j \le m,
+    \end{equation}
+
+    \begin{equation}
+        k_\mathrm{min} \le \sum_{j = 1}^n {I_M(j)} \le k_\mathrm{max}.
+    \end{equation}
+\end{definition}
+
+placeholder. \todo{spiega le formule}
+
+placeholder. \todo{ultimo paragrafo}
 
 \subsection{MDPFinder}
 

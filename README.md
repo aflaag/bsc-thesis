@@ -3,6 +3,7 @@
 ## Domande
 
 - scrivere "Vandin et al." al posto di "Dendrix's authors"?
+- risolvere il problema di $m x k$ in multi-dendrix ilp
 
 ## Paper per allungare
 

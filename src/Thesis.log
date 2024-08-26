@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  26 AUG 2024 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  26 AUG 2024 16:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1152,11 +1152,13 @@ Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 \c@boxlblcounter=\count524
 Package hyperref Info: Option `colorlinks' set `true' on input line 102.
 \c@lemma=\count525
+\c@definition=\count526
+\c@example=\count527
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 157.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 164.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1164,27 +1166,40 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 LaTeX Warning: Unused global option(s):
     [binding=0.6cm].
 
-(./Thesis.aux)
+(./Thesis.aux
+
+LaTeX Warning: Label `weight_dendrix_ilp' multiply defined.
+
+
+LaTeX Warning: Label `weight_dendrix_ilp@cref' multiply defined.
+
+
+LaTeX Warning: Label `second_constr_dendrix_ilp' multiply defined.
+
+
+LaTeX Warning: Label `second_constr_dendrix_ilp@cref' multiply defined.
+
+)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1235,16 +1250,16 @@ Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count526
+\scratchcounter=\count528
 \scratchdimen=\dimen315
 \scratchbox=\box100
-\nofMPsegments=\count527
-\nofMParguments=\count528
+\nofMPsegments=\count529
+\nofMParguments=\count530
 \everyMPshowfont=\toks79
-\MPscratchCnt=\count529
+\MPscratchCnt=\count531
 \MPscratchDim=\dimen316
-\MPnumerator=\count530
-\makeMPintoPDFobject=\count531
+\MPnumerator=\count532
+\makeMPintoPDFobject=\count533
 \everyMPtoPDFconversion=\toks80
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1252,32 +1267,32 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \textsubscript on input line 157.
-LaTeX Info: Redefining \microtypecontext on input line 157.
-Package microtype Info: Applying patch `item' on input line 157.
-Package microtype Info: Applying patch `toc' on input line 157.
-Package microtype Info: Applying patch `eqnum' on input line 157.
-Package microtype Info: Applying patch `footnote' on input line 157.
-Package microtype Info: Applying patch `verbatim' on input line 157.
+LaTeX Info: Redefining \textsubscript on input line 164.
+LaTeX Info: Redefining \microtypecontext on input line 164.
+Package microtype Info: Applying patch `item' on input line 164.
+Package microtype Info: Applying patch `toc' on input line 164.
+Package microtype Info: Applying patch `eqnum' on input line 164.
+Package microtype Info: Applying patch `footnote' on input line 164.
+Package microtype Info: Applying patch `verbatim' on input line 164.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 157.
+LaTeX Info: Redefining \showhyphens on input line 164.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
  (/usr/share/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-Package hyperref Info: Link coloring ON on input line 157.
+Package hyperref Info: Link coloring ON on input line 164.
  (./Thesis.out) (./Thesis.out)
 \@outlinefile=\write6
 \openout6 = `Thesis.out'.
 
-\c@lstlisting=\count532
+\c@lstlisting=\count534
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1294,14 +1309,14 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Thesis.bbl' found.
  (./Thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 157.
-Package biblatex Info: Reference segment=0 on input line 157.
+Package biblatex Info: Reference section=0 on input line 164.
+Package biblatex Info: Reference segment=0 on input line 164.
  (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
 )
 \SAP@parboxindent=\skip103
 \SAP@parboxwidth=\skip104
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 164.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 171.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1312,60 +1327,60 @@ Package microtype Info: Loading generic protrusion settings for font family
 <sapienzalogo.pdf, id=111, 288.07625pt x 89.33376pt>
 File: sapienzalogo.pdf Graphic file (type pdf)
 <use sapienzalogo.pdf>
-Package pdftex.def Info: sapienzalogo.pdf  used on input line 164.
+Package pdftex.def Info: sapienzalogo.pdf  used on input line 171.
 (pdftex.def)             Requested size: 142.26378pt x 44.11742pt.
  [1
 
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./sapienzalogo.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 164.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 171.
  (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 164--164
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
 
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 164.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 171.
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 164.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 171.
  (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 164.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 171.
  (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 164.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 171.
  (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 164.
+(Font)              <10> on input line 171.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 164.
+(Font)              <7> on input line 171.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 164.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 164.
+(Font)              <5> on input line 171.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 171.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 164.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 171.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 164.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 171.
  (/usr/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Underfull \hbox (badness 10000) in paragraph at lines 164--164
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
 
  []
 
@@ -1393,9 +1408,9 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 
 Package hyperref Warning: Option `colorlinks' has already been used,
-(hyperref)                setting the option has no effect on input line 178.
+(hyperref)                setting the option has no effect on input line 185.
 
-Package cleveref Info: loaded `english' language definitions on input line 181.
+Package cleveref Info: loaded `english' language definitions on input line 188.
 [6] (./chapter/1.tex
 Chapter 1.
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 3.
@@ -1420,9 +1435,9 @@ LaTeX Warning: Marginpar on page 5 moved.
 
 Package cleveref Info: loaded `english' language definitions on input line 49.
 [5]
-Package cleveref Info: loaded `english' language definitions on input line 96.
+Package cleveref Info: loaded `english' language definitions on input line 100.
  [6{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-Package cleveref Info: loaded `english' language definitions on input line 126.
+Package cleveref Info: loaded `english' language definitions on input line 132.
  [7]
 
 LaTeX Warning: Marginpar on page 8 moved.
@@ -1430,32 +1445,36 @@ LaTeX Warning: Marginpar on page 8 moved.
 
 LaTeX Warning: Marginpar on page 8 moved.
 
-
-LaTeX Warning: Marginpar on page 8 moved.
-
-Package cleveref Info: loaded `english' language definitions on input line 150.
+Package cleveref Info: loaded `english' language definitions on input line 152.
 [8]
-Package cleveref Info: loaded `english' language definitions on input line 185.
- [9]
-Package cleveref Info: loaded `english' language definitions on input line 223.
- [10]) (./chapter/3.tex
+
+LaTeX Warning: Marginpar on page 9 moved.
+
+Package cleveref Info: loaded `english' language definitions on input line 183.
+[9]
+Package cleveref Info: loaded `english' language definitions on input line 222.
+ [10]
+Package cleveref Info: loaded `english' language definitions on input line 233.
+ [11]) (./chapter/3.tex
 Chapter 3.
 
-LaTeX Warning: Marginpar on page 11 moved.
+LaTeX Warning: Marginpar on page 12 moved.
 
-[11
+[12
 
 
 ]
-Package cleveref Info: loaded `english' language definitions on input line 61.
- [12]) (./chapter/ack.tex) [13
+Package cleveref Info: loaded `english' language definitions on input line 64.
+ [13]
+Package cleveref Info: loaded `english' language definitions on input line 106.
+ [14]) (./chapter/ack.tex) [15
 
 
 ]
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 201.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 208.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1464,46 +1483,50 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Overfull \hbox (9.63518pt too wide) in paragraph at lines 202--202
+Overfull \hbox (9.63518pt too wide) in paragraph at lines 209--209
 []\T1/lmr/m/n/10.95 (-20) Wikipedia con-trib-u-tors. \T1/lmr/m/it/10.95 (-20) Car-cino-gen-e-sis\T1/lmr/m/n/10.95 (-20) . July 2024. \T1/lmr/m/sc/10.95 (-20) url\T1/lmr/m/n/10.95 (-20) : [][]$\T1/lmtt/m/n/10.95 https : / / en . wikipedia .
  []
 
 
-Overfull \hbox (5.21912pt too wide) in paragraph at lines 202--202
+Overfull \hbox (5.21912pt too wide) in paragraph at lines 209--209
 []\T1/lmr/m/n/10.95 (-20) Wikipedia con-trib-u-tors. \T1/lmr/m/it/10.95 (-20) Cell sig-nal-ing\T1/lmr/m/n/10.95 (-20) . Aug. 2024. \T1/lmr/m/sc/10.95 (-20) url\T1/lmr/m/n/10.95 (-20) : [][]$\T1/lmtt/m/n/10.95 https : / / en . wikipedia .
  []
 
-[14
+[16
 
 
 ]
-Package cleveref Info: loaded `english' language definitions on input line 203.
- [15] (./Thesis.aux
+Package cleveref Info: loaded `english' language definitions on input line 210.
+ [17] (./Thesis.aux
 Package cleveref Info: loaded `english' language definitions on input line 11.
 )
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 16D1A7ADB960664E7DEEF2F8DC3613A3;3514.
+(rerunfilecheck)             Checksum: 6E9496DA5E944A4C0F92BE5BEF90775B;3514.
 Package logreq Info: Writing requests to 'Thesis.run.xml'.
 \openout1 = `Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50247 strings out of 476024
- 1044455 string characters out of 5792397
- 1971823 words of memory out of 5000000
- 71244 multiletter control sequences out of 15000+600000
- 676676 words of font info for 245 fonts, out of 8000000 for 9000
+ 50345 strings out of 476024
+ 1046273 string characters out of 5792397
+ 1972224 words of memory out of 5000000
+ 71312 multiletter control sequences out of 15000+600000
+ 677265 words of font info for 251 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,13n,131p,1852b,2595s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (21 pages, 437764 bytes).
+Output written on Thesis.pdf (23 pages, 448287 bytes).
 PDF statistics:
- 537 PDF objects out of 1000 (max. 8388607)
- 456 compressed objects within 5 object streams
- 113 named destinations out of 1000 (max. 500000)
+ 571 PDF objects out of 1000 (max. 8388607)
+ 488 compressed objects within 5 object streams
+ 131 named destinations out of 1000 (max. 500000)
  66274 words of extra memory for PDF output out of 74296 (max. 10000000)
 
