@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  27 AUG 2024 18:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  27 AUG 2024 18:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1467,7 +1467,7 @@ Package cleveref Info: loaded `english' language definitions on input line 173.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 206.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 209.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1476,12 +1476,12 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Overfull \hbox (9.63518pt too wide) in paragraph at lines 207--207
+Overfull \hbox (9.63518pt too wide) in paragraph at lines 210--210
 []\T1/lmr/m/n/10.95 (-20) Wikipedia con-trib-u-tors. \T1/lmr/m/it/10.95 (-20) Car-cino-gen-e-sis\T1/lmr/m/n/10.95 (-20) . July 2024. \T1/lmr/m/sc/10.95 (-20) url\T1/lmr/m/n/10.95 (-20) : [][]$\T1/lmtt/m/n/10.95 https : / / en . wikipedia .
  []
 
 
-Overfull \hbox (5.21912pt too wide) in paragraph at lines 207--207
+Overfull \hbox (5.21912pt too wide) in paragraph at lines 210--210
 []\T1/lmr/m/n/10.95 (-20) Wikipedia con-trib-u-tors. \T1/lmr/m/it/10.95 (-20) Cell sig-nal-ing\T1/lmr/m/n/10.95 (-20) . Aug. 2024. \T1/lmr/m/sc/10.95 (-20) url\T1/lmr/m/n/10.95 (-20) : [][]$\T1/lmtt/m/n/10.95 https : / / en . wikipedia .
  []
 
@@ -1489,7 +1489,7 @@ Overfull \hbox (5.21912pt too wide) in paragraph at lines 207--207
 
 
 ]
-Package cleveref Info: loaded `english' language definitions on input line 208.
+Package cleveref Info: loaded `english' language definitions on input line 211.
  [20] (./Thesis.aux
 Package cleveref Info: loaded `english' language definitions on input line 11.
 )
@@ -1506,13 +1506,13 @@ Package logreq Info: Writing requests to 'Thesis.run.xml'.
 Here is how much of TeX's memory you used:
  50394 strings out of 476024
  1047197 string characters out of 5792397
- 1973005 words of memory out of 5000000
+ 1972963 words of memory out of 5000000
  71339 multiletter control sequences out of 15000+600000
  677386 words of font info for 252 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,13n,131p,1852b,2595s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (26 pages, 480380 bytes).
+Output written on Thesis.pdf (26 pages, 480343 bytes).
 PDF statistics:
  626 PDF objects out of 1000 (max. 8388607)
  535 compressed objects within 6 object streams
