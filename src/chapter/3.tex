@@ -159,8 +159,12 @@ This selection operator is based on \href{https://en.wikipedia.org/wiki/Selectio
         \item \textit{breeding}: for each iteration, $P$ couples are selected from the current population, based on $p_i$, and each couple generates an offspring;
         \item \textit{mutation}: each offspring may optionally receive a mutation with probability $p_m$;
         \item \textit{selection}: all parents and offspring are ranked based on their scoring values, and the top $P$ individuals are selected to form the next generation (this is referred to as \href{https://en.wikipedia.org/wiki/Truncation_selection}{truncation selection});
+        \item \textit{local search}: verify if the iteration is stuck in a local solution (e.g., if the maximum scoring value does not improve over two consecutive iterations); if this is the case, perform a local search;
+        \item \textit{termination}: proceed as such until the termination criterion is met (e.g., if the current maximum scoring value does not improve over 10 consecutive iterations); if this occurs, then end the procedure.
     \end{enumerate}
 \end{definition}
+
+placeholder. \todo{paragrafo di integrazione dei risultati}
 
 \subsection{Mutex}
 
