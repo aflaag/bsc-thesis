@@ -96,7 +96,7 @@ Note that this problem is NP-Hard, as for the case $t = 1$. Furthermore, collect
 Note that:
 
 \begin{itemize}
-    \item \cref{weight_multi-dendrix_ilp} and \cref{second_constr_multi-dendrix_ilp} expand \cref{weight_dendrix_ilp} and \cref{second_constr_dendrix_ilp} respectively
+    \item \cref{weight_multi-dendrix_ilp} and \cref{second_constr_multi-dendrix_ilp} expand \cref{weight_dendrix_ilp} and \cref{second_constr_dendrix_ilp} respectively;
     \item \cref{multi-dendrix_ilp_size} allows each gene group to have a size between $k_\mathrm{min}$ and $k_\mathrm{max}$;
     \item \cref{multi-dendrix_ilp_last} states that each gene can appear in at most one set within the collection; when $k_\mathrm{min} < k_\mathrm{max}$ the ILP may choose gene sets with fewer than $k_\mathrm{max}$ genes if this maximizes the overall weight $W'(M)$ of the collection.
 \end{itemize}
@@ -118,6 +118,24 @@ where $\Delta$ is the maximum number of gene sets a gene can be a member of, and
 where $\tau$ is the maximum size of the intersection between two gene sets.
 
 \subsection{MDPFinder}
+
+placeholder. \todo{sezione in cui scrivo che mpdfinder critica la soluzione esatta trovata da multi-dendrix, che nonostante sia esatta potrebbe non essere reale}
+
+The approach used by MDPFinder's authors involves a \textbf{GA} (\textit{Genetic Algorithm}), which is versatile and flexible, and can be used to optimize a wide variety of scoring functions. The GA approach is particularly relevant to the current problem due to its conceptual alignment with the notions of \textit{gene} and \textit{mutation}. It models genetic variation within a population, evolving through a process of random selection, thereby avoiding the need to enumerate all possible solutions.
+
+\begin{definition}[Hypothesis space]
+    A \textbf{member} of the population is defined by a binary string of length $n$, i.e. the number of genes. Given a gene set $M$, the value of the $i$-th position of an individual represents the membership of the $i$-th gene in $M$.
+
+    Therefore, the \textbf{hypothesis space} is constituted by all the possible binary strings with length $n$ that have $k$ 1s, namely $$\mathcal H = \left\{(x_1, \ldots, x_n) \mid x_i \in \{0, 1\}, i \in [1, n], \sum_{j = 1}^n {x_j} = k \right\}$$
+\end{definition}
+
+\begin{definition}[Fitness function]
+    The \textbf{fitness} of each individual $h_i$ --- its corresponding gene set is $M_i$ --- of the population is defined as the rank $r_i$ of the score $W(M_i)$, in the ascending order \todo{SECONDO ME È DESCENDING ALTRIMENTI PRENDI QUELLO COL PESO MINORE CHE NON HA SENSO, probabilmente non sto capendo il senso della frase}.
+\end{definition}
+
+\begin{definition}[Genetic operators]
+    TODO
+\end{definition}
 
 \subsection{Mutex}
 
