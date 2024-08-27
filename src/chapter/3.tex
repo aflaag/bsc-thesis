@@ -10,7 +10,7 @@ placeholder. \todo{nel capitolo precedente l'ho menzionato, cosa dovrei fare? pa
 
 \subsection{Multi-Dendrix}
 
-Multi-Dendrix \cite{multi-dendrix} trys to solve Dendrix's same problem, described in \cref{mwsp}. \todo{qui manca una sezione iniziale in cui multi-dendrix descrive i motivi per cui l'approccio greedy di dendrix potrebbe non trovare soluzioni ottimali, e perché il loro approccio che trova le soluzioni tutte in un colpo solo è migliore, ma per ora non lo inserisco perché non so come trattare dendrix}
+Multi-Dendrix trys to solve Dendrix's same problem, described in \cref{mwsp}. \todo{qui manca una sezione iniziale in cui multi-dendrix descrive i motivi per cui l'approccio greedy di dendrix potrebbe non trovare soluzioni ottimali, e perché il loro approccio che trova le soluzioni tutte in un colpo solo è migliore, ma per ora non lo inserisco perché non so come trattare dendrix}
 
 For these reasons, Multi-Dendrix's authors formulate Dendrix's problem as an \textbf{ILP} (\textit{Integer Linear Program}), which they refer to as $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$. Consider a gene set $M$ defined by a set of indicator variables, one for each gene $j \in M$ as follows
 
@@ -18,7 +18,7 @@ For these reasons, Multi-Dendrix's authors formulate Dendrix's problem as an \te
     I_M(j) = 1 \iff j \in M
 \end{equation}
 
-and a set of indicator variables, one for each patient $i$, described like this
+and a set of indicator variables, one for each patient $i$, expressed in this form
 
 \begin{equation} \label{c_idefn}
     C_i(M) = 1 \iff \exists g \in M \mid i \in \Gamma(g)
@@ -67,35 +67,55 @@ As outlined in \cref{multi_dendrix_2nd_chap}, Multi-Dendrix proposes that the mo
     \end{equation}
 \end{displayquote}
 
-Note that this problem is NP-Hard, as for the case $t = 1$. Additionally, while $W'(M)$ increases with greater mutual exclusivity among mutations \textit{within} a gene set, there is no constraint on mutations \textit{between} different gene sets. Furthermore, collections $M$ with a large value of $W'(M)$ are also likely to have higher coverage $\Gamma(M_\rho)$ for each individual gene set $\rho$. As a result, optimal solutions tend to produce collections where many patients have mutations in more than one gene set, or they may be pairs or larger groups of co-occurring mutations, a phenomenon observed in cancer. \todo{qua inseriscono una citazione, potrebbe valere la pena di inserirla e/o indagare?}
+Note that this problem is NP-Hard, as for the case $t = 1$. Furthermore, collections $M$ with a large value of $W'(M)$ are also likely to have higher coverage $\Gamma(M_\rho)$ for each individual gene set $\rho$. As a result, optimal solutions tend to produce collections where many patients have mutations in more than one gene set, or they may be pairs or larger groups of co-occurring mutations, a phenomenon observed in cancer. \todo{qua inseriscono una citazione, potrebbe valere la pena di inserirla e/o indagare?}
 
 \begin{definition}[Multi-Dendrix]
     $\mathrm{Multi}$-$\mathrm{dendrix}$ is defined by the following ILP:
 
-    \begin{equation} \label{weight_dendrix_ilp}
-        \mathrm{maximize} \sum_{\rho = 1}^t {\sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}}}
+    \begin{equation} \label{weight_multi-dendrix_ilp}
+        \mathrm{maximize} \sum_{\rho = 1}^t {\sum_{i = 1}^m {\rbk{2 \cdot C_i(M_\rho) - \sum_{j = 1}^n I_{M_\rho}(j) \cdot a_{i, j}}}}
     \end{equation}
 
-    \begin{equation} \label{second_constr_dendrix_ilp}
-        \mathrm{subject \ to} \sum_{j = 1}^n I_M(j) \cdot {a_{i, j}} \ge C_i(M),
+    \begin{equation} \label{second_constr_multi-dendrix_ilp}
+        \mathrm{subject \ to} \sum_{j = 1}^n I_{M_\rho}(j) \cdot {a_{i, j}} \ge C_i(M_\rho),
     \end{equation}
 
+    \begin{equation} \label{multi-dendrix_ilp_size}
+        k_\mathrm{min} \le \sum_{j = 1}^n {I_{M_\rho}(j)} \le k_\mathrm{max},
+    \end{equation}
+    
     \begin{equation*}
         \mathrm{for\ } 1 \le i \le m, \ 1 \le \rho \le t,
     \end{equation*}
 
-    \begin{equation}
-        \sum_{\rho = 1}^t{I_{M_\rho}(j)} \le 1, \ 1 \le j \le m,
-    \end{equation}
-
-    \begin{equation}
-        k_\mathrm{min} \le \sum_{j = 1}^n {I_M(j)} \le k_\mathrm{max}.
+    \begin{equation} \label{multi-dendrix_ilp_last}
+        \sum_{\rho = 1}^t{I_{M_\rho}(j)} \le 1, \ 1 \le j \le n.
     \end{equation}
 \end{definition}
 
-placeholder. \todo{spiega le formule}
+Note that:
 
-placeholder. \todo{ultimo paragrafo}
+\begin{itemize}
+    \item \cref{weight_multi-dendrix_ilp} and \cref{second_constr_multi-dendrix_ilp} expand \cref{weight_dendrix_ilp} and \cref{second_constr_dendrix_ilp} respectively
+    \item \cref{multi-dendrix_ilp_size} allows each gene group to have a size between $k_\mathrm{min}$ and $k_\mathrm{max}$;
+    \item \cref{multi-dendrix_ilp_last} states that each gene can appear in at most one set within the collection; when $k_\mathrm{min} < k_\mathrm{max}$ the ILP may choose gene sets with fewer than $k_\mathrm{max}$ genes if this maximizes the overall weight $W'(M)$ of the collection.
+\end{itemize}
+
+placeholder. \todo{"tutti i casi precedenti avvengono davvero nella realtà" non l'ho ancora scritto perché va prima deciso cosa fare con iter-dendrix perché qui è menzionato e sarebbe da inserire nei bullet point}
+
+Multi-Dendrix can be extended to allow gene sets to overlap, since the genes in the intersection may be involved in multiple biological processes. Hence, \cref{multi-dendrix_ilp_last} is replaced with the following equation:
+
+\begin{equation}
+    \sum_{\rho = 1}^t {I_{M_\rho}(j) \le \Delta}, \quad 1 \le j \le n
+\end{equation}
+
+where $\Delta$ is the maximum number of gene sets a gene can be a member of, and the following constraint is added:
+
+\begin{equation}
+    \sum_{j = 1}^n {\sum_{\rho = 1}^t \sum_{\rho' = 1 \atop \rho \neq \rho'}^t {{I_{M_\rho} (j) \cdot I_{M_{\rho'}} (j)}}} \le \tau, \quad 1 \le \rho \le t
+\end{equation}
+
+where $\tau$ is the maximum size of the intersection between two gene sets.
 
 \subsection{MDPFinder}
 
