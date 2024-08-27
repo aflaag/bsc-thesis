@@ -50,7 +50,7 @@ Note that the sum in \cref{weight_dendrix_ilp} the second version of the definit
 \end{lemma}
 
 \begin{proof}
-    Rearranging the terms in \cref{weight_dendrix_ilp} $$\sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}} = 2\sum_{i = 1}^m {C_i(M)} - \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ and it is trivial to check that $$\abs{\Gamma(M)} = \sum_{i = 1}^m {C_i(M)}$$ by definition, and $$\sum_{g \in M}{\abs{\Gamma(g)}} = \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ because the RHS counts the number of cells of $A$ such that $a_{i, j} = 1$ for every $j \in M$.
+    Rearranging the terms in \cref{weight_dendrix_ilp} $$\sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}} = 2\sum_{i = 1}^m {C_i(M)} - \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ and it is trivial to check that $$\abs{\Gamma(M)} = \sum_{i = 1}^m {C_i(M)}$$ since it it true by definition, and $$\sum_{g \in M}{\abs{\Gamma(g)}} = \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ because the RHS counts the number of cells of $A$ such that $a_{i, j} = 1$ for every $j \in M$.
 \end{proof}
 
 \cref{second_constr_dendrix_ilp} limits the size of $M$ to be exactly $k$; moreover, note that \cref{third_constr_dendrix_ilp} only forces $C_i(M) = 0$ when the $i$-th patient has no mutated genes in $M$, but does not force $C_i(M) = 1$ when the patient has at least one, as required by \cref{c_idefn}. However, the objective function will be maximized when $C_i(M)=1$ thus \cref{c_idefn} is satisfied.
@@ -130,11 +130,36 @@ The approach used by MDPFinder's authors involves a \textbf{GA} (\textit{Genetic
 \end{definition}
 
 \begin{definition}[Fitness function]
-    The \textbf{fitness} of each individual $h_i$ --- its corresponding gene set is $M_i$ --- of the population is defined as the rank $r_i$ of the score $W(M_i)$, in the ascending order \todo{SECONDO ME È DESCENDING ALTRIMENTI PRENDI QUELLO COL PESO MINORE CHE NON HA SENSO, probabilmente non sto capendo il senso della frase}.
+    The \textbf{fitness} $f_i$ of each individual $h_i$ (its corresponding gene set is $M_i$) of the population is defined as the rank $r_i$ of the score $W(M_i)$, in the ascending order: $$\forall h_i \in \mathcal H \quad f_i := r_i$$ \todo{SECONDO ME È DESCENDING ALTRIMENTI PRENDI QUELLO COL PESO MINORE CHE NON HA SENSO, probabilmente non sto capendo il senso della frase}
 \end{definition}
 
-\begin{definition}[Genetic operators]
-    TODO
+\begin{definition}[Selection probability] \label{selection_probability}
+    Given the rank $r_i$ of an individual $h_i$ based on its score, the \textbf{selection probability} is definied as follows: $$p_i = \dfrac{2r_i}{P(P + 1)}$$ where $P$ is the population size. The individual with the highest fitness value is most likely to be transferred into the next generation.
+\end{definition}
+
+This selection operator is based on \href{https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)#Roulette_wheel_selection}{roulette wheel selection}, which states that the probability of choosing an individual is equal to $$p_i = \dfrac{f_i}{\sum_{j = 1}^P {f_j}} = \dfrac{r_i}{\frac{P(P + 1)}{2}} = \dfrac{2r_i}{P(P+1)}$$ which is precisely \cref{selection_probability}.
+
+\begin{definition}[Crossover operator]
+    The \textbf{crossover operator} specifies the breeding process as follows: the offspring inherits the variables shared by both parents, while the non-shared ones are selected from the symmetric difference of the parents' genetic makeup.
+\end{definition}
+
+\begin{definition}[Mutation operator]
+    The \textbf{mutation operator} randomly sets the value of one variable with 1 to 0, and change another variable value with 0 to 1, ensuring feasibility of every offspring.
+\end{definition}
+
+\begin{definition}[Local search]
+    To prevent premature convergence and enhance the accuracy of the algorithm, a local search strategy is employed to improve search performance. In particular, the values of two variables are randomly altered, as the mutation operator. If this adjustment improves the current solution, it is accepted; the search is terminated once all variables have been tested with this routine.
+\end{definition}
+
+\begin{definition}[GA procedure]
+    The following are the details of the \textbf{GA procedure}:
+
+    \begin{enumerate}
+        \item \textit{population generation}: a random population of size $P$ and mutation rate $p_m$ is generated, where $P = n$ (i.e. the number of available genes);
+        \item \textit{breeding}: for each iteration, $P$ couples are selected from the current population, based on $p_i$, and each couple generates an offspring;
+        \item \textit{mutation}: each offspring may optionally receive a mutation with probability $p_m$;
+        \item \textit{selection}: all parents and offspring are ranked based on their scoring values, and the top $P$ individuals are selected to form the next generation (this is referred to as \href{https://en.wikipedia.org/wiki/Truncation_selection}{truncation selection})
+    \end{enumerate}
 \end{definition}
 
 \subsection{Mutex}
