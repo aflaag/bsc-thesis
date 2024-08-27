@@ -49,7 +49,7 @@ Searching for the most mutually exclusive gene group is equivalent to identifyin
 
 \subsection{Dendrix}
 
-The author's of a very well-known paper, which developed two algorithms called \curlyquotes{Dendrix} \cite{dendrix}, gave the following mathematical formalization to the properties of mutual exclusivity and coverage for a set of genes.
+The authors of a very well-known paper, which developed two algorithms called \curlyquotes{Dendrix} \cite{dendrix}, gave the following mathematical formalization to the properties of mutual exclusivity and coverage for a set of genes.
 
 \begin{definition}[Mutation matrix] \label{mut_matrix_def}
     A \curlyquotes{mutation matrix} is a matrix with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene, and the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
@@ -122,7 +122,7 @@ Note that $W(M) = \Gamma(M)$ when $M$ is mutually exclusive. In order to find an
     \textbf{Maximum Weight Submatrix Problem}: Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find a $m \times k$ submatrix of $A$ that maximizes $W(M)$.
 \end{displayquote}
 
-Finding the solution to this problem is computationally difficult even for small values of $k$ (e.g there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes), and it can be proven that it is NP-Hard. \todo{nei materiali supplementari mettono la dimostrazione che questo problema è NP-Hard, lo devo fare?}
+Finding the solution to this problem is computationally difficult even for small values of $k$ (e.g. there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes), and it can be proven that it is NP-Hard. \todo{nei materiali supplementari mettono la dimostrazione che questo problema è NP-Hard, lo devo fare?}
 
 \subsection{Multi-Dendrix} \label{multi_dendrix_2nd_chap}
 
@@ -132,7 +132,7 @@ To effectively identify multiple driver pathways, it is necessary to establish c
 
 \subsection{Mutex}
 
-Mutex's authors \todo{in questo ambito si riferiscono tutti per cognome, esempio Vandin et. al, dovrei farlo anche io o posso limitarmi a scrivere "authors?"} criticize Dendrix's metric because has a strong bias toward highly mutated genes, and in some instances, the excessive emphasis on coverage leads to both false positives and negatives. \todo{ci sono esempi in file supplementari, li guardo?}. They propose a metric that extends Fisher's exact test --- also known as \textit{hypergeometric test} --- to quantify the mutual exclusivity between multiple measurements \cite{mutex}.
+Mutex's authors \todo{in questo ambito si riferiscono tutti per cognome, esempio Vandin et. al, dovrei farlo anche io o posso limitarmi a scrivere "authors?"} criticize Dendrix's metric because it has a strong bias toward highly mutated genes, and in some instances, the excessive emphasis on coverage leads to false positives and negatives. \todo{ci sono esempi in file supplementari, li guardo?}. They propose a metric that extends Fisher's exact test --- also known as \textit{hypergeometric test} --- to quantify the mutual exclusivity between multiple measurements \cite{mutex}.
 
 Specifically, the alteration of a pair of genes is defined to be \textbf{mutually exclusive} \textit{if their overlap in samples is significantly less than expected by chance}, and this can be assessed through a hypergeometric test. \todo{\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4590705/}{QUESTO} paper fa vedere in dettaglio come si fa, sono sicuro al 99\% che si tratti della stessa cosa, lo inserisco?} It is important to note that a uniform alteration frequency across may not always hold, particularly for hyper-mutated samples often resulting from prior mutations in DNA repair mechanisms. Addressing this heterogeneity is challenging, as each overlap in the null model has a different probability. This remains an open problem, and to partially mitigate it, albeit at the cost of statistical power, hyper-altered samples are excluded from the analysis. \todo{specificare quali di preciso? non mi sembra rilevante}
 
@@ -142,7 +142,7 @@ Mutex's authors also developed a metric to assess the mutual exclusivity of a gr
     $H_0$: \textit{The specific member gene in the group is altered independently from the union of other alterations in the group}.
 \end{displayquote}
 
-Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $i \in M$, mutations in $\Gamma(i)$ are independent of alterations in $\Gamma(M - \{i\})$. $H_0$ is then tested for each $i \in M$ by evaluating the co-distribution of $i$ with the union of the others through Fisher's exact test \todo{non so come funziona di preciso il test di Fisher, dovrei vederlo?}, generating $\abs{M}$ $p$-values. These $p$-values represent the probabilities for the independent distribution of each member gene \todo{i'm not sure i know what this means}. To ensure that every member of the group contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of the group. Using Dendrix's notation
+Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $i \in M$, mutations in $\Gamma(i)$ are independent of alterations in $\Gamma(M - \{i\})$. $H_0$ is then tested for each $i \in M$ by evaluating the co-distribution of $i$ with the union of the others through Fisher's exact test \todo{non so come funziona di preciso il test di Fisher, dovrei vederlo?}, generating $\abs{M}$ $p$-values. These $p$-values represent the probabilities for the independent distribution of each member gene \todo{i'm not sure i know what this means}. To ensure that every group member contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of the group. Using Dendrix's notation
 
 \begin{equation}
     s_0 := \max_{i \in M} {H \abk{\Gamma(i), \Gamma(M - \{i\})}}
@@ -154,7 +154,7 @@ From this second set of $p$-values, the least significant one is selected as the
 
 \subsection{C3}
 
-Another notable approach utilized in several papers involves constructing gene graphs and identifying clusters based on specific criteria. An example of this method is demonstrated by the authors of C3 \cite{c3}.
+Another notable approach utilized in several papers involves constructing gene graphs and identifying clusters based on specific criteria. This method is demonstrated by the authors of C3 \cite{c3}.
 
 Let $G = (V, E)$ be a \textit{complete graph} of genes, thus an edge exists between any pair of vertices. Each edge $(u, v) \in E(G)$ is assigned two weights:
 
@@ -188,7 +188,7 @@ where $l_{\mathrm{cnv}}$ and $h_{\mathrm{cnv}}$ are lower and upper bounds on co
     Given a vertex $u \in V(G)$, i.e. a gene, the \textbf{coverage of $u$} $$\mathscr{S}(u) := \{i \mid m_{i, u} = 1\}$$ denotes the set of patients in which $u$ is altered.
 \end{definition}
 
-Note that $\mathscr{S}(u)$ corresponds to $\Gamma(u)$ under Dendrix's notation, but defined through the $M$ matrix respectively.
+Note that $\mathscr{S}(u)$ corresponds to $\Gamma(u)$ under Dendrix's notation, but is defined through the $M$ matrix respectively.
 
 \begin{definition}[Mutual exclusivity component]
     The \textbf{mutual exclusivity component} is defined as follows: $$w_{uv}^-(\mathrm e) := a \cdot \dfrac{\abs{\mathscr{S}(u) \cap \mathscr{S}(v)}}{\min(\abs{\mathscr{S}(u)}, \abs{\mathscr{S}(v)})}$$ where $a$ is a user-defined scaling parameter.

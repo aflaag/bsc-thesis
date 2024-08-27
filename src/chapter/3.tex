@@ -1,6 +1,6 @@
 \chapter{Finding driver mutations} \label{chap:finding_driver_mutations}
 
-Although the true explanation for mutual exclusivity remains unknown, and its therapeutic potential is still uncertain, this phenomenon is frequently observed in data and is thought to potentially lead to discoveries in cancer treatment. Existing approaches can be categorized into two types: \textbf{\textit{de novo}} approaches, which identify mutually exclusive patterns using only genomic data from patients, and \textbf{\textit{knowledge-based}} methods, which integrate the analysis with external \textit{a priori} information \cite{survey}. \textit{De novo} approaches might lack sufficient information as they do not utilize existing databases. Conversely, given that our understanding of gene and protein interactions in humans is still incomplete and many pathway databases fail to accurately represent the specific pathways and interactions present in cancer cells, \textit{knowledge-based} approaches may be limited by their dependence on existing data sources. Consequently, \textit{de novo} methods might yield new but potentially less accurate results, while \textit{knowledge-based} approaches may limit the discovery of novel biological insights \cite{multi-dendrix}.
+Although the true explanation for mutual exclusivity remains unknown, and its therapeutic potential is still uncertain, this phenomenon is frequently observed in data and may lead to discoveries in cancer treatment. Existing approaches can be categorized into two types: \textbf{\textit{de novo}} approaches, which identify mutually exclusive patterns using only genomic data from patients, and \textbf{\textit{knowledge-based}} methods, which integrate the analysis with external \textit{a priori} information \cite{survey}. \textit{De novo} approaches might lack sufficient information as they do not utilize existing databases. Conversely, given that our understanding of gene and protein interactions in humans is still incomplete and many pathway databases fail to accurately represent the specific pathways and interactions present in cancer cells, \textit{knowledge-based} approaches may be limited by their dependence on existing data sources. Consequently, \textit{de novo} methods might yield new but potentially less accurate results, while \textit{knowledge-based} approaches may limit the discovery of novel biological insights \cite{multi-dendrix}.
 
 \section{Approaches}
 
@@ -44,7 +44,7 @@ and a set of indicator variables, one for each patient $i$, expressed in this fo
     \end{equation*}
 \end{definition}
 
-Note that the sum in \cref{weight_dendrix_ilp} the second version of the definition provided in \cref{weight}.
+Note that the sum in \cref{weight_dendrix_ilp} is the second version of the definition provided in \cref{weight}.
 
 \begin{lemma}[Correctness of $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$] Given a gene set $M$, the sum in \cref{weight_dendrix_ilp} correctly evaluates $W(M)$.
 \end{lemma}
@@ -53,11 +53,11 @@ Note that the sum in \cref{weight_dendrix_ilp} the second version of the definit
     Rearranging the terms in \cref{weight_dendrix_ilp} $$\sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}} = 2\sum_{i = 1}^m {C_i(M)} - \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ and it is trivial to check that $$\abs{\Gamma(M)} = \sum_{i = 1}^m {C_i(M)}$$ since it it true by definition, and $$\sum_{g \in M}{\abs{\Gamma(g)}} = \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ because the RHS counts the number of cells of $A$ such that $a_{i, j} = 1$ for every $j \in M$.
 \end{proof}
 
-\cref{second_constr_dendrix_ilp} limits the size of $M$ to be exactly $k$; moreover, note that \cref{third_constr_dendrix_ilp} only forces $C_i(M) = 0$ when the $i$-th patient has no mutated genes in $M$, but does not force $C_i(M) = 1$ when the patient has at least one, as required by \cref{c_idefn}. However, the objective function will be maximized when $C_i(M)=1$ thus \cref{c_idefn} is satisfied.
+\cref{second_constr_dendrix_ilp} limits the size of $M$ to be exactly $k$; moreover, note that \cref{third_constr_dendrix_ilp} only forces $C_i(M) = 0$ when the $i$-th patient has no mutated genes in $M$ but does not force $C_i(M) = 1$ when the patient has at least one, as required by \cref{c_idefn}. However, the objective function will be maximized when $C_i(M)=1$ thus \cref{c_idefn} is satisfied.
 
 placeholder. \todo{qui manca un pezzo in cui si spiega che multi-dendrix}
 
-As outlined in \cref{multi_dendrix_2nd_chap}, Multi-Dendrix proposes that the most effective approach to conducting the research is to identify a collection of gene sets that maximizes the sum of their individual weights. To achieve this result, they solve the following problem, which is an extension of \cref{mwsp}:
+As outlined in \cref{multi_dendrix_2nd_chap}, Multi-Dendrix proposes that the most effective approach to conducting the research is to identify a collection of gene sets that maximize the sum of their individual weights. To achieve this result, they solve the following problem, which is an extension of \cref{mwsp}:
 
 \begin{displayquote}
     \textbf{Multiple Maximum Weight Submatrices Problem}: Given an $m \times n$ mutation matrix $A$, and integer $t > 0$, find a collection $M = \{M_1, \ldots, M_t\}$ of $m \times k$ \todo{$k$ DOES NOT APPEAR ANYWHERE IN THE ILP???????} column submatrices that maximizes
@@ -144,7 +144,7 @@ This selection operator is based on \href{https://en.wikipedia.org/wiki/Selectio
 \end{definition}
 
 \begin{definition}[Mutation operator]
-    The \textbf{mutation operator} randomly sets the value of one variable with 1 to 0, and change another variable value with 0 to 1, ensuring feasibility of every offspring.
+    The \textbf{mutation operator} randomly sets the value of one variable from 1 to 0, and changes another variable value from 0 to 1, ensuring the feasibility of every offspring.
 \end{definition}
 
 \begin{definition}[Local search]
@@ -159,8 +159,8 @@ This selection operator is based on \href{https://en.wikipedia.org/wiki/Selectio
         \item \textit{breeding}: for each iteration, $P$ couples are selected from the current population, based on $p_i$, and each couple generates an offspring;
         \item \textit{mutation}: each offspring may optionally receive a mutation with probability $p_m$;
         \item \textit{selection}: all parents and offspring are ranked based on their scoring values, and the top $P$ individuals are selected to form the next generation (this is referred to as \href{https://en.wikipedia.org/wiki/Truncation_selection}{truncation selection});
-        \item \textit{local search}: verify if the iteration is stuck in a local solution (e.g., if the maximum scoring value does not improve over two consecutive iterations); if this is the case, perform a local search;
-        \item \textit{termination}: proceed as such until the termination criterion is met (e.g., if the current maximum scoring value does not improve over 10 consecutive iterations); if this occurs, then end the procedure.
+        \item \textit{local search}: verify if the iteration is stuck in a local solution (e.g. if the maximum scoring value does not improve over two consecutive iterations); if this is the case, perform a local search;
+        \item \textit{termination}: proceed as such until the termination criterion is met (e.g. if the current maximum scoring value does not improve over 10 consecutive iterations); if this occurs, then end the procedure.
     \end{enumerate}
 \end{definition}
 
