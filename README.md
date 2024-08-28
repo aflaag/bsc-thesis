@@ -2,6 +2,7 @@
 
 ## Domande
 
+- generalmente $i$ sono i pazienti, $j$ sono i geni, ma a volte si invertono in base al contesto, io ho fatto fede alla formula originale praticamente sempre, ma credo si cominci a fare confuzione, faccio di testa mia e faccio in modo che la notazione sia consistente? preferirei
 - CHECK EVERYTHING THERE IS IN THESIS.TEX
 - che faccio col Dendrix?
 - scrivere "Vandin et al." al posto di "Dendrix's authors"?
