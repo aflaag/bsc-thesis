@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex Thesis"] 1724833576.64113 "Thesis.aux" "Thesis.bbl" "Thesis" 1724833783.46544 0
-  "./Thesis-blx.bib" 1724833783.02293 344 b6635e745c33bdb67ff460a6dfbd44f1 ""
+["bibtex Thesis"] 1724835056.11655 "Thesis.aux" "Thesis.bbl" "Thesis" 1724835060.11889 0
+  "./Thesis-blx.bib" 1724835059.7262 344 b6635e745c33bdb67ff460a6dfbd44f1 ""
   "./references.bib" 1724588259.81982 5778 157ffe90cda60bafe84043da301062bd ""
   "/usr/share/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1716849630 65484 b7949c47a88ed6dca66ebc7a04577312 ""
-  "Thesis.aux" 1724833783.00626 23695 f5ab2b61ef070fb94337e884f0bf536e "pdflatex"
+  "Thesis.aux" 1724835059.7062 25673 94fbaa5c4ec49caf700198a1bb8c2e77 "pdflatex"
   (generated)
   "Thesis.bbl"
   "Thesis.blg"
   (rewritten before read)
-["pdflatex"] 1724833779.67017 "Thesis.tex" "Thesis.pdf" "Thesis" 1724833783.466 0
+["pdflatex"] 1724835056.20467 "Thesis.tex" "Thesis.pdf" "Thesis" 1724835060.11945 0
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1716849630 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1716849630 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1716849630 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -311,15 +311,15 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1716849630 41588 b43d3e860a4f94167ee1e725ff526a72 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1717316846.80975 5312047 b07fcd2a9090df96fc745b92a3db793b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1717316818 7164989 a606f76bbf99749eaf4dc2739187c19f ""
-  "Thesis.aux" 1724833783.00626 23695 f5ab2b61ef070fb94337e884f0bf536e "pdflatex"
-  "Thesis.bbl" 1724833576.71294 19012 a4227591a622f2a87e005941c3ba76cb "bibtex Thesis"
-  "Thesis.out" 1724833783.01959 3514 7d155caba903bb6f66a0b69f1c3f54bf "pdflatex"
-  "Thesis.run.xml" 1724833783.02293 2542 4fc7e27be3543dd685c95db0ffd59f1d "pdflatex"
+  "Thesis.aux" 1724835059.7062 25673 94fbaa5c4ec49caf700198a1bb8c2e77 "pdflatex"
+  "Thesis.bbl" 1724835056.18953 19012 a4227591a622f2a87e005941c3ba76cb "bibtex Thesis"
+  "Thesis.out" 1724835059.72287 3514 443510f8f09a5f8cf9a7f525bb5dd690 "pdflatex"
+  "Thesis.run.xml" 1724835059.72953 2542 4fc7e27be3543dd685c95db0ffd59f1d "pdflatex"
   "Thesis.tex" 1724777747.03307 5736 8adbba16a915d996a0d97fd7f0d70f06 ""
-  "Thesis.toc" 1724833783.02293 2129 9e7f55b2de8b79aeae45efa65925f3fa "pdflatex"
+  "Thesis.toc" 1724835059.72953 2129 c96765d5ceaa4d9d2c3c20a47fec320a "pdflatex"
   "chapter/1.tex" 1724600287.37259 3547 064af39a6dc53dc08ed8d3ef2b0cd2e6 ""
   "chapter/2.tex" 1724776750.51644 23846 3e9cac72ae633dac7826f9eaa1c3703b ""
-  "chapter/3.tex" 1724833778.81959 15552 e725a1ce855b7c799a264d92092cd650 ""
+  "chapter/3.tex" 1724835051.42953 17299 30da91577cfe6705ff29bfcbcf81d774 ""
   "chapter/ack.tex" 1724425608.85996 84 d479507ed92ad97f807b36093f806d80 ""
   "sapienzalogo.pdf" 1724398914 16467 d37335f7ce529baff3eb592202135649 ""
   "sapthesis.cls" 1724398914 29748 4362e4b52ded79e45c4b15d1ecb6e5cc ""
