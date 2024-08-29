@@ -437,6 +437,83 @@
     \field{year}{1994}
   \endentry
 
+  \entry{cgc}{article}{}
+    \name{author}{8}{}{%
+      {{hash=FPA}{%
+         family={Futreal},
+         familyi={F\bibinitperiod},
+         given={P.\bibnamedelima Andrew},
+         giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=CL}{%
+         family={Coin},
+         familyi={C\bibinitperiod},
+         given={Lachlan},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Marshall},
+         familyi={M\bibinitperiod},
+         given={Mhairi},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=DT}{%
+         family={Down},
+         familyi={D\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=HT}{%
+         family={Hubbard},
+         familyi={H\bibinitperiod},
+         given={Timothy},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=WR}{%
+         family={Wooster},
+         familyi={W\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=RN}{%
+         family={Rahman},
+         familyi={R\bibinitperiod},
+         given={Nazneen},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=SMR}{%
+         family={Stratton},
+         familyi={S\bibinitperiod},
+         given={Michael\bibnamedelima R.},
+         giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{FPACLMM+1}
+    \strng{fullhash}{FPACLMMDTHTWRRNSMR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \verb{doi}
+    \verb 10.1038/nrc1299
+    \endverb
+    \field{issn}{1474-1768}
+    \field{number}{3}
+    \field{pages}{177–183}
+    \field{title}{A census of human cancer genes}
+    \verb{url}
+    \verb http://dx.doi.org/10.1038/nrc1299
+    \endverb
+    \field{volume}{4}
+    \field{journaltitle}{Nature Reviews Cancer}
+    \field{month}{03}
+    \field{year}{2004}
+  \endentry
+
   \entry{c3}{article}{}
     \name{author}{5}{}{%
       {{hash=HJP}{%
@@ -493,6 +570,40 @@
     \field{journaltitle}{Bioinformatics}
     \field{month}{08}
     \field{year}{2016}
+  \endentry
+
+  \entry{kegg}{article}{}
+    \name{author}{1}{}{%
+      {{hash=KM}{%
+         family={Kanehisa},
+         familyi={K\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press (OUP)}%
+    }
+    \strng{namehash}{KM1}
+    \strng{fullhash}{KM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \verb{doi}
+    \verb 10.1093/nar/28.1.27
+    \endverb
+    \field{issn}{1362-4962}
+    \field{number}{1}
+    \field{pages}{27–30}
+    \field{title}{KEGG: Kyoto Encyclopedia of Genes and Genomes}
+    \verb{url}
+    \verb http://dx.doi.org/10.1093/nar/28.1.27
+    \endverb
+    \field{volume}{28}
+    \field{journaltitle}{Nucleic Acids Research}
+    \field{month}{01}
+    \field{year}{2000}
   \endentry
 
   \entry{multi-dendrix}{article}{}

@@ -190,8 +190,8 @@ where $l_{\mathrm{cnv}}$ and $h_{\mathrm{cnv}}$ are lower and upper bounds on co
 
 Note that $\mathscr{S}(u)$ corresponds to $\Gamma(u)$ under Dendrix's notation, but is defined through the $M$ matrix respectively.
 
-\begin{definition}[Mutual exclusivity component]
-    The \textbf{mutual exclusivity component} is defined as follows: $$w_{uv}^-(\mathrm e) := a \cdot \dfrac{\abs{\mathscr{S}(u) \cap \mathscr{S}(v)}}{\min(\abs{\mathscr{S}(u)}, \abs{\mathscr{S}(v)})}$$ where $a$ is a user-defined scaling parameter.
+\begin{definition}[Mutual exclusivity component] \label{me_comp}
+    The \textbf{mutual exclusivity component} between two genes $u, v \in V(G)$ is defined as follows: $$w_{uv}^-(\mathrm e) := a \cdot \dfrac{\abs{\mathscr{S}(u) \cap \mathscr{S}(v)}}{\min(\abs{\mathscr{S}(u)}, \abs{\mathscr{S}(v)})}$$ where $a$ is a user-defined scaling parameter.
 \end{definition}
 
 This ratio is often referred to as \textbf{IoM} (\textit{Intersection over Minimum}), and suits the criteria of mutual exclusivity because the fewer patients who have both $u$ and $v$ mutated, the smaller the weight, making it more plausible that $u$ and $v$ are mutually exclusive, therefore the cost of placing them in the same cluster should be low. Note that
@@ -200,8 +200,8 @@ This ratio is often referred to as \textbf{IoM} (\textit{Intersection over Minim
     \forall u, v \in V(G) \quad a = 1 \implies 0 \le w_{uv}^-(\mathrm e) \le 1
 \end{equation}
 
-\begin{definition}[Negative weights]
-    \textbf{Negative weights} only depend on the mutual exclusivity component, i.e. $$w_{uv}^- := w_{uv}^-(\mathrm e)$$
+\begin{definition}[Negative weights] \label{neg_weights}
+    \textbf{Negative weights} only depend on the mutual exclusivity component, i.e. $$\forall u, v \in V(G) \quad w_{uv}^- := w_{uv}^-(\mathrm e)$$
 \end{definition}
 
 By contrast, positive weights can depend on multiple factors which will be presented in the following sections \todo{va bene se la metto su questo piano?}. Focusing on \textbf{coverage}, if two genes $u$ and $v$ increase the coverage of the set significantly, $w_{uv}^+(\mathrm c)$ should be large such that they are encouraged to be placed in the same cluster. Let
@@ -218,7 +218,7 @@ where $\Delta$ denotes the symmetric difference of two sets; a large value of $D
 
 and let $T(J)$ be the $J$-th percentile of the values in $\mathscr{D}$.
 
-\begin{definition}[Coverage component]
+\begin{definition}[Coverage component] \label{co_comp}
     The \textbf{coverage component} is defined as follows: $$w_{uv}^+(\mathrm c) := \soe{ll}{1 & D(u, v) > T(J) \\ \dfrac{D(u, v)}{T(J)} & D(u, v) \le T(J)}$$
 \end{definition}
 

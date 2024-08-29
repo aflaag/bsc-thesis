@@ -18,10 +18,17 @@
 \contentsline {subsection}{\numberline {2.3.5}Mutex}{8}{subsection.2.3.5}%
 \contentsline {subsection}{\numberline {2.3.6}C3}{9}{subsection.2.3.6}%
 \contentsline {chapter}{\numberline {3}Finding driver mutations}{12}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Approaches}{12}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Dendrix}{12}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Multi-Dendrix}{12}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}MDPFinder}{15}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Mutex}{17}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}C3}{18}{subsection.3.1.5}%
-\contentsline {chapter}{Acknowledgements}{19}{chapter*.40}%
+\contentsline {section}{\numberline {3.1}Dendrix}{12}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Multi-Dendrix}{12}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}An alternative solution to Dendrix}{12}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}The ILP}{14}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}MDPFinder}{15}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}The genetic algorithm}{15}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}The integration procedure}{17}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Mutex}{18}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}A greedy approach}{18}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}C3}{18}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Multiple versions}{18}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}ME-CO}{18}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}NI-ME-CO}{19}{subsection.3.5.3}%
+\contentsline {chapter}{Acknowledgements}{21}{chapter*.43}%
