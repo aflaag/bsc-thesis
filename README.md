@@ -2,11 +2,23 @@
 
 ## Domande
 
+- pag 7 "external factors?" in che senso?
+- pag 9 "si può dire facilmente qualcosa di più" su che cosa?
+- pag 9 "che significa signaling pathways" sta scritto nell'introduzione (?)
+- pag 11 metto SPOP e ERG?
+- pag 12 non ho capito niente
+- pag 13 "non dovrebbe essere 0 se mut ex?" io ho riportato quello che dice il paper, lo penso anche io e non mi torna
+- pag 13 "infatti se o(M) = 0" no quello l'ho scritto io vabbe sai che devi dire
+- pag 13 "optimal rispetto a che" in che senso?
+- pag 14 "partizione" no è una collection
+- pag 14 scrivere "Vandin et al." al posto di "Dendrix's authors"?
+- pag 15 "se qulcs" o "si qlcs"?
+- pag 15 cambiare anche i nomi delle sezioni del secondo capitolo?
+- pag 18 che faccio col Dendrix?
+- pag 20 risolvere il problema di $m x k$ in multi-dendrix ilp
+
 - generalmente $i$ sono i pazienti, $j$ sono i geni, ma a volte si invertono in base al contesto, io ho fatto fede alla formula originale praticamente sempre, ma credo si cominci a fare confuzione, faccio di testa mia e faccio in modo che la notazione sia consistente? preferirei
 - CHECK EVERYTHING THERE IS IN THESIS.TEX
-- che faccio col Dendrix?
-- scrivere "Vandin et al." al posto di "Dendrix's authors"?
-- risolvere il problema di $m x k$ in multi-dendrix ilp
 
 ## Paper per allungare
 
