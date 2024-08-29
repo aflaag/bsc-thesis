@@ -3,19 +3,35 @@
 ## Domande
 
 - pag 7 "external factors?" in che senso?
+    - tipo radiazioni, inseriscilo
 - pag 9 "si può dire facilmente qualcosa di più" su che cosa?
+    - aggiungi qualcosa
 - pag 9 "che significa signaling pathways" sta scritto nell'introduzione (?)
+    - rimuovi la frase
 - pag 11 metto SPOP e ERG?
+    - si
 - pag 12 non ho capito niente
+    - espandi su coverage
 - pag 13 "non dovrebbe essere 0 se mut ex?" io ho riportato quello che dice il paper, lo penso anche io e non mi torna
 - pag 13 "infatti se o(M) = 0" no quello l'ho scritto io vabbe sai che devi dire
+    ?
 - pag 13 "optimal rispetto a che" in che senso?
 - pag 14 "partizione" no è una collection
+    - ok
 - pag 14 scrivere "Vandin et al." al posto di "Dendrix's authors"?
-- pag 15 "se qulcs" o "si qlcs"?
+    - si
 - pag 15 cambiare anche i nomi delle sezioni del secondo capitolo?
+- pag 18 notazione è importante
 - pag 18 che faccio col Dendrix?
 - pag 20 risolvere il problema di $m x k$ in multi-dendrix ilp
+
+- cambia i titoli
+    - detertministica
+    - deterministica estesa
+    - definizione statistica
+    - clustering approeach
+
+    - metti multi-dendrix alla fine
 
 - generalmente $i$ sono i pazienti, $j$ sono i geni, ma a volte si invertono in base al contesto, io ho fatto fede alla formula originale praticamente sempre, ma credo si cominci a fare confuzione, faccio di testa mia e faccio in modo che la notazione sia consistente? preferirei
 - CHECK EVERYTHING THERE IS IN THESIS.TEX
