@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  30 AUG 2024 12:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  30 AUG 2024 13:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1425,15 +1425,15 @@ Package cleveref Info: loaded `english' language definitions on input line 96.
 
 LaTeX Warning: Marginpar on page 7 moved.
 
-Package cleveref Info: loaded `english' language definitions on input line 128.
+Package cleveref Info: loaded `english' language definitions on input line 130.
 [7]
-Package cleveref Info: loaded `english' language definitions on input line 150.
+Package cleveref Info: loaded `english' language definitions on input line 152.
  [8]
-Package cleveref Info: loaded `english' language definitions on input line 182.
+Package cleveref Info: loaded `english' language definitions on input line 184.
  [9]
-Package cleveref Info: loaded `english' language definitions on input line 223.
+Package cleveref Info: loaded `english' language definitions on input line 225.
  [10]
-Package cleveref Info: loaded `english' language definitions on input line 229.
+Package cleveref Info: loaded `english' language definitions on input line 231.
  [11]) (./chapter/3.tex
 Chapter 3.
 [12
@@ -1507,24 +1507,24 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: CF4E2A586D95846139135450A984D4D5;5085.
+(rerunfilecheck)             Checksum: D42ECBD71E663E60DF84A671C38416DE;5085.
 Package logreq Info: Writing requests to 'Thesis.run.xml'.
 \openout1 = `Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50589 strings out of 476024
- 1050999 string characters out of 5792397
- 1975299 words of memory out of 5000000
- 71466 multiletter control sequences out of 15000+600000
- 678811 words of font info for 266 fonts, out of 8000000 for 9000
+ 50573 strings out of 476024
+ 1050613 string characters out of 5792397
+ 1973008 words of memory out of 5000000
+ 71450 multiletter control sequences out of 15000+600000
+ 678894 words of font info for 267 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,13n,131p,1852b,2572s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (29 pages, 509817 bytes).
+Output written on Thesis.pdf (29 pages, 509167 bytes).
 PDF statistics:
- 753 PDF objects out of 1000 (max. 8388607)
- 656 compressed objects within 7 object streams
- 191 named destinations out of 1000 (max. 500000)
+ 751 PDF objects out of 1000 (max. 8388607)
+ 654 compressed objects within 7 object streams
+ 189 named destinations out of 1000 (max. 500000)
  66338 words of extra memory for PDF output out of 74296 (max. 10000000)
 
