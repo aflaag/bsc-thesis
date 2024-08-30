@@ -1,18 +1,18 @@
 \chapter{Finding driver mutations} \label{chap:finding_driver_mutations}
 
-Although the true explanation for mutual exclusivity remains unknown, and its therapeutic potential is still uncertain, this phenomenon is frequently observed in data and may lead to discoveries in cancer treatment. Existing approaches can be categorized into two types: \textbf{\textit{de novo}} approaches, which identify mutually exclusive patterns using only genomic data from patients, and \textbf{\textit{knowledge-based}} methods, which integrate the analysis with external \textit{a priori} information \cite{survey}. \textit{De novo} approaches might lack sufficient information as they do not utilize existing databases. Conversely, given that our understanding of gene and protein interactions in humans is still incomplete and many pathway databases fail to accurately represent the specific pathways and interactions present in cancer cells, \textit{knowledge-based} approaches may be limited by their dependence on existing data sources. Consequently, \textit{de novo} methods might yield new but potentially less accurate results, while \textit{knowledge-based} approaches may limit the discovery of novel biological insights \cite{multi-dendrix}.
+Although the true explanation for mutual exclusivity remains unknown, and its therapeutic potential is still uncertain, this phenomenon is frequently observed in data and may lead to discoveries in cancer treatment. Existing approaches can be categorized into two types: \textbf{\textit{de novo}} approaches, which identify mutually exclusive patterns using only genomic data from patients, and \textbf{\textit{knowledge-based}} methods, which integrate the analysis with external \textit{a priori} information \cite{survey}. \textit{De novo} approaches might lack sufficient information as they do not utilize existing databases \todo{correggi questa frase che non ha senso effettivamente}. Conversely, given that our understanding of gene and protein interactions in humans is still incomplete and many pathway databases fail to accurately represent the specific pathways and interactions present in cancer cells, \textit{knowledge-based} approaches may be limited by their dependence on existing data sources. Consequently, \textit{de novo} methods might yield new but potentially less accurate results, while \textit{knowledge-based} approaches may limit the discovery of novel biological insights \cite{multi-dendrix}.
 
 \section{Dendrix}
 
-placeholder. \todo{nel capitolo precedente l'ho menzionato, cosa dovrei fare? parlarne? io non l'ho analizzato perché parla di Catene di Markov e Monte Carlo (MCMC), lascio perdere e non faccio una sezione per lui?}
+placeholder. \todo{fare Dendrix}
 
 \section{Multi-Dendrix}
 
 \subsection{An alternative solution to Dendrix}
 
-Multi-Dendrix trys to solve Dendrix's same problem, described in \cref{mwsp}. \todo{qui manca una sezione iniziale in cui multi-dendrix descrive i motivi per cui l'approccio greedy di dendrix potrebbe non trovare soluzioni ottimali, e perché il loro approccio che trova le soluzioni tutte in un colpo solo è migliore, ma per ora non lo inserisco perché non so come trattare dendrix}
+\textcite{multi-dendrix}, the authors of Multi-Dendrix (\textit{de novo} \cite{survey}), try to solve the same problem posed by \textcite{dendrix}, provided in \cref{mwsp}. \todo{qui manca una sezione iniziale in cui multi-dendrix descrive i motivi per cui l'approccio greedy di dendrix potrebbe non trovare soluzioni ottimali, e perché il loro approccio che trova le soluzioni tutte in un colpo solo è migliore}
 
-For these reasons, Multi-Dendrix's authors formulate Dendrix's problem as an \textbf{ILP} (\textit{Integer Linear Program}), which they refer to as $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$. Consider a gene set $M$ defined by a set of indicator variables, one for each gene $j \in M$ as follows
+For these reasons, \textcite{multi-dendrix} formulate Dendrix's problem as an \textbf{ILP} (\textit{Integer Linear Program}), which they refer to as $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$. Consider a gene set $M$ defined by a set of indicator variables, one for each gene $j \in M$ as follows
 
 \begin{equation}
     I_M(j) = 1 \iff j \in M
@@ -59,7 +59,7 @@ placeholder. \todo{non mi ricordo cosa volevo scrivere qua}
 
 \subsection{The ILP}
 
-As outlined in \cref{multi_dendrix_2nd_chap}, Multi-Dendrix proposes that the most effective approach to conducting the research is to identify a collection of gene sets that maximize the sum of their individual weights. To achieve this result, they solve the following problem, which is an extension of \cref{mwsp}:
+As outlined in \cref{multi_dendrix_2nd_chap}, \textcite{multi-dendrix} proposes that the most effective approach to conducting the research is to identify a collection of gene sets that maximize the sum of their individual weights. To achieve this result, they solve the following problem, which is an extension of \cref{mwsp}:
 
 \begin{displayquote}
     \textbf{Multiple Maximum Weight Submatrices Problem}: Given an $m \times n$ mutation matrix $A$, and integer $t > 0$, find a collection $M = \{M_1, \ldots, M_t\}$ of $m \times k$ \todo{$k$ DOES NOT APPEAR ANYWHERE IN THE ILP???????} column submatrices that maximizes
@@ -123,9 +123,9 @@ where $\tau$ is the maximum size of the intersection between two gene sets.
 
 \subsection{The genetic algorithm}
 
-placeholder. \todo{sezione in cui scrivo che mpdfinder critica la soluzione esatta trovata da multi-dendrix, che nonostante sia esatta potrebbe non essere reale}
+placeholder. \todo{sezione in cui scrivo che mpdfinder critica la soluzione esatta trovata da multi-dendrix, che nonostante sia esatta potrebbe non essere reale; in questa sezione va menzionato che l'algoritmo si chiama MDPFinder, e va scritto che è knowledge-based}
 
-The approach used by MDPFinder's authors involves a \textbf{GA} (\textit{Genetic Algorithm}), which is versatile and flexible, and can be used to optimize a wide variety of scoring functions. The GA approach is particularly relevant to the current problem due to its conceptual alignment with the notions of \textit{gene} and \textit{mutation}. It models genetic variation within a population, evolving through a process of random selection, thereby avoiding the need to enumerate all possible solutions.
+The approach used by \textcite{mdpfinder} involves a \textbf{GA} (\textit{Genetic Algorithm}), which is versatile and flexible, and can be used to optimize a wide variety of scoring functions. The GA approach is particularly relevant to the current problem due to its conceptual alignment with the notions of \textit{gene} and \textit{mutation}. It models genetic variation within a population, evolving through a process of random selection, thereby avoiding the need to enumerate all possible solutions.
 
 \begin{definition}[Hypothesis space]
     A \textbf{member} of the population is defined by a binary string of length $n$, i.e. the number of genes. Given a gene set $M$, the value of the $i$-th position of an individual represents the membership of the $i$-th gene in $M$.
@@ -134,7 +134,7 @@ The approach used by MDPFinder's authors involves a \textbf{GA} (\textit{Genetic
 \end{definition}
 
 \begin{definition}[Fitness function]
-    The \textbf{fitness} $f_i$ of each individual $h_i$ (its corresponding gene set is $M_i$) of the population is defined as the rank $r_i$ of the score $W(M_i)$, in the ascending order: $$\forall h_i \in \mathcal H \quad f_i := r_i$$ \todo{SECONDO ME È DESCENDING ALTRIMENTI PRENDI QUELLO COL PESO MINORE CHE NON HA SENSO, probabilmente non sto capendo il senso della frase}
+    The \textbf{fitness} $f_i$ of each individual $h_i$ (its corresponding gene set is $M_i$) of the population is defined as the rank $r_i$ of the score $W(M_i)$, in the ascending order \todo{SECONDO ME È DESCENDING ALTRIMENTI PRENDI QUELLO COL PESO MINORE CHE NON HA SENSO, probabilmente non sto capendo il senso della frase}: $$\forall h_i \in \mathcal H \quad f_i := r_i$$
 \end{definition}
 
 \begin{definition}[Selection probability] \label{selection_probability}
@@ -182,7 +182,7 @@ Note that $$0 \le R(E_m) \le 1$$ and $W(M)$ is an integer, therefore when $\lamb
 
 \subsection{A greedy approach}
 
-To identify the most mutually exclusive group, the authors of Mutex employ a greedy algorithm applied to a directed graph, which is constructed from databases containing information about biological pathways \todo{menziono i database che hanno usato?}.
+To identify the most mutually exclusive group, \textcite{mutex} employ a greedy algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which is applied to a directed graph constructed from databases containing information about biological pathways \todo{menziono i database che hanno usato?}.
 
 The search begins by initializing a set with an altered gene as the seed, and then expanding the group greedily with the next best candidate gene. Candidate genes are selected such that, after their addition, the group still has a common downstream gene that can be accessed without passing through any non-member genes (the common downstream gene may also be a member of the group) \todo{ci sono delle figure con un grafo e l'insieme che viene proressivamente espanso dall'algoritmo, forse potrei riprodurle e inserirle per chiarezza?}. The group is expanded with the candidate that improves the group score the most. The process continues until no candidates remain or the group reaches a preset size threshold. The algorithm outputs a group and its score for each seed gene \todo{qui menzionano una cosa inerente al controllo dell'FDR ma per ora la ometto perché non so che significa, credo andrebbe inserita}.
 
@@ -196,7 +196,7 @@ placeholder. \todo{una cosa carina sarebbe scrivere lo pseudocodice dell'algorit
 
 \subsection{Multiple versions}
 
-The authors of C3 define three methods for assigning weights to the graph to perform vertex clustering:
+\textcite{c3} define three methods for assigning weights to the graph to perform the vertex clustering algorithm called C3 (\textit{knowledge-based} \cite{survey}):
 
 \begin{enumerate}
     \item \textbf{ME-CO}, where $w^-$ depends on \textit{mutual exclusivity} and $w^+$ depends on \textit{coverage};
@@ -226,7 +226,7 @@ The definitions for $w_{uv}^-(\mathrm e)$ and $w_{uv}^+(\mathrm c)$ are provided
 
 Pan-cancer studies, as reported in multiple papers, have demonstrated a significant relationship between network topology and the distribution patterns of cancer drivers. Specifically, the impact of deleterious mutations on the phenotype can be mitigated by certain configurations of the corresponding protein complexes, while other arrangements can amplify their effect. For example, most variants found in healthy individuals tend to be located at the periphery of the interactome, where they do not affect network connectivity. In contrast, cancer driver somatic mutations are more likely to occur in central, internal regions of the interactome and within highly integrated components.
 
-To precisely quantify the network distances between driver variants, C3's authors computed the pairwise network distances between genes within a large pathway, comprising 8726 genes, by using an implementation of the standard \href{https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm}{Dijkstra algorithm}. To reduce the computational cost of running Dijkstra’s algorithm $O(8726^2)$ times, 1000 pairs were randomly selected for this test. Using the most comprehensive known driver list from the Cancer Gene Census (CGC) \cite{cgc}, the same distances were calculated for driver genes, this time for all gene pairs. The resulting distribution of shortest paths is shown in Figure 1 \todo{non ho inserito l'immagine ma volendo la inserisco, la metto?}, revealing that the average shortest distance between drivers is significantly smaller than that between two randomly selected genes.
+To precisely quantify the network distances between driver variants, \textcite{c3} computed the pairwise network distances between genes within a large pathway, comprising 8726 genes, by using an implementation of the standard \href{https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm}{Dijkstra algorithm}. To reduce the computational cost of running Dijkstra’s algorithm $O\rbk{8726^2}$ times, 1000 pairs were randomly selected for this test. Using the most comprehensive known driver list from the Cancer Gene Census (CGC) \cite{cgc}, the same distances were calculated for driver genes, this time for all gene pairs. The resulting distribution of shortest paths is shown in Figure 1 \todo{non ho inserito l'immagine ma volendo la inserisco, la metto?}, revealing that the average shortest distance between drivers is significantly smaller than that between two randomly selected genes.
 
 placeholder. \todo{per la foto eventualmente}
 
@@ -245,5 +245,29 @@ which is known as the \href{https://en.wikipedia.org/wiki/Jaccard_index}{Jaccard
 \end{equation}
 
 and let $T'(J')$ be the $J'$-the percentile of the values in $\mathscr F$. A large value of $f(u, v)$ indicates that $u$ and $v$ are well connected in $G'$ and are likely involved in the same pathway, suggesting that they should be clustered together.
+
+\begin{definition}[Network information component]
+    The \textbf{network information component} is defined as follows: $$w_{uv}^+(\mathrm n) := \soe{ll}{1 & f(u, v) > T'(J') \\ \dfrac{f(u, v)}{T'(J')} & f(u, v) \le T'(J')}$$
+\end{definition}
+
+\begin{definition}[NI-ME-CO]
+    The \textbf{NI-ME-CO} version of the algorithm is defined by the following equations:
+
+    \begin{equation}
+        \forall u, v \in V(G) \quad w_{uv}^- := w_{uv}^-(\mathrm e)
+    \end{equation}
+
+    \begin{equation}
+        \forall u, v \in V(G) \quad w_{uv}^+ := w_1 w_{uv}^+(\mathrm c) + w_2 w_{uv}^+(\mathrm n)
+    \end{equation}
+
+    where $w_1, w_2 \ge 0$ and $w_1 + w_2 = 1$.
+\end{definition}
+
+placeholder. \todo{parlare del rescaling?}
+
+\subsection{EX-ME-CO}
+
+placeholder. \todo{todo}
 
 \cleardoublepage

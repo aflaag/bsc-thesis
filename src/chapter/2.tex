@@ -8,9 +8,7 @@ In cancer research, \textbf{signaling pathways} are of particular interest becau
 
 \subsection{Passenger and driver mutations}
 
-There are two types of mutations in cancer: \textbf{passenger mutations} and \textbf{driver mutations}. Passenger mutations do not confer direct benefits to tumor growth or development, whereas driver mutations actively contribute to cancer progression by providing an evolutionary advantage and promoting the proliferation of tumor cells. A \textbf{driver gene} is a gene that harbors at least one driver mutation, though it may also contain passenger mutations \todo{\href{https://www.aiom.it/wp-content/uploads/2019/02/20190524RM_21_Tommasi.pdf}{DO I ADD THIS AS A CITATION???}}. A driver pathway consists of at least one driver gene. Driver mutations, genes, and pathways are of significant scientific interest due to their crucial role in cancer proliferation.
-
-Driver genes can be classified into 12 signaling pathways, which regulate cellular functions related to survival, fate, and genomic maintenance. \todo{use (and expand) this? same source as prev}
+There are two types of mutations in cancer: \textbf{passenger mutations} and \textbf{driver mutations}. Passenger mutations do not confer direct benefits to tumor growth or development, whereas driver mutations actively contribute to cancer progression by providing an evolutionary advantage and promoting the proliferation of tumor cells. A \textbf{driver gene} is a gene that harbors at least one driver mutation, though it may also contain passenger mutations \todo{\href{https://www.aiom.it/wp-content/uploads/2019/02/20190524RM_21_Tommasi.pdf}{DO I ADD THIS AS A CITATION???}}. A driver pathway consists of at least one driver gene. Driver mutations, genes, and pathways are of significant scientific interest due to their crucial role in cancer proliferation. \todo{try to expand this section}
 
 \section{Classifying mutations}
 
@@ -22,18 +20,18 @@ With the decreasing cost of DNA sequencing, it is now possible to categorize mut
 
 Moreover, multiple alternative driver alterations in different genes may lead to similar downstream effects. In such instances, the selective advantage is distributed among the alterations frequencies of these genes. In current cancer genomics studies, where the number of samples is significantly smaller than the number of genes profiled per sample, frequency-based methods lack the statistical efficacy to distinguish passenger and driver mutations \cite{mutex}. 
 
-Therefore, studies should be conducted at the pathway level, as it is well established that different mutations can affect the same pathway across multiple samples \cite{multi-dendrix}. However, since each pathway involves multiple genes, numerous possible combinations of driver mutations could impact a crucial cancer pathway, making it computationally unfeasible to test every possible gene permutation \cite{dendrix} --- estimates suggest that the human genome contains more than 50,000 genes \cite{n-genes}. Hence, it is necessary to identify a property to leverage to conduct the research efficiently.
+Therefore, studies should be conducted at the pathway level, as it is well established that different mutations can affect the same pathway across multiple samples \cite{multi-dendrix}. However, since each pathway involves multiple genes, numerous possible combinations of driver mutations could impact a crucial cancer pathway, making it computationally unfeasible to test every possible gene permutation \cite{dendrix} --- estimates suggest that the human genome contains more than 50,000 genes \cite{n-genes}. Hence, it is necessary to identify a property to leverage to conduct a search efficiently.
 
 \subsection{Mutual exclusivity and coverage}
 
-Most techniques developed in recent years for recognizing driver mutations leverage a statistical property observed in cancer patient data: each patient typically has a relatively small number of mutations that affect multiple pathways, thus each pathway will contain \textit{1 driver mutation on average} per sample. This concept of mutual exclusivity among driver mutations within the same pathway, as statistically observed in patient samples, is then axiomatized and employed by research algorithms designed to identify driver mutations \cite{multi-dendrix}. Additionally, mutual exclusivity \textit{does not affect different pathways}; it is a phenomenon that occurs exclusively within a single pathway. While the precise explanation for this occurrence is not yet fully understood, several hypotheses appear promising \cite{survey, mutual_exclusivity_expls, dendrix}:
+Most techniques developed in recent years for recognizing driver mutations leverage a statistical property observed in cancer patient data: each patient typically has a relatively small number of mutations that affect multiple pathways, thus each pathway will contain \textit{1 driver mutation on average} per sample. This concept of mutual exclusivity among driver mutations within the same pathway, as statistically observed in patient samples, is then axiomatized and employed by research algorithms designed to identify driver mutations \cite{multi-dendrix}. Additionally, mutual exclusivity \textit{does not affect different pathways}; it is a phenomenon that occurs exclusively within a single pathway. While the precise explanation for this occurrence is not yet fully understood, several hypotheses appear plausible \cite{survey, mutual_exclusivity_expls, dendrix}:
 
 \begin{itemize}
     \item one hypothesis is that mutually exclusive genes are functionally connected within a common pathway, acting on the same downstream effectors and creating functional redundancy; consequently, they would share the same selective advantage, meaning that the alteration of one mutually exclusive gene would be sufficient to disrupt their shared pathway, thereby removing the selective pressure to alter the others; this explanation, however, does not fully account for the phenomenon because the co-alteration of mutually exclusive genes should not result in negative effects on the cell.
     \item an alternative explanation is that the co-occurrence of mutually exclusive alterations is detrimental to cancer survival, leading to the elimination of cells that harbor such co-occurrences; moreover, some pairs of mutually exclusive genes could be \textit{synthetic lethal}, meaning that while the alteration of one gene may be compatible with cell survival, the simultaneous aberration of both genes would be lethal to the cell \todo{add example from survey paper?; also, use \href{https://www.nature.com/articles/s41467-020-20820-x}{example}? (mail "Risposte (parziali) alle questioni, ERG e SPOP")}.
 \end{itemize}
 
-In addition, another key property of driver pathways is \textbf{coverage}, i.e. driver genes constituting a driver pathway are frequently mutated across many samples. \todo{ho parlato tanto della mutua esclusività e poco della coverage, sembra sbilanciato ma non so veramente cosa aggiungere perché non c'è altro da dire}
+In addition, another key property of driver pathways is \textbf{coverage}, i.e. driver genes constituting a driver pathway are frequently mutated across many samples. \todo{sai che cosa aggiungere, aggiungilo appena puoi}
 
 Thus, \textit{a driver pathway consists of genes that are mutated in numerous patients, with mutations being approximately mutually exclusive}. It is also observed that pathways exhibiting these characteristics are generally shorter and comprised of fewer genes on average \cite{multi-dendrix}.
 
@@ -45,11 +43,11 @@ In the statistical literature, two types of mutual exclusivity are defined: \tex
 
 \subsection{Mutual exclusivity of a group}
 
-Searching for the most mutually exclusive gene group is equivalent to identifying a single driver pathway, for the aforementioned reasons. For a pair of genes, soft mutual exclusivity can be assessed using the \href{https://en.wikipedia.org/wiki/Fisher\%27s_exact_test}{Fisher's exact test}. However, there is no agreed-upon method for analytically testing mutual exclusivity among more than two genes. One approach could involve checking whether each pair of genes within the group exhibits mutual exclusivity; this method, however, may be overly strict, as a gene set can exhibit a strong mutual exclusivity pattern as a whole even if no individual pairs show any \cite{mutex}.
+Searching for the most mutually exclusive gene group is equivalent to identifying a single driver pathway, for the aforementioned reasons. For a pair of genes, soft mutual exclusivity can be assessed using the \href{https://en.wikipedia.org/wiki/Fisher\%27s_exact_test}{Fisher's exact test} \todo{studiati cos'è un minimo}. However, there is no agreed-upon method for analytically testing mutual exclusivity among more than two genes. One approach could involve checking whether each pair of genes within the group exhibits mutual exclusivity; this method, however, may be overly strict, as a gene set can exhibit a strong mutual exclusivity pattern as a whole even if no individual pairs show any \cite{mutex}.
 
-\subsection{Dendrix}
+\subsection{A deterministic equation}
 
-The authors of a very well-known paper, which developed two algorithms called \curlyquotes{Dendrix} \cite{dendrix}, gave the following mathematical formalization to the properties of mutual exclusivity and coverage for a set of genes.
+\textcite{dendrix}, the authors of a landmark paper that developed two algorithm called Dendrix, provided the following mathematical formalization for the properties of mutual exclusivity and coverage for a set of genes.
 
 \begin{definition}[Mutation matrix] \label{mut_matrix_def}
     A \curlyquotes{mutation matrix} is a matrix with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene, and the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
@@ -74,15 +72,13 @@ The authors of a very well-known paper, which developed two algorithms called \c
 \end{example}
 
 \begin{definition}[Coverage of a gene]
-    Given a gene $g$, the \textbf{coverage of $g$} $$\Gamma(g) := \{i \mid a_{i, g} = 1\}$$ denotes the set of patients which have $g$ mutated.
+    Given a gene $g$, the \textbf{coverage of $g$} denotes the set of patients which have $g$ mutated, and it is defined as follows $$\Gamma(g) := \{i \mid a_{i, g} = 1\}$$ 
 \end{definition}
 
 Under the previous definitions of mutual exclusivity, $M$ is \textbf{mutually exclusive} if no patient has more than one mutated gene, formally $$\forall g, g' \in M \quad \Gamma(g) \cap \Gamma(g') = \varnothing$$
 
 \begin{definition}[Coverage of a set]
-    Given a set of $M$ genes, the \textbf{coverage of $M$} $$\Gamma(M) := \bigcup_{g \in M}{\Gamma(g)}$$
-
-denotes the set of patients in which at least one of the genes in $M$ is mutated.
+    Given a set $M$ of genes, the \textbf{coverage of $M$} denotes the set of patients in which at least one of the genes in $M$ is mutated, and it is defined as follows $$\Gamma(M) := \bigcup_{g \in M}{\Gamma(g)}$$
 \end{definition}
 
 Any gene set can be thought of as a $m \times k$ submatrix of a mutation matrix $A$, up to rearranging $A$'s columns --- their order does not matter since they represent genes. Accordingly, such a submatrix is said to be \textbf{mutually exclusive} if each row contains at most one 1.
@@ -116,7 +112,7 @@ Indeed, $\omega(M)$ is the \textit{number of patients that are counted more than
     Given a set of genes $M$, to take into account both coverage and coverage overlap, the following measure is introduced: $$W(M): = \abs{\Gamma(M)} - \omega(M) = 2 \abs{\Gamma(M)} - \sum_{g \in M} {\abs{\Gamma(g)}}$$
 \end{definition}
 
-Note that $W(M) = \Gamma(M)$ when $M$ is mutually exclusive. In order to find an optimal gene set, the following problem has to be solved:
+Note that $W(M) = \Gamma(M)$ when $M$ is mutually exclusive \todo{questa cosa l'ho scritta io pensando che dovesse essere $= 0$ strettamente}. In order to find an optimal gene set, the following problem has to be solved:
 
 \begin{displayquote}\label{mwsp}
     \textbf{Maximum Weight Submatrix Problem}: Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find a $m \times k$ submatrix of $A$ that maximizes $W(M)$.
@@ -124,25 +120,25 @@ Note that $W(M) = \Gamma(M)$ when $M$ is mutually exclusive. In order to find an
 
 Finding the solution to this problem is computationally difficult even for small values of $k$ (e.g. there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes), and it can be proven that it is NP-Hard. \todo{nei materiali supplementari mettono la dimostrazione che questo problema è NP-Hard, lo devo fare?}
 
-\subsection{Multi-Dendrix} \label{multi_dendrix_2nd_chap}
+\subsection{Extending the deterministic equation} \label{multi_dendrix_2nd_chap} \todo{considera di spostare questo alla fine}
 
-Multi-Dendrix aims to refine Dendrix's weight function to extend the metric to assess mutual exclusivity across multiple driver pathways. In particular, while identifying individual driver pathways is crucial, most cancer patients are likely to have driver mutations across multiple pathways.
+\textcite{multi-dendrix} refine the weight function of \textcite{dendrix}, aiming to extend the metric to assess mutual exclusivity across multiple driver pathways. In particular, while identifying individual driver pathways is crucial, most cancer patients are likely to have driver mutations across multiple pathways.
 
-To effectively identify multiple driver pathways, it is necessary to establish criteria for evaluating potential \textit{collections of gene sets}. Based on the same biological reasoning mentioned earlier, it is expected that each pathway will contain approximately one driver mutation. Furthermore, since each driver pathway is crucial for cancer development, it is expected that most patients will harbor a driver mutation in most driver pathways. Consequently, high exclusivity is predicted within the genes of each pathway, along with high coverage of each pathway individually. One metric that meets these criteria is to find a collection $M = \{M_1, \ldots, M_t\}$ of gene sets which maximizes the sum of individual weights, i.e. $\sum_{\rho = 1}^t {W(M_\rho)}$ \cite{multi-dendrix}.
+To effectively identify multiple driver pathways, it is necessary to establish criteria for evaluating potential \textit{collections of gene sets}. Based on the same biological reasoning mentioned earlier, it is expected that each pathway will contain approximately one driver mutation. Furthermore, since each driver pathway is crucial for cancer development, it is expected that most patients will harbor a driver mutation in most driver pathways. Consequently, high exclusivity is predicted within the genes of each pathway, along with high coverage of each pathway individually. One metric that meets these criteria is to find a collection $M = \{M_1, \ldots, M_t\}$ of gene sets which maximizes the sum of individual weights, i.e. $\sum_{\rho = 1}^t {W(M_\rho)}$.
 
-\subsection{Mutex}
+\subsection{A statistical approach}
 
-Mutex's authors \todo{in questo ambito si riferiscono tutti per cognome, esempio Vandin et. al, dovrei farlo anche io o posso limitarmi a scrivere "authors?"} criticize Dendrix's metric because it has a strong bias toward highly mutated genes, and in some instances, the excessive emphasis on coverage leads to false positives and negatives. \todo{ci sono esempi in file supplementari, li guardo?}. They propose a metric that extends Fisher's exact test --- also known as \textit{hypergeometric test} --- to quantify the mutual exclusivity between multiple measurements \cite{mutex}.
+\textcite{mutex} criticize the metric developed by \textcite{dendrix} because it has a strong bias toward highly mutated genes, and in some instances, the excessive emphasis on coverage leads to false positives and negatives. \todo{ci sono esempi in file supplementari, li guardo?}. They propose a metric that extends Fisher's exact test --- also known as \textit{hypergeometric test} --- to quantify the mutual exclusivity between multiple measurements.
 
 Specifically, the alteration of a pair of genes is defined to be \textbf{mutually exclusive} \textit{if their overlap in samples is significantly less than expected by chance}, and this can be assessed through a hypergeometric test. \todo{\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4590705/}{QUESTO} paper fa vedere in dettaglio come si fa, sono sicuro al 99\% che si tratti della stessa cosa, lo inserisco?} It is important to note that a uniform alteration frequency across may not always hold, particularly for hyper-mutated samples often resulting from prior mutations in DNA repair mechanisms. Addressing this heterogeneity is challenging, as each overlap in the null model has a different probability. This remains an open problem, and to partially mitigate it, albeit at the cost of statistical power, hyper-altered samples are excluded from the analysis. \todo{specificare quali di preciso? non mi sembra rilevante}
 
-Mutex's authors also developed a metric to assess the mutual exclusivity of a group of genes. Consider the following null hypothesis:
+\textcite{mutex} also developed a metric to assess the mutual exclusivity of a group of genes. Consider the following null hypothesis:
 
 \begin{displayquote}
     $H_0$: \textit{The specific member gene in the group is altered independently from the union of other alterations in the group}.
 \end{displayquote}
 
-Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $i \in M$, mutations in $\Gamma(i)$ are independent of alterations in $\Gamma(M - \{i\})$. $H_0$ is then tested for each $i \in M$ by evaluating the co-distribution of $i$ with the union of the others through Fisher's exact test \todo{non so come funziona di preciso il test di Fisher, dovrei vederlo?}, generating $\abs{M}$ $p$-values. These $p$-values represent the probabilities for the independent distribution of each member gene \todo{i'm not sure i know what this means}. To ensure that every group member contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of the group. Using Dendrix's notation
+Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $i \in M$, mutations in $\Gamma(i)$ are independent of alterations in $\Gamma(M - \{i\})$. $H_0$ is then tested for each $i \in M$ by evaluating the co-distribution of $i$ with the union of the others through Fisher's exact test, generating $\abs{M}$ $p$-values. These $p$-values represent the probabilities for the independent distribution of each member gene \todo{i'm not sure i know what this means}. To ensure that every group member contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of the group. Using Dendrix's notation
 
 \begin{equation}
     s_0 := \max_{i \in M} {H \abk{\Gamma(i), \Gamma(M - \{i\})}}
@@ -152,9 +148,9 @@ where $s_0$ is the initial score, and $H$ is the hypergeometric test. Since mult
 
 From this second set of $p$-values, the least significant one is selected as the multiple hypothesis testing corrected final score. \todo{talk about the last paragraph, which is even less comprehensible}
 
-\subsection{C3}
+\subsection{A clustering approach}
 
-Another notable approach utilized in several papers involves constructing gene graphs and identifying clusters based on specific criteria. This method is demonstrated by the authors of C3 \cite{c3}.
+Another notable approach utilized in several papers involves constructing gene graphs and identifying clusters based on specific criteria; this method is demonstrated by \textcite{c3}.
 
 Let $G = (V, E)$ be a \textit{complete graph} of genes, thus an edge exists between any pair of vertices. Each edge $(u, v) \in E(G)$ is assigned two weights:
 

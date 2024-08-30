@@ -66,7 +66,7 @@
       {Springer Science}%
       {Business Media LLC}%
     }
-    \strng{namehash}{BOGMABA+1}
+    \strng{namehash}{BO+1}
     \strng{fullhash}{BOGMABASNCGSCDE1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -116,7 +116,7 @@
     \list{publisher}{1}{%
       {Informa UK Limited}%
     }
-    \strng{namehash}{CJBMO1}
+    \strng{namehash}{CJ+1}
     \strng{fullhash}{CJBMO1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -182,106 +182,6 @@
     \endverb
     \field{month}{08}
     \field{year}{2024}
-  \endentry
-
-  \entry{dendrix}{article}{}
-    \name{author}{12}{}{%
-      {{hash=DY}{%
-         family={Deng},
-         familyi={D\bibinitperiod},
-         given={Yulan},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=LS}{%
-         family={Luo},
-         familyi={L\bibinitperiod},
-         given={Shangyi},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=DC}{%
-         family={Deng},
-         familyi={D\bibinitperiod},
-         given={Chunyu},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=LT}{%
-         family={Luo},
-         familyi={L\bibinitperiod},
-         given={Tao},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=YW}{%
-         family={Yin},
-         familyi={Y\bibinitperiod},
-         given={Wenkang},
-         giveni={W\bibinitperiod},
-      }}%
-      {{hash=ZH}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={Hongyi},
-         giveni={H\bibinitperiod},
-      }}%
-      {{hash=ZY}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={Yong},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=ZX}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={Xinxin},
-         giveni={X\bibinitperiod},
-      }}%
-      {{hash=LY}{%
-         family={Lan},
-         familyi={L\bibinitperiod},
-         given={Yujia},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=PY}{%
-         family={Ping},
-         familyi={P\bibinitperiod},
-         given={Yanyan},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=XY}{%
-         family={Xiao},
-         familyi={X\bibinitperiod},
-         given={Yun},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=LX}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Xia},
-         giveni={X\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Oxford University Press (OUP)}%
-    }
-    \strng{namehash}{DYLSDC+1}
-    \strng{fullhash}{DYLSDCLTYWZHZYZXLYPYXYLX1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{D}
-    \field{sortinithash}{D}
-    \verb{doi}
-    \verb 10.1093/bib/bbx109
-    \endverb
-    \field{issn}{1477-4054}
-    \field{number}{1}
-    \field{pages}{254–266}
-    \field{title}{Identifying mutual exclusivity across cancer genomes: computational approaches to discover genetic interaction and reveal tumor vulnerability}
-    \verb{url}
-    \verb http://dx.doi.org/10.1093/bib/bbx109
-    \endverb
-    \field{volume}{20}
-    \field{journaltitle}{Briefings in Bioinformatics}
-    \field{month}{08}
-    \field{year}{2017}
   \endentry
 
   \entry{survey}{article}{}
@@ -362,7 +262,7 @@
     \list{publisher}{1}{%
       {Oxford University Press (OUP)}%
     }
-    \strng{namehash}{DYLSDC+1}
+    \strng{namehash}{DY+1}
     \strng{fullhash}{DYLSDCLTYWZHZYZXLYPYXYLX1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -415,7 +315,7 @@
       {Springer Science}%
       {Business Media LLC}%
     }
-    \strng{namehash}{FCAMDWO+1}
+    \strng{namehash}{FC+1}
     \strng{fullhash}{FCAMDWOVJC1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -492,7 +392,7 @@
       {Springer Science}%
       {Business Media LLC}%
     }
-    \strng{namehash}{FPACLMM+1}
+    \strng{namehash}{FPA+1}
     \strng{fullhash}{FPACLMMDTHTWRRNSMR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -550,7 +450,7 @@
     \list{publisher}{1}{%
       {Oxford University Press (OUP)}%
     }
-    \strng{namehash}{HJPEAPGJ+1}
+    \strng{namehash}{HJP+1}
     \strng{fullhash}{HJPEAPGJMJMO1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -644,7 +544,7 @@
     \list{publisher}{1}{%
       {Public Library of Science (PLoS)}%
     }
-    \strng{namehash}{LMDMBDSR+1}
+    \strng{namehash}{LMDM+1}
     \strng{fullhash}{LMDMBDSRRBJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -725,6 +625,52 @@
     \field{year}{2022}
   \endentry
 
+  \entry{dendrix}{article}{}
+    \name{author}{3}{}{%
+      {{hash=VF}{%
+         family={Vandin},
+         familyi={V\bibinitperiod},
+         given={Fabio},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=UE}{%
+         family={Upfal},
+         familyi={U\bibinitperiod},
+         given={Eli},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=RBJ}{%
+         family={Raphael},
+         familyi={R\bibinitperiod},
+         given={Benjamin\bibnamedelima J.},
+         giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cold Spring Harbor Laboratory}%
+    }
+    \strng{namehash}{VF+1}
+    \strng{fullhash}{VFUERBJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \verb{doi}
+    \verb 10.1101/gr.120477.111
+    \endverb
+    \field{issn}{1088-9051}
+    \field{number}{2}
+    \field{pages}{375–385}
+    \field{title}{De novo discovery of mutated driver pathways in cancer}
+    \verb{url}
+    \verb http://dx.doi.org/10.1101/gr.120477.111
+    \endverb
+    \field{volume}{22}
+    \field{journaltitle}{Genome Research}
+    \field{month}{06}
+    \field{year}{2011}
+  \endentry
+
   \entry{Vogelstein2004}{article}{}
     \name{author}{2}{}{%
       {{hash=VB}{%
@@ -744,7 +690,7 @@
       {Springer Science}%
       {Business Media LLC}%
     }
-    \strng{namehash}{VBKKW1}
+    \strng{namehash}{VB+1}
     \strng{fullhash}{VBKKW1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -796,7 +742,7 @@
     \list{publisher}{1}{%
       {Oxford University Press (OUP)}%
     }
-    \strng{namehash}{ZJZSWLY+1}
+    \strng{namehash}{ZJ+1}
     \strng{fullhash}{ZJZSWLYZXS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
