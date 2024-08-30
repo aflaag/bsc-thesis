@@ -2,7 +2,6 @@
 
 ## Domande
 
-- risolvere il problema di $\omega(M) \ge 0$ in dendrix
 - risolvere il problema di $m x k$ in multi-dendrix
 
 ## TODO list
