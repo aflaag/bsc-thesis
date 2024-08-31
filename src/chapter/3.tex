@@ -28,7 +28,7 @@ and a set of indicator variables, one for each patient $i$, expressed in this fo
     $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$ is defined by the following ILP:
 
     \begin{equation} \label{weight_dendrix_ilp}
-        \mathrm{maximize} \sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}}
+        \mathrm{maximize} \sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}},
     \end{equation}
 
     \begin{equation} \label{second_constr_dendrix_ilp}
@@ -40,7 +40,7 @@ and a set of indicator variables, one for each patient $i$, expressed in this fo
     \end{equation}
 
     \begin{equation*}
-        \mathrm{for\ } 1 \le i \le m
+        \mathrm{for\ } 1 \le i \le m.
     \end{equation*}
 \end{definition}
 
@@ -75,7 +75,7 @@ Note that this problem is NP-Hard, as for the case $t = 1$. Furthermore, collect
     $\mathrm{Multi}$-$\mathrm{dendrix}$ is defined by the following ILP:
 
     \begin{equation} \label{weight_multi-dendrix_ilp}
-        \mathrm{maximize} \sum_{\rho = 1}^t {\sum_{i = 1}^m {\rbk{2 \cdot C_i(M_\rho) - \sum_{j = 1}^n I_{M_\rho}(j) \cdot a_{i, j}}}}
+        \mathrm{maximize} \sum_{\rho = 1}^t {\sum_{i = 1}^m {\rbk{2 \cdot C_i(M_\rho) - \sum_{j = 1}^n I_{M_\rho}(j) \cdot a_{i, j}}}},
     \end{equation}
 
     \begin{equation} \label{second_constr_multi-dendrix_ilp}
@@ -232,19 +232,19 @@ placeholder. \todo{per la foto eventualmente}
 
 These findings indicate that network distance and connectivity information should be considered when identifying potential driver mutations. This can be achieved by adjusting the positive weight of edges connecting two genes: if both endpoint genes are drivers, they should be sufficiently central within a given pathway, close to other known drivers or to each other.
 
-From the KEGG Database \cite{kegg}, a (rather sparse) undirected graph $G'$ was retrieved, where each vertex represents a gene and the edges describe interactions between them. Note that $\abs{V(G)} = \abs{V(G')} = n$. For each vertex $u \in V(G')$, let $\mathscr{N}(u)$ denote the set of neighbors of $u$, and let $\mathscr{N}'(u) = \mathscr{N}(u) \cup \{u\}$. Also, let
+From the KEGG Database \cite{kegg}, a (rather sparse) undirected graph $G'$ was retrieved, where each vertex represents a gene and the edges describe interactions between them. Note that $\abs{V(G)} = \abs{V \left(G' \right)} = n$. For each vertex $u \in V \left(G' \right)$, let $\mathscr{N}(u)$ denote the set of neighbors of $u$, and let $\mathscr{N}'(u) = \mathscr{N}(u) \cup \{u\}$. Also, let
 
 \begin{equation}
     f(u, v) := \dfrac{\abs{\mathscr{N}'(u) \cap \mathscr{N}'(v)}}{\abs{\mathscr{N}'(u) \cup \mathscr{N}'(v)}}
 \end{equation}
 
-which is known as the \href{https://en.wikipedia.org/wiki/Jaccard_index}{Jaccard similarity coefficient}; furthermore, let
+which is known as the \href{https://en.wikipedia.org/wiki/Jaccard_index}{Jaccard similarity coefficient}; a large value of $f(u, v)$ indicates that $u$ and $v$ are well connected in $G'$ and are likely involved in the same pathway, suggesting that they should be clustered together. Furthermore, let
 
 \begin{equation}
-    \mathscr{F} := \{f(u, v) \mid u, v \in V(G')\}
+    \mathscr{F} := \{f(u, v) \mid u, v \in V\rbk{G'}\}
 \end{equation}
 
-and let $T'(J')$ be the $J'$-the percentile of the values in $\mathscr F$. A large value of $f(u, v)$ indicates that $u$ and $v$ are well connected in $G'$ and are likely involved in the same pathway, suggesting that they should be clustered together.
+and let $T'(J')$ be the $J'$-the percentile of the values in $\mathscr F$.
 
 \begin{definition}[Network information component]
     The \textbf{network information component} is defined as follows: $$w_{uv}^+(\mathrm n) := \soe{ll}{1 & f(u, v) > T'(J') \\ \dfrac{f(u, v)}{T'(J')} & f(u, v) \le T'(J')}$$
@@ -268,6 +268,138 @@ placeholder. \todo{parlare del rescaling?}
 
 \subsection{EX-ME-CO}
 
-placeholder. \todo{todo}
+Expression data may be integrated through the positive weights, based on the assumption that co-expressed genes are likely to be involved in the same function or cancer pathway. Therefore, genes with strong positive or negative co-expression should be encouraged to cluster together.
+
+Given a vertex $u \in V(G)$, let $\mathrm {\mathbf z(u)}$ be the vector of the time-evolving expression values of $u$ \todo{la prima volta che lessi questo paper non trovai niente sul dove presero queste informazioni, e tutt'ora non mi pare che lo menzionino da nessuna parte; scrivono solo che le informazioni le prendono dal TCGA e dal KEGG, suppongo a questo punto che queste info siano ottenibili dal TCGA ma dovrei controllare manualmente}. Thus, let
+
+\begin{equation}
+    g(u, v) := \dfrac{\abs{\abk{\mathrm{\mathbf z(u)}, \mathrm{\mathbf z(v)}}}}{\abs{\abs{\mathrm{\mathbf z(u)}}} \abs{\abs{\mathrm{\mathbf z(v)}}}}
+\end{equation}
+
+where $\abk{\mathrm{\mathbf a}, \mathrm{\mathbf b}}$ denotes the inner product of the vectors $\mathrm{\mathbf a}$ and $\mathrm{\mathbf b}$, while $\abs{\abs{\mathrm{\mathbf a}}}$ stands for its $L^2$ norm. This equation is known as the \href{https://en.wikipedia.org/wiki/Cosine_similarity}{cosine similarity}, since the ratio that defines $g(u, v)$ is equal to the cosine of the angle between $\mathrm {\mathbf z(u)}$ and $\mathrm {\mathbf z(v)}$ --- the only difference being the absolute value in the numerator to capture both positive and negative correlations \todo{questa frase l'ho copiata da loro ma non capisco in che senso}. A large value of $g(u, v)$ suggests that the expression vectors of $u$ and $v$ are highly correlated, hence they should be clustered together. Note that $$\forall u, v \in V(G) \quad 0 \le g(u, v) \le 1$$ Moreover, let
+
+\begin{equation}
+    \mathscr G := \{g(u, v) \mid u, v \in V(G)\}
+\end{equation}
+
+and let $T''(J'')$ be the $J''$-th percentile of the values in $\mathscr G$.
+
+\begin{definition}[Expression data component]
+    The \textbf{expression data component} is defined as follows: $$w_{uv}^+(\mathrm x) := \soe{ll}{1 & g(u, v) > T''(J'') \\ \dfrac{g(u, v)}{T''(J'')} & g(u, v) \le T''(J'')}$$
+\end{definition}
+
+\begin{definition}[EX-ME-CO]
+    The \textbf{EX-ME-CO} version of the algorithm is defined by the following equations:
+
+    \begin{equation}
+        \forall u, v \in V(G) \quad w_{uv}^- := w_{uv}^-(\mathrm e)
+    \end{equation}
+
+    \begin{equation}
+        \forall w_{uv}^+ := w_1 w_{uv}^+(\mathrm c) + w_2 w_{uv}^+(\mathrm x)
+    \end{equation}
+
+    where $w_1, w_2 \ge 0$ and $w_1 + w_2 = 1$.
+\end{definition}
+
+placeholder. \todo{parlare del rescaling?}
+
+\subsection{Other versions}
+
+\textcite{c3} also mention that other combinations can be used, with appropriate adjustments to the weights, such as the following version, which will be referred to as NI-EX-ME-CO \todo{loro non danno un nome ma glielo sto dando io, è un problema?}.
+
+\begin{definition}[NI-EX-ME-CO]
+    The \textbf{NI-EX-ME-CO} version of the algorithm is defined by the following equations:
+
+    \begin{equation}
+        \forall u, v \in V(G) \quad w_{uv}^- := w_{uv}^-(\mathrm e)
+    \end{equation}
+
+    \begin{equation}
+        \forall w_{uv}^+ := w_1 w_{uv}^+(\mathrm c) + w_2 w_{uv}^+(\mathrm n) + w_3 w_{uv}^+(\mathrm x)
+    \end{equation}
+
+    where $w_1, w_2, w_3 \ge 0$ and $w_1 + w_2 + w_3 = 1$.
+\end{definition}
+
+\subsection{The clustering ILP}
+
+The classical formulation of correlation clustering does not impose any restrictions on cluster sizes. However, all known driver identification methods inherently include cluster size limits, as these sizes directly affect the computational complexity of the algorithms \todo{portano l'esempio di un altro algoritmo chiamato CoMEt che oltre size 10-12 "fails to operate", ha senso inserirlo? forse si}. Therefore, \textcite{c3} introduce a cluster size constraint by assuming that all clusters are of size $k$ at most; clearly, setting $k$ equal to the total number of vertices effectively removes this constraint, allowing flexibility in cluster size selection.
+
+Another reason for imposing a cluster size limit is the expectation that driver genes of specific cancer types will be grouped together, and recent findings indicate that only a small number of drivers are typically present in any given cancer type \todo{non menzionano nessuna fonte dalla quale tirano fuori questa informazione, ritrovatela da solo e aggiungi qualcosa}. If clusters are too large, they may include drivers from multiple cancer types, hiding the detailed separation of the drivers. Furthermore, introducing cluster size constraints helps to avoid the limitations of many clustering algorithms that often produce non-informative \curlyquotes{giant clusters} or singleton clusters \todo{di nuovo, non ci sono citazioni o esempi menzionati, ma vorrei mettecene}.
+
+\begin{definition}[C3' ILP] \label{c3_ilp}
+    The \textbf{C3 algorithm} can be defined by the following ILP:
+
+    \begin{equation} \label{c3_first}
+        \mathrm{minimize} \sum_{e \in E(G)} (w_e^+x_e + w_e^-(1 - x_e)),
+    \end{equation}
+
+    \begin{equation} \label{c3_second}
+        \mathrm{subject \ to} x_{uv} \le x_{uz} + x_{zv}, \ u, v, z \in V(G) \mathrm{\ distinct},
+    \end{equation}
+
+    \begin{equation} \label{c3_third}
+        \sum_{v \in V(G) \atop u \neq v} (1 - x_{uv}) \le k, \ u \in V(G),
+    \end{equation}
+
+    \begin{equation} \label{c3_fourth}
+        x_e \in \{0, 1\}, \ e \in E(G).
+    \end{equation}
+\end{definition}
+
+In this formulation, $x_e$ allow to describe any clustering of the vertices of $G$, since $x_e \in \{0, 1\}$; also, note that \cref{c3_first} aligns with the definition provided in \cref{c3_chap2}, in fact $x_{uv} = 1$ implies that $u$ and $v$ should belong to different clusters, while $x_{uv} = 0$ implies that the two vertices should be placed into the same cluster. Furthermore, \cref{c3_third} states that for a fixed vertex $u \in V(G)$, the number of variables $x_{uv}$ equal to 0 --- for any $v \in V(G)$ such that $u \neq v$, meaning that $u$ and $v$ are adjacent and in the same cluster --- must not exceed $k$. Lastly, \cref{c3_second} is the \href{https://en.wikipedia.org/wiki/Triangle_inequality}{triangle inequality}, which ensures that if $u$ and $z$ are placed in the same cluster, and $z$ and $v$ are also placed in the same cluster, then $u$ and $v$ will be placed in the same clustered. This means that belonging to the same cluster is a transitive property \todo{dopo aver scritto questo mi sono fatto una domanda alla quale non trovo risposta nel paper: i cluster si possono intersecare? io non direi altrimenti questa definizione sottoforma di ILP non credo potrebbe avere senso, giusto?}, since $$\soe{l}{x_{uz} = 0 \\ x_{zv} = 0 \\ x_{uv} \le x_{uz} + x_{zv}} \implies x_{uv} = 0$$
+
+\subsection{The rounding procedure}
+
+Since solving ILPs is NP-Hard, \textcite{c3} relax the problem by changing \cref{c3_fourth} to an interval constraint $$0 \le x_e \le 1$$ leading to an LP program, the solution of which may be fractional. Hence, to obtain a valid clustering, the fractional solutions have to be rounded. Therefore, instead of solving the LP, \textcite{c3} remove \cref{c3_third} from the linear program, and employ a rounding procedure.
+
+\begin{algorithm}[H]
+    \caption{
+        \textit{Rounding procedure}: given a solution $\{x_e\}_{e \in E(G)}$ of \cref{c3_ilp} (without the size constraint \cref{c3_third}), a rational value $\alpha$, and an integer $k$, the algorithm rounds the solution to integer values.
+    }
+
+        \label{rounding_procedure}
+    \begin{algorithmic}[1]
+        \Function{roundingProcedure}{$G$, $\{x_e\}_{e \in E(G)}$, $\alpha$, $k$}
+            \State $\mathcal C := \varnothing$ \Comment{the output set of clusters}
+            \State $S := V(G)$
+            \While{$S \neq \varnothing$}
+                \State $u \in S$ \Comment{this is the \textit{pivot vertex}}
+                \State $T := \{w \in S - \{u\} \mid x_{uw} \le \alpha\}$ \Comment{$u$'s neighbors under $\alpha$'s threshold}
+                \If{$\sum_{w \in T}{x_{uw}} \ge \frac{\alpha}{2}\abs{T}$} \Comment{TODO ADD COMMENT}
+                    \State $\mathcal C = \mathcal C \cup \{u\}$ \Comment{TODO ADD COMMENT}
+                    \State $S = S - \{u\}$
+                \ElsIf{$\abs{T} \le k$}
+                    \State $\mathcal C = \mathcal C \cup \rbk{\{u\} \cup T}$
+                    \State $S = S - \rbk{\{u\} \cup T}$
+                \Else
+                    \State TODO DA FINIRE E AGGIUNGERE COMMENTI
+                    \State $S = S - \rbk{\{u\} \cup T}$
+                \EndIf
+            \EndWhile
+            \State \textbf{return} $\mathcal C$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
+
+\begin{definition}[C3] \label{c3_final}
+    The \textbf{C3 algorithm} is defined as follows: first, this ILP is solved
+
+    \begin{equation}
+        \mathrm{minimize} \sum_{e \in E(G)} (w_e^+x_e + w_e^-(1 - x_e)),
+    \end{equation}
+
+    \begin{equation}
+        \mathrm{subject \ to} x_{uv} \le x_{uz} + x_{zv}, \ u, v, z \in V(G) \mathrm{\ distinct},
+    \end{equation}
+
+    \begin{equation}
+        0 \le x_e \le 1, \ e \in E(G).
+    \end{equation}
+
+    then, the rounding procedure defined in \cref{rounding_procedure} is applied.
+
+\end{definition}
 
 \cleardoublepage
