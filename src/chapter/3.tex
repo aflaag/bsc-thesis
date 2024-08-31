@@ -336,7 +336,7 @@ Another reason for imposing a cluster size limit is the expectation that driver 
     \end{equation}
 
     \begin{equation} \label{c3_second}
-        \mathrm{subject \ to} x_{uv} \le x_{uz} + x_{zv}, \ u, v, z \in V(G) \mathrm{\ distinct},
+        \mathrm{subject \ to \ } x_{uv} \le x_{uz} + x_{zv}, \ u, v, z \in V(G) \mathrm{\ distinct},
     \end{equation}
 
     \begin{equation} \label{c3_third}
@@ -365,16 +365,20 @@ Since solving ILPs is NP-Hard, \textcite{c3} relax the problem by changing \cref
             \State $\mathcal C := \varnothing$ \Comment{the output set of clusters}
             \State $S := V(G)$
             \While{$S \neq \varnothing$}
-                \State $u \in S$ \Comment{this is the \textit{pivot vertex}}
+                \State Choose an arbitrary $u \in S$ \Comment{this is the \textit{pivot vertex}}
                 \State $T := \{w \in S - \{u\} \mid x_{uw} \le \alpha\}$ \Comment{$u$'s neighbors under $\alpha$'s threshold}
-                \If{$\sum_{w \in T}{x_{uw}} \ge \frac{\alpha}{2}\abs{T}$} \Comment{TODO ADD COMMENT}
-                    \State $\mathcal C = \mathcal C \cup \{u\}$ \Comment{TODO ADD COMMENT}
+                \If{$\sum_{w \in T}{x_{uw}} \ge \frac{\alpha}{2}\abs{T}$}
+                    \State $\mathcal C = \mathcal C \cup \{u\}$ \Comment{add a singleton cluster $\{u\}$}
                     \State $S = S - \{u\}$
                 \ElsIf{$\abs{T} \le k$}
-                    \State $\mathcal C = \mathcal C \cup \rbk{\{u\} \cup T}$
+                    \State $\mathcal C = \mathcal C \cup \rbk{\{u\} \cup T}$ \Comment{add the cluster $(\{u\} \cup T)$}
                     \State $S = S - \rbk{\{u\} \cup T}$
                 \Else
-                    \State TODO DA FINIRE E AGGIUNGERE COMMENTI
+            \State Partition $T$ into $\{T_0', T_1, \ldots, T_p\}$, such that: \begin{itemize} \item[] \quad \quad \quad \quad $\sbullet \ \abs{T_0'} = k$ \item[] \quad \quad \quad \quad $\sbullet \ \abs{T_i} = k + 1$ for each $0 < i < p$ \item[] \quad \quad \quad \quad $\sbullet \ \abs{T_p} \le k + 1$ \end{itemize}
+                    \State $T_0 := T_0' \cup \{u\}$ \Comment{$T_0$ as $k + 1$ elements}
+                    \For{$i \in [0, p]$}
+                        \State $\mathcal C = \mathcal C \cup T_i$ \Comment{add each partition as a cluster}
+                    \EndFor
                     \State $S = S - \rbk{\{u\} \cup T}$
                 \EndIf
             \EndWhile
@@ -383,22 +387,36 @@ Since solving ILPs is NP-Hard, \textcite{c3} relax the problem by changing \cref
     \end{algorithmic}
 \end{algorithm}
 
+placeholder. \todo{volevo dare una spiegazione a parole dell'algoritmo ma dopo averlo scritto mi sono reso conto che è abbastanza autoesplicativo, l'unica cosa che è un po vaga è la condizione della riga 7 che non comprendo del tutto}
+
+placeholder. \todo{nel materiale supplementare trattano di un valore ottimale per $\alpha$, lo vedo?}
+
+% The algorithm starts by defining an empty set $\mathcal C$, which will contain the clusters of $G$, and a set $S = V(G)$, which will be used to partition $V(G)$. Until $S$ is not empty, repeat the following:
+%
+% \begin{itemize}
+%     \item choose an arbitrary vertex $u \in S$, which will be referred to as the \textit{pivot vertex};
+%     \item define $T$ to be the set of the pivot's neighbors $w$ such that $x_{uw}$ is less than the given threshold $\alpha$;
+%     \item if the sum of the elements of $T$ is more than half of the elements comprising $T$, scaled by $\alpha$ \todo{non capisco perché moltiplicano per $\alpha$}, then add a singleton cluster $\{u\}$ to $\mathcal C$ and remove the pivot from $S$;
+%     \item otherwise, if the number of filtered neighbors of the pivot is at most $k$, create a $\{u\} \cup T$ cluster and remove every of its vertices from $S$;
+%     \item if none of the previous conditions were met, than $T$ must be partitioned into $k + 1$ sized clusters, one of which must contain the pivot (and obviously there may be a set with less vertices).
+% \end{itemize}
+
 \begin{definition}[C3] \label{c3_final}
-    The \textbf{C3 algorithm} is defined as follows: first, this ILP is solved
+    The \textbf{C3 algorithm} is defined as follows: first, the next ILP is solved
 
     \begin{equation}
         \mathrm{minimize} \sum_{e \in E(G)} (w_e^+x_e + w_e^-(1 - x_e)),
     \end{equation}
 
     \begin{equation}
-        \mathrm{subject \ to} x_{uv} \le x_{uz} + x_{zv}, \ u, v, z \in V(G) \mathrm{\ distinct},
+        \mathrm{subject \ to \ } x_{uv} \le x_{uz} + x_{zv}, \ u, v, z \in V(G) \mathrm{\ distinct},
     \end{equation}
 
     \begin{equation}
         0 \le x_e \le 1, \ e \in E(G).
     \end{equation}
 
-    then, the rounding procedure defined in \cref{rounding_procedure} is applied.
+    and then the rounding procedure defined in \cref{rounding_procedure} is applied.
 
 \end{definition}
 

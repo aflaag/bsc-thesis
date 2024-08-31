@@ -575,6 +575,7 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr9.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmcsc10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
 INPUT ./chapter/ack.tex
 INPUT ./chapter/ack.tex
 INPUT ./chapter/ack.tex
