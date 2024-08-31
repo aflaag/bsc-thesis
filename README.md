@@ -6,6 +6,8 @@
 
 ## TODO list
 
+- passa tutto a ly
+
 - consistency nella notazione
 
 - capire come aumentare lo spazio tra table e caption
