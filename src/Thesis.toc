@@ -8,43 +8,40 @@
 \contentsline {subsection}{\numberline {1.2.2}Therapy types}{2}{subsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.2.3}Approaches}{3}{subsection.1.2.3}%
 \contentsline {subsection}{\numberline {1.2.4}Drawbacks}{4}{subsection.1.2.4}%
-\contentsline {paragraph}{Direct target reactivation}{4}{section*.7}%
-\contentsline {paragraph}{Oncogenic pathway signals activation}{4}{section*.8}%
-\contentsline {paragraph}{Alternative oncogenic pathways engagement}{4}{section*.9}%
-\contentsline {paragraph}{Adaptive survival mechanisms}{4}{section*.10}%
-\contentsline {subsection}{\numberline {1.2.5}Side effects}{5}{subsection.1.2.5}%
-\contentsline {paragraph}{DAEs}{5}{section*.11}%
-\contentsline {paragraph}{Gastrointestinal toxicity}{5}{section*.12}%
-\contentsline {paragraph}{Lung problems}{5}{section*.13}%
-\contentsline {chapter}{\numberline {2}Classifying mutations}{7}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Mutations}{7}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Passenger and driver mutations}{7}{subsection.2.1.1}%
-\contentsline {section}{\numberline {2.2}Classifying mutations}{8}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Frequency}{8}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Mutual exclusivity and coverage}{8}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Mutual exclusivity formalization}{9}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Hard and soft mutual exclusivity}{9}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Mutual exclusivity of a group}{9}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}A deterministic equation}{10}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Extending the deterministic equation}{11}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}A statistical approach}{12}{subsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.3.6}A clustering approach}{13}{subsection.2.3.6}%
-\contentsline {chapter}{\numberline {3}Finding driver mutations}{16}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Dendrix}{16}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Multi-Dendrix}{16}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}An alternative solution to Dendrix}{16}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}The ILP}{18}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}MDPFinder}{19}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}The genetic algorithm}{19}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}The integration procedure}{21}{subsection.3.3.2}%
-\contentsline {section}{\numberline {3.4}Mutex}{21}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}A greedy approach}{21}{subsection.3.4.1}%
-\contentsline {section}{\numberline {3.5}C3}{22}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Multiple versions}{22}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}The standard version}{22}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Integrating network information}{23}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Integrating expression data}{24}{subsection.3.5.4}%
-\contentsline {subsection}{\numberline {3.5.5}Other versions}{25}{subsection.3.5.5}%
-\contentsline {subsection}{\numberline {3.5.6}The clustering ILP}{25}{subsection.3.5.6}%
-\contentsline {subsection}{\numberline {3.5.7}The rounding procedure}{26}{subsection.3.5.7}%
-\contentsline {chapter}{Acknowledgements}{28}{chapter*.62}%
+\contentsline {subsection}{\numberline {1.2.5}Side effects}{4}{subsection.1.2.5}%
+\contentsline {paragraph}{DAEs}{4}{section*.6}%
+\contentsline {paragraph}{Gastrointestinal toxicity}{5}{section*.7}%
+\contentsline {paragraph}{Lung problems}{5}{section*.8}%
+\contentsline {subsection}{\numberline {1.2.6}TODO}{5}{subsection.1.2.6}%
+\contentsline {chapter}{\numberline {2}Classifying mutations}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Mutations}{6}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Passenger and driver mutations}{6}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Classifying mutations}{7}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Frequency}{7}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Mutual exclusivity and coverage}{7}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Mutual exclusivity formalization}{8}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Hard and soft mutual exclusivity}{8}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Mutual exclusivity of a group}{8}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}A deterministic equation}{9}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Extending the deterministic equation}{10}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}A statistical approach}{11}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}A clustering approach}{12}{subsection.2.3.6}%
+\contentsline {chapter}{\numberline {3}Finding driver mutations}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Dendrix}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Multi-Dendrix}{15}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}An alternative solution to Dendrix}{15}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}The ILP}{17}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}MDPFinder}{18}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}The genetic algorithm}{18}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}The integration procedure}{20}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Mutex}{20}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}A greedy approach}{20}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}C3}{21}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Multiple versions}{21}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}The standard version}{21}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Integrating network information}{22}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Integrating expression data}{23}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}Other versions}{24}{subsection.3.5.5}%
+\contentsline {subsection}{\numberline {3.5.6}The clustering ILP}{24}{subsection.3.5.6}%
+\contentsline {subsection}{\numberline {3.5.7}The rounding procedure}{25}{subsection.3.5.7}%
+\contentsline {chapter}{Acknowledgements}{27}{chapter*.58}%

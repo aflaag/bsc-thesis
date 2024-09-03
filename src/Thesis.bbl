@@ -660,44 +660,14 @@
     \field{year}{2019}
   \endentry
 
-  \entry{target_therapy2}{article}{}
-    \name{author}{2}{}{%
-      {{hash=SAJ}{%
-         family={Sabnis},
-         familyi={S\bibinitperiod},
-         given={Amit\bibnamedelima J.},
-         giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
-      }}%
-      {{hash=BTG}{%
-         family={Bivona},
-         familyi={B\bibinitperiod},
-         given={Trever\bibnamedelima G.},
-         giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Elsevier BV}%
-    }
-    \strng{namehash}{SAJ+1}
-    \strng{fullhash}{SAJBTG1}
-    \field{labelnamesource}{author}
+  \entry{nih_se}{misc}{}
     \field{labeltitlesource}{title}
     \field{sortinit}{S}
     \field{sortinithash}{S}
-    \verb{doi}
-    \verb 10.1016/j.molmed.2018.12.009
-    \endverb
-    \field{issn}{1471-4914}
-    \field{number}{3}
-    \field{pages}{185–197}
-    \field{title}{Principles of Resistance to Targeted Cancer Therapy: Lessons from Basic and Translational Cancer Biology}
+    \field{title}{{Side effects of cancer treatment}}
     \verb{url}
-    \verb http://dx.doi.org/10.1016/j.molmed.2018.12.009
+    \verb https://www.cancer.gov/about-cancer/treatment/side-effects
     \endverb
-    \field{volume}{25}
-    \field{journaltitle}{Trends in Molecular Medicine}
-    \field{month}{03}
-    \field{year}{2019}
   \endentry
 
   \entry{target_therapy1}{misc}{}
