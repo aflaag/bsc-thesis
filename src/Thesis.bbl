@@ -506,6 +506,47 @@
     \field{year}{2000}
   \endentry
 
+  \entry{skin_nails}{article}{}
+    \name{author}{2}{}{%
+      {{hash=LM}{%
+         family={Lacouture},
+         familyi={L\bibinitperiod},
+         given={Mario},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SV}{%
+         family={Sibaud},
+         familyi={S\bibinitperiod},
+         given={Vincent},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{LM+1}
+    \strng{fullhash}{LMSV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \verb{doi}
+    \verb 10.1007/s40257-018-0384-3
+    \endverb
+    \field{issn}{1179-1888}
+    \field{number}{S1}
+    \field{pages}{31–39}
+    \field{title}{Toxic Side Effects of Targeted Therapies and Immunotherapies Affecting the Skin, Oral Mucosa, Hair, and Nails}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/s40257-018-0384-3
+    \endverb
+    \field{volume}{19}
+    \field{journaltitle}{American Journal of Clinical Dermatology}
+    \field{month}{10}
+    \field{year}{2018}
+  \endentry
+
   \entry{multi-dendrix}{article}{}
     \name{author}{4}{}{%
       {{hash=LMDM}{%
@@ -588,28 +629,44 @@
     \field{year}{2019}
   \endentry
 
-  \entry{target_therapy3}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=PCCM}{%
-         family={Professional},
-         familyi={P\bibinitperiod},
-         given={Cleveland Clinic\bibnamedelima Medical},
-         giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
+  \entry{target_therapy2}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SAJ}{%
+         family={Sabnis},
+         familyi={S\bibinitperiod},
+         given={Amit\bibnamedelima J.},
+         giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=BTG}{%
+         family={Bivona},
+         familyi={B\bibinitperiod},
+         given={Trever\bibnamedelima G.},
+         giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod},
       }}%
     }
-    \strng{namehash}{PCCM1}
-    \strng{fullhash}{PCCM1}
+    \list{publisher}{1}{%
+      {Elsevier BV}%
+    }
+    \strng{namehash}{SAJ+1}
+    \strng{fullhash}{SAJBTG1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{P}
-    \field{sortinithash}{P}
-    \field{title}{{Targeted therapy}}
-    \verb{url}
-    \verb https://my.clevelandclinic.org/health/treatments/22733-targeted-thera
-    \verb py
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1016/j.molmed.2018.12.009
     \endverb
-    \field{month}{05}
-    \field{year}{2024}
+    \field{issn}{1471-4914}
+    \field{number}{3}
+    \field{pages}{185–197}
+    \field{title}{Principles of Resistance to Targeted Cancer Therapy: Lessons from Basic and Translational Cancer Biology}
+    \verb{url}
+    \verb http://dx.doi.org/10.1016/j.molmed.2018.12.009
+    \endverb
+    \field{volume}{25}
+    \field{journaltitle}{Trends in Molecular Medicine}
+    \field{month}{03}
+    \field{year}{2019}
   \endentry
 
   \entry{target_therapy1}{misc}{}

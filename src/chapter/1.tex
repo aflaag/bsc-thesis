@@ -13,14 +13,70 @@ Cancer is a medical condition characterized by uncontrolled cell proliferation, 
 Research aimed at finding treatment for cancer is continuously evolving due to the tumor's lethality and complexity. Currently, the primary techniques used to remove, control, manage, and delay the effects of cancer include \cite{cancer_treat}:
 
 \begin{itemize}
-    \item \textbf{surgery}, which involves the removal of the cancerous region and is generally reserved for solid tumors;
-    \item \textbf{radiotherapy}, which uses x-rays to destroy tumor cells, aiming to target the cancerous region as precisely as possible to preserve healthy tissue; however, radiotherapy can increase the risk of developing secondary tumors, such as leukemia or sarcomas, and may lead to delayed effects like dementia, amnesia, or progressive cognitive difficulties;
-    \item \textbf{chemotherapy}, which employs cytotoxic drugs to block cellular division in both cancerous and healthy cells, but they can also induce side effects in rapidly renewing tissues.
-    \item \textbf{hormone therapy}, which alters the balance of specific hormones, potentially leading to side effects such as joint pain or osteoporosis;
-    \item \textbf{targeted therapy}, which involves drugs containing antibodies or inhibitory substances that specifically target cancer cells, promoting their destruction by the immune system; however, developing effective targeted therapies can be challenging due to the complexity of the target's structure or function; in addition, this approach may also induce unwanted side effects in various organs, and cancer cells may develop resistance if they find alternative ways to develop that do not rely on the therapy's target \cite{target_therapy1} \todo{\href{https://www.cancer.org/cancer/managing-cancer/treatment-types/targeted-therapy/what-is.html}{check this out}, and probably move this part in the next section}. \end{itemize}
+    \item \textit{surgery}, which involves the removal of the cancerous region and is generally reserved for solid tumors;
+    \item \textit{radiotherapy}, which uses x-rays to destroy tumor cells, aiming to target the cancerous region as precisely as possible to preserve healthy tissue; however, radiotherapy can increase the risk of developing secondary tumors, such as leukemia or sarcomas, and may lead to delayed effects like dementia, amnesia, or progressive cognitive difficulties;
+    \item \textit{chemotherapy}, which employs cytotoxic drugs to block cellular division in both cancerous and healthy cells, but they can also induce side effects in rapidly renewing tissues.
+    \item \textit{hormone therapy}, which alters the balance of specific hormones, potentially leading to side effects such as joint pain or osteoporosis;
+    \item \textit{targeted therapy}, which involves drugs containing antibodies or inhibitory substances that specifically target cancer cells, promoting their destruction by the immune system \cite{target_therapy1} \todo{\href{https://www.cancer.org/cancer/managing-cancer/treatment-types/targeted-therapy/what-is.html}{check this out}, and probably move this part in the next section}.
+\end{itemize}
 
-\subsection{Target therapy}
+\section{Targeted therapy}
 
-In particular, in recent years targeted therapy has been the focus of extensive research due to its potential to precisely affect only the desired target, thereby reducing the side effects that currently characterize most cancer treatments and potentially limiting damage to healthy cells \cite{target_therapy3}. \todo{expand target therapy on how it works; check README for link; consider making "Target therapy" section and adding subsections if needed}
+\subsection{Therapy types}
+
+\textbf{Targeted therapy} is a form of cancer treatment that targets on proteins responsible for the growth, division, and spread of cancer cells, and it forms the basis of \href{https://en.wikipedia.org/wiki/Personalized_medicine}{precision medicine}. In recent years targeted therapy has been the focus of extensive research due to its potential to precisely affect only the desired target, thereby reducing the side effects that currently characterize most cancer treatments and potentially limiting damage to healthy cells. For certain cancer types, most patients will have a target suitable for a specific drug, allowing them to be treated with that medication. However, in most cases, a tumor must be tested through \textit{biomarker testing} to determine if it contains any targets for which a drug is available \cite{target_therapy1}.
+
+Most types of targeted therapy consist of \textbf{small-molecule drugs}, which are used for targets located inside cells because their small size allows them to enter cells easily, and \textbf{monoclonal antibodies}, which are laboratory-produced proteins. These proteins are engineered to bind to specific targets on cancer cells. Some monoclonal antibodies help the immune system identify and destroy cancer cells by marking them, while others directly inhibit the growth of cancer cells or induce their self-destruction, and still others deliver toxins directly to cancer cells \cite{target_therapy1}. \todo{forse espandi un po qui}
+
+\subsection{Approaches}
+
+Most targeted therapies treat cancer by interfering with specific proteins that promote tumor growth and spread. This approach differs from chemotherapy, which often kills all rapidly dividing cells. The following are the different approaches that targeted therapy employs \cite{target_therapy1}.
+
+\begin{itemize}
+    \item \textit{Immunotherapy}. Cancer cells can often evade detection by the immune system. Certain targeted therapies mark cancer cells, making them easier for the immune system to identify and destroy, while others enhance the immune system's ability to fight cancer more effectively.
+    \item \textit{Signal interruption}. Targeted therapies can interrupt signals that cause cancer cells to grow and divide uncontrollably. Normally, cells only divide in response to specific signals binding to proteins on their surface. However, some cancer cells present changes in the proteins that tell them to divide without the signals. Targeted therapies can block these proteins, slowing the uncontrolled growth of cancer.
+    \item \textit{Angiogenesis inhibition}. The process through which new blood vessels form is called \href{https://en.wikipedia.org/wiki/Angiogenesis}{angiogenesis}, and beyond a certain size tumors need to new blood vessels. Therefore, the tumor sednds signals to start angiogenesis. Some targeted therapies are able to disrupt the signals that trigger this process, preventing the formation of a blood supply, restricting the tumor's size. 
+    \item \textit{Cell-killing agents delivery}. Some monoclonal antibodies are combined with substances like toxins, chemotherapy drugs, or radiation. These antibodies bind to targets on the surface of cancer cells, delivering the cell-killing agents directly into the cells, causing them to die. Most importantly, cells without these targets remain unharmed.
+    \item \textit{Apoptosis activation}. Cancer cells often evade the natural process of cell death, known as \href{https://en.wikipedia.org/wiki/Apoptosis}{apoptosis}, which initiates when cells become damaged or are no longer needed. Some targeted therapies can trigger apoptosis in cancer cells, leading to their death.
+    \item \textit{Hormone therapy}. Some types of breast and prostate cancer require specific hormones to grow. Hormone therapies block the body's production of growth hormones or preventing them from acting on cells, including cancer cells.
+\end{itemize}
+
+\subsection{Drawbacks}
+
+Like all cancer treatment, targeted therapy also has limitations, and often works best when combined with other types of targeted therapies or additional cancer treatments like chemotherapy and radiation \cite{target_therapy1}.
+
+In particular, developing drugs for certain targets can be challenging due to factors including target's structural complexity, its function within the cell, or a combination of both \cite{target_therapy1}. \todo{expand maybe}
+
+Moreover, cancer cells can develop resistance to targeted therapy, which may occur if the target itself mutates, rendering the therapy unable to interact with it effectively. Alternatively, resistance can arise if cancer cells adapt and find new growth mechanisms that do not rely on the target \cite{target_therapy1}. The following are several ways in which cancer cells can develop resistance to targeted therapy \cite{target_therapy2}.
+
+\paragraph{Direct target reactivation}
+
+One of the first and most notable successes in targeted cancer therapy was the use of \href{https://en.wikipedia.org/wiki/Imatinib}{\textit{imatinib}}, a \textit{small-molecule drug} which inhibits ABL-kinase, employed to treat chronic myelogenous leukemianitial. Studies of patients who relapsed despite imatinib treatment revealed that BCR-ABL kinase activity often reappeared. This discovery revealed a key mechanism of resistance to targeted therapy: the direct restoration of the biological function that was previously disrupted by \textit{imatinib}.
+
+Another instance is the use of potent anti-androgens such as \textit{enzalutamide} can effectively control disease even in CRPC (\textit{Castration-Resistant prostate cancer}). Notably, a prevalent mechanism of resistance to \textit{enzalutamide} involves the removal of the drug-binding domain of the androgen receptor through \href{https://en.wikipedia.org/wiki/Alternative_splicing}{alternative splicing}. Indeed, alternate splicing has been frequently observed as a method for reactivating targets in response to targeted inhibitors.
+
+Another form of on-target resistance involves the increased expression of the targeted oncoprotein through transcriptional upregulation or genomic amplification. This has been noted in melanoma, NSCLC (\textit{Non-small Cell Lung Cancer}), and prostate cancer, and can be counteracted with stronger inhibitors and blockade of downstream signaling.
+
+These examples show that restoring the biological function of targeted oncoproteins is a key mechanism by which cancer cells evade targeted therapies and overcome \href{https://en.wikipedia.org/wiki/Oncogene_addiction}{oncogene addiction}.
+
+\paragraph{Oncogenic pathway signals activation}
+
+TODO da finire
+
+\paragraph{Alternative oncogenic pathways engagement}
+
+\paragraph{Adaptive survival mechanisms}
+
+\subsection{Side effects}
+
+\paragraph{DAEs}
+
+Targeted therapies and immunotherapies are linked to a variety of DAEs (\textit{Dermatologic Adverse Events} due to the involvement of common signaling pathways in both malignant processes and the normal functions of the epidermis and dermis. Dermatologic toxicities can affect the skin, oral mucosa, hair, and nails.
+
+The most frequent DAE is \textit{acneiform rash}, seen in 25–85\% of patients undergoing treatment that include epidermal growth factor receptor inhibitors. BRAF inhibitors are known to cause secondary skin tumors, including \textit{squamous cell carcinoma} and \textit{keratoacanthomas}, and can also alter pre-existing pigmented lesions, and induce hand-foot skin reactions. ICIs (\textit{Immune checkpoint inhibitors})  typically lead to nonspecific \textit{maculopapular rash}, but can also cause \textit{psoriatic} lesions, \textit{lichenoid dermatitis}, \textit{xerosis}, and \textit{pruritus}.
+
+Among the oral mucosal toxicities from targeted therapies, \textit{oral mucositis} is most frequent with mTOR (\textit{mammalian Target of Rapamycin}) inhibitors, followed by \textit{stomatitis} from multikinase angiogenesis and HER inhibitors, geographic tongue, and \textit{hyperpigmentation}. ICIs generally cause oral lichenoid reactions and \textit{xerostomia}.
+
+Concering skin problems, \textit{alopecia} is a frequent side effect of both targeted and endocrine therapies. Moreover, targeted therapies can damage the nail folds, resulting in \textit{paronychia} and \textit{periungual pyogenic granuloma}. Mild \textit{onycholysis}, brittle nails, and slower nail growth may also occur \cite{skin_nails}.
 
 \cleardoublepage
