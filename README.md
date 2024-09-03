@@ -2,6 +2,7 @@
 
 ## Domande
 
+- CAMBIARE TUTTI GLI ACRONIMI
 - consistency nella notazione?
 - risolvere il problema di $m x k$ in multi-dendrix
 

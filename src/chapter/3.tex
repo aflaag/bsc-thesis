@@ -206,7 +206,7 @@ placeholder. \todo{una cosa carina sarebbe scrivere lo pseudocodice dell'algorit
 
 As mentioned earlier in \cref{neg_weights}, $w^-$ depends solely on the mutual exclusivity component, while the value of $w^+$ depends on the version of the algorithm chosen.
 
-\subsection{ME-CO}
+\subsection{The standard version}
 
 \begin{definition}[ME-CO]
     In the \textbf{ME-CO} version of the algorithm, the following definitions apply:
@@ -222,7 +222,7 @@ As mentioned earlier in \cref{neg_weights}, $w^-$ depends solely on the mutual e
 
 The definitions for $w_{uv}^-(\mathrm e)$ and $w_{uv}^+(\mathrm c)$ are provided in \cref{me_comp} and \cref{co_comp} respectively. \todo{qui menzionano che se succede una certa cosa fanno un rescaling, lo menziono?}
 
-\subsection{NI-ME-CO}
+\subsection{Integrating network information}
 
 Pan-cancer studies, as reported in multiple papers, have demonstrated a significant relationship between network topology and the distribution patterns of cancer drivers. Specifically, the impact of deleterious mutations on the phenotype can be mitigated by certain configurations of the corresponding protein complexes, while other arrangements can amplify their effect. For example, most variants found in healthy individuals tend to be located at the periphery of the interactome, where they do not affect network connectivity. In contrast, cancer driver somatic mutations are more likely to occur in central, internal regions of the interactome and within highly integrated components.
 
@@ -266,7 +266,7 @@ and let $T'(J')$ be the $J'$-the percentile of the values in $\mathscr F$.
 
 placeholder. \todo{parlare del rescaling?}
 
-\subsection{EX-ME-CO}
+\subsection{Integrating expression data}
 
 Expression data may be integrated through the positive weights, based on the assumption that co-expressed genes are likely to be involved in the same function or cancer pathway. Therefore, genes with strong positive or negative co-expression should be encouraged to cluster together.
 
@@ -328,7 +328,7 @@ The classical formulation of correlation clustering does not impose any restrict
 
 Another reason for imposing a cluster size limit is the expectation that driver genes of specific cancer types will be grouped together, and recent findings indicate that only a small number of drivers are typically present in any given cancer type \todo{non menzionano nessuna fonte dalla quale tirano fuori questa informazione, ritrovatela da solo e aggiungi qualcosa}. If clusters are too large, they may include drivers from multiple cancer types, hiding the detailed separation of the drivers. Furthermore, introducing cluster size constraints helps to avoid the limitations of many clustering algorithms that often produce non-informative \curlyquotes{giant clusters} or singleton clusters \todo{di nuovo, non ci sono citazioni o esempi menzionati, ma vorrei mettecene}.
 
-\begin{definition}[C3' ILP] \label{c3_ilp}
+\begin{definition}[C3's ILP] \label{c3_ilp}
     The \textbf{C3 algorithm} can be defined by the following ILP:
 
     \begin{equation} \label{c3_first}

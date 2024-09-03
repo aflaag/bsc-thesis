@@ -284,6 +284,37 @@
     \field{year}{2017}
   \endentry
 
+  \entry{ehrlich}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=EP}{%
+         family={EHRLICH},
+         familyi={E\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{EP1}
+    \strng{fullhash}{EP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{booktitle}{The Collected Papers of Paul Ehrlich}
+    \verb{doi}
+    \verb 10.1016/b978-0-08-009056-6.50015-4
+    \endverb
+    \field{isbn}{9780080090566}
+    \field{pages}{106–117}
+    \field{title}{Experimental Researches on Specific Therapy}
+    \verb{url}
+    \verb http://dx.doi.org/10.1016/b978-0-08-009056-6.50015-4
+    \endverb
+    \field{year}{1960}
+  \endentry
+
   \entry{n-genes}{article}{}
     \name{author}{4}{}{%
       {{hash=FC}{%
@@ -767,6 +798,68 @@
     \field{journaltitle}{Nature Medicine}
     \field{month}{07}
     \field{year}{2004}
+  \endentry
+
+  \entry{se_tt}{article}{}
+    \name{author}{5}{}{%
+      {{hash=WC}{%
+         family={Widakowich},
+         familyi={W\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=dCG}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Castro},
+         familyi={C\bibinitperiod},
+         given={Gilberto},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=dAE}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Azambuja},
+         familyi={A\bibinitperiod},
+         given={Evandro},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=DP}{%
+         family={Dinh},
+         familyi={D\bibinitperiod},
+         given={Phuong},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=AA}{%
+         family={Awada},
+         familyi={A\bibinitperiod},
+         given={Ahmad},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press (OUP)}%
+    }
+    \strng{namehash}{WC+1}
+    \strng{fullhash}{WCCGdAEdDPAA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \verb{doi}
+    \verb 10.1634/theoncologist.12-12-1443
+    \endverb
+    \field{issn}{1549-490X}
+    \field{number}{12}
+    \field{pages}{1443–1455}
+    \field{title}{Review: Side Effects of Approved Molecular Targeted Therapies in Solid Cancers}
+    \verb{url}
+    \verb http://dx.doi.org/10.1634/theoncologist.12-12-1443
+    \endverb
+    \field{volume}{12}
+    \field{journaltitle}{The Oncologist}
+    \field{month}{12}
+    \field{year}{2007}
   \endentry
 
   \entry{mdpfinder}{article}{}
