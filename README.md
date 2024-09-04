@@ -2,11 +2,15 @@
 
 ## Domande
 
-- CAMBIARE TUTTI GLI ACRONIMI
+- dendrix definisce un problema che poi non usa, lo definisco anche io?
+
 - consistency nella notazione?
 - risolvere il problema di $m x k$ in multi-dendrix
+    - sono abbastanza sicuro di aver trovato la risposta a pagina 5 nella foto
 
 ## TODO list
+
+- CAMBIARE TUTTI GLI ACRONIMI
 
 - passa tutto a ly
 

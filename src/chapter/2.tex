@@ -20,7 +20,7 @@ With the decreasing cost of DNA sequencing, it is now possible to categorize mut
 
 Moreover, multiple alternative driver alterations in different genes may lead to similar downstream effects. In such instances, the selective advantage is distributed among the alterations frequencies of these genes. In current cancer genomics studies, where the number of samples is significantly smaller than the number of genes profiled per sample, frequency-based methods lack the statistical efficacy to distinguish passenger and driver mutations \cite{mutex}. 
 
-Therefore, studies should be conducted at the pathway level, as it is well established that different mutations can affect the same pathway across multiple samples \cite{multi-dendrix}. However, since each pathway involves multiple genes, numerous possible combinations of driver mutations could impact a crucial cancer pathway, making it computationally unfeasible to test every possible gene permutation \cite{dendrix} --- estimates suggest that the human genome contains more than 50,000 genes \cite{n-genes}. Hence, it is necessary to identify a property to leverage to conduct a search efficiently.
+Therefore, studies should be conducted at the pathway level, as it is well established that different mutations can affect the same pathway across multiple samples \cite{multi-dendrix}. However, since each path involves multiple genes, numerous possible combinations of driver mutations could impact a crucial cancer pathway, making it computationally unfeasible to test every possible gene permutation \cite{dendrix} --- estimates suggest that the human genome contains more than 50,000 genes \cite{n-genes}. Hence, it is necessary to identify a property to leverage to search efficiently.
 
 \subsection{Mutual exclusivity and coverage}
 
@@ -47,7 +47,7 @@ Searching for the most mutually exclusive gene group is equivalent to identifyin
 
 \subsection{A deterministic equation}
 
-\textcite{dendrix}, the authors of a landmark paper that developed two algorithm called Dendrix, provided the following mathematical formalization for the properties of mutual exclusivity and coverage for a set of genes.
+\textcite{dendrix}, the authors of a landmark paper that developed an algorithm called Dendrix, provided the following mathematical formalization for the properties of mutual exclusivity and coverage for a set of genes.
 
 \begin{definition}[Mutation matrix] \label{mut_matrix_def}
     A \curlyquotes{mutation matrix} is a matrix with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene, and the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.

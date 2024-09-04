@@ -4,15 +4,61 @@ Although the true explanation for mutual exclusivity remains unknown, and its th
 
 \section{Dendrix}
 
-placeholder. \todo{fare Dendrix}
+\subsection{A greedy approach}
+
+To find a solution to the problem described in \cref{mwsp}, \textcite{dendrix} developed the following greedy algorithm called Dendrix (\textit{de novo} \cite{survey}).
+
+\begin{algorithm}[H]
+    \caption{
+        \textit{Greedy Dendrix}: given the set of all genes $\mathcal G$, and an integer $k$, the algorithm finds the set of genes $M$ of size $k$ that maximizes $W(M)$.
+    }
+
+        \label{greedy_dendrix}
+    \begin{algorithmic}[1]
+        \Function{greedyDendrix}{$\mathcal G$, $k$}
+            \State $M := \{g_1, g_2\}$ such that $M$ maximizes $W(M)$ \Comment{pick the best gene pair}
+            \For{$i \in [3, k]$}
+                \State $\hat g := \argmax_{g \in \mathcal G}{W \rbk{M \cup \{g\}}}$ \Comment{TODO A PARIMERITO???}
+                \State $M = M \cup \{\hat g\}$
+            \EndFor
+            \State \textbf{return} $M$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
+
+The time complexity of the algorithm is $O\rbk{n^2 + kn} = O\rbk{n^2}$.
+
+\begin{definition}(Gene Independence Model)
+    Let $A$ be an $m \times n$ mutation matrix such that $\hat M$ is the \textit{maximum weight submatrix} of $A$ and $\abs{\hat M} = k$; the matrix $A$ satisfies the \textbf{Gene Independence Model} (GIM) if and only if:
+
+    \begin{enumerate}[label=\roman*), font=\itshape]
+        \item each gene $g \notin \hat M$ is mutated in each patient with probability $p_g \in \sbk{p_L, p_U}$ \todo{WHAT ARE THESE??}, independently of all other events;
+        \item $W (\hat M)= \Omega(m)$; \todo{qua scrivono che la definizione di $Omega$ è che $W (\hat M) = rm$ per $0 < r \le 1$???????}
+        \item for all $M \subset \hat M$ of cardinality $l := \abs{M}$, it exists $0 \le d < 1$ such that $W(M) \le \frac{l + d}{k} W(\hat M)$.
+    \end{enumerate}
+\end{definition}
+
+Note that
+
+\begin{itemize}
+    \item condition $(i)$ reflects the independence of mutations for genes outside the mutated pathway, a standard assumption for somatic single-nucleotide mutations;
+    \item condition $(ii)$ ensures that mutations in $\hat M$ cover a large number of patients and are mostly exclusive;
+    \item condition $(iii)$ means that each gene in $\hat M$ is important, so there are no subset of $\hat M$ that predominantly contributes to $W(\hat M)$.
+\end{itemize}
+
+While this algorithm is efficient, there is generally no guarantee that it will identify the optimal set $\hat M$ that maximizes $W(\hat M)$. However, \textcite{dendrix} prove that \cref{greedy_dendrix} can correctly identify $\hat M$ with high probability when the mutation data come from the GIM generative model. \todo{lo dimostrano nel materiale supplementare, lo vedo/metto?}
+
+Moreover, note that under the GIM, genes in $\hat M$ may have observed mutation frequencies similar to those of genes not in $\hat M$, making it impossible to distinguish between them based solely on mutation frequency, regardless of the number of patients. In practical applications, the utility of this greedy algorithm depends on the availability of mutation data from a sufficient number of patients.
+
+\subsection{Using MCMC}
+
+placeholder \todo{la faccio? probabilmente si ma dovrei prima vedere cosa le MCMC siano}
 
 \section{Multi-Dendrix}
 
 \subsection{An alternative solution to Dendrix}
 
-\textcite{multi-dendrix}, the authors of Multi-Dendrix (\textit{de novo} \cite{survey}), try to solve the same problem posed by \textcite{dendrix}, provided in \cref{mwsp}. \todo{qui manca una sezione iniziale in cui multi-dendrix descrive i motivi per cui l'approccio greedy di dendrix potrebbe non trovare soluzioni ottimali, e perché il loro approccio che trova le soluzioni tutte in un colpo solo è migliore}
-
-For these reasons, \textcite{multi-dendrix} formulate Dendrix's problem as an \textbf{ILP} (\textit{Integer Linear Program}), which they refer to as $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$. Consider a gene set $M$ defined by a set of indicator variables, one for each gene $j \in M$ as follows
+\textcite{multi-dendrix}, the authors of Multi-Dendrix (\textit{de novo} \cite{survey}), try to solve the same problem posed by \textcite{dendrix}, provided in \cref{mwsp}, by formulating the problem as an \textit{Integer Linear Program} (ILP), which they refer to as $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$. Consider a gene set $M$ defined by a set of indicator variables, one for each gene $j \in M$, as follows
 
 \begin{equation}
     I_M(j) = 1 \iff j \in M
@@ -72,7 +118,7 @@ As outlined in \cref{multi_dendrix_2nd_chap}, \textcite{multi-dendrix} propose t
 Note that this problem is NP-Hard, as for the case $t = 1$. Furthermore, collections $M$ with a large value of $W'(M)$ are also likely to have higher coverage $\Gamma(M_\rho)$ for each individual gene set $\rho$. As a result, optimal solutions tend to produce collections where many patients have mutations in more than one gene set, or they may be pairs or larger groups of co-occurring mutations, a phenomenon observed in cancer. \todo{qua inseriscono una citazione, potrebbe valere la pena di inserirla e/o indagare?}
 
 \begin{definition}[Multi-Dendrix]
-    $\mathrm{Multi}$-$\mathrm{dendrix}$ is defined by the following ILP:
+    $\mathrm{Multi}$-$\mathrm{Dendrix}$ is defined by the following ILP:
 
     \begin{equation} \label{weight_multi-dendrix_ilp}
         \mathrm{maximize} \sum_{\rho = 1}^t {\sum_{i = 1}^m {\rbk{2 \cdot C_i(M_\rho) - \sum_{j = 1}^n I_{M_\rho}(j) \cdot a_{i, j}}}},
@@ -100,12 +146,42 @@ Note that:
 \begin{itemize}
     \item \cref{weight_multi-dendrix_ilp} and \cref{second_constr_multi-dendrix_ilp} expand \cref{weight_dendrix_ilp} and \cref{second_constr_dendrix_ilp} respectively;
     \item \cref{multi-dendrix_ilp_size} allows each gene group to have a size between $k_\mathrm{min}$ and $k_\mathrm{max}$;
-    \item \cref{multi-dendrix_ilp_last} states that each gene can appear in at most one set within the collection; when $k_\mathrm{min} < k_\mathrm{max}$ the ILP may choose gene sets with fewer than $k_\mathrm{max}$ genes if this maximizes the overall weight $W'(M)$ of the collection.
+    \item \cref{multi-dendrix_ilp_last} states that each gene can appear in at most one set within the collection. 
 \end{itemize}
 
-placeholder. \todo{"tutti i casi precedenti avvengono davvero nella realtà" non l'ho ancora scritto perché va prima deciso cosa fare con iter-dendrix perché qui è menzionato e sarebbe da inserire nei bullet point}
+\textcite{multi-dendrix} compare the outputs of their ILP with an iterative version of the Dendrix greedy algorithm (discussed in \cref{greedy_dendrix}), which they refer to as Iter-Dendrix, running Dendrix multiple times to produce a collection of gene sets.
 
-Multi-Dendrix can be extended to allow gene sets to overlap, since the genes in the intersection may be involved in multiple biological processes. Hence, \cref{multi-dendrix_ilp_last} is replaced with the following equation:
+\begin{algorithm}[H]
+    \caption{
+        \textit{Iter-Dendrix}: given the set of all genes $\mathcal G$, an integer $k$, and an integer $t$, the algorithm finds the collection $M$ of $t$ gene sets of size $k$ that maximizes $W'(M)$.
+    }
+
+        \label{iter-dendrix}
+    \begin{algorithmic}[1]
+        \Function{iterDendrix}{$\mathcal G$, $k$, $t$}
+            \State $M := \varnothing$
+            \For{$i \in [1, t]$}
+            \State $M_i := \texttt{greedyDendrix}(\mathcal G, k)$ \Comment{procedure defined in \cref{greedy_dendrix}}
+                \State $M = M \cup \{M_i\}$
+                \State $\mathcal G = \mathcal G - M_i$
+            \EndFor
+            \State \textbf{return} $M$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
+
+
+Denoting with $M$ and $I$ the collections of gene sets obtained from Multi-Dendrix and Iter-Dendrix respectively, \textcite{multi-dendrix} state that $W'(M) \ge W'(I)$ \todo{loro dicono che sia ovvio ma non capisco perché dovrebbe essere così ovvio}. They also argue that $M$ could contain sets with strictly greater weight than comprising $I$ due to several factors:
+
+\begin{itemize}
+    \item there may be multiple gene sets $I_\rho$ that maximize $W(I_\rho)$ on the $\rho$-th iteration of Iter-Dendrix, and this version of Dendrix can only extend one of these sets;
+    \item the gene set $I_\rho$ that maximizes $W(I_\rho)$ selected by Iter-Dendrix in the $\rho$-th iteration may not be a member of $M$, since $M$ could include gene sets that are suboptimal when considered in isolation;
+    \item when $k_\mathrm{min} < k_\mathrm{max}$ Multi-Dendrix may choose gene sets with fewer than $k_\mathrm{max}$ genes if doing so maximizes the overall weight $W'(M)$.
+\end{itemize}
+
+\textcite{multi-dendrix} state that all of these scenarios occur when analyzing real mutation data.
+
+Lastly, Multi-Dendrix can be extended to allow gene sets to overlap, since the genes in the intersection may be involved in multiple biological processes. Hence, \cref{multi-dendrix_ilp_last} is replaced with the following equation:
 
 \begin{equation}
     \sum_{\rho = 1}^t {I_{M_\rho}(j) \le \Delta}, \quad 1 \le j \le n
@@ -138,7 +214,7 @@ The approach used by \textcite{mdpfinder} involves a \textbf{GA} (\textit{Geneti
 \end{definition}
 
 \begin{definition}[Selection probability] \label{selection_probability}
-    Given the rank $r_i$ of an individual $h_i$ based on its score, the \textbf{selection probability} is definied as follows: $$p_i = \dfrac{2r_i}{P(P + 1)}$$ where $P$ is the population size. The individual with the highest fitness value is most likely to be transferred into the next generation.
+    Given the rank $r_i$ of an individual $h_i$ based on its score, the \textbf{selection probability} is defined as follows: $$p_i = \dfrac{2r_i}{P(P + 1)}$$ where $P$ is the population size. The individual with the highest fitness value is most likely to be transferred into the next generation.
 \end{definition}
 
 This selection operator is based on \href{https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)#Roulette_wheel_selection}{roulette wheel selection}, which states that the probability of choosing an individual is equal to $$p_i = \dfrac{f_i}{\sum_{j = 1}^P {f_j}} = \dfrac{r_i}{\frac{P(P + 1)}{2}} = \dfrac{2r_i}{P(P+1)}$$ which is precisely the equation in \cref{selection_probability}.
@@ -176,20 +252,20 @@ In practical applications, multiple optimal solutions may exist. Additionally, d
     Given an $m \times n$ mutation matrix $A$, an expression matrix $E$ with the same dimensions \todo{nel paper non è menzionato cosa questa "expression matrix" contenga all'interno, c'è una foto con dei colori e basta, però ho visto che "expression matrix" è un termine che si usa per indicare un tipo di matrici solamente che contengono una cosa ben specifica, posso assumere che si sappia già di cosa si parla o devo spiegare cosa sono?}, and an $A$'s submatrix $M$ of size $m \times k$, the integrative model is defined by the following \textbf{measure}: $$F_{ME} := W(M) + \lambda \cdot R(E_M)$$ where $E_M$ is $E$'s expression submatrix that corresponds to $M$, and $R(E_M)$ is described by the following equation: $$R(E_M) = \sum_{j_1 = 1}^n {\sum_{j_2 = 1 \atop j_1 \neq j_2} ^n {\dfrac{\abs{\mathrm{pcc}(x_{j_1}, x_{j_2})}}{\frac{k(k - 1)}{2}}}}$$ where $\mathrm{pcc}(\cdot)$ is the \href{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient}{Pearson correlation coefficient}, and $x_j$ is the expression profile of gene $j$ \todo{non è spiegato cosa questo voglia dire ma io assumo sia un vettore colonna di $E$; inoltre, non ho idea di cosa sia il valore $R(E_M)$}.
 \end{definition}
 
-Note that $$0 \le R(E_m) \le 1$$ and $W(M)$ is an integer, therefore when $\lambda = 1$ the value of $F_{ME}$ can be used to discriminate the gene sets with the same $W(M)$. Moreover, for values of $\lambda \ge 1$ the gene set with strong correlation and approximate exclusivity can be identified.
+Note that $$0 \le R(E_m) \le 1$$ and $W(M)$ is an integer, therefore when $\lambda = 1$ the value of $F_{ME}$ can be used to discriminate the gene sets with the same $W(M)$. Moreover, for values of $\lambda \ge 1$, the gene set with strong correlation and approximate exclusivity can be identified.
 
 \section{Mutex}
 
-\subsection{A greedy approach}
+\subsection{A different greedy method}
 
 To identify the most mutually exclusive group, \textcite{mutex} employ a greedy algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which is applied to a directed graph constructed from databases containing information about biological pathways \todo{menziono i database che hanno usato?}.
 
-The search begins by initializing a set with an altered gene as the seed, and then expanding the group greedily with the next best candidate gene. Candidate genes are selected such that, after their addition, the group still has a common downstream gene that can be accessed without passing through any non-member genes (the common downstream gene may also be a member of the group) \todo{ci sono delle figure con un grafo e l'insieme che viene proressivamente espanso dall'algoritmo, forse potrei riprodurle e inserirle per chiarezza?}. The group is expanded with the candidate that improves the group score the most. The process continues until no candidates remain or the group reaches a preset size threshold. The algorithm outputs a group and its score for each seed gene \todo{qui menzionano una cosa inerente al controllo dell'FDR ma per ora la ometto perché non so che significa, credo andrebbe inserita}.
+The search begins by initializing a set with an altered gene as the seed and then expanding the group greedily with the next best candidate gene. Candidate genes are selected such that, after their addition, the group still has a common downstream gene that can be accessed without passing through any non-member genes (the common downstream gene may also be a member of the group) \todo{ci sono delle figure con un grafo e l'insieme che viene proressivamente espanso dall'algoritmo, forse potrei riprodurle e inserirle per chiarezza?}. The group is expanded with the candidate that improves the group score the most. The process continues until no candidates remain or the group reaches a preset size threshold. The algorithm outputs a group and its score for each seed gene \todo{qui menzionano una cosa inerente al controllo dell'FDR ma per ora la ometto perché non so che significa, credo andrebbe inserita}.
 
 placeholder. \todo{una cosa carina sarebbe scrivere lo pseudocodice dell'algoritmo greedy (sarebbe anche più carino a quel punto dimostrarne la correttezza ma non credo sia possibile vista la natura statistica della ricerca effettuata), loro non lo forniscono e lo trattano solo a parole, provo a farlo?}
 
 \begin{definition}[Proximity]
-    Given a gene graph, the \textbf{proximity} of a gene $G$ includes not only the genes directly adjacent to $g$, but also those that share downstream targets in the pathway with $g$. \todo{QUESTA DEFINIZIONE NON VA QUA}
+    Given a gene graph, the \textbf{proximity} of a gene $G$ includes not only the genes directly adjacent to $g$ but also those that share downstream targets in the pathway with $g$. \todo{QUESTA DEFINIZIONE NON VA QUA}
 \end{definition}
 
 \section{C3}
@@ -224,13 +300,13 @@ The definitions for $w_{uv}^-(\mathrm e)$ and $w_{uv}^+(\mathrm c)$ are provided
 
 \subsection{Integrating network information}
 
-Pan-cancer studies, as reported in multiple papers, have demonstrated a significant relationship between network topology and the distribution patterns of cancer drivers. Specifically, the impact of deleterious mutations on the phenotype can be mitigated by certain configurations of the corresponding protein complexes, while other arrangements can amplify their effect. For example, most variants found in healthy individuals tend to be located at the periphery of the interactome, where they do not affect network connectivity. In contrast, cancer driver somatic mutations are more likely to occur in central, internal regions of the interactome and within highly integrated components.
+Pan-cancer studies, as reported in multiple papers, have demonstrated a significant relationship between network topology and the distribution patterns of cancer drivers. Specifically, the impact of deleterious mutations on the phenotype can be mitigated by certain configurations of the corresponding protein complexes, while other arrangements can amplify their effect. For example, most variants found in healthy individuals tend to be located at the periphery of the interactome, where they do not affect network connectivity. In contrast, cancer-driver somatic mutations are more likely to occur in central, internal regions of the interactome and within highly integrated components.
 
 To precisely quantify the network distances between driver variants, \textcite{c3} computed the pairwise network distances between genes within a large pathway, comprising 8726 genes, by using an implementation of the standard \href{https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm}{Dijkstra algorithm}. To reduce the computational cost of running Dijkstra's algorithm $O\rbk{8726^2}$ times, 1000 pairs were randomly selected for this test. Using the most comprehensive known driver list from the Cancer Gene Census (CGC) \cite{cgc}, the same distances were calculated for driver genes, this time for all gene pairs. The resulting distribution of shortest paths is shown in Figure 1 \todo{non ho inserito l'immagine ma volendo la inserisco, la metto?}, revealing that the average shortest distance between drivers is significantly smaller than that between two randomly selected genes.
 
 placeholder. \todo{per la foto eventualmente}
 
-These findings indicate that network distance and connectivity information should be considered when identifying potential driver mutations. This can be achieved by adjusting the positive weight of edges connecting two genes: if both endpoint genes are drivers, they should be sufficiently central within a given pathway, close to other known drivers or to each other.
+These findings indicate that network distance and connectivity information should be considered when identifying potential driver mutations. This can be achieved by adjusting the positive weight of edges connecting two genes: if both endpoint genes are drivers, they should be sufficiently central within a given pathway, close to other known drivers, or to each other.
 
 From the KEGG Database \cite{kegg}, a (rather sparse) undirected graph $G'$ was retrieved, where each vertex represents a gene and the edges describe interactions between them. Note that $\abs{V(G)} = \abs{V \left(G' \right)} = n$. For each vertex $u \in V \left(G' \right)$, let $\mathscr{N}(u)$ denote the set of neighbors of $u$, and let $\mathscr{N}'(u) = \mathscr{N}(u) \cup \{u\}$. Also, let
 
@@ -352,7 +428,7 @@ In this formulation, $x_e$ allow to describe any clustering of the vertices of $
 
 \subsection{The rounding procedure}
 
-Since solving ILPs is NP-Hard, \textcite{c3} relax the problem by changing \cref{c3_fourth} to an interval constraint $$0 \le x_e \le 1$$ leading to an LP program, the solution of which may be fractional. Hence, to obtain a valid clustering, the fractional solutions have to be rounded. Therefore, instead of solving the LP, \textcite{c3} remove \cref{c3_third} from the linear program, and employ a rounding procedure.
+Since solving ILPs is NP-Hard, \textcite{c3} relax the problem by changing \cref{c3_fourth} to an interval constraint $$0 \le x_e \le 1$$ leading to an LP program, the solution of which may be fractional. Hence, to obtain a valid clustering, the fractional solutions have to be rounded. Therefore, instead of solving the LP, \textcite{c3} remove \cref{c3_third} from the linear program, and employ the following rounding procedure.
 
 \begin{algorithm}[H]
     \caption{
@@ -397,8 +473,8 @@ placeholder. \todo{nel materiale supplementare trattano di un valore ottimale pe
 %     \item choose an arbitrary vertex $u \in S$, which will be referred to as the \textit{pivot vertex};
 %     \item define $T$ to be the set of the pivot's neighbors $w$ such that $x_{uw}$ is less than the given threshold $\alpha$;
 %     \item if the sum of the elements of $T$ is more than half of the elements comprising $T$, scaled by $\alpha$ \todo{non capisco perché moltiplicano per $\alpha$}, then add a singleton cluster $\{u\}$ to $\mathcal C$ and remove the pivot from $S$;
-%     \item otherwise, if the number of filtered neighbors of the pivot is at most $k$, create a $\{u\} \cup T$ cluster and remove every of its vertices from $S$;
-%     \item if none of the previous conditions were met, than $T$ must be partitioned into $k + 1$ sized clusters, one of which must contain the pivot (and obviously there may be a set with less vertices).
+%     \item otherwise, if the number of filtered neighbors of the pivot is at most $k$, create a $\{u\} \cup T$ cluster and remove every one of its vertices from $S$;
+%     \item if none of the previous conditions were met, then $T$ must be partitioned into $k + 1$ sized clusters, one of which must contain the pivot (and there may be a set with fewer vertices).
 % \end{itemize}
 
 \begin{definition}[C3] \label{c3_final}
