@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  4 SEP 2024 19:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  4 SEP 2024 20:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1260,4 +1260,379 @@ Package microtype Info: Applying patch `item' on input line 170.
 Package microtype Info: Applying patch `toc' on input line 170.
 Package microtype Info: Applying patch `eqnum' on input line 170.
 Package microtype Info: Applying patch `footnote' on input line 170.
-Package microtype Info: Applying patch `ve
+Package microtype Info: Applying patch `verbatim' on input line 170.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 170.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+ (/usr/share/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+)
+Package hyperref Info: Link coloring ON on input line 170.
+ (./Thesis.out) (./Thesis.out)
+\@outlinefile=\write6
+\openout6 = `Thesis.out'.
+
+\c@lstlisting=\count534
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Data encoding 'utf8' specified.
+(biblatex)             No need to reencode data.
+\openout5 = `Thesis-blx.bib'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'Thesis.bbl' found.
+ (./Thesis.bbl)
+Package biblatex Info: Reference section=0 on input line 170.
+Package biblatex Info: Reference segment=0 on input line 170.
+ (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/02/21 1.10 listings language file
+)
+\SAP@parboxindent=\skip103
+\SAP@parboxwidth=\skip104
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 177.
+ (/usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
+File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmss' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+<sapienzalogo.pdf, id=187, 288.07625pt x 89.33376pt>
+File: sapienzalogo.pdf Graphic file (type pdf)
+<use sapienzalogo.pdf>
+Package pdftex.def Info: sapienzalogo.pdf  used on input line 177.
+(pdftex.def)             Requested size: 142.26378pt x 44.11742pt.
+ [1
+
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./sapienzalogo.pdf>]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 177.
+ (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 177--177
+
+ []
+
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 177.
+(/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 177.
+ (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 177.
+ (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 177.
+ (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 177.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 177.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 177.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 177.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 177.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 177.
+ (/usr/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+Underfull \hbox (badness 10000) in paragraph at lines 177--177
+
+ []
+
+[2
+
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [3
+
+
+] [4
+
+] (./Thesis.toc
+Package cleveref Info: loaded `english' language definitions on input line 1.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 3.
+ [5
+
+])
+\tf@toc=\write7
+\openout7 = `Thesis.toc'.
+
+Package cleveref Info: loaded `english' language definitions on input line 191.
+ [6] (./chapter/1.tex
+Chapter 1.
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 3.
+[1
+
+
+]
+Package cleveref Info: loaded `english' language definitions on input line 40.
+ [2]
+Package cleveref Info: loaded `english' language definitions on input line 57.
+ [3]
+Package cleveref Info: loaded `english' language definitions on input line 93.
+ [4]
+Package cleveref Info: loaded `english' language definitions on input line 104.
+ [5]) (./chapter/2.tex
+Chapter 2.
+
+LaTeX Warning: Marginpar on page 6 moved.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6
+
+
+]
+Package cleveref Info: loaded `english' language definitions on input line 30.
+ [7]
+
+LaTeX Warning: Marginpar on page 8 moved.
+
+Package cleveref Info: loaded `english' language definitions on input line 47.
+[8]
+Package cleveref Info: loaded `english' language definitions on input line 96.
+ [9{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+
+LaTeX Warning: Marginpar on page 10 moved.
+
+Package cleveref Info: loaded `english' language definitions on input line 130.
+[10]
+Package cleveref Info: loaded `english' language definitions on input line 152.
+ [11]
+Package cleveref Info: loaded `english' language definitions on input line 184.
+ [12]
+Package cleveref Info: loaded `english' language definitions on input line 225.
+ [13]
+Package cleveref Info: loaded `english' language definitions on input line 231.
+ [14]) (./chapter/3.tex
+Chapter 3.
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 14.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+[15
+
+
+]
+Package cleveref Info: loaded `english' language definitions on input line 65.
+ [16]
+Package cleveref Info: loaded `english' language definitions on input line 104.
+ [17]
+Package cleveref Info: loaded `english' language definitions on input line 148.
+ [18]
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.161         \Function
+                       {iterDendrix}{$\mathcal G$, $k$, $t$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.162             \State
+                         $M := \varnothing$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.163             \For
+                      {$i \in [1, t]$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.164             \State
+                         $M_i := \texttt{greedyDendrix}(\mathcal G, k)$ \Com...
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 164.
+ (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.165                 \State
+                             $M = M \cup \{M_i\}$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.166                 \State
+                             $\mathcal G = \mathcal G - M_i$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.167             \EndFor
+                         
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.168             \State
+                         \textbf{return} $M$
+Package cleveref Info: loaded `english' language definitions on input line 188.
+ [19]
+
+Package amsmath Warning: Foreign command \atop;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 193.
+
+Package cleveref Info: loaded `english' language definitions on input line 220.
+[20]
+Package cleveref Info: loaded `english' language definitions on input line 250.
+ [21]
+Package cleveref Info: loaded `english' language definitions on input line 264.
+ [22]
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+Package cleveref Info: loaded `english' language definitions on input line 304.
+[23]
+Package cleveref Info: loaded `english' language definitions on input line 326.
+ [24]
+
+LaTeX Warning: Marginpar on page 25 moved.
+
+Package cleveref Info: loaded `english' language definitions on input line 369.
+[25]
+Package cleveref Info: loaded `english' language definitions on input line 412.
+ [26]
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.440         \Function
+                       {roundingProcedure}{$G$, $\{x_e\}_{e \in E(G)}$, $\al...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.441             \State
+                         $\mathcal C := \varnothing$ \Comment{the output set...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.442             \State
+                         $S := V(G)$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.443             \While
+                        {$S \neq \varnothing$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.444                 \State
+                             Choose an arbitrary $u \in S$ \Comment{this is ...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.445                 \State
+                             $T := \{w \in S - \{u\} \mid x_{uw} \le \alpha\...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.446                 \If
+                         {$\sum_{w \in T}{x_{uw}} \ge \frac{\alpha}{2}\abs{T}$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.447                     \State
+                                 $\mathcal C = \mathcal C \cup \{u\}$ \Comme...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.448                     \State
+                                 $S = S - \{u\}$
+Package cleveref Info: loaded `english' language definitions on input line 465.
+ [27]
+
+LaTeX Warning: Marginpar on page 28 moved.
+
+Package cleveref Info: loaded `english' language definitions on input line 499.
+[28]) (./chapter/ack.tex) [29
+
+
+]
+Overfull \hbox (9.63518pt too wide) in paragraph at lines 216--216
+[]\T1/lmr/m/n/10.95 (-20) Wikipedia con-trib-u-tors. \T1/lmr/m/it/10.95 (-20) Car-cino-gen-e-sis\T1/lmr/m/n/10.95 (-20) . July 2024. \T1/lmr/m/sc/10.95 (-20) url\T1/lmr/m/n/10.95 (-20) : [][]$\T1/lmtt/m/n/10.95 https : / / en . wikipedia .
+ []
+
+
+Overfull \hbox (5.21912pt too wide) in paragraph at lines 216--216
+[]\T1/lmr/m/n/10.95 (-20) Wikipedia con-trib-u-tors. \T1/lmr/m/it/10.95 (-20) Cell sig-nal-ing\T1/lmr/m/n/10.95 (-20) . Aug. 2024. \T1/lmr/m/sc/10.95 (-20) url\T1/lmr/m/n/10.95 (-20) : [][]$\T1/lmtt/m/n/10.95 https : / / en . wikipedia .
+ []
+
+[30
+
+
+]
+Package cleveref Info: loaded `english' language definitions on input line 217.
+ [31] (./Thesis.aux
+Package cleveref Info: loaded `english' language definitions on input line 11.
+)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+ ***********
+Package rerunfilecheck Info: File `Thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 2C546F5B6C5D1D6B06C0ADE639487610;6821.
+Package logreq Info: Writing requests to 'Thesis.run.xml'.
+\openout1 = `Thesis.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 50930 strings out of 476024
+ 1056738 string characters out of 5792397
+ 1977253 words of memory out of 5000000
+ 71662 multiletter control sequences out of 15000+600000
+ 697139 words of font info for 301 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 98i,13n,131p,1852b,2572s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on Thesis.pdf (37 pages, 590531 bytes).
+PDF statistics:
+ 987 PDF objects out of 1000 (max. 8388607)
+ 876 compressed objects within 9 object streams
+ 274 named destinations out of 1000 (max. 500000)
+ 77690 words of extra memory for PDF output out of 89155 (max. 10000000)
+
