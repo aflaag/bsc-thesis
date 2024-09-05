@@ -2,13 +2,14 @@
 
 ## Domande
 
-- dendrix definisce un problema che poi non usa, lo definisco anche io?
-
-- consistency nella notazione?
-- risolvere il problema di $m x k$ in multi-dendrix
-    - sono abbastanza sicuro di aver trovato la risposta a pagina 5 nella foto
-
 ## TODO list
+
+- LEGGI CORREZIONI DELLA MAIL
+
+- consistency nella notazione
+
+- metti inizio/fine chap 3 il perché abbiamo tanti algoritmi (perché?)
+- lavoro critico
 
 - CAMBIARE TUTTI GLI ACRONIMI
 

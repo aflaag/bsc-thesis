@@ -138,29 +138,6 @@
     \field{year}{2016}
   \endentry
 
-  \entry{carcinogenesis}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=cW}{%
-         family={contributors},
-         familyi={c\bibinitperiod},
-         given={Wikipedia},
-         giveni={W\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{cW1}
-    \strng{fullhash}{cW1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \field{title}{{Carcinogenesis}}
-    \verb{url}
-    \verb https://en.wikipedia.org/wiki/Carcinogenesis
-    \endverb
-    \field{month}{07}
-    \field{year}{2024}
-  \endentry
-
   \entry{cell_signaling}{misc}{}
     \name{author}{1}{}{%
       {{hash=cW}{%
@@ -182,6 +159,28 @@
     \endverb
     \field{month}{08}
     \field{year}{2024}
+  \endentry
+
+  \entry{nih_cancer_dev}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=CGM}{%
+         family={Cooper},
+         familyi={C\bibinitperiod},
+         given={Geoffrey\bibnamedelima M},
+         giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CGM1}
+    \strng{fullhash}{CGM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{{The development and causes of cancer}}
+    \verb{url}
+    \verb https://www.ncbi.nlm.nih.gov/books/NBK9963/
+    \endverb
+    \field{year}{2000}
   \endentry
 
   \entry{survey}{article}{}
@@ -537,47 +536,6 @@
     \field{year}{2000}
   \endentry
 
-  \entry{skin_nails}{article}{}
-    \name{author}{2}{}{%
-      {{hash=LM}{%
-         family={Lacouture},
-         familyi={L\bibinitperiod},
-         given={Mario},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=SV}{%
-         family={Sibaud},
-         familyi={S\bibinitperiod},
-         given={Vincent},
-         giveni={V\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{2}{%
-      {Springer Science}%
-      {Business Media LLC}%
-    }
-    \strng{namehash}{LM+1}
-    \strng{fullhash}{LMSV1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{L}
-    \field{sortinithash}{L}
-    \verb{doi}
-    \verb 10.1007/s40257-018-0384-3
-    \endverb
-    \field{issn}{1179-1888}
-    \field{number}{S1}
-    \field{pages}{31–39}
-    \field{title}{Toxic Side Effects of Targeted Therapies and Immunotherapies Affecting the Skin, Oral Mucosa, Hair, and Nails}
-    \verb{url}
-    \verb http://dx.doi.org/10.1007/s40257-018-0384-3
-    \endverb
-    \field{volume}{19}
-    \field{journaltitle}{American Journal of Clinical Dermatology}
-    \field{month}{10}
-    \field{year}{2018}
-  \endentry
-
   \entry{multi-dendrix}{article}{}
     \name{author}{4}{}{%
       {{hash=LMDM}{%
@@ -727,47 +685,6 @@
     \field{journaltitle}{Genome Research}
     \field{month}{06}
     \field{year}{2011}
-  \endentry
-
-  \entry{Vogelstein2004}{article}{}
-    \name{author}{2}{}{%
-      {{hash=VB}{%
-         family={Vogelstein},
-         familyi={V\bibinitperiod},
-         given={Bert},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=KKW}{%
-         family={Kinzler},
-         familyi={K\bibinitperiod},
-         given={Kenneth\bibnamedelima W},
-         giveni={K\bibinitperiod\bibinitdelim W\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{2}{%
-      {Springer Science}%
-      {Business Media LLC}%
-    }
-    \strng{namehash}{VB+1}
-    \strng{fullhash}{VBKKW1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{V}
-    \field{sortinithash}{V}
-    \verb{doi}
-    \verb 10.1038/nm1087
-    \endverb
-    \field{issn}{1546-170X}
-    \field{number}{8}
-    \field{pages}{789–799}
-    \field{title}{Cancer genes and the pathways they control}
-    \verb{url}
-    \verb http://dx.doi.org/10.1038/nm1087
-    \endverb
-    \field{volume}{10}
-    \field{journaltitle}{Nature Medicine}
-    \field{month}{07}
-    \field{year}{2004}
   \endentry
 
   \entry{se_tt}{article}{}

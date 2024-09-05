@@ -4,13 +4,35 @@ placeholder. \todo{abstract}
 
 \section{Cancer}
 
-\subsection{Carcinogenesis}
+\subsection{TODO}
 
-Cancer is a medical condition characterized by uncontrolled cell proliferation, which allows cells to infiltrate into organs and tissues, thereby altering their functions and structure. This exponential growth is driven by mutations in cellular DNA, which encodes the instructions for cell development and multiplication, therefore errors in these instructions can lead to cancerous transformation.
+placeholder. \todo{introduzione da fare}
 
-In most types of cancer, a single aberration is insufficient for cancer development; instead, multiple mutations are required. Some mutations are present since birth, while others occur throughout life due to chance or external factors. Additionally, for tumor proliferation to occur, mutations in genes that regulate cell growth are necessary \cite{Vogelstein2004}. Specifically, proto-oncogenes, which promote mitosis, and tumor suppressor genes, which inhibit cell growth, are involved in this process, known as \textit{oncoevolution} \cite{carcinogenesis}. \todo{expand on carcinogenesis}
+% Cancer is a medical condition characterized by uncontrolled cell proliferation, which allows cells to infiltrate into organs and tissues, thereby altering their functions and structure. This exponential growth is driven by mutations in cellular DNA, which encodes the instructions for cell development and multiplication, therefore errors in these instructions can lead to cancerous transformation. \todo{expand/rework this; also, find source of this paragraph because i seem to have lost it}
 
-\subsection{Current treatment}
+\subsection{Causes}
+
+The development of cancer is a complex, \textit{multistep process} influenced by various factors, making it too simplistic to attribute cancer to a single cause. Nonetheless, many agents, such as radiation, chemicals, and viruses, have been found to induce cancer.
+
+Radiation and many chemical carcinogens work by damaging DNA and \textit{causing mutations}. These are known as \textbf{initiating agents} because they trigger genetic changes that lead to cancer. For example, solar ultraviolet radiation, chemicals in tobacco smoke, and \href{https://en.wikipedia.org/wiki/Aflatoxin}{\textit{aflatoxin}} are well-documented carcinogens. Tobacco smoke, in particular, is a major cause of lung cancer and is also linked to cancers of the oral cavity, throat, larynx, esophagus, and other areas. It is estimated that smoking contributes to a significant portion of all cancer deaths.
+
+In contrast, some carcinogens --- known as \textbf{tumor promoters} --- facilitate cancer development by \textit{stimulating cell proliferation} rather than by inducing mutations. Tumor formation in animal models typically require both an initiating agent and a promoter to facilitate the growth of mutated cells. For instance, hormones (especially estrogens) play a role as tumor promoters in certain cancers.
+
+Additionally, some viruses are known to cause cancer in both animals and humans, such as those linked to liver cancer and cervical carcinoma. These viral-induced cancers highlight the broader impact of carcinogens and underscore their role in both viral and non-viral cancer development \cite{nih_cancer_dev}.
+
+placeholder. \todo{aggiungere paragrafo conclusivo}
+
+\subsection{Mutations and cancer development}
+
+The fundamental feature of cancer development is \textbf{tumor clonality}, meaning tumors often develop from single cells that start to proliferate abnormally. However, the clonal origin of tumors does not mean that the initial progenitor cell had all the features of a cancer cell from the start. Instead, cancer evolves through a multistep process in which cells \textit{gradually acquire malignant characteristics} through a series of \textbf{alterations}. This multistep nature is indicated by the fact that most cancers develop later in life. For example, the incidence of colon cancer increases markedly with age, showing a dramatic rise as individuals grow older. This steep age-related increase suggests that cancer typically results from \textbf{multiple abnormalities} accumulated over many years.
+
+At the cellular level, cancer development is viewed as a process of mutation and selection for cells with progressively greater abilities to proliferate, survive, invade, and metastasize. The first stage, known as \textbf{tumor initiation}, involves a genetic alteration that triggers abnormal growth in a single cell, leading to the expansion of a population of clonally derived tumor cells. \textbf{Tumor progression}, continues as \textit{additional mutations} arise within this cell population, with some mutations providing a selective advantage. As a result, cells bearing these advantageous mutations become \textit{dominant} within the tumor, a process known as \textbf{clonal selection}. This selection continues throughout the tumor's evolution, causing it to grow more rapidly and become increasingly malignant \cite{nih_cancer_dev}.
+
+Undoubtedly, mutations are fundamental to the development of cancer and to its progression. Therefore, to effectively combat this disease, it is essential to gain a comprehensive understanding of how these genetic alterations occur and contribute to tumor development.
+
+\section{Targeted therapy}
+
+\subsection{Current cancer treatment}
 
 Research aimed at finding cancer treatment is continuously evolving due to the disease's lethality and complexity. Currently, the primary techniques used to remove, control, manage, and delay the effects of cancer include \cite{cancer_treat}:
 
@@ -18,27 +40,20 @@ Research aimed at finding cancer treatment is continuously evolving due to the d
     \item \textit{surgery}, which involves the removal of the cancerous region and is generally reserved for solid tumors;
     \item \textit{radiotherapy}, which uses x-rays to destroy tumor cells, aiming to target the cancerous region as precisely as possible to preserve healthy tissue; however, radiotherapy can increase the risk of developing secondary tumors, such as leukemia or sarcomas, and may lead to delayed effects like dementia, amnesia, or progressive cognitive difficulties;
     \item \textit{chemotherapy}, which employs \textit{cytotoxic} drugs to block cellular division in both cancerous and healthy cells, but they can also induce side effects in rapidly renewing tissues;
-    \item \textit{hormone therapy}, which alters the balance of specific hormones, potentially leading to side effects such as joint pain or osteoporosis;
-    \item \textit{targeted therapy}, which involves drugs containing antibodies or inhibitory substances that specifically target cancer cells, promoting their destruction by the immune system \cite{target_therapy1}.
+    \item \textit{hormone therapy}, which alters the balance of specific hormones, potentially leading to side effects such as joint pain or osteoporosis.
 \end{itemize}
 
-\section{Targeted therapy}
+Due to the various side effects associated with current cancer treatments, a new form of therapy has recently become the focus of extensive research for its potential to precisely target cancer cells and minimize damage to healthy cells and tissue \cite{target_therapy1}.
 
-Targeted therapy is a form of cancer treatment that targets proteins responsible for the growth, division, and spread of cancer cells, and it forms the basis of \href{https://en.wikipedia.org/wiki/Personalized_medicine}{precision medicine}. In recent years targeted therapy has been the focus of extensive research due to its potential to precisely affect only the desired target, thereby reducing the side effects that currently characterize most cancer treatments and potentially limiting damage to healthy cells \cite{target_therapy1}.
+\subsection{Overview and origin}
 
-The targets include growth factor receptors, signaling molecules, cell-cycle proteins, and other molecules crucial for normal tissue development and homeostasis, which often become overexpressed or altered in cancer cells, leading to their aberrant function \cite{se_tt}.
-
-For certain cancer types, most patients will have a target suitable for a specific drug, allowing them to be treated with the corresponding medication. However, in most cases, a tumor must be tested through \textit{biomarker testing} to determine if it contains any targets for which a drug is available \cite{target_therapy1}.
-
-\subsection{Origin}
+\textbf{Targeted therapy} is a form of cancer treatment that targets proteins responsible for the growth, division, and spread of cancer cells, and it forms the basis of \href{https://en.wikipedia.org/wiki/Personalized_medicine}{precision medicine}. The targets include growth factor receptors, signaling molecules, cell-cycle proteins, and other molecules crucial for normal tissue development and homeostasis, which often become overexpressed or altered in cancer cells, leading to their aberrant function \cite{se_tt}.
 
 The concept of targeted therapy originates from the German Nobel Paul Ehrlich's idea of a \curlyquotes{\textit{magic bullet}} \cite{ehrlich}, when he envisioned a chemical capable of specifically targeting microorganisms. Over a century later, advances in molecular biology enhanced our understanding of the mechanisms behind cancer initiation, promotion, and progression. This progress led to the development of treatments that can interfere with specific molecular targets, typically proteins, linked to tumor growth and progression \cite{se_tt}.
 
 \subsection{Therapy types}
 
-Most types of targeted therapy consist of \textbf{small-molecule drugs}, which are used for targets located inside cells because their small size allows them to enter cells easily, and \textbf{monoclonal antibodies}, which are laboratory-produced proteins engineered to bind to specific targets on cancer cells. Some monoclonal antibodies help the immune system identify and destroy cancer cells by marking them, while others directly inhibit the growth of cancer cells or induce their self-destruction, and still others deliver toxins directly to cancer cells \cite{target_therapy1}. \todo{forse espandi un po qui}
-
-\subsection{Approaches}
+Most types of targeted therapy consist of \textbf{small-molecule drugs}, which are used for targets located inside cells because their small size allows them to enter cells easily, and \textbf{monoclonal antibodies}, which are laboratory-produced proteins engineered to bind to specific targets on cancer cells. Some monoclonal antibodies help the immune system identify and destroy cancer cells by marking them, while others directly inhibit the growth of cancer cells or induce their self-destruction, and still others deliver toxins directly to cancer cells \cite{target_therapy1}.
 
 Most targeted therapies treat cancer by interfering with specific proteins that promote tumor growth and spread. This approach differs from chemotherapy, which often kills all rapidly dividing cells. The following are the different approaches that targeted therapy employs \cite{target_therapy1}.
 
@@ -51,11 +66,15 @@ Most targeted therapies treat cancer by interfering with specific proteins that 
     \item \textit{Hormone therapy}. Some types of breast and prostate cancer require specific hormones to grow. Hormone therapies block the body's production of growth hormones or prevent them from acting on cells, including cancer cells.
 \end{itemize}
 
+placeholder. \todo{aggiungere paragrafo conclusivo?}
+
 \subsection{Drawbacks}
 
 Like all cancer treatment, targeted therapy also has limitations, and often works best when combined with other types of targeted therapies or additional cancer treatments like chemotherapy and radiation \cite{target_therapy1}.
 
 In particular, developing drugs for certain targets can be challenging due to factors including the target's structural complexity, its function within the cell, or a combination of both. Moreover, cancer cells can develop resistance to targeted therapy, which may occur if the target itself mutates, rendering the therapy unable to interact with it effectively. Alternatively, resistance can arise if cancer cells adapt and find new growth mechanisms that do not rely on the target \cite{target_therapy1}. \todo{ho un paper con il quale è possibile espandere questa sezione ma ho tolto la sezione che avevo scritto perché non credo sia necessario (almeno per il momento) scendere così tanto nel dettaglio di questa parte}
+
+placeholder. \todo{aggiungere paragrafo conclusivo}
 
 % The following are several ways in which cancer cells can develop resistance to targeted therapy \cite{target_therapy2}.
 %
@@ -81,24 +100,28 @@ In general, targeted molecular therapies have good toxicity profiles. However, s
 
 The most common side effects of targeted therapy are diarrhea and liver issues, but they may also include problems with blood clotting and wound healing, high blood pressure, fatigue, mouth sores, nail changes, loss of hair color, and skin problems. In rare cases, a perforation may occur in the wall of the esophagus, stomach, small intestine, colon, rectum, or gallbladder. Medications are available to manage many of these side effects, either by preventing them or treating them once they arise. Additionally, most side effects of targeted therapy subside after the treatment is completed \cite{target_therapy1}.
 
-\paragraph{DAEs}
+placeholder. \todo{aggiungere paragrafo conclusivo}
 
-Targeted therapies and immunotherapies are linked to a variety of \textit{Dermatologic Adverse Events} (DAEs) due to the involvement of common signaling pathways in both malignant processes and the normal functions of the epidermis and dermis. Dermatologic toxicities can affect the skin, oral mucosa, hair, and nails.
+% \paragraph{DAEs}
+%
+% Targeted therapies and immunotherapies are linked to a variety of \textit{Dermatologic Adverse Events} (DAEs) due to the involvement of common signaling pathways in both malignant processes and the normal functions of the epidermis and dermis. Dermatologic toxicities can affect the skin, oral mucosa, hair, and nails.
+%
+% The most frequent DAE is \textit{acneiform rash}, seen in multiple of patients undergoing treatment that include epidermal growth factor receptor (EGFR) inhibitors. BRAF inhibitors are known to cause secondary skin tumors, including \textit{squamous cell carcinoma} and \textit{keratoacanthomas}, and can also alter pre-existing pigmented lesions, and induce hand-foot skin reactions. (\textit{Immune checkpoint inhibitors} (ICIs) typically lead to nonspecific \textit{maculopapular rash}, but can also cause \textit{psoriatic} lesions, \textit{lichenoid dermatitis}, \textit{xerosis}, and \textit{pruritus}.
+%
+% Among the oral mucosal toxicities from targeted therapies, \textit{oral mucositis} is most frequent with mammalian Target of Rapamycin (mTOR) inhibitors, followed by \textit{stomatitis} from multikinase angiogenesis and HER inhibitors, geographic tongue, and \textit{hyperpigmentation}. ICIs generally cause oral lichenoid reactions and \textit{xerostomia}.
+%
+% Regarding skin problems, \textit{alopecia} is a frequent side effect of both targeted and endocrine therapies. Moreover, targeted therapies can damage the nail folds, resulting in \textit{paronychia} and \textit{periungual pyogenic granuloma}. Mild \textit{onycholysis}, brittle nails, and slower nail growth may also occur \cite{skin_nails}.
+%
+% \paragraph{Gastrointestinal toxicity}
+%
+% Diarrhea serves as a dose-limiting toxicity for many small-molecule tyrosine kinase inhibitors. \href{https://en.wikipedia.org/wiki/Gefitinib}{\textit{Gefitinib}}, in particular, has been associated with significant mucosal toxicity when administered at higher doses, although the exact mechanism remains unclear. Research indicates that many patients with colorectal cancer treated with \textit{gefitinib} alongside \textit{irinotecan}, \textit{5-fluorouracil}, and \textit{leucovorin} developed a gastrointestinal syndrome characterized by abdominal pain and diarrhea, necessitating dose reductions and preventing further development of this combination \cite{se_tt}.
+%
+% \paragraph{Lung problems}
+%
+% \textit{Interstitial lung disease} (ILD) is recognized as a potential adverse effect of certain cancer chemotherapeutic agents and local radiotherapy. Recently, ILD related to \textit{gefitinib} has emerged as a significant toxicity concern. Studies reported that multiple patients with \textit{non-small cell lung cancer} (NSCLC), treated with \textit{gefitinib}, developed ILD, and the condition led to a fatal outcome in some of them. Although the exact mechanism of \textit{gefitinib}-related ILD is not fully understood, EGFR is believed to play a crucial role in maintaining and repairing epithelial tissues and regulating mucin production in the airways. \textit{Gefitinib} appears to primarily induce pulmonary side effects in patients with existing pulmonary conditions \cite{se_tt}.
 
-The most frequent DAE is \textit{acneiform rash}, seen in multiple of patients undergoing treatment that include epidermal growth factor receptor (EGFR) inhibitors. BRAF inhibitors are known to cause secondary skin tumors, including \textit{squamous cell carcinoma} and \textit{keratoacanthomas}, and can also alter pre-existing pigmented lesions, and induce hand-foot skin reactions. (\textit{Immune checkpoint inhibitors} (ICIs) typically lead to nonspecific \textit{maculopapular rash}, but can also cause \textit{psoriatic} lesions, \textit{lichenoid dermatitis}, \textit{xerosis}, and \textit{pruritus}.
+\subsection{Targeted therapy and mutations}
 
-Among the oral mucosal toxicities from targeted therapies, \textit{oral mucositis} is most frequent with mammalian Target of Rapamycin (mTOR) inhibitors, followed by \textit{stomatitis} from multikinase angiogenesis and HER inhibitors, geographic tongue, and \textit{hyperpigmentation}. ICIs generally cause oral lichenoid reactions and \textit{xerostomia}.
-
-Regarding skin problems, \textit{alopecia} is a frequent side effect of both targeted and endocrine therapies. Moreover, targeted therapies can damage the nail folds, resulting in \textit{paronychia} and \textit{periungual pyogenic granuloma}. Mild \textit{onycholysis}, brittle nails, and slower nail growth may also occur \cite{skin_nails}.
-
-\paragraph{Gastrointestinal toxicity}
-
-Diarrhea serves as a dose-limiting toxicity for many small-molecule tyrosine kinase inhibitors. \href{https://en.wikipedia.org/wiki/Gefitinib}{\textit{Gefitinib}}, in particular, has been associated with significant mucosal toxicity when administered at higher doses, although the exact mechanism remains unclear. Research indicates that many patients with colorectal cancer treated with \textit{gefitinib} alongside \textit{irinotecan}, \textit{5-fluorouracil}, and \textit{leucovorin} developed a gastrointestinal syndrome characterized by abdominal pain and diarrhea, necessitating dose reductions and preventing further development of this combination \cite{se_tt}.
-
-\paragraph{Lung problems}
-
-\textit{Interstitial lung disease} (ILD) is recognized as a potential adverse effect of certain cancer chemotherapeutic agents and local radiotherapy. Recently, ILD related to \textit{gefitinib} has emerged as a significant toxicity concern. Studies reported that multiple patients with \textit{non-small cell lung cancer} (NSCLC), treated with \textit{gefitinib}, developed ILD, and the condition led to a fatal outcome in some of them. Although the exact mechanism of \textit{gefitinib}-related ILD is not fully understood, EGFR is believed to play a crucial role in maintaining and repairing epithelial tissues and regulating mucin production in the airways. \textit{Gefitinib} appears to primarily induce pulmonary side effects in patients with existing pulmonary conditions \cite{se_tt}.
-
-\subsection{TODO} \todo{sento che manca qualcosa per concludere il capitolo ma non so cosa potrei mettere, qualcosa di conclusivo}
+placeholder. \todo{paragrafo che dice che la tt è utile anche per il discorso delle mutazioni}
 
 \cleardoublepage

@@ -108,11 +108,13 @@ placeholder. \todo{non mi ricordo cosa volevo scrivere qua}
 As outlined in \cref{multi_dendrix_2nd_chap}, \textcite{multi-dendrix} propose that the most effective approach to conducting the research is to identify a collection of gene sets that maximize the sum of their individual weights. To achieve this result, they solve the following problem, which is an extension of \cref{mwsp}:
 
 \begin{displayquote}
-    \textbf{Multiple Maximum Weight Submatrices Problem}: Given an $m \times n$ mutation matrix $A$, and integer $t > 0$, find a collection $M = \{M_1, \ldots, M_t\}$ of $m \times k$ \todo{$k$ DOES NOT APPEAR ANYWHERE IN THE ILP???????} column submatrices that maximizes
+    \textbf{Multiple Maximum Weight Submatrices Problem}: Given an $m \times n$ mutation matrix $A$, and integer $t > 0$, and two integers $k_{\mathrm{min}}, k_{\mathrm{max}} \ge 0$, find a collection $M = \{M_1, \ldots, M_t\}$ of column submatrices that maximizes
 
     \begin{equation}
         W'(M) := \sum_{\rho = 1}^t {W(M_\rho)}
     \end{equation}
+
+    where each submatrix $M_\rho$ --- for $1 \le \rho \le t$ ---  has size $m \times k_\rho$ for some $k_{\mathrm{min}} \le k_\rho \le k_{\mathrm{max}}$.
 \end{displayquote}
 
 Note that this problem is NP-Hard, as for the case $t = 1$. Furthermore, collections $M$ with a large value of $W'(M)$ are also likely to have higher coverage $\Gamma(M_\rho)$ for each individual gene set $\rho$. As a result, optimal solutions tend to produce collections where many patients have mutations in more than one gene set, or they may be pairs or larger groups of co-occurring mutations, a phenomenon observed in cancer. \todo{qua inseriscono una citazione, potrebbe valere la pena di inserirla e/o indagare?}
@@ -451,7 +453,7 @@ Since solving ILPs is NP-Hard, \textcite{c3} relax the problem by changing \cref
                     \State $S = S - \rbk{\{u\} \cup T}$
                 \Else
             \State Partition $T$ into $\{T_0', T_1, \ldots, T_p\}$, such that: \begin{itemize} \item[] \quad \quad \quad \quad $\sbullet \ \abs{T_0'} = k$ \item[] \quad \quad \quad \quad $\sbullet \ \abs{T_i} = k + 1$ for each $0 < i < p$ \item[] \quad \quad \quad \quad $\sbullet \ \abs{T_p} \le k + 1$ \end{itemize}
-                    \State $T_0 := T_0' \cup \{u\}$ \Comment{$T_0$ as $k + 1$ elements}
+                    \State $T_0 := T_0' \cup \{u\}$ \Comment{$T_0$ has $k + 1$ elements}
                     \For{$i \in [0, p]$}
                         \State $\mathcal C = \mathcal C \cup T_i$ \Comment{add each partition as a cluster}
                     \EndFor

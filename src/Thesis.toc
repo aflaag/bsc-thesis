@@ -1,18 +1,16 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Cancer}{1}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Carcinogenesis}{1}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Current treatment}{1}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.1}TODO}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Causes}{1}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Mutations and cancer development}{2}{subsection.1.1.3}%
 \contentsline {section}{\numberline {1.2}Targeted therapy}{2}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Origin}{2}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Therapy types}{2}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Approaches}{3}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.1}Current cancer treatment}{2}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Overview and origin}{3}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Therapy types}{3}{subsection.1.2.3}%
 \contentsline {subsection}{\numberline {1.2.4}Drawbacks}{4}{subsection.1.2.4}%
 \contentsline {subsection}{\numberline {1.2.5}Side effects}{4}{subsection.1.2.5}%
-\contentsline {paragraph}{DAEs}{4}{section*.6}%
-\contentsline {paragraph}{Gastrointestinal toxicity}{5}{section*.7}%
-\contentsline {paragraph}{Lung problems}{5}{section*.8}%
-\contentsline {subsection}{\numberline {1.2.6}TODO}{5}{subsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.2.6}Targeted therapy and mutations}{5}{subsection.1.2.6}%
 \contentsline {chapter}{\numberline {2}Classifying mutations}{6}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Mutations}{6}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Passenger and driver mutations}{6}{subsection.2.1.1}%
@@ -22,7 +20,7 @@
 \contentsline {section}{\numberline {2.3}Mutual exclusivity formalization}{8}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Hard and soft mutual exclusivity}{8}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Mutual exclusivity of a group}{8}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}A deterministic equation}{9}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.3}A deterministic formalization of mutual exclusivity}{9}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Extending the deterministic equation}{10}{subsection.2.3.4}%
 \contentsline {subsection}{\numberline {2.3.5}A statistical approach}{11}{subsection.2.3.5}%
 \contentsline {subsection}{\numberline {2.3.6}A clustering approach}{12}{subsection.2.3.6}%
@@ -46,4 +44,4 @@
 \contentsline {subsection}{\numberline {3.5.5}Other versions}{26}{subsection.3.5.5}%
 \contentsline {subsection}{\numberline {3.5.6}The clustering ILP}{26}{subsection.3.5.6}%
 \contentsline {subsection}{\numberline {3.5.7}The rounding procedure}{27}{subsection.3.5.7}%
-\contentsline {chapter}{Acknowledgements}{29}{chapter*.60}%
+\contentsline {chapter}{Acknowledgements}{29}{chapter*.59}%

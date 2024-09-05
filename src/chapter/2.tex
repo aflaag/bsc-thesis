@@ -45,12 +45,12 @@ In the statistical literature, two types of mutual exclusivity are defined: \tex
 
 Searching for the most mutually exclusive gene group is equivalent to identifying a single driver pathway, for the aforementioned reasons. For a pair of genes, soft mutual exclusivity can be assessed using the \href{https://en.wikipedia.org/wiki/Fisher\%27s_exact_test}{Fisher's exact test} \todo{studiati cos'è un minimo}. However, there is no agreed-upon method for analytically testing mutual exclusivity among more than two genes. One approach could involve checking whether each pair of genes within the group exhibits mutual exclusivity; this method, however, may be overly strict, as a gene set can exhibit a strong mutual exclusivity pattern as a whole even if no individual pairs show any \cite{mutex}.
 
-\subsection{A deterministic equation}
+\subsection{A deterministic formalization of mutual exclusivity}
 
 \textcite{dendrix}, the authors of a landmark paper that developed an algorithm called Dendrix, provided the following mathematical formalization for the properties of mutual exclusivity and coverage for a set of genes.
 
 \begin{definition}[Mutation matrix] \label{mut_matrix_def}
-    A \curlyquotes{mutation matrix} is a matrix with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene, and the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
+    A \textbf{mutation matrix} is a matrix with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene, and the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
 \end{definition}
 
 \begin{example} \label{mutation_matrix}
