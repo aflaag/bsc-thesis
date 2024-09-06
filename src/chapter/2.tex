@@ -26,7 +26,7 @@ With the decreasing cost of DNA sequencing, it is now possible to categorize mut
 
 Moreover, multiple alternative driver alterations in different genes may lead to similar downstream effects. In such instances, the selective advantage is distributed among the alterations frequencies of these genes. In current cancer genomics studies, where the number of samples is significantly smaller than the number of genes profiled per sample, frequency-based methods lack the statistical efficacy to distinguish passenger and driver mutations \cite{mutex}. 
 
-Therefore, studies should be conducted at the pathway level, as it is well established that different mutations can affect the same pathway across multiple samples \cite{multi-dendrix}. However, since each path involves multiple genes, numerous possible combinations of driver mutations could impact a crucial cancer pathway, making it computationally unfeasible to test every possible gene permutation \cite{dendrix} --- estimates suggest that the human genome contains more than 50,000 genes \cite{n-genes}. Hence, it is necessary to identify a property to leverage to search efficiently.
+Therefore, studies should be conducted at the pathway level, as it is well established that different mutations can affect the same pathway across multiple samples \cite{multi-dendrix}. However, since each pathway involves multiple genes, numerous possible combinations of driver mutations could impact a crucial cancer pathway, making it computationally unfeasible to test every possible gene permutation \cite{dendrix} --- estimates suggest that the human genome contains more than 50,000 genes \cite{n-genes}. Hence, it is necessary to identify a property to leverage to search efficiently.
 
 \subsection{Mutual exclusivity and coverage}
 
@@ -34,8 +34,10 @@ Most techniques developed in recent years for recognizing driver mutations lever
 
 \begin{itemize}
     \item one hypothesis is that mutually exclusive genes are functionally connected within a common pathway, acting on the same downstream effectors and creating functional redundancy; consequently, they would share the same selective advantage, meaning that the alteration of one mutually exclusive gene would be sufficient to disrupt their shared pathway, thereby removing the selective pressure to alter the others; this explanation, however, does not fully account for the phenomenon because the co-alteration of mutually exclusive genes should not result in negative effects on the cell.
-    \item an alternative explanation is that the co-occurrence of mutually exclusive alterations is detrimental to cancer survival, leading to the elimination of cells that harbor such co-occurrences; moreover, some pairs of mutually exclusive genes could be \textit{synthetic lethal}, meaning that while the alteration of one gene may be compatible with cell survival, the simultaneous aberration of both genes would be lethal to the cell \todo{add example from survey paper?; also, use \href{https://www.nature.com/articles/s41467-020-20820-x}{example}? (mail "Risposte (parziali) alle questioni, ERG e SPOP")}.
+    \item an alternative explanation is that the co-occurrence of mutually exclusive alterations is detrimental to cancer survival, leading to the elimination of cells that harbor such co-occurrences; moreover, some pairs of mutually exclusive genes could be \textit{synthetic lethal}, meaning that while the alteration of one gene may be compatible with cell survival, the simultaneous aberration of both genes would be lethal to the cell.
 \end{itemize}
+
+An example of the latter is provided by the gene pair \href{https://en.wikipedia.org/wiki/ERG_(gene)}{ERG} and \href{https://en.wikipedia.org/wiki/SPOP}{SPOP}, which are commonly overexpressed in patients with prostate cancer, but they are mutually exclusive due to their \textit{synthetic lethality}. Wild-type (WT) SPOP facilitates the degradation of various proteins, including \href{https://en.wikipedia.org/wiki/ZMYND11Jjla}{ZMYND11}, which regulates androgen receptor (AR) signaling. Tumors with mutant ERG require reduced AR signaling to sustain their cancerous effects; therefore, mutant ERG upregulates WT SPOP to enhance the degradation of ZMYND11 and lower AR signaling. In contrast, when SPOP is mutated it loses the ability to degrade ZMYND11, leading to its accumulation and increased AR signaling. This amplified AR signaling is incompatible with the function of mutant ERG, which relies on low AR signaling. Consequently, while ERG and SPOP mutations can each support oncogenic activity individually, their simultaneous aberration is not viable due to the conflicting requirements for AR signaling \cite{erg_spop}.
 
 In addition, another key property of driver pathways is \textbf{coverage}, i.e. driver genes constituting a driver pathway are frequently mutated across many samples. \todo{sai che cosa aggiungere, aggiungilo appena puoi}
 
@@ -43,13 +45,13 @@ Thus, \textit{a driver pathway consists of genes that are mutated in numerous pa
 
 \section{Mutual exclusivity formalization}
 
-\subsection{Hard and soft mutual exclusivity}
+\subsection{Challenges in quantifying mutual exclusivity}
 
-In the statistical literature, two types of mutual exclusivity are defined: \textbf{hard} and \textbf{soft}. Hard mutual exclusivity describes events that are presumed to be strictly mutually exclusive, with the null hypothesis being that any observed overlap is due to random errors. However, in this context, it is not feasible to test for hard mutual exclusivity, as this is a property observed statistically from patient data. Therefore, it is necessary to relax the constraint to soft mutual exclusivity, where two otherwise independent events overlap less than expected by chance due to some statistical interaction \cite{mutex}.
+Finding an effective method to appropriately quantify the level of mutual exclusivity is not straightforward. In the statistical literature, two types of mutual exclusivity are defined: \textit{hard} and \textit{soft}. Hard mutual exclusivity describes events that are presumed to be strictly mutually exclusive, with the null hypothesis being that any observed overlap is due to random errors. However, in this context, it is not feasible to test for hard mutual exclusivity, as this is a property observed statistically from patient data. Therefore, it is necessary to relax the constraint to soft mutual exclusivity, where two otherwise independent events overlap less than expected by chance due to some statistical interaction.
 
-\subsection{Mutual exclusivity of a group}
+Moreover, while soft mutual exclusivity of a pair of genes can be assessed using the \href{https://en.wikipedia.org/wiki/Fisher\%27s_exact_test}{Fisher's exact test} \todo{studialo}, there is no agreed-upon method for analytically testing mutual exclusivity among more than two genes. For instance, one intuitive approach could involve checking whether each pair of genes within the group exhibits mutual exclusivity; this method, however, may be overly strict, as a gene set can exhibit a strong mutual exclusivity pattern as a whole even if no individual pairs show any \cite{mutex}.
 
-Searching for the most mutually exclusive gene group is equivalent to identifying a single driver pathway, for the aforementioned reasons. For a pair of genes, soft mutual exclusivity can be assessed using the \href{https://en.wikipedia.org/wiki/Fisher\%27s_exact_test}{Fisher's exact test} \todo{studiati cos'è un minimo}. However, there is no agreed-upon method for analytically testing mutual exclusivity among more than two genes. One approach could involve checking whether each pair of genes within the group exhibits mutual exclusivity; this method, however, may be overly strict, as a gene set can exhibit a strong mutual exclusivity pattern as a whole even if no individual pairs show any \cite{mutex}.
+Due to the complexity of measuring mutual exclusivity, recent papers have proposed various formulations, based on different assumptions, which will be discussed in later sections.
 
 \subsection{A deterministic formalization of mutual exclusivity}
 
@@ -68,9 +70,7 @@ Searching for the most mutually exclusive gene group is equivalent to identifyin
                   & $g_1$ & $g_2$ & $g_3$ \\
             \hline
             $p_1$ & 0 & 1 & 0 \\
-            \hline
             $p_2$ & 1 & 1 & 0 \\
-            \hline
             $p_3$ & 0 & 0 & 1 \\
         \end{tabular}
         \caption{A mutation matrix.}
@@ -123,10 +123,71 @@ Note that $W(M) = \Gamma(M)$ when $M$ is mutually exclusive.
 In order to find an optimal gene set, the following problem has to be solved:
 
 \begin{displayquote}\label{mwsp}
-    \textbf{Maximum Weight Submatrix Problem}: Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find a $m \times k$ submatrix of $A$ that maximizes $W(M)$.
+    \textbf{Maximum Weight Submatrix Problem} (MWSP): Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find a $m \times k$ submatrix of $A$ that maximizes $W(M)$.
 \end{displayquote}
 
-Finding the solution to this problem is computationally difficult even for small values of $k$ (e.g. there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes), and it can be proven that it is NP-Hard. \todo{nei materiali supplementari mettono la dimostrazione che questo problema è NP-Hard, lo devo fare?}
+Finding the solution to this problem is computationally difficult even for small values of $k$ (e.g. there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes), and it can be proven that it is NP-Hard.
+
+\begin{theorem}[NP-Hardness of the MWSP]
+    The Maximum Weight Submatrix Problem is NP-Hard.
+\end{theorem}
+
+\begin{proof}
+        The proof is by reduction from the \href{https://en.wikipedia.org/wiki/Independent_set_(graph_theory)}{Independent Set} Problem (ISP), which is known to be NP-Hard \cite{hochbaum}. In the ISP, it is asked whether there is an independent set of size $k$ in a given graph $G$. An independent set for $G = (V, E)$ is a set of vertices $I \subseteq V(G)$ such that there is no edge among the vertices of $I$, i.e. $$\forall u, v \in I \mid u \neq v \quad (u, v) \notin E(G)$$
+
+        Given an instance of the ISP, a mutation matrix representing an instance of the MWSP is built in polynomial time as follows:
+
+        \begin{itemize}
+            \item let $\Delta := \max_{v \in G}{\deg(v)}$, and for each $v \in V(G)$ let $\mathcal S_v := \left\{s_v^{(1)}, \ldots, s_v^{(\Delta - \deg(v))}\right\}$ be a set of variables; also, consider the following set $$\mathcal S := \left\{s_e \mid e \in E(G)\right\} \cup \rbk{\bigcup_{v \in V(G)}{\mathcal S_v}}$$
+            \item build a matrix $A$ of size $\abs{\mathcal S} \times \abs{V(G)}$, as illustrated below
+
+                \begin{table}[H]
+                    \centering
+                    \begin{tabular}{c|ccc}
+                              & $v_1$ & $\ldots$ & $v_n$ \\
+                        \hline
+                        $e_1$ & $\ddots$ & & \\
+                        $\vdots$ & & $\ddots$ & \\
+                        $e_m$ & & & $\ddots$ \\
+                        \hline
+                        $s_{v_1}^{(1)}$ & $\ddots$ & & \\
+                        $\vdots$ & & $\vdots$ & \\
+                        $s_{v_1}^{(\Delta - \deg(v_1))}$ & &  & \\
+                        $\vdots$ & & $\vdots$ & \\
+                        $s_{v_n}^{(1)}$ & &  & \\
+                        $\vdots$ & & $\vdots$ & \\
+                        $s_{v_n}^{(\Delta - \deg(v_n))}$ & & & $\ddots$
+                    \end{tabular}
+                    \caption{The described matrix.}
+                \end{table}
+
+            \item define $A$'s cells as follows: $$a_{s, v} = 1 \iff s = s_{(u, v)}, u \in V(G) \lor s \in \mathcal S_v$$ which means that $a_{s, v}$ will be 1 if and only if $s$ is either a variable from the set $\{s_e \mid e \in E(G)\}$ where the edge $e$ has $v$ as endpoint, or $s$ is a variable defined in $\mathcal S_v$.
+        \end{itemize}
+
+        Note that:
+
+        \begin{enumerate}[label=\roman*), font=\itshape]
+            \item $\forall v \in V(G) \quad \abs{\Gamma(v)} = \Delta$ due to the added variables at the end of each column;
+            \item $\forall u, v \in V(G) \quad \Gamma(u) \cap \Gamma(v) \neq \varnothing \iff (u, v) \in E$, since no pair of columns can have a 1 in the same row in the second half of $A$ by definition of the sets $\mathcal S_{v_1}, \ldots , \mathcal S_{v_n}$, therefore $\Gamma(u)$ and $\Gamma(v)$ can have an intersection if and only if there is an edge $(u, v) \in E(G)$.
+        \end{enumerate}
+
+        Hence, consider a set $M = \{v_1, \ldots, v_k\}$ of $k$ columns of $A$. Note that:
+
+        \begin{itemize}
+            \item from $(i)$ it follows that $$\sum_{i = 1}^k {\abs{\Gamma \rbk{v_i}}} = k \Delta$$ and consequently $\abs{\Gamma(M)} \le k \Delta$, meaning that the largest value $\abs{\Gamma(M)}$ can have is $k \Delta$; hence, from the equation in \cref{weight}, it follows that the maximum value $W(M)$ can reach is
+                \begin{equation*}
+                    \begin{split}
+                        W(M) & = 2 \abs{\Gamma(M)} - \sum_{i = 1}^k{\abs{\Gamma \rbk{v_i}}} \\
+                             & = 2 k \Delta - k \Delta \\
+                             & = k \Delta
+                    \end{split}
+                \end{equation*}
+
+            \item from $(ii)$ it follows that $\abs{\Gamma(M)} = k \Delta \iff \forall u, v \in V(G) \quad \Gamma(u) \cap \Gamma(v) = \varnothing \iff \forall u, v \in V(G) \quad (u, v) \notin E(G) \iff M$ is an independent set, by definition.
+        \end{itemize}
+
+        This means that $W(M)$ is maximized if and only if $M$ is an independent set; therefore, the MWSP can be solved on $A$ if and only if the ISP can be solved on $G$.
+\end{proof}
 
 \subsection{Extending the deterministic equation} \label{multi_dendrix_2nd_chap} \todo{considera di spostare questo alla fine}
 
@@ -156,7 +217,7 @@ where $s_0$ is the initial score, and $H$ is the hypergeometric test. Since mult
 
 From this second set of $p$-values, the least significant one is selected as the multiple hypothesis testing corrected final score. \todo{talk about the last paragraph, which is even less comprehensible}
 
-\subsection{A clustering approach} \label{c3_chap2}
+\subsection{A clustering approach} \label{c3_chap2} \todo{change this title soo similar with the previous one}
 
 Another notable approach utilized in several papers involves constructing gene graphs and identifying clusters based on specific criteria; this method is demonstrated by \textcite{c3}.
 

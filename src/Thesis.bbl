@@ -87,6 +87,228 @@
     \field{year}{2015}
   \endentry
 
+  \entry{erg_spop}{article}{}
+    \name{author}{32}{}{%
+      {{hash=BT}{%
+         family={Bernasocchi},
+         familyi={B\bibinitperiod},
+         given={Tiziano},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=ETG}{%
+         family={El\bibnamedelima Tekle},
+         familyi={E\bibinitperiod\bibinitdelim T\bibinitperiod},
+         given={Geniver},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Bolis},
+         familyi={B\bibinitperiod},
+         given={Marco},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Mutti},
+         familyi={M\bibinitperiod},
+         given={Azzurra},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=VA}{%
+         family={Vallerga},
+         familyi={V\bibinitperiod},
+         given={Arianna},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BLP}{%
+         family={Brandt},
+         familyi={B\bibinitperiod},
+         given={Laura\bibnamedelima P.},
+         giveni={L\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=SF}{%
+         family={Spriano},
+         familyi={S\bibinitperiod},
+         given={Filippo},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=ST}{%
+         family={Svinkina},
+         familyi={S\bibinitperiod},
+         given={Tanya},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=ZM}{%
+         family={Zoma},
+         familyi={Z\bibinitperiod},
+         given={Marita},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CV}{%
+         family={Ceserani},
+         familyi={C\bibinitperiod},
+         given={Valentina},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Rinaldi},
+         familyi={R\bibinitperiod},
+         given={Anna},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=JH}{%
+         family={Janouskova},
+         familyi={J\bibinitperiod},
+         given={Hana},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Bossi},
+         familyi={B\bibinitperiod},
+         given={Daniela},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=CM}{%
+         family={Cavalli},
+         familyi={C\bibinitperiod},
+         given={Manuela},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={Mosole},
+         familyi={M\bibinitperiod},
+         given={Simone},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=GR}{%
+         family={Geiger},
+         familyi={G\bibinitperiod},
+         given={Roger},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=DZ}{%
+         family={Dong},
+         familyi={D\bibinitperiod},
+         given={Ze},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=YCG}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Cai-Guang},
+         giveni={C\bibinithyphendelim G\bibinitperiod},
+      }}%
+      {{hash=AD}{%
+         family={Albino},
+         familyi={A\bibinitperiod},
+         given={Domenico},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Rinaldi},
+         familyi={R\bibinitperiod},
+         given={Andrea},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SP}{%
+         family={Schraml},
+         familyi={S\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Linder},
+         familyi={L\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=CGM}{%
+         family={Carbone},
+         familyi={C\bibinitperiod},
+         given={Giuseppina\bibnamedelima M.},
+         giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=AA}{%
+         family={Alimonti},
+         familyi={A\bibinitperiod},
+         given={Andrea},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BF}{%
+         family={Bertoni},
+         familyi={B\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=MH}{%
+         family={Moch},
+         familyi={M\bibinitperiod},
+         given={Holger},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=CSA}{%
+         family={Carr},
+         familyi={C\bibinitperiod},
+         given={Steven\bibnamedelima A.},
+         giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=ZW}{%
+         family={Zwart},
+         familyi={Z\bibinitperiod},
+         given={Wilbert},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=KdJM}{%
+         prefix={Kruithof-de},
+         prefixi={K\bibinithyphendelim d\bibinitperiod},
+         family={Julio},
+         familyi={J\bibinitperiod},
+         given={Marianna},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=RMA}{%
+         family={Rubin},
+         familyi={R\bibinitperiod},
+         given={Mark\bibnamedelima A.},
+         giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=UND}{%
+         family={Udeshi},
+         familyi={U\bibinitperiod},
+         given={Namrata\bibnamedelima D.},
+         giveni={N\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=TJPP}{%
+         family={Theurillat},
+         familyi={T\bibinitperiod},
+         given={Jean-Philippe\bibnamedelima P.},
+         giveni={J\bibinithyphendelim P\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{BT+1}
+    \strng{fullhash}{BTETGBMMAVABLPSFSTZMCVRAJHBDCMMSGRDZYCGADRASPLSCGMAABFMHCSAZWJMKdRMAUNDTJPP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1038/s41467-020-20820-x
+    \endverb
+    \field{issn}{2041-1723}
+    \field{number}{1}
+    \field{title}{Dual functions of SPOP and ERG dictate androgen therapy responses in prostate cancer}
+    \verb{url}
+    \verb http://dx.doi.org/10.1038/s41467-020-20820-x
+    \endverb
+    \field{volume}{12}
+    \field{journaltitle}{Nature Communications}
+    \field{month}{02}
+    \field{year}{2021}
+  \endentry
+
   \entry{cancer_treat}{misc}{}
     \field{labeltitlesource}{title}
     \field{sortinit}{C}
@@ -442,6 +664,28 @@
     \field{journaltitle}{Nature Reviews Cancer}
     \field{month}{03}
     \field{year}{2004}
+  \endentry
+
+  \entry{hochbaum}{book}{}
+    \name{author}{1}{}{%
+      {{hash=HD}{%
+         family={Hochbaum},
+         familyi={H\bibinitperiod},
+         given={Dorit},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {PWS Publ}%
+    }
+    \strng{namehash}{HD1}
+    \strng{fullhash}{HD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Approximation algorithms for NP-hard problems ed. by Dorit S. Hochbaum}
+    \field{year}{1996}
   \endentry
 
   \entry{c3}{article}{}

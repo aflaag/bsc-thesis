@@ -4,8 +4,6 @@
 
 ## TODO list
 
-- LEGGI CORREZIONI DELLA MAIL
-
 - consistency nella notazione
 
 - metti inizio/fine chap 3 il perché abbiamo tanti algoritmi (perché?)
@@ -14,6 +12,8 @@
 - CAMBIARE TUTTI GLI ACRONIMI
 
 - passa tutto a ly
+
+- fai tbf e tit
 
 - capire come aumentare lo spazio tra table e caption
 - abstract

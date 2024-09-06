@@ -58,7 +58,7 @@ placeholder \todo{la faccio? probabilmente si ma dovrei prima vedere cosa le MCM
 
 \subsection{An alternative solution to Dendrix}
 
-\textcite{multi-dendrix}, the authors of Multi-Dendrix (\textit{de novo} \cite{survey}), try to solve the same problem posed by \textcite{dendrix}, provided in \cref{mwsp}, by formulating the problem as an \textit{Integer Linear Program} (ILP), which they refer to as $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$. Consider a gene set $M$ defined by a set of indicator variables, one for each gene $j \in M$, as follows
+\textcite{multi-dendrix}, the authors of Multi-Dendrix (\textit{de novo} \cite{survey}), try to solve the same problem posed by \textcite{dendrix}, described in \cref{mwsp}, by formulating the problem as an \textit{Integer Linear Program} (ILP), which they refer to as $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$. Consider a gene set $M$ defined by a set of indicator variables, one for each gene $j \in M$, as follows
 
 \begin{equation}
     I_M(j) = 1 \iff j \in M
@@ -203,7 +203,7 @@ where $\tau$ is the maximum size of the intersection between two gene sets.
 
 placeholder. \todo{sezione in cui scrivo che mpdfinder critica la soluzione esatta trovata da multi-dendrix, che nonostante sia esatta potrebbe non essere reale; in questa sezione va menzionato che l'algoritmo si chiama MDPFinder, e va scritto che è knowledge-based}
 
-The approach used by \textcite{mdpfinder} involves a \textbf{GA} (\textit{Genetic Algorithm}), which is versatile and flexible, and can be used to optimize a wide variety of scoring functions. The GA approach is particularly relevant to the current problem due to its conceptual alignment with the notions of \textit{gene} and \textit{mutation}. It models genetic variation within a population, evolving through a process of random selection, thereby avoiding the need to enumerate all possible solutions.
+The approach used by \textcite{mdpfinder} involves a \textit{Genetic Algorithm} (GA), which is versatile and flexible, and can be used to optimize a wide variety of scoring functions. In addition, they state that the GA approach is particularly relevant to the current problem due to its conceptual alignment with the notions of \textit{gene} and \textit{mutation}. It models genetic variation within a population, evolving through a process of random selection, thereby avoiding the need to enumerate all possible solutions.
 
 \begin{definition}[Hypothesis space]
     A \textbf{member} of the population is defined by a binary string of length $n$, i.e. the number of genes. Given a gene set $M$, the value of the $i$-th position of an individual represents the membership of the $i$-th gene in $M$.
@@ -229,7 +229,7 @@ This selection operator is based on \href{https://en.wikipedia.org/wiki/Selectio
     The \textbf{mutation operator} randomly sets the value of one variable from 1 to 0, and changes another variable value from 0 to 1, ensuring the feasibility of every offspring.
 \end{definition}
 
-\begin{definition}[Local search]
+\begin{definition}[Local search] \todo{fixa questa definizione}
     To prevent premature convergence and enhance the accuracy of the algorithm, a local search strategy is employed to improve search performance. In particular, the values of two variables are randomly altered, as the mutation operator. If this adjustment improves the current solution, it is accepted; the search is terminated once all variables have been tested with this routine.
 \end{definition}
 
@@ -248,7 +248,7 @@ This selection operator is based on \href{https://en.wikipedia.org/wiki/Selectio
 
 \subsection{The integration procedure}
 
-In practical applications, multiple optimal solutions may exist. Additionally, due to data noise and other factors, the solutions considered most optimal --- i.e. the ones with the highest $W(M)$ --- may not necessarily be the most relevant in a biological context. To identify the most biologically meaningful solutions, other types of data are integrated to refine the results. Specifically, the GA procedure is extended by incorporating gene expression data to enhance its performance. The integrative model is developed based on the observation that genes within the same pathway typically collaborate to perform a specific function. Consequently, the expression profiles of gene pairs within the same pathway often exhibit higher correlations than those in different pathways. This characteristic can be leveraged to distinguish between gene sets that have the same score: the model focuses on detecting gene sets whose scores $W(M)$ are close to the optimal solution, but whose member genes display stronger correlations with each other.
+In practical applications, multiple optimal solutions may exist. Additionally, due to data noise and other factors, the solutions considered optimal --- i.e. the ones with the highest $W(M)$ --- may not necessarily be the most relevant in a biological context. To identify the most biologically meaningful solutions, other types of data are integrated to refine the results. Specifically, the GA procedure is extended by incorporating gene expression data to enhance its performance. The integrative model is developed based on the observation that genes within the same pathway typically collaborate to perform a specific function. Consequently, the expression profiles of gene pairs within the same pathway often exhibit higher correlations than those in different pathways. This characteristic can be leveraged to distinguish between gene sets that have the same score: the model focuses on detecting gene sets whose scores $W(M)$ are close to the optimal solution, but whose member genes display stronger correlations with each other.
 
 \begin{definition}[Integrative measure]
     Given an $m \times n$ mutation matrix $A$, an expression matrix $E$ with the same dimensions \todo{nel paper non è menzionato cosa questa "expression matrix" contenga all'interno, c'è una foto con dei colori e basta, però ho visto che "expression matrix" è un termine che si usa per indicare un tipo di matrici solamente che contengono una cosa ben specifica, posso assumere che si sappia già di cosa si parla o devo spiegare cosa sono?}, and an $A$'s submatrix $M$ of size $m \times k$, the integrative model is defined by the following \textbf{measure}: $$F_{ME} := W(M) + \lambda \cdot R(E_M)$$ where $E_M$ is $E$'s expression submatrix that corresponds to $M$, and $R(E_M)$ is described by the following equation: $$R(E_M) = \sum_{j_1 = 1}^n {\sum_{j_2 = 1 \atop j_1 \neq j_2} ^n {\dfrac{\abs{\mathrm{pcc}(x_{j_1}, x_{j_2})}}{\frac{k(k - 1)}{2}}}}$$ where $\mathrm{pcc}(\cdot)$ is the \href{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient}{Pearson correlation coefficient}, and $x_j$ is the expression profile of gene $j$ \todo{non è spiegato cosa questo voglia dire ma io assumo sia un vettore colonna di $E$; inoltre, non ho idea di cosa sia il valore $R(E_M)$}.
