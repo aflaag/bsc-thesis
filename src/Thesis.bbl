@@ -687,6 +687,57 @@
     \field{year}{2011}
   \endentry
 
+  \entry{jci}{article}{}
+    \name{author}{4}{}{%
+      {{hash=WMR}{%
+         family={Waarts},
+         familyi={W\bibinitperiod},
+         given={Michael\bibnamedelima R.},
+         giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=SAJ}{%
+         family={Stonestrom},
+         familyi={S\bibinitperiod},
+         given={Aaron\bibnamedelima J.},
+         giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=PYC}{%
+         family={Park},
+         familyi={P\bibinitperiod},
+         given={Young\bibnamedelima C.},
+         giveni={Y\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=LRL}{%
+         family={Levine},
+         familyi={L\bibinitperiod},
+         given={Ross\bibnamedelima L.},
+         giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Society for Clinical Investigation}%
+    }
+    \strng{namehash}{WMR+1}
+    \strng{fullhash}{WMRSAJPYCLRL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \verb{doi}
+    \verb 10.1172/jci154943
+    \endverb
+    \field{issn}{1558-8238}
+    \field{number}{8}
+    \field{title}{Targeting mutations in cancer}
+    \verb{url}
+    \verb http://dx.doi.org/10.1172/JCI154943
+    \endverb
+    \field{volume}{132}
+    \field{journaltitle}{Journal of Clinical Investigation}
+    \field{month}{04}
+    \field{year}{2022}
+  \endentry
+
   \entry{se_tt}{article}{}
     \name{author}{5}{}{%
       {{hash=WC}{%
