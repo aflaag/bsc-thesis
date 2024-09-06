@@ -13,7 +13,7 @@
 
 - passa tutto a ly
 
-- fai tbf e tit
+- fai tbf e tit per leggibilità
 
 - capire come aumentare lo spazio tra table e caption
 - abstract
@@ -27,5 +27,4 @@
 - [synthetic lethality e hypergeometric test](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4590705/)
 - [signaling pathways: target therapy e treatments](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8002322/) (questo paper è molto complesso è quasi solo biologia, si potrebbe usare per allungare prendendo qualcosa dai trafiletti introduttivi)
 - [target therapy](https://www.cancer.org/cancer/managing-cancer/treatment-types/targeted-therapy/what-is.html)
-- [SPOP and ERG](https://www.nature.com/articles/s41467-020-20820-x#Sec2)
 
