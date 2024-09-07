@@ -26,9 +26,11 @@ To find a solution to the problem described in \cref{mwsp}, \textcite{dendrix} d
     \end{algorithmic}
 \end{algorithm}
 
-The time complexity of the algorithm is $O\rbk{n^2 + kn} = O\rbk{n^2}$.
+The time complexity of the algorithm is $O\rbk{n^2 + kn} = O\rbk{n^2}$. \todo{explain briefly why}
 
-\begin{definition}(Gene Independence Model)
+While this algorithm is efficient, there is generally no guarantee that it will identify the optimal set $\hat M$ that maximizes $W(\hat M)$. However, \textcite{dendrix} prove that \cref{greedy_dendrix} can correctly identify $\hat M$ with high probability when the mutation data come from the \textit{Gene Independence Model} (GIM), which is described below. \todo{lo dimostrano nel materiale supplementare, lo vedo/metto? in caso mettilo dopo la definizione}
+
+\begin{definition}[Gene Independence Model]
     Let $A$ be an $m \times n$ mutation matrix such that $\hat M$ is the \textit{maximum weight submatrix} of $A$ and $\abs{\hat M} = k$; the matrix $A$ satisfies the \textbf{Gene Independence Model} (GIM) if and only if:
 
     \begin{enumerate}[label=\roman*), font=\itshape]
@@ -38,7 +40,7 @@ The time complexity of the algorithm is $O\rbk{n^2 + kn} = O\rbk{n^2}$.
     \end{enumerate}
 \end{definition}
 
-Note that
+Note that:
 
 \begin{itemize}
     \item condition $(i)$ reflects the independence of mutations for genes outside the mutated pathway, a standard assumption for somatic single-nucleotide mutations;
@@ -46,13 +48,39 @@ Note that
     \item condition $(iii)$ means that each gene in $\hat M$ is important, so there are no subset of $\hat M$ that predominantly contributes to $W(\hat M)$.
 \end{itemize}
 
-While this algorithm is efficient, there is generally no guarantee that it will identify the optimal set $\hat M$ that maximizes $W(\hat M)$. However, \textcite{dendrix} prove that \cref{greedy_dendrix} can correctly identify $\hat M$ with high probability when the mutation data come from the GIM generative model. \todo{lo dimostrano nel materiale supplementare, lo vedo/metto?}
-
-Moreover, note that under the GIM, genes in $\hat M$ may have observed mutation frequencies similar to those of genes not in $\hat M$, making it impossible to distinguish between them based solely on mutation frequency, regardless of the number of patients. In practical applications, the utility of this greedy algorithm depends on the availability of mutation data from a sufficient number of patients.
+Although it is possible to obtain accurate results with high probability under the GIM, genes within $\hat M$ may exhibit observed mutation frequencies similar to those of genes outside $\hat M$. This similarity can make it challenging to distinguish between them based solely on mutation frequency, regardless of the number of patients. In practical applications, the utility of this greedy algorithm depends on the availability of mutation data from a sufficient number of patients. Moreover, the GIM model may not be suitable for all types of somatic mutations.
 
 \subsection{Using MCMC}
 
-placeholder \todo{la faccio? probabilmente si ma dovrei prima vedere cosa le MCMC siano}
+To address the limitations of the aforementioned greedy algorithm, \textcite{dendrix} developed a \href{https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo}{\textit{Markov Chain Monte Carlo}} (MCMC) approach, which does not rely on assumptions about the distribution of mutation data or the number of patients. 
+
+TODO AGGIUNGI PARAGRAFO
+
+Additionally, the MCMC method does not assume independence among mutations in different genes, making it particularly useful for analyzing copy-number aberrations (CNAs), which often involve correlated mutations due to amplification or deletion of adjacent genes.
+
+\begin{definition}[Dendrix's MCMC]
+    The \textbf{MCMC's procedure} of Dendrix is defined through the following steps:
+
+    \begin{enumerate}
+        \item \textit{initialization}: given the set of all genes $\mathcal G$, choose an arbitrary subset $M_0 \subseteq \mathcal G$ of size $k$ genes;
+        \item \textit{iteration}: for $t = 1, 2, \ldots$, derive $M_{t + 1}$ from $M_t$ as follows:
+            \begin{enumerate}
+                \item choose a gene $w$ uniformly, at random, from $\mathcal G$;
+                \item choose a gene $v$ uniformly, at random, from $M_t$;
+                \item let $M_t' := (M_t - \{v\}) \cup \{w\}$;
+                \item let $\Delta_W := W\rbk{M_t'} - W(M_t)$;
+                \item let $P(M_t, w, v) := \min \sbk{1, e^{c \Delta_W}}$, where $c > 0$;
+                \item set $M_{t+1} := M_t'$ with probability $P(M_t, w, v)$, else $M_{t + 1} := M_t$
+            \end{enumerate}
+    \end{enumerate}
+\end{definition}
+
+Note that:
+
+\begin{itemize}
+    \item $w$ is choosen from $\mathcal G$, therefore if $w \in M_t$, then $$M_t' = (M_t - \{v\}) \cup \{w\} = M_t - \{v\}$$ which means that no genes were added to $W_t'$; this must be allowed because maximizing the weight may require removing genes already present in the current set, without adding new ones;
+    \item $\Delta_W$ measures the change in the weight function with the new set, and the constant $c$ is a scaling factor that adjusts the importance of this difference; note that $$\Delta_W \ge 0 \implies e^{c \Delta_W} \ge 1 \implies P(M_t, w, v) = 1 \implies M_{t + 1} = M_t'$$ in fact when $\Delta_W > 0$ the weight has improved, therefore the next iteration should start from $M_t'$; conversely $$\Delta_W < 0 \implies e^{c \Delta_W} < 1 \implies P(M_t, w, v) = e ^{c \Delta_W}$$ which means that when $\Delta_W < 0$ (i.e., the weight has decreased) the change will be perfomed with probability $e^{c \Delta_W}$ --- this value is still close to 1 if the weight has not decreased significantly.
+\end{itemize}
 
 \section{Multi-Dendrix}
 

@@ -61,7 +61,7 @@ Due to the complexity of measuring mutual exclusivity, recent papers have propos
     A \textbf{mutation matrix} is a matrix with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene, and the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
 \end{definition}
 
-\begin{example} \label{mutation_matrix}
+\begin{example}[Mutation matrix] \label{mutation_matrix}
     An example of a mutation matrix is the following:
 
     \begin{table}[H]
@@ -207,7 +207,9 @@ Specifically, the alteration of a pair of genes is defined to be \textbf{mutuall
     $H_0$: \textit{The specific member gene in the group is altered independently from the union of other alterations in the group}.
 \end{displayquote}
 
-Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $j \in M$, mutations in $\Gamma(j)$ are independent of alterations in $\Gamma(M - \{j\})$. $H_0$ is then tested for each $j \in M$ by evaluating the co-distribution of $i$ with the union of the others through Fisher's exact test, generating $\abs{M}$ $p$-values. These $p$-values represent the probabilities for the independent distribution of each member gene. To ensure that every group member contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of the group. With Dendrix's notation
+Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $j \in M$, mutations in $\Gamma(j)$ are independent of alterations in $\Gamma(M - \{j\})$. In brief, $H_0$ states that any observed pattern of mutual exclusivity among gene alterations is due to random chance, not due to any underlying biological or oncogenic mechanism.
+
+$H_0$ is then tested for each $j \in M$ by evaluating the co-distribution of $i$ with the union of the others through Fisher's exact test, generating $\abs{M}$ $p$-values. These $p$-values represent the probabilities for the independent distribution of each member gene. To ensure that every group member contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of the group. With Dendrix's notation
 
 \begin{equation}
     s_0 := \max_{j \in M} {H \abk{\Gamma(j), \Gamma(M - \{j\})}}
@@ -215,11 +217,9 @@ Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every 
 
 where $s_0$ is the initial score, and $H$ is the hypergeometric test.
 
-Since multiple groups are being tested, $s_0$ is affected by \href{https://en.wikipedia.org/wiki/Multiple_comparisons_problem}{\textit{multiple hypothesis testing}}, because the probability of finding statistically significant results may increase by chance. To account for it, \textcite{mutex} employ the following permutation-based correction:
+Since multiple groups are being tested, $s_0$ is affected by \href{https://en.wikipedia.org/wiki/Multiple_comparisons_problem}{\textit{multiple hypothesis testing}}, because the probability of finding statistically significant results may increase by chance. To account for it, \todo{finish this section}
 
-\begin{itemize}
-    \item first, 
-\end{itemize}
+
 
 From this second set of $p$-values, the least significant one is selected as the multiple hypothesis testing corrected final score. \todo{talk about the last paragraph, which is even less comprehensible}
 
