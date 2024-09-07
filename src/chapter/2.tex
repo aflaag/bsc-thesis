@@ -49,7 +49,7 @@ Thus, \textit{a driver pathway consists of genes that are mutated in numerous pa
 
 Finding an effective method to appropriately quantify the level of mutual exclusivity is not straightforward. In the statistical literature, two types of mutual exclusivity are defined: \textit{hard} and \textit{soft}. Hard mutual exclusivity describes events that are presumed to be strictly mutually exclusive, with the null hypothesis being that any observed overlap is due to random errors. However, in this context, it is not feasible to test for hard mutual exclusivity, as this is a property observed statistically from patient data. Therefore, it is necessary to relax the constraint to soft mutual exclusivity, where two otherwise independent events overlap less than expected by chance due to some statistical interaction.
 
-Moreover, while soft mutual exclusivity of a pair of genes can be assessed using the \href{https://en.wikipedia.org/wiki/Fisher\%27s_exact_test}{Fisher's exact test} \todo{studialo}, there is no agreed-upon method for analytically testing mutual exclusivity among more than two genes. For instance, one intuitive approach could involve checking whether each pair of genes within the group exhibits mutual exclusivity; this method, however, may be overly strict, as a gene set can exhibit a strong mutual exclusivity pattern as a whole even if no individual pairs show any \cite{mutex}.
+Moreover, while soft mutual exclusivity of a pair of genes can be assessed using the \href{https://en.wikipedia.org/wiki/Fisher\%27s_exact_test}{Fisher's exact test}, there is no agreed-upon method for analytically testing mutual exclusivity among more than two genes. For instance, one intuitive approach could involve checking whether each pair of genes within the group exhibits mutual exclusivity; this method, however, may be overly strict, as a gene set can exhibit a strong mutual exclusivity pattern as a whole even if no individual pairs show any \cite{mutex}.
 
 Due to the complexity of measuring mutual exclusivity, recent papers have proposed various formulations, based on different assumptions, which will be discussed in later sections.
 
@@ -199,7 +199,7 @@ To effectively identify multiple driver pathways, it is necessary to establish c
 
 \textcite{mutex} criticize the metric developed by \textcite{dendrix} because it has a strong bias toward highly mutated genes, and in some instances, the excessive emphasis on coverage leads to false positives and negatives. \todo{ci sono esempi in file supplementari, li guardo?}. They propose a metric that extends Fisher's exact test --- also known as \textit{hypergeometric test} --- to quantify the mutual exclusivity between multiple measurements.
 
-Specifically, the alteration of a pair of genes is defined to be \textbf{mutually exclusive} \textit{if their overlap in samples is significantly less than expected by chance}, and this can be assessed through a hypergeometric test. \todo{\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4590705/}{QUESTO} paper fa vedere in dettaglio come si fa, sono sicuro al 99\% che si tratti della stessa cosa, lo inserisco?} It is important to note that a uniform alteration frequency across may not always hold, particularly for hyper-mutated samples often resulting from prior mutations in DNA repair mechanisms. Addressing this heterogeneity is challenging, as each overlap in the null model has a different probability. This remains an open problem, and to partially mitigate it, albeit at the cost of statistical power, hyper-altered samples are excluded from the analysis. \todo{specificare quali di preciso? non mi sembra rilevante}
+Specifically, the alteration of a pair of genes is defined to be \textbf{mutually exclusive} \textit{if their overlap in samples is significantly less than expected by chance}, and this can be assessed through a \textit{hypergeometric test}. It is important to note that a uniform alteration frequency across may not always hold, particularly for hyper-mutated samples often resulting from prior mutations in DNA repair mechanisms. Addressing this heterogeneity is challenging, as each overlap in the null model has a different probability. This remains an open problem, and to partially mitigate it, albeit at the cost of statistical power, hyper-altered samples are excluded from the analysis.
 
 \textcite{mutex} also developed a metric to assess the mutual exclusivity of a group of genes. Consider the following null hypothesis:
 
@@ -207,13 +207,19 @@ Specifically, the alteration of a pair of genes is defined to be \textbf{mutuall
     $H_0$: \textit{The specific member gene in the group is altered independently from the union of other alterations in the group}.
 \end{displayquote}
 
-Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $i \in M$, mutations in $\Gamma(i)$ are independent of alterations in $\Gamma(M - \{i\})$. $H_0$ is then tested for each $i \in M$ by evaluating the co-distribution of $i$ with the union of the others through Fisher's exact test, generating $\abs{M}$ $p$-values. These $p$-values represent the probabilities for the independent distribution of each member gene \todo{i'm not sure i know what this means}. To ensure that every group member contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of the group. Using Dendrix's notation
+Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $j \in M$, mutations in $\Gamma(j)$ are independent of alterations in $\Gamma(M - \{j\})$. $H_0$ is then tested for each $j \in M$ by evaluating the co-distribution of $i$ with the union of the others through Fisher's exact test, generating $\abs{M}$ $p$-values. These $p$-values represent the probabilities for the independent distribution of each member gene. To ensure that every group member contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of the group. With Dendrix's notation
 
 \begin{equation}
-    s_0 := \max_{i \in M} {H \abk{\Gamma(i), \Gamma(M - \{i\})}}
+    s_0 := \max_{j \in M} {H \abk{\Gamma(j), \Gamma(M - \{j\})}}
 \end{equation}
 
-where $s_0$ is the initial score, and $H$ is the hypergeometric test. Since multiple groups are being tested, $s_0$ is affected by multiple hypothesis testing \todo{add link?}. To account for it, first the null distribution of the initial $p$-values must be estimated for each gene, then it must be calculated the significance of the observed initial $p$-values for each member \todo{non ho la minima idea di cosa voglia dire tutta questa frase; successivamente, qui viene spiegato in che modo stimano la "null distribution of the initial $p$-value", ma oltre che non riesco a capire che cosa facciano di preciso, per farlo riciclano l'algoritmo con il quale poi andranno a risolvere il problema generale, ma io non l'ho menzionato perché intendevo parlare di come questi paper risolvono indipendentemente il problema in un capitolo successivo, cosa dovrei fare? saltare? non sono neanche in grado di stabilire quanto sia rilevante}
+where $s_0$ is the initial score, and $H$ is the hypergeometric test.
+
+Since multiple groups are being tested, $s_0$ is affected by \href{https://en.wikipedia.org/wiki/Multiple_comparisons_problem}{\textit{multiple hypothesis testing}}, because the probability of finding statistically significant results may increase by chance. To account for it, \textcite{mutex} employ the following permutation-based correction:
+
+\begin{itemize}
+    \item first, 
+\end{itemize}
 
 From this second set of $p$-values, the least significant one is selected as the multiple hypothesis testing corrected final score. \todo{talk about the last paragraph, which is even less comprehensible}
 
