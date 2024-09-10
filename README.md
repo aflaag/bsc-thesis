@@ -3,6 +3,7 @@
 ## Domande
 
 - discorso MCMC, io ho scritto la MCMC che danno ma non so niente della teoria delle MCMC
+- sezione preliminaries??
 
 ## TODO list
 

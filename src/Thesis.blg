@@ -19,13 +19,12 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: Thesis-blx.bib
 Database file #2: ./references.bib
-Warning--I didn't find a database entry for "mpdfinder"
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 You've used 21 entries,
             6399 wiz_defined-function locations,
-            1369 strings with 14746 characters,
+            1368 strings with 14737 characters,
 and the built_in function-call counts, 310324 in all, are:
 = -- 28831
 > -- 2806
@@ -64,4 +63,3 @@ warning$ -- 0
 while$ -- 4711
 width$ -- 0
 write$ -- 1187
-(There was 1 warning)

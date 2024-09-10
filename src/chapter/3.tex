@@ -145,7 +145,7 @@ As outlined in \cref{multi_dendrix_2nd_chap}, \textcite{multi-dendrix} propose t
     where each submatrix $M_\rho$ --- for $1 \le \rho \le t$ ---  has size $m \times k_\rho$ for some $k_{\mathrm{min}} \le k_\rho \le k_{\mathrm{max}}$.
 \end{displayquote}
 
-Note that this problem is NP-Hard, as for the case $t = 1$. Furthermore, collections $M$ with a large value of $W'(M)$ are also likely to have higher coverage $\Gamma(M_\rho)$ for each individual gene set $\rho$. As a result, optimal solutions tend to produce collections where many patients have mutations in more than one gene set, or they may be pairs or larger groups of co-occurring mutations, a phenomenon observed in cancer. \todo{qua inseriscono una citazione, potrebbe valere la pena di inserirla e/o indagare?}
+Note that this problem is NP-Hard, as for the case $t = 1$ \todo{add reference here}. Furthermore, collections $M$ with a large value of $W'(M)$ are also likely to have higher coverage $\Gamma(M_\rho)$ for each individual gene set $\rho$. As a result, optimal solutions tend to produce collections where many patients have mutations in more than one gene set, or they may be pairs or larger groups of co-occurring mutations, a phenomenon observed in cancer. \todo{qua inseriscono una citazione, potrebbe valere la pena di inserirla e/o indagare?}
 
 \begin{definition}[Multi-Dendrix]
     $\mathrm{Multi}$-$\mathrm{Dendrix}$ is defined by the following ILP:
@@ -236,7 +236,7 @@ The approach used by \textcite{mdpfinder} involves a \textit{Genetic Algorithm} 
 \begin{definition}[Hypothesis space]
     A \textbf{member} of the population is defined by a binary string of length $n$, i.e. the number of genes. Given a gene set $M$, the value of the $i$-th position of an individual represents the membership of the $i$-th gene in $M$.
 
-    Therefore, the \textbf{hypothesis space} is constituted by all the possible binary strings with length $n$ that have $k$ 1s, namely $$\mathcal H = \left\{(x_1, \ldots, x_n) \mid x_i \in \{0, 1\}, i \in [1, n], \sum_{j = 1}^n {x_j} = k \right\}$$
+    Therefore, the \textbf{hypothesis space} is constituted by all the possible binary strings with length $n$ that have $k$ 1s, namely $$\mathcal H := \left\{(x_1, \ldots, x_n) \mid x_i \in \{0, 1\}, i \in [1, n], \sum_{j = 1}^n {x_j} = k \right\}$$
 \end{definition}
 
 \begin{definition}[Fitness function]

@@ -557,9 +557,9 @@ INPUT ./chapter/2.tex
 INPUT ./chapter/2.tex
 INPUT ./chapter/2.tex
 INPUT ./chapter/2.tex
+INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
-INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT ./chapter/3.tex
 INPUT ./chapter/3.tex
