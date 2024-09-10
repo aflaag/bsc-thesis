@@ -19,47 +19,49 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: Thesis-blx.bib
 Database file #2: ./references.bib
+Warning--I didn't find a database entry for "mpdfinder"
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 22 entries,
+You've used 21 entries,
             6399 wiz_defined-function locations,
-            1366 strings with 14215 characters,
-and the built_in function-call counts, 269389 in all, are:
-= -- 24333
-> -- 2694
-< -- 957
-+ -- 8686
-- -- 982
-* -- 18967
-:= -- 32679
+            1369 strings with 14746 characters,
+and the built_in function-call counts, 310324 in all, are:
+= -- 28831
+> -- 2806
+< -- 955
++ -- 10298
+- -- 1054
+* -- 22122
+:= -- 38664
 add.period$ -- 0
-call.type$ -- 22
-change.case$ -- 614
+call.type$ -- 21
+change.case$ -- 639
 chr.to.int$ -- 131
-cite$ -- 42
-duplicate$ -- 28018
-empty$ -- 22437
-format.name$ -- 1729
-if$ -- 52909
+cite$ -- 40
+duplicate$ -- 31868
+empty$ -- 25444
+format.name$ -- 1904
+if$ -- 60446
 int.to.chr$ -- 0
-int.to.str$ -- 55
+int.to.str$ -- 54
 missing$ -- 0
-newline$ -- 1099
-num.names$ -- 1196
-pop$ -- 8508
+newline$ -- 1207
+num.names$ -- 1190
+pop$ -- 8560
 preamble$ -- 1
-purify$ -- 804
+purify$ -- 867
 quote$ -- 0
-skip$ -- 4650
+skip$ -- 4689
 stack$ -- 0
-substring$ -- 46993
-swap$ -- 4431
-text.length$ -- 591
-text.prefix$ -- 21
+substring$ -- 56672
+swap$ -- 4662
+text.length$ -- 578
+text.prefix$ -- 20
 top$ -- 1
-type$ -- 736
+type$ -- 702
 warning$ -- 0
-while$ -- 4025
+while$ -- 4711
 width$ -- 0
-write$ -- 1078
+write$ -- 1187
+(There was 1 warning)

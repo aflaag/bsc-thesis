@@ -360,29 +360,6 @@
     \field{year}{2016}
   \endentry
 
-  \entry{cell_signaling}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=cW}{%
-         family={contributors},
-         familyi={c\bibinitperiod},
-         given={Wikipedia},
-         giveni={W\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{cW1}
-    \strng{fullhash}{cW1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \field{title}{{Cell signaling}}
-    \verb{url}
-    \verb https://en.wikipedia.org/wiki/Cell_signaling
-    \endverb
-    \field{month}{08}
-    \field{year}{2024}
-  \endentry
-
   \entry{nih_cancer_dev}{misc}{}
     \name{author}{1}{}{%
       {{hash=CGM}{%
@@ -534,59 +511,6 @@
     \verb http://dx.doi.org/10.1016/b978-0-08-009056-6.50015-4
     \endverb
     \field{year}{1960}
-  \endentry
-
-  \entry{n-genes}{article}{}
-    \name{author}{4}{}{%
-      {{hash=FC}{%
-         family={Fields},
-         familyi={F\bibinitperiod},
-         given={Chris},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=AMD}{%
-         family={Adams},
-         familyi={A\bibinitperiod},
-         given={Mark\bibnamedelima D.},
-         giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
-      }}%
-      {{hash=WO}{%
-         family={White},
-         familyi={W\bibinitperiod},
-         given={Owen},
-         giveni={O\bibinitperiod},
-      }}%
-      {{hash=VJC}{%
-         family={Venter},
-         familyi={V\bibinitperiod},
-         given={J.\bibnamedelima Craig},
-         giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{2}{%
-      {Springer Science}%
-      {Business Media LLC}%
-    }
-    \strng{namehash}{FC+1}
-    \strng{fullhash}{FCAMDWOVJC1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{F}
-    \field{sortinithash}{F}
-    \verb{doi}
-    \verb 10.1038/ng0794-345
-    \endverb
-    \field{issn}{1546-1718}
-    \field{number}{3}
-    \field{pages}{345–346}
-    \field{title}{How many genes in the human genome?}
-    \verb{url}
-    \verb http://dx.doi.org/10.1038/ng0794-345
-    \endverb
-    \field{volume}{7}
-    \field{journaltitle}{Nature Genetics}
-    \field{month}{07}
-    \field{year}{1994}
   \endentry
 
   \entry{cgc}{article}{}
@@ -780,6 +704,148 @@
     \field{year}{2000}
   \endentry
 
+  \entry{three_mutations}{article}{}
+    \name{author}{19}{}{%
+      {{hash=KS}{%
+         family={Kumar},
+         familyi={K\bibinitperiod},
+         given={Sushant},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=WJ}{%
+         family={Warrell},
+         familyi={W\bibinitperiod},
+         given={Jonathan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Shantao},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MPD}{%
+         family={McGillivray},
+         familyi={M\bibinitperiod},
+         given={Patrick\bibnamedelima D.},
+         giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=MW}{%
+         family={Meyerson},
+         familyi={M\bibinitperiod},
+         given={William},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=SL}{%
+         family={Salichos},
+         familyi={S\bibinitperiod},
+         given={Leonidas},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=HA}{%
+         family={Harmanci},
+         familyi={H\bibinitperiod},
+         given={Arif},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MFA}{%
+         family={Martinez-Fundichely},
+         familyi={M\bibinithyphendelim F\bibinitperiod},
+         given={Alexander},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CCW}{%
+         family={Chan},
+         familyi={C\bibinitperiod},
+         given={Calvin\bibnamedelima W.Y.},
+         giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+      {{hash=NMM}{%
+         family={Nielsen},
+         familyi={N\bibinitperiod},
+         given={Morten\bibnamedelima Muhlig},
+         giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=LL}{%
+         family={Lochovsky},
+         familyi={L\bibinitperiod},
+         given={Lucas},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=ZY}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Yan},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LX}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Xiaotong},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Lou},
+         familyi={L\bibinitperiod},
+         given={Shaoke},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=PJS}{%
+         family={Pedersen},
+         familyi={P\bibinitperiod},
+         given={Jakob\bibnamedelima Skou},
+         giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=HC}{%
+         family={Herrmann},
+         familyi={H\bibinitperiod},
+         given={Carl},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=GG}{%
+         family={Getz},
+         familyi={G\bibinitperiod},
+         given={Gad},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=KE}{%
+         family={Khurana},
+         familyi={K\bibinitperiod},
+         given={Ekta},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=GMB}{%
+         family={Gerstein},
+         familyi={G\bibinitperiod},
+         given={Mark\bibnamedelima B.},
+         giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier BV}%
+    }
+    \strng{namehash}{KS+1}
+    \strng{fullhash}{KSWJLSMPDMWSLHAMFACCWNMMLLZYLXLSPJSHCGGKEGMB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \verb{doi}
+    \verb 10.1016/j.cell.2020.01.032
+    \endverb
+    \field{issn}{0092-8674}
+    \field{number}{5}
+    \field{pages}{915\bibrangedash 927.e16}
+    \field{title}{Passenger Mutations in More Than 2, 500 Cancer Genomes: Overall Molecular Functional Impact and Consequences}
+    \verb{url}
+    \verb http://dx.doi.org/10.1016/j.cell.2020.01.032
+    \endverb
+    \field{volume}{180}
+    \field{journaltitle}{Cell}
+    \field{month}{03}
+    \field{year}{2020}
+  \endentry
+
   \entry{multi-dendrix}{article}{}
     \name{author}{4}{}{%
       {{hash=LMDM}{%
@@ -838,28 +904,6 @@
     \field{journaltitle}{PLoS Computational Biology}
     \field{month}{05}
     \field{year}{2013}
-  \endentry
-
-  \entry{pathway}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=N}{%
-         family={Nhgri},
-         familyi={N\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{N1}
-    \strng{fullhash}{N1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{N}
-    \field{sortinithash}{N}
-    \field{title}{{Biological Pathways Fact sheet}}
-    \verb{url}
-    \verb https://www.genome.gov/about-genomics/fact-sheets/Biological-Pathways
-    \verb -Fact-Sheet
-    \endverb
-    \field{month}{03}
-    \field{year}{2019}
   \endentry
 
   \entry{nih_se}{misc}{}
@@ -929,6 +973,70 @@
     \field{journaltitle}{Genome Research}
     \field{month}{06}
     \field{year}{2011}
+  \endentry
+
+  \entry{vogelstein2013}{article}{}
+    \name{author}{6}{}{%
+      {{hash=VB}{%
+         family={Vogelstein},
+         familyi={V\bibinitperiod},
+         given={Bert},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=PN}{%
+         family={Papadopoulos},
+         familyi={P\bibinitperiod},
+         given={Nickolas},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=VVE}{%
+         family={Velculescu},
+         familyi={V\bibinitperiod},
+         given={Victor\bibnamedelima E.},
+         giveni={V\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=ZS}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Shibin},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=DLA}{%
+         family={Diaz},
+         familyi={D\bibinitperiod},
+         given={Luis\bibnamedelima A.},
+         giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=KKW}{%
+         family={Kinzler},
+         familyi={K\bibinitperiod},
+         given={Kenneth\bibnamedelima W.},
+         giveni={K\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Association for the Advancement of Science (AAAS)}%
+    }
+    \strng{namehash}{VB+1}
+    \strng{fullhash}{VBPNVVEZSDLAKKW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \verb{doi}
+    \verb 10.1126/science.1235122
+    \endverb
+    \field{issn}{1095-9203}
+    \field{number}{6127}
+    \field{pages}{1546–1558}
+    \field{title}{Cancer Genome Landscapes}
+    \verb{url}
+    \verb http://dx.doi.org/10.1126/science.1235122
+    \endverb
+    \field{volume}{339}
+    \field{journaltitle}{Science}
+    \field{month}{03}
+    \field{year}{2013}
   \endentry
 
   \entry{jci}{article}{}

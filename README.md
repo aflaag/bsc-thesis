@@ -2,6 +2,8 @@
 
 ## Domande
 
+- discorso MCMC, io ho scritto la MCMC che danno ma non so niente della teoria delle MCMC
+
 ## TODO list
 
 - [use and rework this somewhere](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4590705/)

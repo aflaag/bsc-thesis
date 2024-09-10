@@ -6,27 +6,47 @@ placeholder \todo{introduction to the chapter}
 
 \subsection{Passenger and driver mutations}
 
-There are two types of mutations in cancer: \textbf{passenger mutations} and \textbf{driver mutations}. Passenger mutations do not confer direct benefits to tumor growth or development, whereas driver mutations actively contribute to cancer progression by providing an evolutionary advantage and promoting the proliferation of tumor cells. A \textbf{driver gene} is a gene that harbors at least one driver mutation, though it may also contain passenger mutations \todo{\href{https://www.aiom.it/wp-content/uploads/2019/02/20190524RM_21_Tommasi.pdf}{DO I ADD THIS AS A CITATION???}}. A driver pathway consists of at least one driver gene. Driver mutations, genes, and pathways are of significant scientific interest due to their crucial role in cancer proliferation. \todo{expand this section}
+In the previous sections, it was discussed how mutations play a critical role in cancer development, but not every aberration that occurs in a tumor is relevant to its proliferation. In fact, there are two types of mutations in cancer: \textbf{passenger mutations} and \textbf{driver mutations}. Passenger mutations do not confer direct benefits to tumor growth or development, whereas driver mutations actively contribute to cancer progression by providing an evolutionary advantage and promoting the proliferation of tumor cells. \textbf{Driver genes} are genes that harbor at least one driver mutation, though it may also contain passenger ones \cite{vogelstein2013}.
 
-\subsection{Importance of pathways}
+Some studies do not fully agree with this dichotomous model \cite{three_mutations}, the general consensus is that mutations are divided into these two categories. But further complicating matters, the term “driver gene” has two distinct meanings in cancer research. Originally, the \textit{driver-versus-passenger} concept was used to differentiate mutations that provide a selective growth advantage from those that do not. According to this definition, genes without driver mutations cannot be classified as driver genes. However, many genes that have few or no driver mutations are still referred to as driver genes in the literature. This includes genes that are overexpressed, underexpressed, or epigenetically altered in tumors. Although some of these genes might contribute significantly to cancer development, classifying all of them as \textit{driver genes} is misleading \cite{vogelstein2013}.
 
-placeholder \todo{questa sezione fa riscritta perché la roba che sta scritta qui non mi piace}
+placeholder.\todo{expand on this telling WHY it is important to classify mutations into these two categories}
 
-\textbf{Cell signaling} is the process by which cells interact with each other, themselves, or their environment. It concerns the transduction of signals, which can be chemical, or can involve various types such as pressure, temperature, or light signals \cite{cell_signaling}. \textbf{Pathways} are sequences of molecular interactions within a cell that lead to a change in the cell or the production of a specific product \cite{pathway}. These pathways have a direction in which the actions occur, with the terms \textit{upstream} and \textit{downstream} indicating the initial and final stages of these processes, respectively.
+% A \textbf{driver gene} is a gene that harbors at least one driver mutation, though it may also contain passenger mutations \todo{\href{https://www.aiom.it/wp-content/uploads/2019/02/20190524RM_21_Tommasi.pdf}{DO I ADD THIS AS A CITATION???}}. A driver pathway consists of at least one driver gene. Driver mutations, genes, and pathways are of significant scientific interest due to their crucial role in cancer proliferation. \todo{expand this section}
 
-In cancer research, \textbf{signaling pathways} are of particular interest because they mediate the transduction of cell signals. Identifying and targeting the signaling pathways responsible for cancer growth could potentially halt the development of the disease. \todo{\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8002322/}{check this out}, also check if what i wrote is actually true, i think i read it somewhere but can't find the source right now; expand on cell signaling? expand of pathways? if yes, make subsections}
+% \subsection{Importance of pathways}
+%
+% placeholder \todo{questa sezione fa riscritta perché la roba che sta scritta qui non mi piace}
+%
+% \textbf{Cell signaling} is the process by which cells interact with each other, themselves, or their environment. It concerns the transduction of signals, which can be chemical, or can involve various types such as pressure, temperature, or light signals \cite{cell_signaling}. \textbf{Pathways} are sequences of molecular interactions within a cell that lead to a change in the cell or the production of a specific product \cite{pathway}. These pathways have a direction in which the actions occur, with the terms \textit{upstream} and \textit{downstream} indicating the initial and final stages of these processes, respectively.
+%
+% In cancer research, \textbf{signaling pathways} are of particular interest because they mediate the transduction of cell signals. Identifying and targeting the signaling pathways responsible for cancer growth could potentially halt the development of the disease. \todo{\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8002322/}{check this out}, also check if what i wrote is actually true, i think i read it somewhere but can't find the source right now; expand on cell signaling? expand of pathways? if yes, make subsections}
 
-\section{Classifying mutations}
-
-\subsection{Frequency}
+\subsection{Problems with frequency analyses}
 
 To classify mutations into the two categories described, assessing their biological function is essential, though this remains a challenging task. Numerous methods exist to predict the functional impact of mutations based on \textit{a priori} knowledge. However, these approaches often fail to integrate information effectively across various mutation types and are limited by their reliance on known proteins, rendering them less effective for less-studied ones \cite{multi-dendrix}.
 
-With the decreasing cost of DNA sequencing, it is now possible to categorize mutations by examining their frequency, as driver mutations are typically the most recurrent in patients' genomes \cite{multi-dendrix}. Indeed, key driver events, such as TP53 loss-of-function mutations, can be identified by their significantly high frequency of occurrence across a set of tumors \cite{mutex}. However, in many cases, since driver mutations are predominantly located in genes that are part of cell signaling pathways, different patients may harbor mutations in different pathway loci. Indeed, driver mutations can vary extensively between patient samples, even within the same cancer type \cite{multi-dendrix}; additionally, there is minimal overlap of mutated genes across sample pairs, even from the same patient \cite{mdpfinder}, reducing the statistical power of frequency analyses.
+With the decreasing cost of DNA sequencing, it is now possible to categorize mutations by examining their frequency, as driver mutations are typically the most recurrent in patients' genomes. For instance, some methods focus on comparing the mutation frequency of an individual gene to that of others within the same or related tumors, while accounting for sequence context and gene size. For genes with a very high number of mutations, such as TP53 or KRAS \todo{add links}, most statistical methods will strongly suggest that these genes are drivers; these highly mutated genes are often referred to as \textit{mountains} \cite{multi-dendrix, vogelstein2013}.
 
-Moreover, multiple alternative driver alterations in different genes may lead to similar downstream effects. In such instances, the selective advantage is distributed among the alterations frequencies of these genes. In current cancer genomics studies, where the number of samples is significantly smaller than the number of genes profiled per sample, frequency-based methods lack the statistical efficacy to distinguish passenger and driver mutations \cite{mutex}. 
+However, genes with more than one, but still relatively few mutations, termed \textit{hills}, are more common in cancer genome landscapes. In these cases, mutation frequency and context alone are insufficient to reliably identify driver genes, as background mutation rates can vary significantly among different patients and regions of the genome. Recent research on normal cells has shown that the mutation rate can vary more than 100-fold within the genome. In tumor cells, this variation can be even greater, affecting entire genomic regions in a seemingly random manner \cite{vogelstein2013}.
 
-Therefore, studies should be conducted at the pathway level, as it is well established that different mutations can affect the same pathway across multiple samples \cite{multi-dendrix}. However, since each pathway involves multiple genes, numerous possible combinations of driver mutations could impact a crucial cancer pathway, making it computationally unfeasible to test every possible gene permutation \cite{dendrix} --- estimates suggest that the human genome contains more than 50,000 genes \cite{n-genes}. Hence, it is necessary to identify a property to leverage to search efficiently.
+Moreover, in many cases, because driver mutations are primarily found in genes involved in cell signaling pathways, different patients may harbor mutations at different loci within the same pathway. Consequently, driver mutations can vary widely between patient samples, even within the same cancer type, resulting in minimal overlap of mutated genes across sample pairs, even from the same patient, which further reduces the statistical power of frequency-based analyses \cite{multi-dendrix, mpdfinder}.
+
+Therefore, methods based solely on mutation frequency can only prioritize genes for expanded investigation and cannot definitively identify driver genes that are mutated at relatively low frequencies \cite{vogelstein2013}.
+
+\subsection{Focus on pathways} \todo{continua il lavoro qua}
+
+All \textit{known} driver genes can be categorized into one or more of \textbf{12 pathways}. These pathways can be further grouped into three fundamental cellular processes, namely \textbf{cell fate}, \textbf{cell survival} and \textbf{genome maintenance} \cite{vogelstein2013}.
+
+Understanding these pathways is essential for comprehending patient heterogeneity. For instance, different lung cancers may harbor \textit{distinct mutations} affecting the \textbf{same cellular signaling pathways}. For instance, mutations might occur in growth factor receptors, KRAS, NF1, or BRAF, all of which impact signaling mechanisms that drive tumor growth. 
+
+inactivation of any tumor suppressor gene is expected to lead to the activation of growth-promoting signals further downstream in the pathway.
+
+%%%%%%%%% TODO USA LA ROBA COMMENTATA QUA
+
+% Moreover, multiple alternative driver alterations in different genes may lead to similar downstream effects. In such instances, the selective advantage is distributed among the alterations frequencies of these genes \cite{mutex}.
+%
+% Therefore, studies should be conducted at the pathway level, as it is well established that different mutations can affect the same pathway across multiple samples \cite{multi-dendrix}. However, since each pathway involves multiple genes, numerous possible combinations of driver mutations could impact a crucial cancer pathway, making it computationally unfeasible to test every possible gene permutation \cite{dendrix} --- estimates suggest that the human genome contains more than 50,000 genes \cite{n-genes}. Hence, it is necessary to identify a property to leverage to search efficiently.
 
 \subsection{Mutual exclusivity and coverage}
 
@@ -52,6 +72,8 @@ Finding an effective method to appropriately quantify the level of mutual exclus
 Moreover, while soft mutual exclusivity of a pair of genes can be assessed using the \href{https://en.wikipedia.org/wiki/Fisher\%27s_exact_test}{Fisher's exact test}, there is no agreed-upon method for analytically testing mutual exclusivity among more than two genes. For instance, one intuitive approach could involve checking whether each pair of genes within the group exhibits mutual exclusivity; this method, however, may be overly strict, as a gene set can exhibit a strong mutual exclusivity pattern as a whole even if no individual pairs show any \cite{mutex}.
 
 Due to the complexity of measuring mutual exclusivity, recent papers have proposed various formulations, based on different assumptions, which will be discussed in later sections.
+
+Finding the solution to this problem is computationally difficult even for small values of $k$ (e.g. there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes), and it can be proven that it is NP-Hard. \todo{scrivi quello che sai che devi scrivere}
 
 \subsection{A deterministic formalization of mutual exclusivity}
 
@@ -126,7 +148,7 @@ In order to find an optimal gene set, the following problem has to be solved:
     \textbf{Maximum Weight Submatrix Problem} (MWSP): Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find a $m \times k$ submatrix of $A$ that maximizes $W(M)$.
 \end{displayquote}
 
-Finding the solution to this problem is computationally difficult even for small values of $k$ (e.g. there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes), and it can be proven that it is NP-Hard.
+The following proof shows that this problem is NP-Hard.
 
 \begin{theorem}[NP-Hardness of the MWSP]
     The Maximum Weight Submatrix Problem is NP-Hard.
