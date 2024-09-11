@@ -12,9 +12,6 @@
 
 - consistency nella notazione
 
-- metti inizio/fine chap 3 il perché abbiamo tanti algoritmi (perché?)
-- lavoro critico
-
 - CAMBIARE TUTTI GLI ACRONIMI
 
 - passa tutto a ly
@@ -28,6 +25,8 @@
 - check references.bib
     - check if refs are correct
     - remove useless refs
+
+- check every TODO
 
 ## Paper per allungare
 

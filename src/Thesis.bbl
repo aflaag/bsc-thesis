@@ -929,6 +929,18 @@
     \field{year}{2022}
   \endentry
 
+  \entry{cancer2}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{title}{{The genetics of cancer}}
+    \verb{url}
+    \verb https://www.cancer.gov/about-cancer/causes-prevention/genetics
+    \endverb
+    \field{month}{08}
+    \field{year}{2024}
+  \endentry
+
   \entry{dendrix}{article}{}
     \name{author}{3}{}{%
       {{hash=VF}{%
@@ -1088,6 +1100,41 @@
     \field{journaltitle}{Journal of Clinical Investigation}
     \field{month}{04}
     \field{year}{2022}
+  \endentry
+
+  \entry{cancer3}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=WN}{%
+         family={Website},
+         familyi={W\bibinitperiod},
+         given={Nhs},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WN1}
+    \strng{fullhash}{WN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{{Signs and symptoms}}
+    \verb{url}
+    \verb https://www.nhs.uk/conditions/cancer/symptoms/
+    \endverb
+    \field{month}{06}
+    \field{year}{2024}
+  \endentry
+
+  \entry{cancer1}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{{What is cancer?}}
+    \verb{url}
+    \verb https://www.cancer.gov/about-cancer/understanding/what-is-cancer
+    \endverb
+    \field{month}{10}
+    \field{year}{2021}
   \endentry
 
   \entry{se_tt}{article}{}
