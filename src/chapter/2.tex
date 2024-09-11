@@ -88,7 +88,7 @@ Due to the complexity of measuring mutual exclusivity, recent papers have propos
 
 \subsection{A deterministic formalization of mutual exclusivity}
 
-\textcite{dendrix}, the authors of a landmark paper that developed an algorithm called Dendrix, provided the following mathematical formalization for the properties of mutual exclusivity and coverage for a set of genes.
+One of the earliest \cite{survey} and most widely used mathematical formalizations for modeling and quantifying mutual exclusivity was introduced by \textcite{dendrix}, the authors of an algorithm called Dendrix. But, before discussing it, some preliminary definitions are needed to provide context. In fact, all papers explored in this work will reference the following definitions.
 
 \begin{definition}[Mutation matrix] \label{mut_matrix_def}
     A \textbf{mutation matrix} is a matrix with $m$ rows and $n$ columns, where each row represents a patient and each column represents a gene, and the entry $a_{i, j}$ is equal to 1 if and only if gene $j$ is mutated in patient $i$.
@@ -114,52 +114,58 @@ Due to the complexity of measuring mutual exclusivity, recent papers have propos
     Given a gene $g$, the \textbf{coverage of $g$} denotes the set of patients which have $g$ mutated, and it is defined as follows $$\Gamma(g) := \{i \mid a_{i, g} = 1\}$$ 
 \end{definition}
 
-Under the previous definitions of mutual exclusivity, $M$ is \textbf{mutually exclusive} if no patient has more than one mutated gene, formally $$\forall g, g' \in M \quad \Gamma(g) \cap \Gamma(g') = \varnothing$$
-
-\begin{definition}[Coverage of a set]
-    Given a set $M$ of genes, the \textbf{coverage of $M$} denotes the set of patients in which at least one of the genes in $M$ is mutated, and it is defined as follows $$\Gamma(M) := \bigcup_{g \in M}{\Gamma(g)}$$
+\begin{definition}[Mutual exclusivity] \label{mut_ex_first}
+    A set $M$ of genes is \textbf{mutually exclusive} if no patient has more than one mutated gene of $M$, formally $$\forall g, g' \in M \quad \Gamma(g) \cap \Gamma(g') = \varnothing$$
 \end{definition}
 
-Any gene set can be thought of as a $m \times k$ submatrix of a mutation matrix $A$, up to rearranging $A$'s columns --- their order does not matter since they represent genes. Accordingly, such a submatrix is said to be \textbf{mutually exclusive} if each row contains at most one 1.
+\begin{definition}[Coverage of a set]
+    Given a set $M$ of genes, the \textbf{coverage of $M$} denotes the set of patients in which at least one of the genes of $M$ is mutated, and it is defined as follows $$\Gamma(M) := \bigcup_{g \in M}{\Gamma(g)}$$
+\end{definition}
 
-Furhermore, given a gene set $M$, the following properties are formalized:
+Note that any gene set $M$ of size $k$ can be thought of as an $m \times k$ column submatrix of a mutation matrix $A$ of size $m \times n$, up to rearranging $A$'s columns (their order does not matter since they represent genes). Accordingly, such a submatrix is said to be \textbf{mutually exclusive} if each row contains at most one 1. These two representations will be used interchangeably throughout this work.
+
+To define an equation that mathematically assesses mutual exclusivity and coverage of a given gene set $M$, the formalization should reflect the following properties (discussed in previous sections \todo{add ref?}):
 
 \begin{enumerate}[label=\roman*), font=\itshape]
-    \item \textit{coverage}: most patients have at least one mutation in $M$;
-    \item \textit{approximate exclusivity}: most patients have exactly one mutation in $M$.
+    \item \textit{high coverage}: most patients have at least one mutation in $M$;
+    \item \textit{high approximate exclusivity}: most patients have exactly one mutation in $M$.
 \end{enumerate}
 
-To evaluate these two attributes, a measure that quantifies the trade-off between coverage and mutual exclusivity is introduced.
+To evaluate these two properties, \textcite{dendrix} introduced a measure that quantifies the trade-off between the two. First, they define the following formula, which measures $M$'s \textit{coverage overlap}.
 
 \begin{definition}[Coverage overlap] \label{cov_over}
-    Given a set $M$ of genes, the \textbf{coverage overlap} is defined as follows: $$\omega(M) := \sum_{g \in M}{\abs{\Gamma(g)}} - \abs{\Gamma(M)}$$
+    Given a set $M$ of genes, the \textbf{coverage overlap of $M$} is defined as follows: $$\omega(M) := \sum_{g \in M}{\abs{\Gamma(g)}} - \abs{\Gamma(M)}$$
 \end{definition}
 
 Note that the sum in \cref{cov_over} is the number of 1s in $M$'s corresponding submatrix.
 
 \begin{example}[Coverage overlap]
-    Considering the mutation matrix in \cref{mutation_matrix}, if $M=\{g_1, g_2\}$ then $$\omega(M)=\abs{\Gamma(g_1)} + \abs{\Gamma(g_2)} - \abs{\Gamma(\{g_1, g_2\})} = \abs{\{p_2\}} + \abs{\{p_1, p_2\}} - \abs{\{p_1, p_2\}} = 1 + 2 - 2 = 1$$
+    Considering the mutation matrix in \cref{mutation_matrix}; if $M=\{g_1, g_2\}$, then $$\omega(M)=\abs{\Gamma(g_1)} + \abs{\Gamma(g_2)} - \abs{\Gamma(\{g_1, g_2\})} = \abs{\{p_2\}} + \abs{\{p_1, p_2\}} - \abs{\{p_1, p_2\}} = 1 + 2 - 2 = 1$$
 \end{example}
 
-Indeed, $\omega(M)$ is the \textit{number of patients that are counted more than once in the sum}. Note that $\omega(M) \ge 0$, with equality holding only if the sum equals the coverage of $M$, which means that no patient has more than one mutated gene of $M$.
+Indeed, $\omega(M)$ is the \textit{number of patients that are counted more than once in the sum}. Note that $\omega(M) \ge 0$, with equality holding only if no patient has more than one mutated gene of $M$.
 
-\begin{definition}[Mutually exclusive set]
+\begin{definition}[Mutual exclusivity]
     A gene set $M$ is considered to be \textbf{mutually exclusive} if $\omega(M) = 0$.
 \end{definition}
+
+Note that this definition matches the one given in \cref{mut_ex_first}.
+
+Finally, the equation developed by \textcite{dendrix} can be described.
 
 \begin{definition}[Weight of gene set] \label{weight}
     Given a set of genes $M$, to take into account both coverage and coverage overlap, the following measure is introduced: $$W(M): = \abs{\Gamma(M)} - \omega(M) = 2 \abs{\Gamma(M)} - \sum_{g \in M} {\abs{\Gamma(g)}}$$
 \end{definition}
 
-Note that $W(M) = \Gamma(M)$ when $M$ is mutually exclusive.
+This weight assesses the degree of mutual exclusivity among $M$'s genes, and the extent to which their mutations cover the patient data. It does this by calculating $M$'s coverage and subtracting $M$'s coverage overlap. Indeed, $W(M) = \Gamma(M)$ when $M$ is mutually exclusive, because it has no coverage overlap. Therefore, the \textit{optimal gene set} is the one that \textbf{maximizes} its weight, as a higher weight value indicates greater levels of coverage and mutual exclusivity.
 
-In order to find an optimal gene set, the following problem has to be solved:
+As previously mentioned, a gene set $M$ can be represented as a column submatrix of a mutation matrix $A$. Thus, finding the \textit{optimal gene set} is equivalent to identifying the \textit{optimal $A$'s column submatrix}, which means that the following problem has to be solved.
 
 \begin{displayquote}\label{mwsp}
     \textbf{Maximum Weight Submatrix Problem} (MWSP): Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find a $m \times k$ submatrix of $A$ that maximizes $W(M)$.
 \end{displayquote}
 
-The following proof shows that this problem is NP-Hard.
+Finding the solution to this problem is computationally difficult, even for small values of $k$ (e.g. there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes). In fact, the following proof (provided by \textcite{dendrix}) shows that this problem is NP-Hard.
 
 \begin{theorem}[NP-Hardness of the MWSP]
     The Maximum Weight Submatrix Problem is NP-Hard.
