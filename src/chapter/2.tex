@@ -3,7 +3,7 @@
 % ------- TODO USE THIS
 % estimates suggest that the human genome contains more than 50,000 genes \cite{n-genes}
 
-placeholder \todo{introduction to the chapter, also change chapter name?}
+placeholder \todo{introduction to the chapter, tell why we have multiple algorithms (use comment), also change chapter name?}
 
 \section{Mutations and pathways}
 
@@ -124,7 +124,7 @@ One of the earliest \cite{survey} and most widely used mathematical formalizatio
 
 Note that any gene set $M$ of size $k$ can be thought of as an $m \times k$ column submatrix of a mutation matrix $A$ of size $m \times n$, up to rearranging $A$'s columns (their order does not matter since they represent genes). Accordingly, such a submatrix is said to be \textbf{mutually exclusive} if each row contains at most one 1. These two representations will be used interchangeably throughout this work.
 
-To define an equation that mathematically assesses mutual exclusivity and coverage of a given gene set $M$, the formalization should reflect the following properties (discussed in previous sections \todo{add ref?}):
+To define an equation that mathematically assesses mutual exclusivity and coverage of a given gene set $M$, the formalization should reflect the following properties (discussed in previous sections):
 
 \begin{enumerate}[label=\roman*), font=\itshape]
     \item \textit{high coverage}: most patients have at least one mutation in $M$;
@@ -228,11 +228,7 @@ Finding the solution to this problem is computationally difficult, even for smal
         This means that $W(M)$ is maximized if and only if $M$ is an independent set; therefore, the MWSP can be solved on $A$ if and only if the ISP can be solved on $G$.
 \end{proof}
 
-\subsection{Extending the deterministic equation} \label{multi_dendrix_2nd_chap} \todo{considera di spostare questo alla fine}
-
-\textcite{multi-dendrix} refine the weight function of \textcite{dendrix}, aiming to extend the metric to assess mutual exclusivity across multiple driver pathways. In particular, while identifying individual driver pathways is crucial, most cancer patients are likely to have driver mutations across multiple pathways.
-
-To effectively identify multiple driver pathways, it is necessary to establish criteria for evaluating potential \textit{collections of gene sets}. Based on the same biological reasoning mentioned earlier, it is expected that each pathway will contain approximately one driver mutation. Furthermore, since each driver pathway is crucial for cancer development, it is expected that most patients will harbor a driver mutation in most driver pathways. Consequently, high exclusivity is predicted within the genes of each pathway, along with high coverage of each pathway individually. One metric that meets these criteria is to find a collection $M = \{M_1, \ldots, M_t\}$ of gene sets which maximizes the sum of individual weights, i.e. $\sum_{\rho = 1}^t {W(M_\rho)}$.
+The approach developed by \textcite{dendrix} will be discussed in the next chapter.
 
 \subsection{A statistical approach}
 
@@ -262,22 +258,35 @@ Since multiple groups are being tested, $s_0$ is affected by \href{https://en.wi
 
 From this second set of $p$-values, the least significant one is selected as the multiple hypothesis testing corrected final score. \todo{talk about the last paragraph, which is even less comprehensible}
 
+\subsection{Extending the deterministic equation} \label{multi_dendrix_2nd_chap}
+
+While identifying individual driver pathways is crucial for cancer research and treatment, most cancer patients are likely to have driver mutations across multiple pathways. The metrics discussed so far do not account for multiple pathways simultaneously. As will be shown in the next chapter, these formalizations can be applied iteratively to identify multiple driver pathways, though this may not be the most precise approach. \textcite{multi-dendrix} refine the weight function of \textcite{dendrix} to extend their metric, enabling the assessment of mutual exclusivity across multiple driver pathways.
+
+To effectively identify multiple pathways, it is necessary to establish criteria for evaluating potential \textit{collections of gene sets}. Based on the same biological reasoning mentioned earlier, it is expected that each pathway will contain approximately one driver mutation. Furthermore, since each driver pathway is crucial for cancer development, it is expected that most patients will harbor a driver mutation in most driver pathways. Consequently, high exclusivity is predicted within the genes of each pathway, along with high coverage of each pathway individually. One metric that meets these criteria is the sum of individual weights of a given collection of gene sets, as defined below.
+
+\begin{definition}[Weight of a collection]
+    Given a collection of $t$ gene sets $M = \{ M_1, \ldots, M_t \}$, the \textbf{weight of $M$} is defined as follows: $$W'(M) := \sum_{\rho = 1}^t{W \rbk{M_\rho}}$$
+\end{definition}
+
+This metric is employed by \textcite{multi-dendrix} in their algorithm, which will be explored in the next chapter.
+
 \subsection{A clustering approach} \label{c3_chap2} \todo{change this title soo similar with the previous one}
 
-Another notable approach utilized in several papers involves constructing gene graphs and identifying clusters based on specific criteria; this method is demonstrated by \textcite{c3}.
+Another notable approach used in several studies to find mutually exclusive modules involves constructing gene graphs and identifying clusters based on specific criteria. This method is demonstrated by \textcite{c3}, who propose an algorithm designed to address the limitations of previous techniques. They argue that earlier approaches are generally inefficient for large datasets, lack consistency in results due to their randomized nature, and can only identify a few small modules. Additionally, these methods require restructuring whenever new biological information is added, whereas their approach has a notable degree of flexibility, as its objective function does not need to change with the addition of new data sources. Moreover, it has low computational cost, an important consideration in this context, as previously discussed. The following equations will describe how \textcite{c3} formalized biological assumptions to define a technique able to achieve these results.
 
-Let $G = (V, E)$ be a \textit{complete graph} of genes, thus an edge exists between any pair of vertices. Each edge $(u, v) \in E(G)$ is assigned two weights:
+First, the structure of the graph will be described. Let $G = (V, E)$ be a \textit{complete graph} of genes, thus an edge exists between any pair of vertices. Each edge $(u, v) \in E(G)$ is assigned two weights:
 
 \begin{itemize}
-    \item a \textbf{positive weight} $w_{uv}^+$, which represents \textit{the cost of placing $u$ and $v$ in different clusters};
-    \item a \textbf{negative weight} $w_{uv}^-$, which represents \textit{the cost of placing $u$ and $v$ in the same cluster};
+    \item a \textbf{positive weight} $w_{uv}^+$, which represents \textit{the cost of placing $u$ and $v$ in different clusters}; thus, by making $w_{uv}^+$ large, placing $u$ and $v$ in different clusters is discouraged, and viceversa;
+    \item a \textbf{negative weight} $w_{uv}^-$, which represents \textit{the cost of placing $u$ and $v$ in the same cluster}; thus, by making $w_{uv}^-$ large, placing $u$ and $v$ in the same cluster is discouraged, and viceversa.
 \end{itemize}
 
-i.e. by making $w_{uv}^+$ large, placing $u$ and $v$ in different clusters is discouraged, and viceversa; the same concept applies for $w_{uv}^-$. Indeed, as weights representations suggest, \textit{genes in the same cluster are likely to be mutually exclusive}.
+The clustering algorithm aims to identify clusters of vertices (i.e. genes) that exhibit both \textit{high coverage and mutual exclusivity within clusters}.
 
-Weights are calculated using four types of datasets: gene mutation data, \href{https://www.genome.gov/genetics-glossary/Copy-Number-Variation}{copy number variation (CNV)}, network information, and gene expression data. To appropriately combine the sources from which the information was obtained, linear combinations were utilized to account for the reliability of the sources from which the data was drawn.
+%%% TODO QUESTO COMMENTO VA NEL QUARTO CAPITOLO
+% These weights are calculated using four types of datasets: gene mutation data, \href{https://www.genome.gov/genetics-glossary/Copy-Number-Variation}{copy number variation (CNV)}, network information, and gene expression data. To appropriately combine the sources from which the information was obtained, linear combinations were utilized to account for the reliability of the sources from which the data was drawn.
 
-Additionally, as each type of data contributes differently to the driver discovery process, linear combinations are used, based on the importance or accuracy of each, specifically:
+As mentioned earlier, this algorithm is quite flexible and allows the integration of weight values with information derived from external data. Specifically, \textcite{c3} present multiple versions of their algorithm, depending on the type of information used to define the weights between edges. The following labels will be used to distinguish the components of the weights:
 
 \begin{itemize}
     \item the $(\mathrm e)$ label refers to \textit{exclusivity};
@@ -286,35 +295,35 @@ Additionally, as each type of data contributes differently to the driver discove
     \item the $(\mathrm x)$ label refers to \textit{expression data}.
 \end{itemize}
 
-Let $A$ be an $m \times n$ mutation matrix, as described in \cref{mut_matrix_def}. In addition, let $C$ be an $m \times n$ matrix representing the CNV data, where $c_{i, j} = 0$ means that there is no change in the copy number of gene $j$ in sample $i$, otherwise, the corresponding number reflects the deviation of the CNV number from its baseline --- hence, $C$ contains both positive and negative values. Following this, a binary matrix $M$ is constructed combining $A$ and $C$ as follows:
+To define the weights, linear combinations of these components are utilized. The different versions of this algorithm, and the various definitions of the weights, will be discussed in the following chapter. This secion will specifically focus on how \textcite{c3} defined mutual exclusivity and coverage.
+
+Let $A$ be an $m \times n$ mutation matrix, as described in \cref{mut_matrix_def}. In addition, let $C$ be an $m \times n$ matrix representing the CNV data, where $c_{i, j} = 0$ means that there is no change in the copy number of gene $j$ in sample $i$, otherwise, the corresponding number reflects the deviation of the CNV number from its baseline --- hence, $C$ contains both positive and negative values. Following this, a binary matrix $M$ is constructed combining $A$ and $C$, as follows:
 
 \begin{equation}
     m_{i, j} = 0 \iff \soe{l}{a_{i, j} = 0 \\ l_{\mathrm{cnv}} < c_{i, j} < h_{\mathrm{cnv}}}
 \end{equation}
 
-where $l_{\mathrm{cnv}}$ and $h_{\mathrm{cnv}}$ are lower and upper bounds on copy numbers that determine the significance level. \todo{menziono i valori che hanno usato loro? menziono le conseguenze che valori alti/bassi di queste soglie hanno, secondo loro?} Therefore, if $m_{i, j} = 0$, no mutation of gene $j$ is recorded in sample $i$, otherwise gene $j$ is \textit{deemed mutated}.
+where $l_{\mathrm{cnv}}$ and $h_{\mathrm{cnv}}$ are lower and upper bounds on copy numbers that determine the significance level. Thus, if $m_{i, j} = 0$, no mutation of gene $j$ is recorded in sample $i$, otherwise gene $j$ is \textit{deemed mutated}.
 
 \begin{definition}[Coverage of a vertex]
-    Given a vertex $u \in V(G)$, i.e. a gene, the \textbf{coverage of $u$} $$\mathscr{S}(u) := \{i \mid m_{i, u} = 1\}$$ denotes the set of patients in which $u$ is altered.
+    Given a vertex $u \in V(G)$, i.e. a gene, the \textbf{coverage of $u$} is defined as follows $$\mathscr{S}(u) := \{i \mid m_{i, u} = 1\}$$ and it denotes the set of patients in which $u$ is altered.
 \end{definition}
 
 Note that $\mathscr{S}(u)$ corresponds to $\Gamma(u)$ under Dendrix's notation, but is defined through the $M$ matrix respectively.
+
+Now that the preliminaries have been covered, the following definitions will outline how mutual exclsuivity and coverage are defined.
 
 \begin{definition}[Mutual exclusivity component] \label{me_comp}
     The \textbf{mutual exclusivity component} between two genes $u, v \in V(G)$ is defined as follows: $$w_{uv}^-(\mathrm e) := a \cdot \dfrac{\abs{\mathscr{S}(u) \cap \mathscr{S}(v)}}{\min(\abs{\mathscr{S}(u)}, \abs{\mathscr{S}(v)})}$$ where $a$ is a user-defined scaling parameter.
 \end{definition}
 
-This ratio is often referred to as \textbf{IoM} (\textit{Intersection over Minimum}), and suits the criteria of mutual exclusivity because the fewer patients who have both $u$ and $v$ mutated, the smaller the weight, making it more plausible that $u$ and $v$ are mutually exclusive, therefore the cost of placing them in the same cluster should be low. Note that
+This ratio is often referred to as \textit{Intersection over Minimum} (IoM), and suits the criteria of mutual exclusivity because the fewer patients who have both $u$ and $v$ mutated, the smaller the weight, making it more plausible that $u$ and $v$ are mutually exclusive, therefore the cost of placing them in the same cluster should be low. Note that
 
 \begin{equation}\label{neg_weight_constraint}
     \forall u, v \in V(G) \quad a = 1 \implies 0 \le w_{uv}^-(\mathrm e) \le 1
 \end{equation}
 
-\begin{definition}[Negative weights] \label{neg_weights}
-    \textbf{Negative weights} only depend on the mutual exclusivity component, i.e. $$\forall u, v \in V(G) \quad w_{uv}^- := w_{uv}^-(\mathrm e)$$
-\end{definition}
-
-By contrast, positive weights can depend on multiple factors which will be presented in the following sections \todo{va bene se la metto su questo piano?}. Focusing on \textbf{coverage}, if two genes $u$ and $v$ increase the coverage of the set significantly, $w_{uv}^+(\mathrm c)$ should be large such that they are encouraged to be placed in the same cluster. Let
+Focusing on \textbf{coverage}, if two genes $u$ and $v$ increase the coverage of the set significantly, $w_{uv}^+(\mathrm c)$ should be large such that they are encouraged to be placed in the same cluster. Let
 
 \begin{equation}
     D(u, v) := \abs{\mathscr{S}(u) \Delta \mathscr{S}(v)}
@@ -338,6 +347,6 @@ Note that, similar to \cref{neg_weight_constraint}
     \forall u, v \in V(G) \quad 0 \le w_{uv}^+(\mathrm c) \le 1
 \end{equation}
 
-The linear combinations that define $w_{uv}^+$ will be discussed afterward.
+The next chapter will illustrate the various versions of the algorithm developed by \textcite{c3}.
 
 \cleardoublepage

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  11 SEP 2024 10:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  11 SEP 2024 17:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1442,52 +1442,74 @@ Package cleveref Info: loaded `english' language definitions on input line 202.
  [13]
 Package cleveref Info: loaded `english' language definitions on input line 226.
  [14]
-Package cleveref Info: loaded `english' language definitions on input line 250.
+Package cleveref Info: loaded `english' language definitions on input line 256.
  [15]
-Package cleveref Info: loaded `english' language definitions on input line 283.
+Package cleveref Info: loaded `english' language definitions on input line 276.
  [16]
-Package cleveref Info: loaded `english' language definitions on input line 314.
+Package cleveref Info: loaded `english' language definitions on input line 308.
  [17]
-Package cleveref Info: loaded `english' language definitions on input line 343.
- [18]) (./chapter/3.tex
+Package cleveref Info: loaded `english' language definitions on input line 348.
+ [18]
+Package cleveref Info: loaded `english' language definitions on input line 352.
+ [19]) (./chapter/3.tex
 Chapter 3.
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 14.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-[19
+[20
 
 
 ]
 Package cleveref Info: loaded `english' language definitions on input line 65.
- [20]
-Package cleveref Info: loaded `english' language definitions on input line 93.
  [21]
-Package cleveref Info: loaded `english' language definitions on input line 131.
+Package cleveref Info: loaded `english' language definitions on input line 93.
  [22]
-Package cleveref Info: loaded `english' language definitions on input line 171.
+Package cleveref Info: loaded `english' language definitions on input line 126.
  [23]
+
+Package amsmath Warning: Foreign command \atop;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 139.
+
+Package cleveref Info: loaded `english' language definitions on input line 140.
+[24]
+
+LaTeX Warning: Marginpar on page 25 moved.
+
+
+LaTeX Warning: Marginpar on page 25 moved.
+
+
+LaTeX Warning: Marginpar on page 25 moved.
+
+Package cleveref Info: loaded `english' language definitions on input line 172.
+[25]
+Package cleveref Info: loaded `english' language definitions on input line 210.
+ [26]
+Package cleveref Info: loaded `english' language definitions on input line 253.
+ [27]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.191         \Function
+l.264         \Function
                        {iterDendrix}{$\mathcal G$, $k$, $t$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.192             \State
+l.265             \State
                          $M := \varnothing$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.193             \For
+l.266             \For
                       {$i \in [1, t]$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.194             \State
+l.267             \State
                          $M_i := \texttt{greedyDendrix}(\mathcal G, k)$ \Com...
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 194.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 267.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1499,56 +1521,39 @@ Package microtype Info: Loading generic protrusion settings for font family
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.195                 \State
+l.268                 \State
                              $M = M \cup \{M_i\}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.196                 \State
+l.269                 \State
                              $\mathcal G = \mathcal G - M_i$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.197             \EndFor
+l.270             \EndFor
                          
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.198             \State
+l.271             \State
                          \textbf{return} $M$
-Package cleveref Info: loaded `english' language definitions on input line 215.
- [24]
+Package cleveref Info: loaded `english' language definitions on input line 297.
+ [28]
 
-Package amsmath Warning: Foreign command \atop;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 223.
-
-Package cleveref Info: loaded `english' language definitions on input line 247.
-[25]
-Package cleveref Info: loaded `english' language definitions on input line 280.
- [26]
-Package cleveref Info: loaded `english' language definitions on input line 294.
- [27]
-
-LaTeX Warning: Marginpar on page 28 moved.
-
-
-LaTeX Warning: Marginpar on page 28 moved.
-
-
-LaTeX Warning: Marginpar on page 28 moved.
+LaTeX Warning: Reference `neg_weights' on page 1 undefined on input line 313.
 
 Package cleveref Info: loaded `english' language definitions on input line 334.
-[28]
-Package cleveref Info: loaded `english' language definitions on input line 356.
- [29]
+[29]
+Package cleveref Info: loaded `english' language definitions on input line 364.
+ [30]
 
-LaTeX Warning: Marginpar on page 30 moved.
+LaTeX Warning: Marginpar on page 31 moved.
 
-Package cleveref Info: loaded `english' language definitions on input line 399.
-[30]
+Package cleveref Info: loaded `english' language definitions on input line 406.
+[31]
 Package cleveref Info: loaded `english' language definitions on input line 442.
- [31]
+ [32]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1595,45 +1600,49 @@ pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) h
 l.478                     \State
                                  $S = S - \{u\}$
 Package cleveref Info: loaded `english' language definitions on input line 495.
- [32]
+ [33]
 
-LaTeX Warning: Marginpar on page 33 moved.
+LaTeX Warning: Marginpar on page 34 moved.
 
 Package cleveref Info: loaded `english' language definitions on input line 529.
-[33]) (./chapter/ack.tex) [34
+[34]) (./chapter/ack.tex) [35
 
 
-] [35
+] [36
 
 
 ]
 Package cleveref Info: loaded `english' language definitions on input line 218.
- [36] (./Thesis.aux
+ [37] (./Thesis.aux
 Package cleveref Info: loaded `english' language definitions on input line 11.
 )
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: B99FDF295E27460BF03423FE199FC655;7306.
+(rerunfilecheck)             Checksum: 186F2D99781B9938D1D0A13493966297;7306.
 Package logreq Info: Writing requests to 'Thesis.run.xml'.
 \openout1 = `Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50873 strings out of 476024
- 1055052 string characters out of 5792397
- 1978061 words of memory out of 5000000
- 71594 multiletter control sequences out of 15000+600000
- 697335 words of font info for 304 fonts, out of 8000000 for 9000
+ 50837 strings out of 476024
+ 1054227 string characters out of 5792397
+ 1977412 words of memory out of 5000000
+ 71561 multiletter control sequences out of 15000+600000
+ 697376 words of font info for 304 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,17n,131p,1852b,2572s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (42 pages, 608905 bytes).
+Output written on Thesis.pdf (43 pages, 610181 bytes).
 PDF statistics:
- 1017 PDF objects out of 1200 (max. 8388607)
- 904 compressed objects within 10 object streams
- 279 named destinations out of 1000 (max. 500000)
+ 1021 PDF objects out of 1200 (max. 8388607)
+ 907 compressed objects within 10 object streams
+ 276 named destinations out of 1000 (max. 500000)
  77682 words of extra memory for PDF output out of 89155 (max. 10000000)
 

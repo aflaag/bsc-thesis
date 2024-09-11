@@ -19,27 +19,27 @@
 \contentsline {section}{\numberline {2.2}Assessing mutual exclusivity}{10}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Challenges in quantifying mutual exclusivity}{10}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}A deterministic formalization of mutual exclusivity}{11}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Extending the deterministic equation}{15}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}A statistical approach}{15}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.3}A statistical approach}{15}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Extending the deterministic equation}{16}{subsection.2.2.4}%
 \contentsline {subsection}{\numberline {2.2.5}A clustering approach}{16}{subsection.2.2.5}%
-\contentsline {chapter}{\numberline {3}Finding driver mutations}{19}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Dendrix}{19}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}A greedy approach}{19}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Using MCMC}{20}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Multi-Dendrix}{21}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}An alternative solution to Dendrix}{21}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}The ILP}{23}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}MDPFinder}{25}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}The genetic algorithm}{25}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}The integration procedure}{27}{subsection.3.3.2}%
-\contentsline {section}{\numberline {3.4}Mutex}{27}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}A different greedy method}{27}{subsection.3.4.1}%
-\contentsline {section}{\numberline {3.5}C3}{28}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Multiple versions}{28}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}The standard version}{28}{subsection.3.5.2}%
+\contentsline {chapter}{\numberline {3}Finding driver mutations}{20}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Dendrix}{20}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}A greedy approach}{20}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Using MCMC}{21}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}MDPFinder}{22}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}The genetic algorithm}{22}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}The integration procedure}{24}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Mutex}{25}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}A different greedy method}{25}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.4}Multi-Dendrix}{25}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}An alternative solution to Dendrix}{25}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}The ILP}{27}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}C3}{29}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Multiple versions}{29}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}The standard version}{29}{subsection.3.5.2}%
 \contentsline {subsection}{\numberline {3.5.3}Integrating network information}{29}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Integrating expression data}{30}{subsection.3.5.4}%
-\contentsline {subsection}{\numberline {3.5.5}Other versions}{31}{subsection.3.5.5}%
-\contentsline {subsection}{\numberline {3.5.6}The clustering ILP}{31}{subsection.3.5.6}%
-\contentsline {subsection}{\numberline {3.5.7}The rounding procedure}{32}{subsection.3.5.7}%
-\contentsline {chapter}{Acknowledgements}{34}{chapter*.48}%
+\contentsline {subsection}{\numberline {3.5.4}Integrating expression data}{31}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}Other versions}{32}{subsection.3.5.5}%
+\contentsline {subsection}{\numberline {3.5.6}The clustering ILP}{32}{subsection.3.5.6}%
+\contentsline {subsection}{\numberline {3.5.7}The rounding procedure}{33}{subsection.3.5.7}%
+\contentsline {chapter}{Acknowledgements}{35}{chapter*.44}%
