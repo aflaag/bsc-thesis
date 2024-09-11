@@ -26,6 +26,8 @@
 
 - check thesis.tex
 - check references.bib
+    - check if refs are correct
+    - remove useless refs
 
 ## Paper per allungare
 
