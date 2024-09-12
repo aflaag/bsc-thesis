@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  11 SEP 2024 21:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  12 SEP 2024 10:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1401,17 +1401,15 @@ Package hyperref Info: bookmark level for unknown todo defaults to 0 on input li
 
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Package cleveref Info: loaded `english' language definitions on input line 40.
+Package cleveref Info: loaded `english' language definitions on input line 36.
  [2]
 Package cleveref Info: loaded `english' language definitions on input line 57.
  [3]
 Package cleveref Info: loaded `english' language definitions on input line 71.
  [4]
-Package cleveref Info: loaded `english' language definitions on input line 131.
+Package cleveref Info: loaded `english' language definitions on input line 130.
  [5]
-Package cleveref Info: loaded `english' language definitions on input line 139.
+Package cleveref Info: loaded `english' language definitions on input line 141.
  [6]) (./chapter/2.tex
 Chapter 2.
 
@@ -1614,8 +1612,10 @@ Package cleveref Info: loaded `english' language definitions on input line 529.
 
 
 ]
+Package cleveref Info: loaded `english' language definitions on input line 216.
+ [37]
 Package cleveref Info: loaded `english' language definitions on input line 218.
- [37] (./Thesis.aux
+ [38] (./Thesis.aux
 Package cleveref Info: loaded `english' language definitions on input line 11.
 )
  ***********
@@ -1627,24 +1627,24 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 186F2D99781B9938D1D0A13493966297;7306.
+(rerunfilecheck)             Checksum: 3D7FC3374B239253CED922AA861B240E;7326.
 Package logreq Info: Writing requests to 'Thesis.run.xml'.
 \openout1 = `Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50854 strings out of 476024
- 1054753 string characters out of 5792397
- 1977550 words of memory out of 5000000
- 71573 multiletter control sequences out of 15000+600000
+ 50879 strings out of 476024
+ 1055447 string characters out of 5792397
+ 1978829 words of memory out of 5000000
+ 71593 multiletter control sequences out of 15000+600000
  697472 words of font info for 305 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,17n,131p,1852b,2572s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (43 pages, 612677 bytes).
+Output written on Thesis.pdf (44 pages, 617504 bytes).
 PDF statistics:
- 1035 PDF objects out of 1200 (max. 8388607)
- 921 compressed objects within 10 object streams
- 279 named destinations out of 1000 (max. 500000)
+ 1057 PDF objects out of 1200 (max. 8388607)
+ 942 compressed objects within 10 object streams
+ 284 named destinations out of 1000 (max. 500000)
  77682 words of extra memory for PDF output out of 89155 (max. 10000000)
 

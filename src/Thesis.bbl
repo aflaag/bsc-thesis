@@ -309,6 +309,16 @@
     \field{year}{2021}
   \endentry
 
+  \entry{cancer5}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{{Cancer of any site - Cancer Stat Facts}}
+    \verb{url}
+    \verb https://seer.cancer.gov/statfacts/html/all.html
+    \endverb
+  \endentry
+
   \entry{cancer_treat}{misc}{}
     \field{labeltitlesource}{title}
     \field{sortinit}{C}
@@ -480,6 +490,64 @@
     \field{journaltitle}{Briefings in Bioinformatics}
     \field{month}{08}
     \field{year}{2017}
+  \endentry
+
+  \entry{seer}{article}{}
+    \name{author}{5}{}{%
+      {{hash=DMA}{%
+         family={Duggan},
+         familyi={D\bibinitperiod},
+         given={Máire\bibnamedelima A.},
+         giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=AWF}{%
+         family={Anderson},
+         familyi={A\bibinitperiod},
+         given={William\bibnamedelima F.},
+         giveni={W\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=AS}{%
+         family={Altekruse},
+         familyi={A\bibinitperiod},
+         given={Sean},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=PL}{%
+         family={Penberthy},
+         familyi={P\bibinitperiod},
+         given={Lynne},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SME}{%
+         family={Sherman},
+         familyi={S\bibinitperiod},
+         given={Mark\bibnamedelima E.},
+         giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Ovid Technologies (Wolters Kluwer Health)}%
+    }
+    \strng{namehash}{DMA+1}
+    \strng{fullhash}{DMAAWFASPLSME1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{doi}
+    \verb 10.1097/pas.0000000000000749
+    \endverb
+    \field{issn}{0147-5185}
+    \field{number}{12}
+    \field{pages}{e94–e102}
+    \field{title}{The Surveillance, Epidemiology, and End Results (SEER) Program and Pathology: Toward Strengthening the Critical Relationship}
+    \verb{url}
+    \verb http://dx.doi.org/10.1097/PAS.0000000000000749
+    \endverb
+    \field{volume}{40}
+    \field{journaltitle}{American Journal of Surgical Pathology}
+    \field{month}{12}
+    \field{year}{2016}
   \endentry
 
   \entry{ehrlich}{inbook}{}
@@ -914,6 +982,52 @@
     \verb{url}
     \verb https://www.cancer.gov/about-cancer/treatment/side-effects
     \endverb
+  \endentry
+
+  \entry{cancer4}{article}{}
+    \name{author}{3}{}{%
+      {{hash=SRL}{%
+         family={Siegel},
+         familyi={S\bibinitperiod},
+         given={Rebecca\bibnamedelima L.},
+         giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=GAN}{%
+         family={Giaquinto},
+         familyi={G\bibinitperiod},
+         given={Angela\bibnamedelima N.},
+         giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=JA}{%
+         family={Jemal},
+         familyi={J\bibinitperiod},
+         given={Ahmedin},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley}%
+    }
+    \strng{namehash}{SRL+1}
+    \strng{fullhash}{SRLGANJA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.3322/caac.21820
+    \endverb
+    \field{issn}{1542-4863}
+    \field{number}{1}
+    \field{pages}{12–49}
+    \field{title}{Cancer statistics, 2024}
+    \verb{url}
+    \verb http://dx.doi.org/10.3322/caac.21820
+    \endverb
+    \field{volume}{74}
+    \field{journaltitle}{CA: A Cancer Journal for Clinicians}
+    \field{month}{01}
+    \field{year}{2024}
   \endentry
 
   \entry{target_therapy1}{misc}{}
