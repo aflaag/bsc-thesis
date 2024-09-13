@@ -165,67 +165,74 @@ As previously mentioned, a gene set $M$ can be represented as a column submatrix
     \textbf{Maximum Weight Submatrix Problem} (MWSP): Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find a $m \times k$ submatrix of $A$ that maximizes $W(M)$.
 \end{displayquote}
 
-Finding the solution to this problem is computationally difficult, even for small values of $k$ (e.g. there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes). In fact, the following proof (provided by \textcite{dendrix}) shows that this problem is NP-Hard.
+Finding the solution to this problem is computationally difficult, even for small values of $k$ (e.g. there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes). In fact, the following proof (provided by \textcite{dendrix}) shows that this problem is NP-Complete.
 
-\begin{theorem}[NP-Hardness of the MWSP] \todo{turnalo in NP-completezza e dimostra che la riduzione è polinomiale}
-    The Maximum Weight Submatrix Problem is NP-Hard.
+\begin{theorem}[NP-Completeness of the MWSP] \todo{la prova della polinomialità della costruzione della matrice è giusta?}
+    The Maximum Weight Submatrix Problem is NP-Complete.
 \end{theorem}
 
 \begin{proof}
-        The proof is by reduction from the \href{https://en.wikipedia.org/wiki/Independent_set_(graph_theory)}{Independent Set} Problem (ISP), which is known to be NP-Hard \cite{hochbaum}. In the ISP, it is asked whether there is an independent set of size $k$ in a given graph $G$. An independent set for $G = (V, E)$ is a set of vertices $I \subseteq V(G)$ such that there is no edge among the vertices of $I$, i.e. $$\forall u, v \in I \mid u \neq v \quad (u, v) \notin E(G)$$
+    The proof of NP-Hardness is by reduction from the \href{https://en.wikipedia.org/wiki/Independent_set_(graph_theory)}{Independent Set} Problem (ISP), which is known to be NP-Hard \cite{hochbaum}. In the ISP, it is asked whether there is an independent set of size $k$ in a given graph $G$. An independent set for $G = (V, E)$ is a set of vertices $I \subseteq V(G)$ such that there is no edge among the vertices of $I$, i.e. $$\forall u, v \in I \mid u \neq v \quad (u, v) \notin E(G)$$
 
-        Given an instance of the ISP, a mutation matrix representing an instance of the MWSP is built in polynomial time as follows:
+    Given an instance of the ISP, a mutation matrix representing an instance of the MWSP is built in polynomial time as follows:
 
-        \begin{itemize}
-            \item let $\Delta := \max_{v \in G}{\deg(v)}$, and for each $v \in V(G)$ let $\mathcal S_v := \left\{s_v^{(1)}, \ldots, s_v^{(\Delta - \deg(v))}\right\}$ be a set of variables; also, consider the following set $$\mathcal S := \left\{s_e \mid e \in E(G)\right\} \cup \rbk{\bigcup_{v \in V(G)}{\mathcal S_v}}$$
-            \item build a matrix $A$ of size $\abs{\mathcal S} \times \abs{V(G)}$, as illustrated below
+    \begin{itemize}
+        \item let $\Delta := \max_{v \in G}{\deg(v)}$, and for each $v \in V(G)$ let $\mathcal S_v := \left\{s_v^{(1)}, \ldots, s_v^{(\Delta - \deg(v))}\right\}$ be a set of variables; also, consider the following set $$\mathcal S := \left\{s_e \mid e \in E(G)\right\} \cup \rbk{\bigcup_{v \in V(G)}{\mathcal S_v}}$$
+        \item build a matrix $A$ of size $\abs{\mathcal S} \times \abs{V(G)}$, as illustrated below
 
-                \begin{table}[H]
-                    \centering
-                    \begin{tabular}{c|ccc}
-                              & $v_1$ & $\ldots$ & $v_n$ \\
-                        \hline
-                        $e_1$ & $\ddots$ & & \\
-                        $\vdots$ & & $\ddots$ & \\
-                        $e_m$ & & & $\ddots$ \\
-                        \hline
-                        $s_{v_1}^{(1)}$ & $\ddots$ & & \\
-                        $\vdots$ & & $\vdots$ & \\
-                        $s_{v_1}^{(\Delta - \deg(v_1))}$ & &  & \\
-                        $\vdots$ & & $\vdots$ & \\
-                        $s_{v_n}^{(1)}$ & &  & \\
-                        $\vdots$ & & $\vdots$ & \\
-                        $s_{v_n}^{(\Delta - \deg(v_n))}$ & & & $\ddots$
-                    \end{tabular}
-                    \caption{The described matrix.}
-                \end{table}
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{c|ccc}
+                          & $v_1$ & $\ldots$ & $v_n$ \\
+                    \hline
+                    $e_1$ & $\ddots$ & & \\
+                    $\vdots$ & & $\ddots$ & \\
+                    $e_m$ & & & $\ddots$ \\
+                    \hline
+                    $s_{v_1}^{(1)}$ & $\ddots$ & & \\
+                    $\vdots$ & & $\vdots$ & \\
+                    $s_{v_1}^{(\Delta - \deg(v_1))}$ & &  & \\
+                    $\vdots$ & & $\vdots$ & \\
+                    $s_{v_n}^{(1)}$ & &  & \\
+                    $\vdots$ & & $\vdots$ & \\
+                    $s_{v_n}^{(\Delta - \deg(v_n))}$ & & & $\ddots$
+                \end{tabular}
+                \caption{The described matrix.}
+            \end{table}
 
-            \item define $A$'s cells as follows: $$a_{s, v} = 1 \iff s = s_{(u, v)}, u \in V(G) \lor s \in \mathcal S_v$$ which means that $a_{s, v}$ will be 1 if and only if $s$ is either a variable from the set $\{s_e \mid e \in E(G)\}$ where the edge $e$ has $v$ as endpoint, or $s$ is a variable defined in $\mathcal S_v$.
-        \end{itemize}
+        \item define $A$'s cells as follows: $$a_{s, v} = 1 \iff s = s_{(u, v)}, u \in V(G) \lor s \in \mathcal S_v$$ which means that $a_{s, v}$ will be 1 if and only if $s$ is either a variable from the set $\{s_e \mid e \in E(G)\}$ where the edge $e$ has $v$ as endpoint, or $s$ is a variable defined in $\mathcal S_v$.
+    \end{itemize}
 
-        Note that:
+    Note that this matrix can be built in polynomial time, because:
 
-        \begin{enumerate}[label=\roman*), font=\itshape]
-            \item $\forall v \in V(G) \quad \abs{\Gamma(v)} = \Delta$ due to the added variables at the end of each column;
-            \item $\forall u, v \in V(G) \quad \Gamma(u) \cap \Gamma(v) \neq \varnothing \iff (u, v) \in E$, since no pair of columns can have a 1 in the same row in the second half of $A$ by definition of the sets $\mathcal S_{v_1}, \ldots , \mathcal S_{v_n}$, therefore $\Gamma(u)$ and $\Gamma(v)$ can have an intersection if and only if there is an edge $(u, v) \in E(G)$.
-        \end{enumerate}
+    \begin{itemize}
+        \item its first half contains $m \cdot n$ cells
+        \item the vertex $\hat v$ that maximizes $\abs{\mathcal S_{\hat v}}$ is such that $$\deg(\hat v) = 1 \implies \abs{\mathcal S_{\hat v}} = \Delta - \deg(\hat v) = \Delta - 1 = O(\Delta) = O(n)$$ and since there are $n$ sets, the matrix's second half contains $(n \cdot n) \cdot n = n^3$ cells
+    \end{itemize}
 
-        Hence, consider a set $M = \{v_1, \ldots, v_k\}$ of $k$ columns of $A$. Note that:
+    therefore the time complexity to create it is $O \rbk{n^2 + nm}$. Moreover, note that:
 
-        \begin{itemize}
-            \item from $(i)$ it follows that $$\sum_{i = 1}^k {\abs{\Gamma \rbk{v_i}}} = k \Delta$$ and consequently $\abs{\Gamma(M)} \le k \Delta$, meaning that the largest value $\abs{\Gamma(M)}$ can have is $k \Delta$; hence, from the equation in \cref{weight}, it follows that the maximum value $W(M)$ can reach is
-                \begin{equation*}
-                    \begin{split}
-                        W(M) & = 2 \abs{\Gamma(M)} - \sum_{i = 1}^k{\abs{\Gamma \rbk{v_i}}} \\
-                             & = 2 k \Delta - k \Delta \\
-                             & = k \Delta
-                    \end{split}
-                \end{equation*}
+    \begin{enumerate}[label=\roman*), font=\itshape]
+        \item $\forall v \in V(G) \quad \abs{\Gamma(v)} = \Delta$ due to the added variables at the end of each column;
+        \item $\forall u, v \in V(G) \quad \Gamma(u) \cap \Gamma(v) \neq \varnothing \iff (u, v) \in E$, since no pair of columns can have a 1 in the same row in the second half of $A$ by definition of the sets $\mathcal S_{v_1}, \ldots , \mathcal S_{v_n}$, therefore $\Gamma(u)$ and $\Gamma(v)$ can have an intersection if and only if there is an edge $(u, v) \in E(G)$.
+    \end{enumerate}
 
-            \item from $(ii)$ it follows that $\abs{\Gamma(M)} = k \Delta \iff \forall u, v \in V(G) \quad \Gamma(u) \cap \Gamma(v) = \varnothing \iff \forall u, v \in V(G) \quad (u, v) \notin E(G) \iff M$ is an independent set, by definition.
-        \end{itemize}
+    Hence, consider a set $M = \{v_1, \ldots, v_k\}$ of $k$ columns of $A$. Note that:
 
-        This means that $W(M)$ is maximized if and only if $M$ is an independent set; therefore, the MWSP can be solved on $A$ if and only if the ISP can be solved on $G$.
+    \begin{itemize}
+        \item from $(i)$ it follows that $$\sum_{i = 1}^k {\abs{\Gamma \rbk{v_i}}} = k \Delta$$ and consequently $\abs{\Gamma(M)} \le k \Delta$, meaning that the largest value $\abs{\Gamma(M)}$ can have is $k \Delta$; hence, from the equation in \cref{weight}, it follows that the maximum value $W(M)$ can reach is
+            \begin{equation*}
+                \begin{split}
+                    W(M) & = 2 \abs{\Gamma(M)} - \sum_{i = 1}^k{\abs{\Gamma \rbk{v_i}}} \\
+                         & = 2 k \Delta - k \Delta \\
+                         & = k \Delta
+                \end{split}
+            \end{equation*}
+
+        \item from $(ii)$ it follows that $\abs{\Gamma(M)} = k \Delta \iff \forall u, v \in V(G) \quad \Gamma(u) \cap \Gamma(v) = \varnothing \iff \forall u, v \in V(G) \quad (u, v) \notin E(G) \iff M$ is an independent set, by definition.
+    \end{itemize}
+
+    This means that $W(M)$ is maximized if and only if $M$ is an independent set; therefore, the MWSP can be solved on $A$ if and only if the ISP can be solved on $G$.
 \end{proof}
 
 The approach developed by \textcite{dendrix} will be discussed in the next chapter.
