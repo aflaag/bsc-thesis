@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {3.1.3}Results}{23}{subsection.3.1.3}%
 \contentsline {section}{\numberline {3.2}Multi-Dendrix}{24}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}An alternative solution to Dendrix}{24}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}The ILP}{25}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.2}The ILP}{26}{subsection.3.2.2}%
 \contentsline {section}{\numberline {3.3}MDPFinder}{28}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}The genetic algorithm}{28}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}The integration procedure}{29}{subsection.3.3.2}%
@@ -43,4 +43,4 @@
 \contentsline {subsection}{\numberline {3.5.5}Other versions}{34}{subsection.3.5.5}%
 \contentsline {subsection}{\numberline {3.5.6}The clustering ILP}{34}{subsection.3.5.6}%
 \contentsline {subsection}{\numberline {3.5.7}The rounding procedure}{35}{subsection.3.5.7}%
-\contentsline {chapter}{Acknowledgements}{37}{chapter*.46}%
+\contentsline {chapter}{Acknowledgements}{37}{chapter*.47}%
