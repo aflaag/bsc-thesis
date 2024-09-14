@@ -54,7 +54,7 @@ Note that:
 
 Although it is possible to efficiently obtain accurate results with high probability under the GIM, genes within $\hat M$ may exhibit \textit{observed mutation frequencies} similar to those of genes outside $\hat M$. This similarity can make it challenging to distinguish between them based solely on mutation frequency, regardless of the number of patients.
 
-To illustrate this, consider the following scenario: observed gene mutation frequencies fall within the range of $[3 \times 10^{-5}, 0.13]$ --- based on a background mutation rate of $\approx 10^{-6}$ \cite{tcga}. If somatic mutations are measured in $n = 20,000$ human genes, and the size of $\hat M$ is 10, then approximately 2400 patients are needed for the greedy algorithm to identify $\hat M$ with a probability of at least $1 - 10^{-4}$. While this number of patients is expected to be available from large-scale cancer sequencing projects \cite{icgc}, it exceeds current availability.
+To illustrate this, consider the following scenario: observed gene mutation frequencies fall within the range of $[3 \times 10^{-5}, 0.13]$ --- based on a background mutation rate of $\approx 10^{-6}$ \cite{tcga}. If somatic mutations are measured in $n = 20,000$ human genes, and the size of $\hat M$ is 10, then approximately 2,400 patients are needed for the greedy algorithm to identify $\hat M$ with a probability of at least $1 - 10^{-4}$. While this number of patients is expected to be available from large-scale cancer sequencing projects \cite{icgc}, it exceeds current availability.
 
 Therefore, in practical applications, the effectivness of this greedy algorithm depends on having mutation data from a sufficiently large number of patients. Moreover, the GIM model may be appropriate for certain types of somatic mutations, such as \href{https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism}{single-nucleotide aberrations}, but may not be suitable for others. To address these limitations, \textcite{dendrix} developed an alternative approach, which will be detailed in the following section.
 
@@ -94,84 +94,15 @@ Note that:
 
 \subsection{Results}
 
-We applied our MCMC algorithm to analyze somatic mutations obtained from high-throughput genotyping of 238 oncogenes across 1,000 patients spanning 17 cancer types (Thomas et al. 2007). Additionally, we applied the algorithm to somatic mutations identified in recent cancer sequencing studies of lung adenocarcinoma (Ding et al. 2008) and glioblastoma multiforme (The Cancer Genome Atlas Research Network 2008). In the glioblastoma multiforme analysis, both copy-number aberrations and single-nucleotide (or small indel) mutations were included, whereas, in the lung adenocarcinoma analysis, we focused solely on single-nucleotide (or small indel) mutations. The MCMC algorithm samples gene sets with a frequency proportional to their weights; therefore, to narrow down to high-weight sets, we report only those with a frequency of at least 1\%. We further optimized the mutation matrix by merging genes mutated in the exact same patients into larger "metagenes." \todo{da riscrivere}
+\textcite{dendrix} applied their MCMC algorithm (with the constant $c$ set to $c = 0.5$) to analyze somatic mutations obtained from high-throughput genotyping of 238 oncogenes across 1,000 patients spanning 17 cancer types. Moreover, they applied the algorithm to somatic mutations identified in recent cancer sequencing studies of \href{https://en.wikipedia.org/wiki/Adenocarcinoma_of_the_lung}{lung adenocarcinoma} and \href{https://en.wikipedia.org/wiki/Glioblastoma}{glioblastoma multiforme}, taken from The Cancer Genome Atlas (TCGA) \cite{tcga}. The MCMC algorithm samples gene sets with a frequency proportional to their weights; therefore, to narrow down to high-weight sets, they report only those with a frequency of at least 1\%.
 
-\section{MDPFinder}
-
-\subsection{The genetic algorithm}
-
-placeholder. \todo{sezione in cui scrivo che mpdfinder critica la soluzione esatta trovata da multi-dendrix, che nonostante sia esatta potrebbe non essere reale; in questa sezione va menzionato che l'algoritmo si chiama MDPFinder, e va scritto che è knowledge-based}
-
-The approach used by \textcite{mdpfinder} involves a \textit{Genetic Algorithm} (GA), which is versatile and flexible, and can be used to optimize a wide variety of scoring functions. In addition, they state that the GA approach is particularly relevant to the current problem due to its conceptual alignment with the notions of \textit{gene} and \textit{mutation}. It models genetic variation within a population, evolving through a process of random selection, thereby avoiding the need to enumerate all possible solutions.
-
-\begin{definition}[Hypothesis space]
-    A \textbf{member} of the population is defined by a binary string of length $n$, i.e. the number of genes. Given a gene set $M$, the value of the $i$-th position of an individual represents the membership of the $i$-th gene in $M$.
-
-    Therefore, the \textbf{hypothesis space} is constituted by all the possible binary strings with length $n$ that have $k$ 1s, namely $$\mathcal H := \left\{(x_1, \ldots, x_n) \mid x_i \in \{0, 1\}, i \in [1, n], \sum_{j = 1}^n {x_j} = k \right\}$$
-\end{definition}
-
-\begin{definition}[Fitness function]
-    The \textbf{fitness} $f_i$ of each individual $h_i$ (its corresponding gene set is $M_i$) of the population is defined as the rank $r_i$ of the score $W(M_i)$, in the ascending order \todo{SECONDO ME È DESCENDING ALTRIMENTI PRENDI QUELLO COL PESO MINORE CHE NON HA SENSO, probabilmente non sto capendo il senso della frase}: $$\forall h_i \in \mathcal H \quad f_i := r_i$$
-\end{definition}
-
-\begin{definition}[Selection probability] \label{selection_probability}
-    Given the rank $r_i$ of an individual $h_i$ based on its score, the \textbf{selection probability} is defined as follows: $$p_i = \dfrac{2r_i}{P(P + 1)}$$ where $P$ is the population size. The individual with the highest fitness value is most likely to be transferred into the next generation.
-\end{definition}
-
-This selection operator is based on \href{https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)#Roulette_wheel_selection}{roulette wheel selection}, which states that the probability of choosing an individual is equal to $$p_i = \dfrac{f_i}{\sum_{j = 1}^P {f_j}} = \dfrac{r_i}{\frac{P(P + 1)}{2}} = \dfrac{2r_i}{P(P+1)}$$ which is precisely the equation in \cref{selection_probability}.
-
-\begin{definition}[Crossover operator]
-    The \textbf{crossover operator} specifies the breeding process as follows: the offspring inherits the variables shared by both parents, while the non-shared ones are selected from the symmetric difference of the parents' genetic makeup.
-\end{definition}
-
-\begin{definition}[Mutation operator]
-    The \textbf{mutation operator} randomly sets the value of one variable from 1 to 0, and changes another variable value from 0 to 1, ensuring the feasibility of every offspring.
-\end{definition}
-
-\begin{definition}[Local search] \todo{fixa questa definizione}
-    To prevent premature convergence and enhance the accuracy of the algorithm, a local search strategy is employed to improve search performance. In particular, the values of two variables are randomly altered, as the mutation operator. If this adjustment improves the current solution, it is accepted; the search is terminated once all variables have been tested with this routine.
-\end{definition}
-
-\begin{definition}[GA procedure]
-    The following are the details of the \textbf{GA procedure}:
-
-    \begin{enumerate}
-        \item \textit{population generation}: a random population of size $P$ and mutation rate $p_m$ is generated, where $P = n$ (i.e. the number of available genes);
-        \item \textit{breeding}: for each iteration, $P$ couples are selected from the current population, based on $p_i$, and each couple generates an offspring;
-        \item \textit{mutation}: each offspring may optionally receive a mutation with probability $p_m$;
-        \item \textit{selection}: all parents and offspring are ranked based on their scoring values, and the top $P$ individuals are selected to form the next generation (this is referred to as \href{https://en.wikipedia.org/wiki/Truncation_selection}{truncation selection});
-        \item \textit{local search}: verify if the iteration is stuck in a local solution (e.g. if the maximum scoring value does not improve over two consecutive iterations); if this is the case, perform a local search;
-        \item \textit{termination}: proceed as such until the termination criterion is met (e.g. if the current maximum scoring value does not improve over 10 consecutive iterations); if this occurs, then end the procedure.
-    \end{enumerate}
-\end{definition}
-
-\subsection{The integration procedure}
-
-In practical applications, multiple optimal solutions may exist. Additionally, due to data noise and other factors, the solutions considered optimal --- i.e. the ones with the highest $W(M)$ --- may not necessarily be the most relevant in a biological context. To identify the most biologically meaningful solutions, other types of data are integrated to refine the results. Specifically, the GA procedure is extended by incorporating gene expression data to enhance its performance. The integrative model is developed based on the observation that genes within the same pathway typically collaborate to perform a specific function. Consequently, the expression profiles of gene pairs within the same pathway often exhibit higher correlations than those in different pathways. This characteristic can be leveraged to distinguish between gene sets that have the same score: the model focuses on detecting gene sets whose scores $W(M)$ are close to the optimal solution, but whose member genes display stronger correlations with each other.
-
-\begin{definition}[Integrative measure]
-    Given an $m \times n$ mutation matrix $A$, an expression matrix $E$ with the same dimensions \todo{nel paper non è menzionato cosa questa "expression matrix" contenga all'interno, c'è una foto con dei colori e basta, però ho visto che "expression matrix" è un termine che si usa per indicare un tipo di matrici solamente che contengono una cosa ben specifica, posso assumere che si sappia già di cosa si parla o devo spiegare cosa sono?}, and an $A$'s submatrix $M$ of size $m \times k$, the integrative model is defined by the following \textbf{measure}: $$F_{ME} := W(M) + \lambda \cdot R(E_M)$$ where $E_M$ is $E$'s expression submatrix that corresponds to $M$, and $R(E_M)$ is described by the following equation: $$R(E_M) = \sum_{j_1 = 1}^n {\sum_{j_2 = 1 \atop j_1 \neq j_2} ^n {\dfrac{\abs{\mathrm{pcc}(x_{j_1}, x_{j_2})}}{\frac{k(k - 1)}{2}}}}$$ where $\mathrm{pcc}(\cdot)$ is the \href{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient}{Pearson correlation coefficient}, and $x_j$ is the expression profile of gene $j$ \todo{non è spiegato cosa questo voglia dire ma io assumo sia un vettore colonna di $E$; inoltre, non ho idea di cosa sia il valore $R(E_M)$}.
-\end{definition}
-
-Note that $$0 \le R(E_m) \le 1$$ and $W(M)$ is an integer, therefore when $\lambda = 1$ the value of $F_{ME}$ can be used to discriminate the gene sets with the same $W(M)$. Moreover, for values of $\lambda \ge 1$, the gene set with strong correlation and approximate exclusivity can be identified.
-
-\section{Mutex}
-
-\subsection{A different greedy method}
-
-To identify the most mutually exclusive group, \textcite{mutex} employ a greedy algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which is applied to a directed graph constructed from databases containing information about biological pathways \todo{menziono i database che hanno usato?}.
-
-The search begins by initializing a set with an altered gene as the seed and then expanding the group greedily with the next best candidate gene. Candidate genes are selected such that, after their addition, the group still has a common downstream gene that can be accessed without passing through any non-member genes (the common downstream gene may also be a member of the group) \todo{ci sono delle figure con un grafo e l'insieme che viene proressivamente espanso dall'algoritmo, forse potrei riprodurle e inserirle per chiarezza?}. The group is expanded with the candidate that improves the group score the most. The process continues until no candidates remain or the group reaches a preset size threshold. The algorithm outputs a group and its score for each seed gene \todo{qui menzionano una cosa inerente al controllo dell'FDR ma per ora la ometto perché non so che significa, credo andrebbe inserita}.
-
-placeholder. \todo{una cosa carina sarebbe scrivere lo pseudocodice dell'algoritmo greedy (sarebbe anche più carino a quel punto dimostrarne la correttezza ma non credo sia possibile vista la natura statistica della ricerca effettuata), loro non lo forniscono e lo trattano solo a parole, provo a farlo?}
-
-\begin{definition}[Proximity]
-    Given a gene graph, the \textbf{proximity} of a gene $G$ includes not only the genes directly adjacent to $g$ but also those that share downstream targets in the pathway with $g$. \todo{QUESTA DEFINIZIONE NON VA QUA}
-\end{definition}
+Moreover, the mutation matrix was further optimized by merging genes mutated in the exact same patients into larger \textit{metagenes}. \todo{da finire}
 
 \section{Multi-Dendrix}
 
 \subsection{An alternative solution to Dendrix}
+
+A normal cell has to acquire multiples capabilities in order to become a cancer cell, and studies identified six such capabilities. Consequently, it is anticipated that only a few pathways will be mutated, with mutations in the genes of each pathway exhibiting both high exclusivity and high coverage. Our goal is to identify sets of genes within these pathways. If the gene sets within each pathway are disjoint, an iterative approach can be effective: after identifying a high-weight set \(M\), we remove the genes in \(M\) from the analysis and search for high-weight sets in the reduced mutation matrix. This approach will successfully identify disjoint sets \(M_1\) and \(M_2\) with high weight, as exclusivity is assessed within sets, not between them. However, if \(M_1\) and \(M_2\) share genes, removing one set might also remove part of the other. If the overlap is minimal, we can still identify the remaining portion of the other set. The challenge of identifying two sets \(M_1\) and \(M_2\) that both exhibit high exclusivity and coverage, while allowing for some overlap, remains an intriguing open problem. \todo{rephrase this paragraph, very important}
 
 \textcite{multi-dendrix}, the authors of Multi-Dendrix (\textit{de novo} \cite{survey}), try to solve the same problem posed by \textcite{dendrix}, described in \cref{mwsp}, by formulating the problem as an \textit{Integer Linear Program} (ILP), which they refer to as $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$. Consider a gene set $M$ defined by a set of indicator variables, one for each gene $j \in M$, as follows
 
@@ -311,6 +242,79 @@ where $\Delta$ is the maximum number of gene sets a gene can be a member of, and
 \end{equation}
 
 where $\tau$ is the maximum size of the intersection between two gene sets.
+
+\section{MDPFinder}
+
+\subsection{The genetic algorithm}
+
+placeholder. \todo{sezione in cui scrivo che mpdfinder critica la soluzione esatta trovata da multi-dendrix, che nonostante sia esatta potrebbe non essere reale; in questa sezione va menzionato che l'algoritmo si chiama MDPFinder, e va scritto che è knowledge-based}
+
+The approach used by \textcite{mdpfinder} involves a \textit{Genetic Algorithm} (GA), which is versatile and flexible, and can be used to optimize a wide variety of scoring functions. In addition, they state that the GA approach is particularly relevant to the current problem due to its conceptual alignment with the notions of \textit{gene} and \textit{mutation}. It models genetic variation within a population, evolving through a process of random selection, thereby avoiding the need to enumerate all possible solutions.
+
+\begin{definition}[Hypothesis space]
+    A \textbf{member} of the population is defined by a binary string of length $n$, i.e. the number of genes. Given a gene set $M$, the value of the $i$-th position of an individual represents the membership of the $i$-th gene in $M$.
+
+    Therefore, the \textbf{hypothesis space} is constituted by all the possible binary strings with length $n$ that have $k$ 1s, namely $$\mathcal H := \left\{(x_1, \ldots, x_n) \mid x_i \in \{0, 1\}, i \in [1, n], \sum_{j = 1}^n {x_j} = k \right\}$$
+\end{definition}
+
+\begin{definition}[Fitness function]
+    The \textbf{fitness} $f_i$ of each individual $h_i$ (its corresponding gene set is $M_i$) of the population is defined as the rank $r_i$ of the score $W(M_i)$, in the ascending order \todo{SECONDO ME È DESCENDING ALTRIMENTI PRENDI QUELLO COL PESO MINORE CHE NON HA SENSO, probabilmente non sto capendo il senso della frase}: $$\forall h_i \in \mathcal H \quad f_i := r_i$$
+\end{definition}
+
+\begin{definition}[Selection probability] \label{selection_probability}
+    Given the rank $r_i$ of an individual $h_i$ based on its score, the \textbf{selection probability} is defined as follows: $$p_i = \dfrac{2r_i}{P(P + 1)}$$ where $P$ is the population size. The individual with the highest fitness value is most likely to be transferred into the next generation.
+\end{definition}
+
+This selection operator is based on \href{https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)#Roulette_wheel_selection}{roulette wheel selection}, which states that the probability of choosing an individual is equal to $$p_i = \dfrac{f_i}{\sum_{j = 1}^P {f_j}} = \dfrac{r_i}{\frac{P(P + 1)}{2}} = \dfrac{2r_i}{P(P+1)}$$ which is precisely the equation in \cref{selection_probability}.
+
+\begin{definition}[Crossover operator]
+    The \textbf{crossover operator} specifies the breeding process as follows: the offspring inherits the variables shared by both parents, while the non-shared ones are selected from the symmetric difference of the parents' genetic makeup.
+\end{definition}
+
+\begin{definition}[Mutation operator]
+    The \textbf{mutation operator} randomly sets the value of one variable from 1 to 0, and changes another variable value from 0 to 1, ensuring the feasibility of every offspring.
+\end{definition}
+
+\begin{definition}[Local search] \todo{fixa questa definizione}
+    To prevent premature convergence and enhance the accuracy of the algorithm, a local search strategy is employed to improve search performance. In particular, the values of two variables are randomly altered, as the mutation operator. If this adjustment improves the current solution, it is accepted; the search is terminated once all variables have been tested with this routine.
+\end{definition}
+
+\begin{definition}[GA procedure]
+    The following are the details of the \textbf{GA procedure}:
+
+    \begin{enumerate}
+        \item \textit{population generation}: a random population of size $P$ and mutation rate $p_m$ is generated, where $P = n$ (i.e. the number of available genes);
+        \item \textit{breeding}: for each iteration, $P$ couples are selected from the current population, based on $p_i$, and each couple generates an offspring;
+        \item \textit{mutation}: each offspring may optionally receive a mutation with probability $p_m$;
+        \item \textit{selection}: all parents and offspring are ranked based on their scoring values, and the top $P$ individuals are selected to form the next generation (this is referred to as \href{https://en.wikipedia.org/wiki/Truncation_selection}{truncation selection});
+        \item \textit{local search}: verify if the iteration is stuck in a local solution (e.g. if the maximum scoring value does not improve over two consecutive iterations); if this is the case, perform a local search;
+        \item \textit{termination}: proceed as such until the termination criterion is met (e.g. if the current maximum scoring value does not improve over 10 consecutive iterations); if this occurs, then end the procedure.
+    \end{enumerate}
+\end{definition}
+
+\subsection{The integration procedure}
+
+In practical applications, multiple optimal solutions may exist. Additionally, due to data noise and other factors, the solutions considered optimal --- i.e. the ones with the highest $W(M)$ --- may not necessarily be the most relevant in a biological context. To identify the most biologically meaningful solutions, other types of data are integrated to refine the results. Specifically, the GA procedure is extended by incorporating gene expression data to enhance its performance. The integrative model is developed based on the observation that genes within the same pathway typically collaborate to perform a specific function. Consequently, the expression profiles of gene pairs within the same pathway often exhibit higher correlations than those in different pathways. This characteristic can be leveraged to distinguish between gene sets that have the same score: the model focuses on detecting gene sets whose scores $W(M)$ are close to the optimal solution, but whose member genes display stronger correlations with each other.
+
+\begin{definition}[Integrative measure]
+    Given an $m \times n$ mutation matrix $A$, an expression matrix $E$ with the same dimensions \todo{nel paper non è menzionato cosa questa "expression matrix" contenga all'interno, c'è una foto con dei colori e basta, però ho visto che "expression matrix" è un termine che si usa per indicare un tipo di matrici solamente che contengono una cosa ben specifica, posso assumere che si sappia già di cosa si parla o devo spiegare cosa sono?}, and an $A$'s submatrix $M$ of size $m \times k$, the integrative model is defined by the following \textbf{measure}: $$F_{ME} := W(M) + \lambda \cdot R(E_M)$$ where $E_M$ is $E$'s expression submatrix that corresponds to $M$, and $R(E_M)$ is described by the following equation: $$R(E_M) = \sum_{j_1 = 1}^n {\sum_{j_2 = 1 \atop j_1 \neq j_2} ^n {\dfrac{\abs{\mathrm{pcc}(x_{j_1}, x_{j_2})}}{\frac{k(k - 1)}{2}}}}$$ where $\mathrm{pcc}(\cdot)$ is the \href{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient}{Pearson correlation coefficient}, and $x_j$ is the expression profile of gene $j$ \todo{non è spiegato cosa questo voglia dire ma io assumo sia un vettore colonna di $E$; inoltre, non ho idea di cosa sia il valore $R(E_M)$}.
+\end{definition}
+
+Note that $$0 \le R(E_m) \le 1$$ and $W(M)$ is an integer, therefore when $\lambda = 1$ the value of $F_{ME}$ can be used to discriminate the gene sets with the same $W(M)$. Moreover, for values of $\lambda \ge 1$, the gene set with strong correlation and approximate exclusivity can be identified.
+
+\section{Mutex}
+
+\subsection{A different greedy method}
+
+To identify the most mutually exclusive group, \textcite{mutex} employ a greedy algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which is applied to a directed graph constructed from databases containing information about biological pathways \todo{menziono i database che hanno usato?}.
+
+The search begins by initializing a set with an altered gene as the seed and then expanding the group greedily with the next best candidate gene. Candidate genes are selected such that, after their addition, the group still has a common downstream gene that can be accessed without passing through any non-member genes (the common downstream gene may also be a member of the group) \todo{ci sono delle figure con un grafo e l'insieme che viene proressivamente espanso dall'algoritmo, forse potrei riprodurle e inserirle per chiarezza?}. The group is expanded with the candidate that improves the group score the most. The process continues until no candidates remain or the group reaches a preset size threshold. The algorithm outputs a group and its score for each seed gene \todo{qui menzionano una cosa inerente al controllo dell'FDR ma per ora la ometto perché non so che significa, credo andrebbe inserita}.
+
+placeholder. \todo{una cosa carina sarebbe scrivere lo pseudocodice dell'algoritmo greedy (sarebbe anche più carino a quel punto dimostrarne la correttezza ma non credo sia possibile vista la natura statistica della ricerca effettuata), loro non lo forniscono e lo trattano solo a parole, provo a farlo?}
+
+\begin{definition}[Proximity]
+    Given a gene graph, the \textbf{proximity} of a gene $G$ includes not only the genes directly adjacent to $g$ but also those that share downstream targets in the pathway with $g$. \todo{QUESTA DEFINIZIONE NON VA QUA}
+\end{definition}
 
 \section{C3}
 
