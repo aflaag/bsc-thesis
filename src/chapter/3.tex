@@ -1,12 +1,16 @@
 \chapter{Finding driver mutations} \label{chap:finding_driver_mutations}
 
-Although the true explanation for mutual exclusivity remains unknown, and its therapeutic potential is still uncertain, this phenomenon is frequently observed in data and may lead to discoveries in cancer treatment. Existing approaches can be categorized into two types: \textbf{\textit{de novo}} approaches, which identify mutually exclusive patterns using only genomic data from patients, and \textbf{\textit{knowledge-based}} methods, which integrate the analysis with external \textit{a priori} information \cite{survey}. \textit{De novo} approaches might lack sufficient information as they do not utilize existing databases \todo{correggi questa frase che non ha senso effettivamente}. Conversely, given that our understanding of gene and protein interactions in humans is still incomplete and many pathway databases fail to accurately represent the specific pathways and interactions present in cancer cells, \textit{knowledge-based} approaches may be limited by their dependence on existing data sources. Consequently, \textit{de novo} methods might yield new but potentially less accurate results, while \textit{knowledge-based} approaches may limit the discovery of novel biological insights \cite{multi-dendrix}.
+% Although the true explanation for mutual exclusivity remains unknown, and its therapeutic potential is still uncertain, this phenomenon is frequently observed in data and may lead to discoveries in cancer treatment.
+
+In the previous chapter, various studies were discussed in terms of how they formalized biological assumptions, with particular emphasis on the metrics developed to assess \textit{coverage} and \textit{mutual exclusivity} within gene groups. This chapter will delve deeper into the algorithms employed by these studies to identify driver pathways using their respective metrics and hypotheses.
+
+Existing approaches can be categorized into two types: \textbf{\textit{de novo}} approaches, which identify mutually exclusive patterns using only genomic data from patients, and \textbf{\textit{knowledge-based}} methods, which integrate the analysis with external \textit{a priori} information. \textit{De novo} approaches might lack sufficient information as they do not utilize pre-existing pathway databases, protein-protein interaction (PPI) networks or phenotype data. Conversely, given that our understanding of gene and protein interactions in humans is still incomplete, and many pathway databases fail to accurately represent the specific pathways and interactions present in cancer cells, \textit{knowledge-based} approaches may be limited by their dependence on existing data sources. Consequently, \textit{de novo} methods might yield new but potentially less accurate results, while \textit{knowledge-based} approaches may limit the discovery of novel biological insights \cite{survey, multi-dendrix}.
 
 \section{Dendrix}
 
 \subsection{A greedy approach}
 
-To find a solution to the problem described in \cref{mwsp}, \textcite{dendrix} developed the following greedy algorithm called Dendrix (\textit{de novo} \cite{survey}).
+\textcite{dendrix} introduced the most widely adopted metric in pathway discovery research, namely $W(M)$ (presented in \cref{weight}). In addition to this, they defined the Maximum Weight Submatrix Problem (MWSP), discussed in \cref{mwsp}, and proposed the following \textit{greedy algorithm}, called Dendrix (\textit{de novo} \cite{survey}), to solve it.
 
 \begin{algorithm}[H]
     \caption{
@@ -26,51 +30,55 @@ To find a solution to the problem described in \cref{mwsp}, \textcite{dendrix} d
     \end{algorithmic}
 \end{algorithm}
 
-The time complexity of the algorithm is $O\rbk{n^2 + kn} = O\rbk{n^2}$. \todo{explain briefly why}
+Clearly, the time complexity of the algorithm is $O\rbk{n^2 + kn} = O\rbk{n^2}$ --- where $n = \abs{\mathcal G}$, therefore $k \le n$ --- because finding $\{g_1, g_2\}$ in line 2 requires $O\rbk{n^2}$ and the $\argmax{}$ in line 4 has cost $O(n)$. 
 
-While this algorithm is efficient, there is generally no guarantee that it will identify the optimal set $\hat M$ that maximizes $W(\hat M)$. However, \textcite{dendrix} prove that \cref{greedy_dendrix} can correctly identify $\hat M$ with high probability when the mutation data come from the \textit{Gene Independence Model} (GIM), which is described below. \todo{lo dimostrano nel materiale supplementare, lo vedo/metto? in caso mettilo dopo la definizione}
+While this algorithm is efficient, there is generally no guarantee that it will identify the optimal set $\hat M$ that maximizes $W(\hat M)$. However, \textcite{dendrix} prove that \cref{greedy_dendrix} can correctly identify $\hat M$ with high probability when the mutation data come from the \textit{Gene Independence Model} (GIM), which is described below. \todo{ne forniscono una dimostrazione nel materiale supplementare, ma è lunga 3 pagine, e non credo sia oppurtuno inserire una cosa cosi lunga qui, penso che sia \curlyquotes{beyond the scope}}
 
-\begin{definition}[Gene Independence Model]
-    Let $A$ be an $m \times n$ mutation matrix such that $\hat M$ is the \textit{maximum weight submatrix} of $A$ and $\abs{\hat M} = k$; the matrix $A$ satisfies the \textbf{Gene Independence Model} (GIM) if and only if:
+\begin{definition}[Gene Independence Model] \todo{capire bene questo modello}
+    Let $A$ be an $m \times n$ mutation matrix, such that $\hat M$ is the \textit{maximum weight submatrix} of $A$, and $|\hat M| = k$; the matrix $A$ satisfies the \textbf{Gene Independence Model} (GIM) if and only if:
 
     \begin{enumerate}[label=\roman*), font=\itshape]
         \item each gene $g \notin \hat M$ is mutated in each patient with probability $p_g \in \sbk{p_L, p_U}$ \todo{WHAT ARE THESE??}, independently of all other events;
         \item $W (\hat M)= \Omega(m)$; \todo{qua scrivono che la definizione di $Omega$ è che $W (\hat M) = rm$ per $0 < r \le 1$???????}
-        \item for all $M \subset \hat M$ of cardinality $l := \abs{M}$, it exists $0 \le d < 1$ such that $W(M) \le \frac{l + d}{k} W(\hat M)$.
+        \item for all $M \subset \hat M$ of cardinality $l := \abs{M}$, it exists $0 \le d < 1$ such that $$W(M) \le \frac{l + d}{k} W(\hat M)$$
     \end{enumerate}
 \end{definition}
 
 Note that:
 
 \begin{itemize}
-    \item condition $(i)$ reflects the independence of mutations for genes outside the mutated pathway, a standard assumption for somatic single-nucleotide mutations;
+    \item condition $(i)$ reflects the independence of mutations for genes outside the mutated pathway, a standard assumption for somatic single-nucleotide mutations, according to \textcite{dendrix};
     \item condition $(ii)$ ensures that mutations in $\hat M$ cover a large number of patients and are mostly exclusive;
     \item condition $(iii)$ means that each gene in $\hat M$ is important, so there are no subset of $\hat M$ that predominantly contributes to $W(\hat M)$.
 \end{itemize}
 
-Although it is possible to obtain accurate results with high probability under the GIM, genes within $\hat M$ may exhibit observed mutation frequencies similar to those of genes outside $\hat M$. This similarity can make it challenging to distinguish between them based solely on mutation frequency, regardless of the number of patients. In practical applications, the utility of this greedy algorithm depends on the availability of mutation data from a sufficient number of patients. Moreover, the GIM model may not be suitable for all types of somatic mutations.
+Although it is possible to efficiently obtain accurate results with high probability under the GIM, genes within $\hat M$ may exhibit \textit{observed mutation frequencies} similar to those of genes outside $\hat M$. This similarity can make it challenging to distinguish between them based solely on mutation frequency, regardless of the number of patients.
+
+To illustrate this, consider the following scenario: observed gene mutation frequencies fall within the range of $[3 \times 10^{-5}, 0.13]$ --- based on a background mutation rate of $\approx 10^{-6}$ \cite{tcga}. If somatic mutations are measured in $n = 20,000$ human genes, and the size of $\hat M$ is 10, then approximately 2400 patients are needed for the greedy algorithm to identify $\hat M$ with a probability of at least $1 - 10^{-4}$. While this number of patients is expected to be available from large-scale cancer sequencing projects \cite{icgc}, it exceeds current availability.
+
+Therefore, in practical applications, the effectivness of this greedy algorithm depends on having mutation data from a sufficiently large number of patients. Moreover, the GIM model may be appropriate for certain types of somatic mutations, such as \href{https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism}{single-nucleotide aberrations}, but may not be suitable for others. To address these limitations, \textcite{dendrix} developed an alternative approach, which will be detailed in the following section.
 
 \subsection{Using MCMC}
 
-To address the limitations of the aforementioned greedy algorithm, \textcite{dendrix} developed a \href{https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo}{\textit{Markov Chain Monte Carlo}} (MCMC) approach, which does not rely on assumptions about the distribution of mutation data or the number of patients. 
+To overcome the drawbacks of the aforementioned greedy algorithm, \textcite{dendrix} developed a \href{https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo}{\textit{Markov Chain Monte Carlo}} (MCMC) approach, which does not rely on assumptions about the distribution of mutation data or the number of patients. In particular, this MCMC method does not assume independence among mutations in different genes, making it particularly useful for analyzing copy-number aberrations (CNAs), which often involve correlated mutations due to amplification or deletion of adjacent genes.
 
-TODO AGGIUNGI PARAGRAFO
+\textcite{dendrix} employed a \href{https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm}{Metropolis-Hastings} algorithm to sample sets $M \subseteq \mathcal G$ of $k$ genes, with the following stationary distribution, proportional to $e^{cW(M)}$, for some constant $c > 0$ $$\pi(M) = \dfrac{e^{cW(M)}}{\sum_{R \in \mathcal M_k}{e^{cW(R)}}}$$ where $\mathcal M_k := \{M \subset \mathcal G : \abs{M} = k\}$. While there are no guarantees on the rate of convergence of the Metropolis-Hasting algorithm to the stationary distribution, \textcite{dendrix} prove that their MCMC is rapidly mixing, therefore the stationary distribution is effectively reached in a practical number of steps.
 
-Additionally, the MCMC method does not assume independence among mutations in different genes, making it particularly useful for analyzing copy-number aberrations (CNAs), which often involve correlated mutations due to amplification or deletion of adjacent genes.
+The main idea of the MCMC algorithm involves constructing a \href{https://en.wikipedia.org/wiki/Markov_chain}{Markov chain}, where each state represents a collection of $k$ columns from a given mutation matrix $A$, and transitions between these states occur by swapping one gene. Further details of the algorithm are discussed below.
 
 \begin{definition}[Dendrix's MCMC]
     The \textbf{MCMC's procedure} of Dendrix is defined through the following steps:
 
     \begin{enumerate}
-        \item \textit{initialization}: given the set of all genes $\mathcal G$, choose an arbitrary subset $M_0 \subseteq \mathcal G$ of size $k$ genes;
-        \item \textit{iteration}: for $t = 1, 2, \ldots$, derive $M_{t + 1}$ from $M_t$ as follows:
+        \item \textit{initialization}: given the set of all genes $\mathcal G$, choose an arbitrary subset $M_0 \subseteq \mathcal G$ of $k$ genes;
+        \item \textit{iteration}: for $t = 1, 2, \ldots$ derive $M_{t + 1}$ from $M_t$ as follows:
             \begin{enumerate}
                 \item choose a gene $w$ uniformly, at random, from $\mathcal G$;
                 \item choose a gene $v$ uniformly, at random, from $M_t$;
                 \item let $M_t' := (M_t - \{v\}) \cup \{w\}$;
                 \item let $\Delta_W := W\rbk{M_t'} - W(M_t)$;
                 \item let $P(M_t, w, v) := \min \sbk{1, e^{c \Delta_W}}$, where $c > 0$;
-                \item set $M_{t+1} := M_t'$ with probability $P(M_t, w, v)$, else $M_{t + 1} := M_t$
+                \item set $M_{t+1} := M_t'$ with probability $P(M_t, w, v)$, else $M_{t + 1} := M_t$.
             \end{enumerate}
     \end{enumerate}
 \end{definition}
@@ -78,9 +86,15 @@ Additionally, the MCMC method does not assume independence among mutations in di
 Note that:
 
 \begin{itemize}
-    \item $w$ is choosen from $\mathcal G$, therefore if $w \in M_t$, then $$M_t' = (M_t - \{v\}) \cup \{w\} = M_t - \{v\}$$ which means that no genes were added to $W_t'$; this must be allowed because maximizing the weight may require removing genes already present in the current set, without adding new ones;
-    \item $\Delta_W$ measures the change in the weight function with the new set, and the constant $c$ is a scaling factor that adjusts the importance of this difference; note that $$\Delta_W \ge 0 \implies e^{c \Delta_W} \ge 1 \implies P(M_t, w, v) = 1 \implies M_{t + 1} = M_t'$$ in fact when $\Delta_W > 0$ the weight has improved, therefore the next iteration should start from $M_t'$; conversely $$\Delta_W < 0 \implies e^{c \Delta_W} < 1 \implies P(M_t, w, v) = e ^{c \Delta_W}$$ which means that when $\Delta_W < 0$ (i.e., the weight has decreased) the change will be perfomed with probability $e^{c \Delta_W}$ --- this value is still close to 1 if the weight has not decreased significantly.
+    \item $w$ is choosen from $\mathcal G$, thus if $w \in M_t$ then $$M_t' = (M_t - \{v\}) \cup \{w\} = M_t - \{v\}$$ which means that no genes were added to $W_t'$; this must be allowed because maximizing the weight may require removing genes already present in the current set, without adding new ones;
+    \item $\Delta_W$ measures the change in the weight function with the new set, and the constant $c$ is a scaling factor that adjusts the importance of this difference; note that $$\Delta_W \ge 0 \implies e^{c \Delta_W} \ge 1 \implies P(M_t, w, v) = 1 \implies M_{t + 1} = M_t'$$ in fact when $\Delta_W > 0$ the weight has improved, therefore the next iteration should start from $M_t'$; conversely $$\Delta_W < 0 \implies e^{c \Delta_W} < 1 \implies P(M_t, w, v) = e ^{c \Delta_W}$$ which means that when $\Delta_W < 0$ (i.e., the weight has decreased) the change will be perfomed with probability $e^{c \Delta_W}$ --- note that this value is still close to 1 if the weight has not decreased significantly.
 \end{itemize}
+
+\textcite{dendrix} prove that their MCMC is rapidly mixing for some $c > 0$, but details of this proof are beyond the scope of this work. The following sections will briefly discuss some of the results obtained with their algorithm.
+
+\subsection{Results}
+
+We applied our MCMC algorithm to analyze somatic mutations obtained from high-throughput genotyping of 238 oncogenes across 1,000 patients spanning 17 cancer types (Thomas et al. 2007). Additionally, we applied the algorithm to somatic mutations identified in recent cancer sequencing studies of lung adenocarcinoma (Ding et al. 2008) and glioblastoma multiforme (The Cancer Genome Atlas Research Network 2008). In the glioblastoma multiforme analysis, both copy-number aberrations and single-nucleotide (or small indel) mutations were included, whereas, in the lung adenocarcinoma analysis, we focused solely on single-nucleotide (or small indel) mutations. The MCMC algorithm samples gene sets with a frequency proportional to their weights; therefore, to narrow down to high-weight sets, we report only those with a frequency of at least 1\%. We further optimized the mutation matrix by merging genes mutated in the exact same patients into larger "metagenes." \todo{da riscrivere}
 
 \section{MDPFinder}
 

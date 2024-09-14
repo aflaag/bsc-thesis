@@ -370,6 +370,30 @@
     \field{year}{2016}
   \endentry
 
+  \entry{tcga}{article}{}
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1038/nature07385
+    \endverb
+    \field{issn}{1476-4687}
+    \field{number}{7216}
+    \field{pages}{1061–1068}
+    \field{title}{Comprehensive genomic characterization defines human glioblastoma genes and core pathways}
+    \verb{url}
+    \verb http://dx.doi.org/10.1038/nature07385
+    \endverb
+    \field{volume}{455}
+    \field{journaltitle}{Nature}
+    \field{month}{09}
+    \field{year}{2008}
+  \endentry
+
   \entry{nih_cancer_dev}{misc}{}
     \name{author}{1}{}{%
       {{hash=CGM}{%
@@ -736,6 +760,30 @@
     \field{journaltitle}{Bioinformatics}
     \field{month}{08}
     \field{year}{2016}
+  \endentry
+
+  \entry{icgc}{article}{}
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \verb{doi}
+    \verb 10.1038/nature08987
+    \endverb
+    \field{issn}{1476-4687}
+    \field{number}{7291}
+    \field{pages}{993–998}
+    \field{title}{International network of cancer genome projects}
+    \verb{url}
+    \verb http://dx.doi.org/10.1038/nature08987
+    \endverb
+    \field{volume}{464}
+    \field{journaltitle}{Nature}
+    \field{month}{04}
+    \field{year}{2010}
   \endentry
 
   \entry{kegg}{article}{}
