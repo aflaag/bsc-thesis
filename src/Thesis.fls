@@ -582,6 +582,11 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
+INPUT ./chapter/4.tex
+INPUT ./chapter/4.tex
+INPUT ./chapter/4.tex
+INPUT ./chapter/4.tex
+INPUT ./chapter/4.tex
 INPUT ./chapter/ack.tex
 INPUT ./chapter/ack.tex
 INPUT ./chapter/ack.tex

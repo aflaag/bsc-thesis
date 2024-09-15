@@ -1,15 +1,50 @@
-\chapter{Results} \label{chap:results}
+\chapter{Discussion} \label{chap:discussion}
 
 placeholder. \todo{introduction to the chapter}
 
-\section{Dendrix} \todo{do i do this?}
+\section{Dendrix}
 
-\subsection{Simulated data}
+\subsection{The deterministic formalization}
 
-placeholder \todo{do i do this?}
+\textcite{dendrix} provided one of the first mathematical formalizations of the phenomena of mutual exclusivity and coverage, in the context of gene mutations. Specifically, the definitions introduced offer a very intuitive approach to formalizing these biological concepts:
 
-\subsection{Cancer mutation data}
+\begin{itemize}
+    \item the coverage of a gene is defined as the set of patients exhibiting a mutation of the gene, equivalent to the number of 1s in its column of the mutation matrix;
+    \item a set of genes is defined to be mutually exclusive if no patient has more than one mutated gene in the set, i.e. no row of the set's associated matrix has more than 1 one;
+    \item the coverage of a gene set is the set of patients with at least one mutation in the set;
+    \item the coverage overlap of a gene set is the count of patients who possess more than one mutation within the gene set;
+    \item the weight of a gene set is calculated as the difference between the coverage of the gene set and its coverage overlap.
+\end{itemize}
 
-placeholder \todo{eventualmente, todo}
+Consequently, a higher weight for a gene set indicates both greater coverage and mutual exclusivity among its genes. The weight formula suggests that the optimal gene set, i.e. the one that maximazes its weight, is the one where the associated matrix has a high number of rows with at least one 1, and a minimal number of rows with more than one 1.
+
+In my view, this metric stands out as the most elegant among those discussed in this work: it not only provides a clear and intuitive measure, but also offers a simple and straightforward formula. While this approach may seem to oversimplify the challenge of identifying driver pathways --- given that mutual exclusivity alone does not cover all aspects of pathway analysis --- it remains a highly regarded deterministic formalization, and numerous studies (some of which are discussed in this work) agree that this metric represents the most refined approach to date.
+
+% therefore, the higher the weight of a gene set, the higher its coverage and the mutual exclsuivity of its genes. looking at the formula, clearly the gene set that maximizes its weight is the one in which its associated matrix has at least 1 one in most rows, and the least possible amount of rows with more than 1 one in them.
+
+% i personally think that this metric is the best one out of all the studies reported in this work. it is the one that makes sense the most, and i think is a rather elegant formula, for its simplicity. speaking of which, it may seems this equation oversimplifies the problem of finding driver pathways, as it's always the case, the assumption of mutual exclusivity is not the end of the story, and surely there is more that we still don't know. nevertheless, multiple studies (some of which are discussed in this work) agree that this metric is the best deterministic formalization yet.
+
+\subsection{The approach}
+
+as proved in \cref{todo}, finding the optimal set is np-complete. in order to solve the MWSP, they provide an approach that may not seem the most straightforward, since the very definition of the problem resambles an \href{https://en.wikipedia.org/wiki/Optimization_problem}{optimization problem}, but the MCMC algorithm they employ effectively finds gene groups known to be involved in cancer proliferation. it would be intresting to conduct a further analysis, comparing the MCMC method with a random search approach
+
+\begin{enumerate}
+    \item \textit{initialization}: given the set of all genes $\mathcal G$, choose an arbitrary subset $M_0 \subseteq \mathcal G$ ok $k$ genes;
+    \item \textit{iteration}: for $t = 1, 2, \ldots$ derive $M_{t + 1}$ from $M_t$ as follows:
+
+    \begin{enumerate}
+        \item define $W \subseteq \mathcal G$ and $V \subseteq M_t$ randomly;
+        \item choose $\displaystyle (\hat w, \hat v) \in \argmax_{(w, v) \in W \times V}{W\rbk{\rbk{M_t - \{v\}} \cup \{w\}}}$;
+        \item set $M_{t + 1} := \rbk{M_t - \{\hat v\}} \cup \{\hat w\}$.
+    \end{enumerate}
+\end{enumerate}
+
+at each step, this algorithm defines a predetermined amount of \textit{random adjustment}, and the one that increases the weight the most is choosen as the base set for the next iteration. it would be interesting to test how this approach performs on real data, and whether the MCMC outperforms it, especially when the data is under the GIM model
+
+\section{Multi-Dendrix}
+
+\subsection{An ILP for the MWSP}
+
+also, as previously mentioned by the authors of multiple of the paper discussed, the set $M$ that maximizes $W(M)$ may not be a real driver pathway in real life. in fact, i too believe that exact solutions to the associated MWSP problem may not be correct, since 
 
 \cleardoublepage

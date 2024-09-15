@@ -143,7 +143,7 @@ Note that the sum in \cref{cov_over} is the number of 1s in $M$'s corresponding 
     Considering the mutation matrix in \cref{mutation_matrix}; if $M=\{g_1, g_2\}$, then $$\omega(M)=\abs{\Gamma(g_1)} + \abs{\Gamma(g_2)} - \abs{\Gamma(\{g_1, g_2\})} = \abs{\{p_2\}} + \abs{\{p_1, p_2\}} - \abs{\{p_1, p_2\}} = 1 + 2 - 2 = 1$$
 \end{example}
 
-Indeed, $\omega(M)$ is the \textit{number of patients that are counted more than once in the sum}. Note that $\omega(M) \ge 0$, with equality holding only if no patient has more than one mutated gene of $M$.
+Indeed, $\omega(M)$ is the number of patients that are counted more than once in the sum, i.e. \textit{the number of patients that have more than one mutation in $M$}. Note that $\omega(M) \ge 0$, with equality holding only if no patient has more than one mutated gene of $M$.
 
 \begin{definition}[Mutual exclusivity]
     A gene set $M$ is considered to be \textbf{mutually exclusive} if $\omega(M) = 0$.
