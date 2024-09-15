@@ -104,11 +104,11 @@ The MCMC algorithm was also applied to mutation data from 84 patients with \href
 
 All these findings highlight the ability of the MCMC algorithm to identify significant gene sets related to known cancer pathways. The following section will introduce an alternative approach to solving the MWSP, and will provide an extension of the problem.
 
-\section{Multi-Dendrix}
+\section{Multi-Dendrix} \todo{MOVE THIS DOWN}
 
 \subsection{An alternative approach to the MWSP}
 
-\textcite{dendrix} propose a solution to the MWSP (described in \cref{mwsp}) that may not appear immediately intuitive, given that the problem itself resembles an \href{https://en.wikipedia.org/wiki/Optimization_problem}{optimization problem}. Indeed, \textcite{multi-dendrix}, the authors of Multi-Dendrix (\textit{de novo} \cite{survey}), present an alternative approach by formulating the problem as an \textit{Integer Linear Program} (ILP), called $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$, which is described below. 
+\textcite{dendrix} propose a solution to the MWSP that may not appear immediately intuitive, given that the problem itself resembles an \href{https://en.wikipedia.org/wiki/Optimization_problem}{optimization problem}. Indeed, \textcite{multi-dendrix}, the authors of Multi-Dendrix (\textit{de novo} \cite{survey}), present an alternative approach by formulating the problem as an \textit{Integer Linear Program} (ILP), called $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$, which is described below. 
 
 To begin, it is necessary to define two sets of indicator variables: consider a gene set $M$, described by a set of variables, one for each gene $j \in M$, defined as follows
 
