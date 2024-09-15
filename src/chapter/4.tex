@@ -20,13 +20,11 @@ Consequently, a higher weight for a gene set indicates both greater coverage and
 
 In my view, this metric stands out as the most elegant among those discussed in this work: it not only provides a clear and intuitive measure, but also offers a simple and straightforward formula. While this formula may seem to oversimplify the challenge of identifying driver pathways --- given that mutual exclusivity alone does not cover all aspects of pathway analysis, and exact mutual exclusivity is rarely observed in real data --- it remains a highly regarded deterministic formalization, and numerous studies (some of which are discussed in this work) agree that this metric represents the most refined approach to date.
 
-% therefore, the higher the weight of a gene set, the higher its coverage and the mutual exclsuivity of its genes. looking at the formula, clearly the gene set that maximizes its weight is the one in which its associated matrix has at least 1 one in most rows, and the least possible amount of rows with more than 1 one in them.
+\subsection{Additional considerations}
 
-% i personally think that this metric is the best one out of all the studies reported in this work. it is the one that makes sense the most, and i think is a rather elegant formula, for its simplicity. speaking of which, it may seems this equation oversimplifies the problem of finding driver pathways, as it's always the case, the assumption of mutual exclusivity is not the end of the story, and surely there is more that we still don't know. nevertheless, multiple studies (some of which are discussed in this work) agree that this metric is the best deterministic formalization yet.
+I want to commend \textcite{dendrix} for their precise and methodical explanation of their methodology. With only a few minor, negligible details to consider, their work is exceptionally clear regarding their objectives, the methods employed to achieve them, and their actual outcomes. Additionally, their mathematical analysis is thorough and well-supported: in the supplemental material, they provide extensive proofs, including the NP-hardness of the MWSP (which is described in \cref{mwsp proof}), the correctness of their greedy algorithm, and the rapid mixing property of their MCMC approach. I greatly appreciate the clarity of their presentation, which significantly facilitated my understanding of their study. Indeed, this level of clarity is notably superior compared to other papers I have analyzed, which lack such clear explanations, as will be discussed in the subsequent sections.
 
-\subsection{The approach}
-
-as proved in \cref{todo}, finding the optimal set is np-complete. in order to solve the MWSP, they provide an approach that may not seem the most straightforward, since the very definition of the problem resambles an \href{https://en.wikipedia.org/wiki/Optimization_problem}{optimization problem}, but the MCMC algorithm they employ effectively finds gene groups known to be involved in cancer proliferation. it would be intresting to conduct a further analysis, comparing the MCMC method with a random search approach
+As a final note, I believe that conducting a comparative analysis between the MCMC approach and a \href{https://en.wikipedia.org/wiki/Random_search}{random search} method would be interesting. For instance, consider the following algorithm:
 
 \begin{enumerate}
     \item \textit{initialization}: given the set of all genes $\mathcal G$, choose an arbitrary subset $M_0 \subseteq \mathcal G$ ok $k$ genes;
@@ -39,12 +37,12 @@ as proved in \cref{todo}, finding the optimal set is np-complete. in order to so
     \end{enumerate}
 \end{enumerate}
 
-at each step, this algorithm defines a predetermined amount of \textit{random adjustment}, and the one that increases the weight the most is choosen as the base set for the next iteration. it would be interesting to test how this approach performs on real data, and whether the MCMC outperforms it, especially when the data is under the GIM model
+At each step, this algorithm selects a predetermined amount of \textit{random adjustments}, choosing the one that maximizes the weight as the base set for the next iteration. It would be interesting to evaluate how this approach performs on real data, and whether the MCMC algorithm outperforms it, particularly when applied to data under the GIM model.
 
 \section{Multi-Dendrix}
 
 \subsection{An ILP for the MWSP}
 
-also, as previously mentioned by the authors of multiple of the paper discussed, the set $M$ that maximizes $W(M)$ may not be a real driver pathway in real life. in fact, i too believe that exact solutions to the associated MWSP problem may not be correct, since 
+% also, as previously mentioned by the authors of multiple of the paper discussed, the set $M$ that maximizes $W(M)$ may not be a real driver pathway in real life. in fact, i too believe that exact solutions to the associated MWSP problem may not be correct, since 
 
 \cleardoublepage

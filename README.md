@@ -22,6 +22,7 @@
 - abstract
 
 - check thesis.tex
+- check links
 - check references.bib
     - check if refs are correct
     - remove useless refs

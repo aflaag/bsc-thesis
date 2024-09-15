@@ -106,11 +106,11 @@ All these findings highlight the ability of the MCMC algorithm to identify signi
 
 \section{Multi-Dendrix}
 
-\subsection{An alternative solution to Dendrix}
+\subsection{An alternative approach to the MWSP}
 
-A normal cell has to acquire multiples capabilities in order to become a cancer cell, and studies identified six such capabilities. Consequently, it is anticipated that only a few pathways will be mutated, with mutations in the genes of each pathway exhibiting both high exclusivity and high coverage. Our goal is to identify sets of genes within these pathways. If the gene sets within each pathway are disjoint, an iterative approach can be effective: after identifying a high-weight set \(M\), we remove the genes in \(M\) from the analysis and search for high-weight sets in the reduced mutation matrix. This approach will successfully identify disjoint sets \(M_1\) and \(M_2\) with high weight, as exclusivity is assessed within sets, not between them. However, if \(M_1\) and \(M_2\) share genes, removing one set might also remove part of the other. If the overlap is minimal, we can still identify the remaining portion of the other set. The challenge of identifying two sets \(M_1\) and \(M_2\) that both exhibit high exclusivity and coverage, while allowing for some overlap, remains an intriguing open problem. \todo{rephrase this paragraph, and move it after dendrixilp}
+\textcite{dendrix} propose a solution to the MWSP (described in \cref{mwsp}) that may not appear immediately intuitive, given that the problem itself resembles an \href{https://en.wikipedia.org/wiki/Optimization_problem}{optimization problem}. Indeed, \textcite{multi-dendrix}, the authors of Multi-Dendrix (\textit{de novo} \cite{survey}), present an alternative approach by formulating the problem as an \textit{Integer Linear Program} (ILP), called $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$, which is described below. 
 
-\textcite{multi-dendrix}, the authors of Multi-Dendrix (\textit{de novo} \cite{survey}), try to solve the same problem posed by \textcite{dendrix}, described in \cref{mwsp}, by formulating the problem as an \textit{Integer Linear Program} (ILP), which they refer to as $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$. Consider a gene set $M$ defined by a set of indicator variables, one for each gene $j \in M$, as follows
+To begin, it is necessary to define two sets of indicator variables: consider a gene set $M$, described by a set of variables, one for each gene $j \in M$, defined as follows
 
 \begin{equation}
     I_M(j) = 1 \iff j \in M
@@ -121,6 +121,10 @@ and a set of indicator variables, one for each patient $i$, expressed in this fo
 \begin{equation} \label{c_idefn}
     C_i(M) = 1 \iff \exists g \in M \mid i \in \Gamma(g)
 \end{equation}
+
+therefore $C_i(M)$ is equal to 1 if and only if $M$ \textit{covers} the $i$-th patient.
+
+The ILP formulation provided by \textcite{multi-dendrix} is illustrated below.
 
 \begin{definition}[$\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$]
     $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$ is defined by the following ILP:
@@ -142,7 +146,7 @@ and a set of indicator variables, one for each patient $i$, expressed in this fo
     \end{equation*}
 \end{definition}
 
-Note that the sum in \cref{weight_dendrix_ilp} is the second version of the definition provided in \cref{weight}.
+Note that \cref{weight_dendrix_ilp} uses the second version of the definition provided in \cref{weight}, and \cref{second_constr_dendrix_ilp} limits the size of $M$ to be exactly $k$. Moreover, note that \cref{third_constr_dendrix_ilp} only forces $C_i(M) = 0$ when the $i$-th patient has no mutated genes in $M$, but does not force $C_i(M) = 1$ when the patient has at least one, as required by \cref{c_idefn}. However, the objective function will be maximized when $C_i(M)=1$, thus \cref{c_idefn} is satisfied.
 
 \begin{lemma}[Correctness of $\mathrm{Dendrix}_{\mathrm{\textit{ILP}}}(k)$] Given a gene set $M$, the sum in \cref{weight_dendrix_ilp} correctly evaluates $W(M)$.
 \end{lemma}
@@ -151,28 +155,22 @@ Note that the sum in \cref{weight_dendrix_ilp} is the second version of the defi
     Rearranging the terms in \cref{weight_dendrix_ilp} $$\sum_{i = 1}^m {\rbk{2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j}}} = 2\sum_{i = 1}^m {C_i(M)} - \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ and it is trivial to check that $$\abs{\Gamma(M)} = \sum_{i = 1}^m {C_i(M)}$$ since it it true by definition, and $$\sum_{g \in M}{\abs{\Gamma(g)}} = \sum_{i = 1}^m {\sum_{j = 1}^n {I_M(j) \cdot a_{i, j}}}$$ because the RHS counts the number of cells of $A$ such that $a_{i, j} = 1$ for every $j \in M$.
 \end{proof}
 
-\cref{second_constr_dendrix_ilp} limits the size of $M$ to be exactly $k$; moreover, note that \cref{third_constr_dendrix_ilp} only forces $C_i(M) = 0$ when the $i$-th patient has no mutated genes in $M$ but does not force $C_i(M) = 1$ when the patient has at least one, as required by \cref{c_idefn}. However, the objective function will be maximized when $C_i(M)=1$ thus \cref{c_idefn} is satisfied.
-
-placeholder. \todo{non mi ricordo cosa volevo scrivere qua}
+The next section will discuss how \textcite{multi-dendrix} extended this ILP formulation to enable the search for multiple driver pathways.
 
 \subsection{The ILP}
 
-As outlined in \cref{multi_dendrix_2nd_chap}, \textcite{multi-dendrix} propose that the most effective approach to conducting the research is to identify a collection of gene sets that maximize the sum of their individual weights. To achieve this result, they solve the following problem, which is an extension of \cref{mwsp}:
+As outlined in \cref{multi_dendrix_2nd_chap}, \textcite{multi-dendrix} propose that the most effective approach for this research is to identify multiple driver pathways rather than focusing on a single one. To accomplish this, they extended the weight metric introduced by \textcite{dendrix} to find a collection of gene sets that maximizes the sum of their individual weights. Specifically, they extended the MWSP as follows:
 
 \begin{displayquote}
-    \textbf{Multiple Maximum Weight Submatrices Problem}: Given an $m \times n$ mutation matrix $A$, and integer $t > 0$, and two integers $k_{\mathrm{min}}, k_{\mathrm{max}} \ge 0$, find a collection $M = \{M_1, \ldots, M_t\}$ of column submatrices that maximizes
-
-    \begin{equation}
-        W'(M) = \sum_{\rho = 1}^t {W(M_\rho)}
-    \end{equation}
-
-    where each submatrix $M_\rho$ --- for $1 \le \rho \le t$ ---  has size $m \times k_\rho$ for some $k_{\mathrm{min}} \le k_\rho \le k_{\mathrm{max}}$.
+    \textbf{Multiple Maximum Weight Submatrices Problem} (MMWSP): Given an $m \times n$ mutation matrix $A$, and integer $t > 0$, and two integers $k_{\mathrm{min}}, k_{\mathrm{max}} \ge 0$, find a collection $M = \{M_1, \ldots, M_t\}$ of column submatrices that maximizes $W'(M)$, where each submatrix $M_\rho$ --- for $1 \le \rho \le t$ ---  has size $m \times k_\rho$ for some $k_{\mathrm{min}} \le k_\rho \le k_{\mathrm{max}}$.
 \end{displayquote}
 
-Note that this problem is NP-Hard, as for the case $t = 1$ \todo{add reference here}. Furthermore, collections $M$ with a large value of $W'(M)$ are also likely to have higher coverage $\Gamma(M_\rho)$ for each individual gene set $\rho$. As a result, optimal solutions tend to produce collections where many patients have mutations in more than one gene set, or they may be pairs or larger groups of co-occurring mutations, a phenomenon observed in cancer. \todo{qua inseriscono una citazione, potrebbe valere la pena di inserirla e/o indagare?}
+Note that the sets in the optimal collection may vary in size, as different pathways are likely to have different lengths; additionally, note that this problem is NP-Hard, as for the case where $t = 1$ (proof provided in \cref{mwsp proof}) \todo{fix this probably}. Furthermore, \textcite{multi-dendrix} state that collections $M$ with a large value of $W'(M)$ are also likely to exhibit higher coverage $\Gamma(M_\rho)$, for each individual gene set $M_\rho$. Consequently, optimal solutions tend to produce collections where many patients have mutations in more than one gene set, which may involve pairs or larger groups of co-occurring mutations --- a phenomenon observed in real cancer data.
+
+The ILP developed by \textcite{multi-dendrix} to simultaneously search for multiple driver pathways is described below.
 
 \begin{definition}[Multi-Dendrix]
-    $\mathrm{Multi}$-$\mathrm{Dendrix}$ is defined by the following ILP:
+    Multi-Dendrix is defined by the following ILP:
 
     \begin{equation} \label{weight_multi-dendrix_ilp}
         \mathrm{maximize} \sum_{\rho = 1}^t {\sum_{i = 1}^m {\rbk{2 \cdot C_i(M_\rho) - \sum_{j = 1}^n I_{M_\rho}(j) \cdot a_{i, j}}}},
@@ -198,10 +196,29 @@ Note that this problem is NP-Hard, as for the case $t = 1$ \todo{add reference h
 Note that:
 
 \begin{itemize}
-    \item \cref{weight_multi-dendrix_ilp} and \cref{second_constr_multi-dendrix_ilp} expand \cref{weight_dendrix_ilp} and \cref{second_constr_dendrix_ilp} respectively;
+    \item \cref{weight_multi-dendrix_ilp} and \cref{second_constr_multi-dendrix_ilp} extend \cref{weight_dendrix_ilp} and \cref{second_constr_dendrix_ilp} respectively;
     \item \cref{multi-dendrix_ilp_size} allows each gene group to have a size between $k_\mathrm{min}$ and $k_\mathrm{max}$;
-    \item \cref{multi-dendrix_ilp_last} states that each gene can appear in at most one set within the collection. 
+    \item \cref{multi-dendrix_ilp_last} forces each gene to appear in \textit{at most 1 set} within the collection. 
 \end{itemize}
+
+Moreover, \textcite{multi-dendrix} state that this ILP can be extended to allow the gene sets of the collection to overlap, since the genes in the intersection may be involved in multiple biological processes. Hence, \cref{multi-dendrix_ilp_last} is replaced with the following equation:
+
+\begin{equation}
+    \sum_{\rho = 1}^t {I_{M_\rho}(j) \le \Delta}, \quad 1 \le j \le n
+\end{equation}
+
+where $\Delta$ is the maximum number of gene sets a gene can be a member of, and the following constraint is added:
+
+\begin{equation}
+    \sum_{j = 1}^n {\sum_{\rho = 1}^t \sum_{\rho' = 1 \atop \rho \neq \rho'}^t {{I_{M_\rho} (j) \cdot I_{M_{\rho'}} (j)}}} \le \tau, \quad 1 \le \rho \le t
+\end{equation}
+
+where $\tau$ is the maximum size of the intersection between two gene sets.
+
+
+\subsection{Comparing Multi-Dendrix with Iter-Dendrix}
+
+A normal cell has to acquire multiples capabilities in order to become a cancer cell, and studies identified six such capabilities. Consequently, it is anticipated that only a few pathways will be mutated, with mutations in the genes of each pathway exhibiting both high exclusivity and high coverage. Our goal is to identify sets of genes within these pathways. If the gene sets within each pathway are disjoint, an iterative approach can be effective: after identifying a high-weight set \(M\), we remove the genes in \(M\) from the analysis and search for high-weight sets in the reduced mutation matrix. This approach will successfully identify disjoint sets \(M_1\) and \(M_2\) with high weight, as exclusivity is assessed within sets, not between them. However, if \(M_1\) and \(M_2\) share genes, removing one set might also remove part of the other. If the overlap is minimal, we can still identify the remaining portion of the other set. The challenge of identifying two sets \(M_1\) and \(M_2\) that both exhibit high exclusivity and coverage, while allowing for some overlap, remains an intriguing open problem \cite{dendrix}. \todo{rephrase this paragraph}
 
 \textcite{multi-dendrix} compare the outputs of their ILP with an iterative version of the Dendrix greedy algorithm (discussed in \cref{greedy_dendrix}), which they refer to as Iter-Dendrix, running Dendrix multiple times to produce a collection of gene sets.
 
@@ -224,7 +241,6 @@ Note that:
     \end{algorithmic}
 \end{algorithm}
 
-
 Denoting with $M$ and $I$ the collections of gene sets obtained from Multi-Dendrix and Iter-Dendrix respectively, \textcite{multi-dendrix} state that $W'(M) \ge W'(I)$ \todo{loro dicono che sia ovvio ma non capisco perché dovrebbe essere così ovvio}. They also argue that $M$ could contain sets with strictly greater weight than comprising $I$ due to several factors:
 
 \begin{itemize}
@@ -234,20 +250,6 @@ Denoting with $M$ and $I$ the collections of gene sets obtained from Multi-Dendr
 \end{itemize}
 
 \textcite{multi-dendrix} state that all of these scenarios occur when analyzing real mutation data.
-
-Lastly, Multi-Dendrix can be extended to allow gene sets to overlap, since the genes in the intersection may be involved in multiple biological processes. Hence, \cref{multi-dendrix_ilp_last} is replaced with the following equation:
-
-\begin{equation}
-    \sum_{\rho = 1}^t {I_{M_\rho}(j) \le \Delta}, \quad 1 \le j \le n
-\end{equation}
-
-where $\Delta$ is the maximum number of gene sets a gene can be a member of, and the following constraint is added:
-
-\begin{equation}
-    \sum_{j = 1}^n {\sum_{\rho = 1}^t \sum_{\rho' = 1 \atop \rho \neq \rho'}^t {{I_{M_\rho} (j) \cdot I_{M_{\rho'}} (j)}}} \le \tau, \quad 1 \le \rho \le t
-\end{equation}
-
-where $\tau$ is the maximum size of the intersection between two gene sets.
 
 \section{MDPFinder}
 
