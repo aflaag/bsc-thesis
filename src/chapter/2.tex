@@ -203,7 +203,7 @@ Finding the solution to this problem is computationally difficult, even for smal
         \item define $A$'s cells as follows: $$a_{s, v} = 1 \iff s = s_{(u, v)}, u \in V(G) \lor s \in \mathcal S_v$$ which means that $a_{s, v}$ will be 1 if and only if $s$ is either a variable from the set $\{s_e \mid e \in E(G)\}$ where the edge $e$ has $v$ as endpoint, or $s$ is a variable defined in $\mathcal S_v$.
     \end{itemize}
 
-    Note that this matrix can be built in polynomial time, because:
+    Note that this matrix can be built in polynomial time, because
 
     \begin{itemize}
         \item its first half contains $m \cdot n$ cells
@@ -239,31 +239,62 @@ The approach developed by \textcite{dendrix} will be discussed in the next chapt
 
 \subsection{A statistical approach}
 
-\textcite{mutex} criticize the metric developed by \textcite{dendrix} because it has a strong bias toward highly mutated genes, and in some instances, the excessive emphasis on coverage leads to false positives and negatives. \todo{ci sono esempi in file supplementari, li guardo?}. They propose a metric that extends Fisher's exact test --- also known as \textit{hypergeometric test} --- to quantify the mutual exclusivity between multiple measurements.
+\textcite{mutex} criticize the metric developed by \textcite{dendrix}, because it has a strong bias toward highly mutated genes, and in some instances the excessive emphasis on coverage leads to false positives and negatives. Therefore, they propose a metric that extends Fisher's exact test --- also known as \textit{hypergeometric test} --- to quantify the mutual exclusivity within a gene set.
 
-Specifically, the alteration of a pair of genes is defined to be \textbf{mutually exclusive} \textit{if their overlap in samples is significantly less than expected by chance}, and this can be assessed through a \textit{hypergeometric test}. It is important to note that a uniform alteration frequency across may not always hold, particularly for hyper-mutated samples often resulting from prior mutations in DNA repair mechanisms. Addressing this heterogeneity is challenging, as each overlap in the null model has a different probability. This remains an open problem, and to partially mitigate it, albeit at the cost of statistical power, hyper-altered samples are excluded from the analysis.
+Before exploring their metric, it is important to note that a uniform alteration frequency across samples may not always hold, particularly for hyper-mutated samples, often resulting from prior mutations in DNA repair mechanisms. Addressing this heterogeneity is challenging, as each overlap in the null model has a different probability. This remains an open problem, and to partially mitigate it, \textcite{mutex} decided to exclude hyper-altered samples from the analysis.
 
-\textcite{mutex} also developed a metric to assess the mutual exclusivity of a group of genes. Consider the following null hypothesis:
+The following definitions will describe the metrics they developed. Consider the following null hypothesis:
 
 \begin{displayquote}
-    $H_0$: \textit{The specific member gene in the group is altered independently from the union of other alterations in the group}.
+    $H_0$: \textit{Given a group of genes, a member gene is altered independently from the union of the other alterations in the group}.
 \end{displayquote}
 
-Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $j \in M$, mutations in $\Gamma(j)$ are independent of alterations in $\Gamma(M - \{j\})$. In brief, $H_0$ states that any observed pattern of mutual exclusivity among gene alterations is due to random chance, not due to any underlying biological or oncogenic mechanism.
+Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $g \in M$, mutations in $\Gamma(g)$ are independent from alterations in $\Gamma(M - \{g\})$. In brief, $H_0$ states that any observed pattern among gene alterations is due to \textit{random chance}, not due to any underlying biological or oncogenic mechanism. Given a single gene $g$, $H_0$ can be tested by evaluating $g$'s co-distribution with the union of the others, through an \textit{hypergeometric test}, which is performed as follows.
 
-$H_0$ is then tested for each $j \in M$ by evaluating the co-distribution of $i$ with the union of the others through Fisher's exact test, generating $\abs{M}$ $p$-values. These $p$-values represent the probabilities for the independent distribution of each member gene. To ensure that every group member contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of the group. With Dendrix's notation
+To test $H_0$ for a gene $g$ within a given gene set $M$, it is necessary to quantify \textit{the probability that there are $\abs{\Gamma(g)}$ patients that have $g$ mutated}; let this probability be represented by the random variable $X$. This probability can be assessed by using the \href{https://en.wikipedia.org/wiki/Probability_mass_function}{PMF} of the \href{https://en.wikipedia.org/wiki/Hypergeometric_distribution}{hypergeometric distribution}, namely $$P(X = h) = \dfrac{\dbinom{H}{h}\dbinom{T - H}{t - h}}{\dbinom{T}{t}}$$ Note that, in this context:
+
+\begin{itemize}
+    \item $T = 2m$, because there are $m$ patients in the mutation matrix, thus $m$ patients can have gene $g$ mutated, and $m$ patients can be in $\Gamma(M - \{g\})$;
+    \item $H = m$, which represents the total number of patients, and it the amount of patients that could potentially have gene $g$ mutated;
+    \item $t = \abs{\Gamma(M)}$, because it is the total number of patients with at least one mutation in $M$;
+    \item $h = \abs{\Gamma(g)}$, since it is the number of patients with gene $g$ mutated, which is the value of interest.
+\end{itemize}
+
+Therefore, the following probability must be evaluated:
 
 \begin{equation}
-    s_0 := \max_{j \in M} {H \abk{\Gamma(j), \Gamma(M - \{j\})}}
+    P(X = \abs{\Gamma(g)}) = \dfrac{\dbinom{m}{\abs{\Gamma(g)}}\dbinom{2m - m}{\abs{\Gamma(M)} - \abs{\Gamma(g)}}}{\dbinom{2m}{\abs{\Gamma(M)}}} = \dfrac{\dbinom{m}{\abs{\Gamma(g)}}\dbinom{m}{\abs{\Gamma(M - \{g\})}}}{\dbinom{2m}{\abs{\Gamma(M)}}}
 \end{equation}
 
-where $s_0$ is the initial score, and $H$ is the hypergeometric test.
+Note that this probability can also be evaluated using Fisher's exact test, employing the following contingency table:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c|c}
+              & $g$ & $M - \{g\}$ & \\
+        \hline
+        mutated & $\abs{\Gamma(g)}$ & $\abs{\Gamma(M - \{g\})}$ & $\abs{\Gamma(M)}$ \\
+        \hline
+        not mutated & $m - \abs{\Gamma(g)}$ & $m - \abs{\Gamma(M - \{g\})}$ & $2m - \abs{\Gamma(M)}$ \\
+        \hline
+              & $m$ & $m$ & $2m$
+    \end{tabular}
+    \caption{Fisher's exact test}
+\end{table}
+
+and Fisher proved that the following equality holds $$P(X = \abs{\Gamma(g)}) = \dfrac{m!m!\abs{\Gamma(M)}!(2m - \abs{\Gamma(M)})!}{(2m)!  \abs{\Gamma(g)}! \abs{\Gamma(M - \{g\})}!  (m - \abs{\Gamma(g)})! (m - \abs{\Gamma(M - \{g\})})!}$$
+
+This probability is the associated $p$-value of $g \in M$.
+
+To quantify $M$'s \textit{score} of mutual exclusivity, $H_0$ is first tested for each $g \in M$, by evaluating the co-distribution of $g$ with the union of the others through this test, therefore generating $\abs{M}$ $p$-values, which represent the probabilities for the independent distribution of each member gene. To ensure that every group member contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of $M$. With Dendrix's notation
+
+\begin{equation}
+    s_0 := \max_{g \in M} {H \abk{\Gamma(g), \Gamma(M - \{g\})}}
+\end{equation}
+
+where $s_0$ is the initial score, and $H$ is the aforementioned \textit{hypergeometric test}.
 
 Since multiple groups are being tested, $s_0$ is affected by \href{https://en.wikipedia.org/wiki/Multiple_comparisons_problem}{\textit{multiple hypothesis testing}}, because the probability of finding statistically significant results may increase by chance. To account for it, \todo{finish this section}
-
-
-
-From this second set of $p$-values, the least significant one is selected as the multiple hypothesis testing corrected final score. \todo{talk about the last paragraph, which is even less comprehensible}
 
 \subsection{Extending the deterministic equation} \label{multi_dendrix_2nd_chap}
 
