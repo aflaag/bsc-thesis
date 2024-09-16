@@ -41,8 +41,10 @@ At each step, this algorithm selects a predetermined amount of \textit{random ad
 
 \section{Multi-Dendrix}
 
-\subsection{An ILP for the MWSP}
+% \subsection{An ILP for the MWSP}
 
-% also, as previously mentioned by the authors of multiple of the paper discussed, the set $M$ that maximizes $W(M)$ may not be a real driver pathway in real life. in fact, i too believe that exact solutions to the associated MWSP problem may not be correct, since 
+% \textcite{multi-dendrix} formulate the MWSP as an ILP, which in my opinion is a more natural way to formulate this problem. also, as previously mentioned by the authors of multiple of the paper discussed, the set $M$ that maximizes $W(M)$ may not be a real driver pathway in real life. in fact, i too believe that exact solutions to the associated MWSP problem may not be correct, since exact mutual exclusivity and coverage are rarely seen in real mutation data. \todo{talk about the results?}
+
+% regarding the ILP for the simultaneous identification of multiple driver pathways, the approach is a very natural extension of Dendrix's ILP, although it may suffer from the same problem that optimal solutions may not be real pathways. speaking of this ILP, i'd like to underline that their exposition was not clear, and rather imprecise: not only they posed the MMWSP, which extends MWSP, but in their ILP they solved a slightly different version of the problem (which could be an issue in terms of time complexity, an important matter in this research field since data is so big), but they also gave some imprecise definitions of some indicator variable sets.
 
 \cleardoublepage

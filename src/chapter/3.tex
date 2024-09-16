@@ -102,7 +102,80 @@ They also applied their algorithm to somatic mutations in \href{https://en.wikip
 
 The MCMC algorithm was also applied to mutation data from 84 patients with \href{https://en.wikipedia.org/wiki/Glioblastoma}{glioblastoma multiforme} (GBM), analyzing somatic mutations across 601 genes, resulting in a total of 453 mutations, with 223 genes found to be mutated in at least one patient (filtered using CNAs). For gene sets of size $k = 2$, the most frequently sampled pair was (CDKN2B, CYP27B1), appearing 18\% of the time, and for $k = 3$, the triplet (CDKN2B, RB1, CYP27B1) was sampled 10\% of the time --- a permutation test confirmed the significance of this triplet. The analysis revealed that CYP27B1 had a nearly identical mutation profile to a metagene composed of six adjacent genes, but was excluded due to an additional mutation in a single patient. The metagene's amplification likely targeted CDK4, suggesting that the key triplet of interest was (CDKN2B, RB1, CDK4), which is part of the \href{https://en.wikipedia.org/wiki/Retinoblastoma_protein}{RB1} signaling pathway, associated with shorter survival in GBM patients. After removing this triplet, the pair (TP53, CDKN2A) was sampled with 30\% frequency, linked to the \href{https://en.wikipedia.org/wiki/P53}{p53} tumor suppression pathway. Further analysis, after removing both sets, revealed the pair (NF1, EGFR), which was sampled 44\% of the time and is part of the \href{https://en.wikipedia.org/wiki/Receptor_tyrosine_kinase}{RTK} pathway, crucial for cell proliferation and survival.
 
-All these findings highlight the ability of the MCMC algorithm to identify significant gene sets related to known cancer pathways. The following section will introduce an alternative approach to solving the MWSP, and will provide an extension of the problem.
+All these findings highlight the ability of the MCMC algorithm to identify significant gene sets related to known cancer pathways. The following section will introduce an alternative approach to solving the MWSP, using the same weight function.
+
+\section{MDPFinder}
+
+\subsection{The genetic algorithm}
+
+placeholder. \todo{sezione in cui scrivo che mpdfinder critica la soluzione esatta trovata da multi-dendrix, che nonostante sia esatta potrebbe non essere reale; in questa sezione va menzionato che l'algoritmo si chiama MDPFinder, e va scritto che è knowledge-based}
+
+The approach used by \textcite{mdpfinder} involves a \textit{Genetic Algorithm} (GA), which is versatile and flexible, and can be used to optimize a wide variety of scoring functions. In addition, they state that the GA approach is particularly relevant to the current problem due to its conceptual alignment with the notions of \textit{gene} and \textit{mutation}. It models genetic variation within a population, evolving through a process of random selection, thereby avoiding the need to enumerate all possible solutions.
+
+\begin{definition}[Hypothesis space]
+    A \textbf{member} of the population is defined by a binary string of length $n$, i.e. the number of genes. Given a gene set $M$, the value of the $i$-th position of an individual represents the membership of the $i$-th gene in $M$.
+
+    Therefore, the \textbf{hypothesis space} is constituted by all the possible binary strings with length $n$ that have $k$ 1s, namely $$\mathcal H := \left\{(x_1, \ldots, x_n) \mid x_i \in \{0, 1\}, i \in [1, n], \sum_{j = 1}^n {x_j} = k \right\}$$
+\end{definition}
+
+\begin{definition}[Fitness function]
+    The \textbf{fitness} $f_i$ of each individual $h_i$ (its corresponding gene set is $M_i$) of the population is defined as the rank $r_i$ of the score $W(M_i)$, in the ascending order \todo{SECONDO ME È DESCENDING ALTRIMENTI PRENDI QUELLO COL PESO MINORE CHE NON HA SENSO, probabilmente non sto capendo il senso della frase}: $$\forall h_i \in \mathcal H \quad f_i := r_i$$
+\end{definition}
+
+\begin{definition}[Selection probability] \label{selection_probability}
+    Given the rank $r_i$ of an individual $h_i$ based on its score, the \textbf{selection probability} is defined as follows: $$p_i = \dfrac{2r_i}{P(P + 1)}$$ where $P$ is the population size. The individual with the highest fitness value is most likely to be transferred into the next generation.
+\end{definition}
+
+This selection operator is based on \href{https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)#Roulette_wheel_selection}{roulette wheel selection}, which states that the probability of choosing an individual is equal to $$p_i = \dfrac{f_i}{\sum_{j = 1}^P {f_j}} = \dfrac{r_i}{\frac{P(P + 1)}{2}} = \dfrac{2r_i}{P(P+1)}$$ which is precisely the equation in \cref{selection_probability}.
+
+\begin{definition}[Crossover operator]
+    The \textbf{crossover operator} specifies the breeding process as follows: the offspring inherits the variables shared by both parents, while the non-shared ones are selected from the symmetric difference of the parents' genetic makeup.
+\end{definition}
+
+\begin{definition}[Mutation operator]
+    The \textbf{mutation operator} randomly sets the value of one variable from 1 to 0, and changes another variable value from 0 to 1, ensuring the feasibility of every offspring.
+\end{definition}
+
+\begin{definition}[Local search] \todo{fixa questa definizione}
+    To prevent premature convergence and enhance the accuracy of the algorithm, a local search strategy is employed to improve search performance. In particular, the values of two variables are randomly altered, as the mutation operator. If this adjustment improves the current solution, it is accepted; the search is terminated once all variables have been tested with this routine.
+\end{definition}
+
+\begin{definition}[GA procedure]
+    The following are the details of the \textbf{GA procedure}:
+
+    \begin{enumerate}
+        \item \textit{population generation}: a random population of size $P$ and mutation rate $p_m$ is generated, where $P = n$ (i.e. the number of available genes);
+        \item \textit{breeding}: for each iteration, $P$ couples are selected from the current population, based on $p_i$, and each couple generates an offspring;
+        \item \textit{mutation}: each offspring may optionally receive a mutation with probability $p_m$;
+        \item \textit{selection}: all parents and offspring are ranked based on their scoring values, and the top $P$ individuals are selected to form the next generation (this is referred to as \href{https://en.wikipedia.org/wiki/Truncation_selection}{truncation selection});
+        \item \textit{local search}: verify if the iteration is stuck in a local solution (e.g. if the maximum scoring value does not improve over two consecutive iterations); if this is the case, perform a local search;
+        \item \textit{termination}: proceed as such until the termination criterion is met (e.g. if the current maximum scoring value does not improve over 10 consecutive iterations); if this occurs, then end the procedure.
+    \end{enumerate}
+\end{definition}
+
+\subsection{The integration procedure}
+
+In practical applications, multiple optimal solutions may exist. Additionally, due to data noise and other factors, the solutions considered optimal --- i.e. the ones with the highest $W(M)$ --- may not necessarily be the most relevant in a biological context. To identify the most biologically meaningful solutions, other types of data are integrated to refine the results. Specifically, the GA procedure is extended by incorporating gene expression data to enhance its performance. The integrative model is developed based on the observation that genes within the same pathway typically collaborate to perform a specific function. Consequently, the expression profiles of gene pairs within the same pathway often exhibit higher correlations than those in different pathways. This characteristic can be leveraged to distinguish between gene sets that have the same score: the model focuses on detecting gene sets whose scores $W(M)$ are close to the optimal solution, but whose member genes display stronger correlations with each other.
+
+\begin{definition}[Integrative measure]
+    Given an $m \times n$ mutation matrix $A$, an expression matrix $E$ with the same dimensions \todo{nel paper non è menzionato cosa questa "expression matrix" contenga all'interno, c'è una foto con dei colori e basta, però ho visto che "expression matrix" è un termine che si usa per indicare un tipo di matrici solamente che contengono una cosa ben specifica, posso assumere che si sappia già di cosa si parla o devo spiegare cosa sono?}, and an $A$'s submatrix $M$ of size $m \times k$, the integrative model is defined by the following \textbf{measure}: $$F_{ME} := W(M) + \lambda \cdot R(E_M)$$ where $E_M$ is $E$'s expression submatrix that corresponds to $M$, and $R(E_M)$ is described by the following equation: $$R(E_M) = \sum_{j_1 = 1}^n {\sum_{j_2 = 1 \atop j_1 \neq j_2} ^n {\dfrac{\abs{\mathrm{pcc}(x_{j_1}, x_{j_2})}}{\frac{k(k - 1)}{2}}}}$$ where $\mathrm{pcc}(\cdot)$ is the \href{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient}{Pearson correlation coefficient}, and $x_j$ is the expression profile of gene $j$ \todo{non è spiegato cosa questo voglia dire ma io assumo sia un vettore colonna di $E$; inoltre, non ho idea di cosa sia il valore $R(E_M)$}.
+\end{definition}
+
+Note that $$0 \le R(E_m) \le 1$$ and $W(M)$ is an integer, therefore when $\lambda = 1$ the value of $F_{ME}$ can be used to discriminate the gene sets with the same $W(M)$. Moreover, for values of $\lambda \ge 1$, the gene set with strong correlation and approximate exclusivity can be identified.
+
+\section{Mutex}
+
+\subsection{A different greedy method}
+
+To identify the most mutually exclusive group, \textcite{mutex} employ a greedy algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which is applied to a directed graph constructed from databases containing information about biological pathways \todo{menziono i database che hanno usato?}.
+
+The search begins by initializing a set with an altered gene as the seed and then expanding the group greedily with the next best candidate gene. Candidate genes are selected such that, after their addition, the group still has a common downstream gene that can be accessed without passing through any non-member genes (the common downstream gene may also be a member of the group) \todo{ci sono delle figure con un grafo e l'insieme che viene proressivamente espanso dall'algoritmo, forse potrei riprodurle e inserirle per chiarezza?}. The group is expanded with the candidate that improves the group score the most. The process continues until no candidates remain or the group reaches a preset size threshold. The algorithm outputs a group and its score for each seed gene \todo{qui menzionano una cosa inerente al controllo dell'FDR ma per ora la ometto perché non so che significa, credo andrebbe inserita}.
+
+placeholder. \todo{una cosa carina sarebbe scrivere lo pseudocodice dell'algoritmo greedy (sarebbe anche più carino a quel punto dimostrarne la correttezza ma non credo sia possibile vista la natura statistica della ricerca effettuata), loro non lo forniscono e lo trattano solo a parole, provo a farlo?}
+
+\begin{definition}[Proximity]
+    Given a gene graph, the \textbf{proximity} of a gene $G$ includes not only the genes directly adjacent to $g$ but also those that share downstream targets in the pathway with $g$. \todo{QUESTA DEFINIZIONE NON VA QUA}
+\end{definition}
 
 \section{Multi-Dendrix} \todo{MOVE THIS DOWN}
 
@@ -218,9 +291,7 @@ where $\tau$ is the maximum size of the intersection between two gene sets.
 
 \subsection{Comparing Multi-Dendrix with Iter-Dendrix}
 
-A normal cell has to acquire multiples capabilities in order to become a cancer cell, and studies identified six such capabilities. Consequently, it is anticipated that only a few pathways will be mutated, with mutations in the genes of each pathway exhibiting both high exclusivity and high coverage. Our goal is to identify sets of genes within these pathways. If the gene sets within each pathway are disjoint, an iterative approach can be effective: after identifying a high-weight set \(M\), we remove the genes in \(M\) from the analysis and search for high-weight sets in the reduced mutation matrix. This approach will successfully identify disjoint sets \(M_1\) and \(M_2\) with high weight, as exclusivity is assessed within sets, not between them. However, if \(M_1\) and \(M_2\) share genes, removing one set might also remove part of the other. If the overlap is minimal, we can still identify the remaining portion of the other set. The challenge of identifying two sets \(M_1\) and \(M_2\) that both exhibit high exclusivity and coverage, while allowing for some overlap, remains an intriguing open problem \cite{dendrix}. \todo{rephrase this paragraph}
-
-\textcite{multi-dendrix} compare the outputs of their ILP with an iterative version of the Dendrix greedy algorithm (discussed in \cref{greedy_dendrix}), which they refer to as Iter-Dendrix, running Dendrix multiple times to produce a collection of gene sets.
+Since the greedy algorithm of Dendrix can identify a single driver pathway, finding multiple pathways could be achieved by running the algorithm iteratively. \textcite{multi-dendrix} provide a detailed explanation of this approach, referred to as Iter-Dendrix, with the pseudocode shown below.
 
 \begin{algorithm}[H]
     \caption{
@@ -241,88 +312,44 @@ A normal cell has to acquire multiples capabilities in order to become a cancer 
     \end{algorithmic}
 \end{algorithm}
 
-Denoting with $M$ and $I$ the collections of gene sets obtained from Multi-Dendrix and Iter-Dendrix respectively, \textcite{multi-dendrix} state that $W'(M) \ge W'(I)$ \todo{loro dicono che sia ovvio ma non capisco perché dovrebbe essere così ovvio}. They also argue that $M$ could contain sets with strictly greater weight than comprising $I$ due to several factors:
+This procedure runs the greedy algorithm iteratively, removing the chosen set from $\mathcal{G}$ after each iteration. \textcite{dendrix} discussed this approach toward the end of their work, highlighting certain limitations. In particular, if the gene sets corresponding to each pathway are disjoint, Iter-Dendrix can be effective in identifying these sets, successfully finding disjoint sets $M_1$ and $M_2$ with high weight, as exclusivity is only evaluated within sets, not between them. However, if $M_1$ and $M_2$ share genes, removing one set could also remove part of the other. In cases where the overlap is minimal, this approach may still identify the remaining portion of the second set. However, if the sets significantly intersect, Iter-Dendrix is likely to fail \cite{dendrix}.
+
+\textcite{multi-dendrix} compare the outputs of their ILP with Iter-Dendrix: denoting with $M$ and $I$ the collections of gene sets obtained from Multi-Dendrix and Iter-Dendrix respectively, they state that $W'(M) \ge W'(I)$ \todo{loro dicono che sia ovvio ma non capisco perché dovrebbe essere così ovvio}. They also argue that $M$ could contain sets with strictly greater weight than the ones comprising $I$, due to several factors:
 
 \begin{itemize}
-    \item there may be multiple gene sets $I_\rho$ that maximize $W(I_\rho)$ on the $\rho$-th iteration of Iter-Dendrix, and this version of Dendrix can only extend one of these sets;
+    \item there may be multiple gene sets $I_\rho$ that maximize $W(I_\rho)$ on the $\rho$-th iteration of Iter-Dendrix, and this version of Dendrix can only extend one of them;
     \item the gene set $I_\rho$ that maximizes $W(I_\rho)$ selected by Iter-Dendrix in the $\rho$-th iteration may not be a member of $M$, since $M$ could include gene sets that are suboptimal when considered in isolation;
-    \item when $k_\mathrm{min} < k_\mathrm{max}$ Multi-Dendrix may choose gene sets with fewer than $k_\mathrm{max}$ genes if doing so maximizes the overall weight $W'(M)$.
+    \item when $k_\mathrm{min} < k_\mathrm{max}$, Multi-Dendrix may choose gene sets with fewer than $k_\mathrm{max}$ genes, if doing so maximizes the overall weight $W'(M)$.
 \end{itemize}
 
 \textcite{multi-dendrix} state that all of these scenarios occur when analyzing real mutation data.
 
-\section{MDPFinder}
+\subsection{Results}
 
-\subsection{The genetic algorithm}
+\textcite{multi-dendrix} applied Multi-Dendrix and Iter-Dendrix to four somatic mutation datasets: GBM, lung adenocarcinoma, a newer GBM dataset, and BRCA. These datasets were processed to remove low-frequency mutations and outliers. After processing, the GBM dataset included 46 genes from 84 patients, the lung dataset had 190 genes from 163 patients, the newer GBM dataset contained 398 genes from 261 patients, and the BRCA dataset included 375 genes from 507 patients. They focused on results from the GBM and BRCA datasets, as they are more representative of modern genomic data, obtained from computing collections of sizes ranging between $2 \le t \le 4$, with a minimum size $k_\mathrm {min} = 3$, and a maximum size ranging between $3 \le k_\mathrm{max} \le 5$.
 
-placeholder. \todo{sezione in cui scrivo che mpdfinder critica la soluzione esatta trovata da multi-dendrix, che nonostante sia esatta potrebbe non essere reale; in questa sezione va menzionato che l'algoritmo si chiama MDPFinder, e va scritto che è knowledge-based}
+In the GBM analysis, both algorithms produced similar results, except Iter-Dendrix identified the \href{https://en.wikipedia.org/wiki/IRF5}{IRF5} gene in one case, though Multi-Dendrix ran significantly faster (142 seconds compared to \textit{over 10 hours}). They identified four main modules in the data, corresponding to key signaling pathways related to cancer, with mutations affecting a large proportion of samples:
 
-The approach used by \textcite{mdpfinder} involves a \textit{Genetic Algorithm} (GA), which is versatile and flexible, and can be used to optimize a wide variety of scoring functions. In addition, they state that the GA approach is particularly relevant to the current problem due to its conceptual alignment with the notions of \textit{gene} and \textit{mutation}. It models genetic variation within a population, evolving through a process of random selection, thereby avoiding the need to enumerate all possible solutions.
+\begin{itemize}
+    \item RB signaling pathway: this module, including genes such as \href{https://en.wikipedia.org/wiki/Cyclin-dependent_kinase_4}{CDK4}, RB1 and \href{https://en.wikipedia.org/wiki/CDKN2A}{CDKN2A}/\href{https://en.wikipedia.org/wiki/CDKN2B}{B}, was mutated in 87.7\% of samples, and it also included mutations in \href{https://www.genecards.org/cgi-bin/carddisp.pl?gene=MSL3}{MSL3}, a gene with a potential role in cancer that merits further investigation;
+    \item RTK/RAS/PI(3)K pathway: this module included \href{https://en.wikipedia.org/wiki/PTEN_(gene)}{PTEN}, \href{https://en.wikipedia.org/wiki/P110%CE%B1}{PIK3CA}, \href{https://en.wikipedia.org/wiki/PIK3R1}{PIK3R1}, and \href{https://en.wikipedia.org/wiki/IDH1}{IDH1}, among others; mutations in this module were present in 62.8\% of samples, and while IDH1 is not a known member of this pathway, its mutual exclusivity with other genes suggests complex interactions;
+    \item p53 signaling pathway: this module featured TP53, \href{https://en.wikipedia.org/wiki/Mdm2}{MDM2}, \href{https://en.wikipedia.org/wiki/MDM4}{MDM4}, and \href{https://en.wikipedia.org/wiki/NLRP3}{NLRP3}, affecting 57.8\% of samples; it highlights critical interactions in cancer progression and includes NPAS3, which has emerging links to GBM.
+    \item RTK/RAS/PI(3)K and RB pathways: this module, involving \href{https://en.wikipedia.org/wiki/Epidermal_growth_factor_receptor}{EGFR}, \href{https://en.wikipedia.org/wiki/Platelet-derived_growth_factor_receptor_A}{PDGFRA}, and RB1, appeared in 45.6\% of samples; while EGFR and PDGFRA are part of the RTK/RAS/PI(3)K pathway and RB1 is in the RB pathway, the mutual exclusivity here may be influenced by subtype-specific mutations;
+\end{itemize}
 
-\begin{definition}[Hypothesis space]
-    A \textbf{member} of the population is defined by a binary string of length $n$, i.e. the number of genes. Given a gene set $M$, the value of the $i$-th position of an individual represents the membership of the $i$-th gene in $M$.
+When applying the two algorithms to the BRCA dataset, at first the algorithms grouped frequently mutated genes into single sets despite their high coverage overlap. This was due to the weight function outweghing coverage $\abs{\Gamma(M)}$ over overlap $\omega(M)$. To enhance mutual exclusivity, they increased the overlap penalty, by using the following modifed weight function: $$W(M) = \abs{\Gamma(M)} - \alpha \omega(M)$$ and a value of $\alpha = 2.5$. With this adjustment, Multi-Dendrix identified four distinct modules:
 
-    Therefore, the \textbf{hypothesis space} is constituted by all the possible binary strings with length $n$ that have $k$ 1s, namely $$\mathcal H := \left\{(x_1, \ldots, x_n) \mid x_i \in \{0, 1\}, i \in [1, n], \sum_{j = 1}^n {x_j} = k \right\}$$
-\end{definition}
+\begin{itemize}
+    \item PI(3)K/AKT pathway: this module contains genes such as PTEN, PIK3CA, PIK3R1, \href{https://en.wikipedia.org/wiki/AKT1}{AKT1}, and \href{https://en.wikipedia.org/wiki/HIF3A}{HIF3A}, and an amplification at 12p13.33; it is mutated in 61\% of samples, and it includes not only key genes in this pathway, but also the 12p amplification, though its target remains unclear;
+    \item p53 signaling pathway: this module includes mutations in TP53, \href{https://en.wikipedia.org/wiki/Cadherin-1}{CDH1}, \href{https://en.wikipedia.org/wiki/GATA3}{GATA3}, \href{https://en.wikipedia.org/wiki/CTCF}{CTCF}, and \href{https://en.wikipedia.org/wiki/GPRIN2}{GPRIN2}, affecting 56\% of samples; this module relates to known breast cancer-related genes involved in metastasis and proliferation, and it does not have any known interactions;
+    Module 3: Features mutations in MAP2K4, MAP3K1, PPEF1, SMARCA4, and WWP2, present in 44.4% of samples. This module is linked to the p38-JNK1 stress kinase pathway and includes both kinases and a phosphatase, though interactions within this module are minimal.
 
-\begin{definition}[Fitness function]
-    The \textbf{fitness} $f_i$ of each individual $h_i$ (its corresponding gene set is $M_i$) of the population is defined as the rank $r_i$ of the score $W(M_i)$, in the ascending order \todo{SECONDO ME È DESCENDING ALTRIMENTI PRENDI QUELLO COL PESO MINORE CHE NON HA SENSO, probabilmente non sto capendo il senso della frase}: $$\forall h_i \in \mathcal H \quad f_i := r_i$$
-\end{definition}
+    Module 4: Comprises CCND1 amplification and mutations in MAP2K4, RB1, and GRID1, found in 36.3% of samples. It involves cell cycle progression, with CCND1 and RB1 interacting directly. The module also includes mutations in MAP2K4, with limited interaction evidence.
+\end{itemize}
 
-\begin{definition}[Selection probability] \label{selection_probability}
-    Given the rank $r_i$ of an individual $h_i$ based on its score, the \textbf{selection probability} is defined as follows: $$p_i = \dfrac{2r_i}{P(P + 1)}$$ where $P$ is the population size. The individual with the highest fitness value is most likely to be transferred into the next generation.
-\end{definition}
+Subtype-Specific Findings:
 
-This selection operator is based on \href{https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)#Roulette_wheel_selection}{roulette wheel selection}, which states that the probability of choosing an individual is equal to $$p_i = \dfrac{f_i}{\sum_{j = 1}^P {f_j}} = \dfrac{r_i}{\frac{P(P + 1)}{2}} = \dfrac{2r_i}{P(P+1)}$$ which is precisely the equation in \cref{selection_probability}.
-
-\begin{definition}[Crossover operator]
-    The \textbf{crossover operator} specifies the breeding process as follows: the offspring inherits the variables shared by both parents, while the non-shared ones are selected from the symmetric difference of the parents' genetic makeup.
-\end{definition}
-
-\begin{definition}[Mutation operator]
-    The \textbf{mutation operator} randomly sets the value of one variable from 1 to 0, and changes another variable value from 0 to 1, ensuring the feasibility of every offspring.
-\end{definition}
-
-\begin{definition}[Local search] \todo{fixa questa definizione}
-    To prevent premature convergence and enhance the accuracy of the algorithm, a local search strategy is employed to improve search performance. In particular, the values of two variables are randomly altered, as the mutation operator. If this adjustment improves the current solution, it is accepted; the search is terminated once all variables have been tested with this routine.
-\end{definition}
-
-\begin{definition}[GA procedure]
-    The following are the details of the \textbf{GA procedure}:
-
-    \begin{enumerate}
-        \item \textit{population generation}: a random population of size $P$ and mutation rate $p_m$ is generated, where $P = n$ (i.e. the number of available genes);
-        \item \textit{breeding}: for each iteration, $P$ couples are selected from the current population, based on $p_i$, and each couple generates an offspring;
-        \item \textit{mutation}: each offspring may optionally receive a mutation with probability $p_m$;
-        \item \textit{selection}: all parents and offspring are ranked based on their scoring values, and the top $P$ individuals are selected to form the next generation (this is referred to as \href{https://en.wikipedia.org/wiki/Truncation_selection}{truncation selection});
-        \item \textit{local search}: verify if the iteration is stuck in a local solution (e.g. if the maximum scoring value does not improve over two consecutive iterations); if this is the case, perform a local search;
-        \item \textit{termination}: proceed as such until the termination criterion is met (e.g. if the current maximum scoring value does not improve over 10 consecutive iterations); if this occurs, then end the procedure.
-    \end{enumerate}
-\end{definition}
-
-\subsection{The integration procedure}
-
-In practical applications, multiple optimal solutions may exist. Additionally, due to data noise and other factors, the solutions considered optimal --- i.e. the ones with the highest $W(M)$ --- may not necessarily be the most relevant in a biological context. To identify the most biologically meaningful solutions, other types of data are integrated to refine the results. Specifically, the GA procedure is extended by incorporating gene expression data to enhance its performance. The integrative model is developed based on the observation that genes within the same pathway typically collaborate to perform a specific function. Consequently, the expression profiles of gene pairs within the same pathway often exhibit higher correlations than those in different pathways. This characteristic can be leveraged to distinguish between gene sets that have the same score: the model focuses on detecting gene sets whose scores $W(M)$ are close to the optimal solution, but whose member genes display stronger correlations with each other.
-
-\begin{definition}[Integrative measure]
-    Given an $m \times n$ mutation matrix $A$, an expression matrix $E$ with the same dimensions \todo{nel paper non è menzionato cosa questa "expression matrix" contenga all'interno, c'è una foto con dei colori e basta, però ho visto che "expression matrix" è un termine che si usa per indicare un tipo di matrici solamente che contengono una cosa ben specifica, posso assumere che si sappia già di cosa si parla o devo spiegare cosa sono?}, and an $A$'s submatrix $M$ of size $m \times k$, the integrative model is defined by the following \textbf{measure}: $$F_{ME} := W(M) + \lambda \cdot R(E_M)$$ where $E_M$ is $E$'s expression submatrix that corresponds to $M$, and $R(E_M)$ is described by the following equation: $$R(E_M) = \sum_{j_1 = 1}^n {\sum_{j_2 = 1 \atop j_1 \neq j_2} ^n {\dfrac{\abs{\mathrm{pcc}(x_{j_1}, x_{j_2})}}{\frac{k(k - 1)}{2}}}}$$ where $\mathrm{pcc}(\cdot)$ is the \href{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient}{Pearson correlation coefficient}, and $x_j$ is the expression profile of gene $j$ \todo{non è spiegato cosa questo voglia dire ma io assumo sia un vettore colonna di $E$; inoltre, non ho idea di cosa sia il valore $R(E_M)$}.
-\end{definition}
-
-Note that $$0 \le R(E_m) \le 1$$ and $W(M)$ is an integer, therefore when $\lambda = 1$ the value of $F_{ME}$ can be used to discriminate the gene sets with the same $W(M)$. Moreover, for values of $\lambda \ge 1$, the gene set with strong correlation and approximate exclusivity can be identified.
-
-\section{Mutex}
-
-\subsection{A different greedy method}
-
-To identify the most mutually exclusive group, \textcite{mutex} employ a greedy algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which is applied to a directed graph constructed from databases containing information about biological pathways \todo{menziono i database che hanno usato?}.
-
-The search begins by initializing a set with an altered gene as the seed and then expanding the group greedily with the next best candidate gene. Candidate genes are selected such that, after their addition, the group still has a common downstream gene that can be accessed without passing through any non-member genes (the common downstream gene may also be a member of the group) \todo{ci sono delle figure con un grafo e l'insieme che viene proressivamente espanso dall'algoritmo, forse potrei riprodurle e inserirle per chiarezza?}. The group is expanded with the candidate that improves the group score the most. The process continues until no candidates remain or the group reaches a preset size threshold. The algorithm outputs a group and its score for each seed gene \todo{qui menzionano una cosa inerente al controllo dell'FDR ma per ora la ometto perché non so che significa, credo andrebbe inserita}.
-
-placeholder. \todo{una cosa carina sarebbe scrivere lo pseudocodice dell'algoritmo greedy (sarebbe anche più carino a quel punto dimostrarne la correttezza ma non credo sia possibile vista la natura statistica della ricerca effettuata), loro non lo forniscono e lo trattano solo a parole, provo a farlo?}
-
-\begin{definition}[Proximity]
-    Given a gene graph, the \textbf{proximity} of a gene $G$ includes not only the genes directly adjacent to $g$ but also those that share downstream targets in the pathway with $g$. \todo{QUESTA DEFINIZIONE NON VA QUA}
-\end{definition}
+    The study also analyzed data from different breast cancer subtypes (Luminal A/B, Basal, and HER2-enriched). They found that mutual exclusivity of certain gene pairs (e.g., TP53 and GATA3) was consistent across subtypes, suggesting broader significance. However, mutual exclusivity between 12p13.33 amplification and PIK3CA mutations was subtype-specific, indicating that such exclusivity can be influenced by mutational and disease heterogeneity.
 
 \section{C3}
 
