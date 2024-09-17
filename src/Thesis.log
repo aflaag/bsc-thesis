@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  17 SEP 2024 11:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  17 SEP 2024 16:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1483,54 +1483,38 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 106.
  [25]
-Package cleveref Info: loaded `english' language definitions on input line 131.
+Package cleveref Info: loaded `english' language definitions on input line 152.
  [26]
-Package cleveref Info: loaded `english' language definitions on input line 162.
+Package cleveref Info: loaded `english' language definitions on input line 177.
  [27]
-Package cleveref Info: loaded `english' language definitions on input line 179.
- [28]
-
-LaTeX Warning: Marginpar on page 29 moved.
-
-
-LaTeX Warning: Marginpar on page 29 moved.
-
-
-LaTeX Warning: Marginpar on page 29 moved.
-
-Package cleveref Info: loaded `english' language definitions on input line 216.
-[29]
-Package cleveref Info: loaded `english' language definitions on input line 250.
- [30]
-Package cleveref Info: loaded `english' language definitions on input line 289.
- [31]
 
 Package amsmath Warning: Foreign command \atop;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 300.
+(amsmath)                 on input line 213.
 
-
+Package cleveref Info: loaded `english' language definitions on input line 221.
+[28]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.317         \Function
+l.229         \Function
                        {iterDendrix}{$\mathcal G$, $k$, $t$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.318             \State
+l.230             \State
                          $M := \varnothing$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.319             \For
+l.231             \For
                       {$i \in [1, t]$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.320             \State
+l.232             \State
                          $M_i := \texttt{greedyDendrix}(\mathcal G, k)$ \Com...
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 320.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 232.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1542,118 +1526,138 @@ Package microtype Info: Loading generic protrusion settings for font family
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.321                 \State
+l.233                 \State
                              $M = M \cup \{M_i\}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.322                 \State
+l.234                 \State
                              $\mathcal G = \mathcal G - M_i$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.323             \EndFor
+l.235             \EndFor
                          
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.324             \State
+l.236             \State
                          \textbf{return} $M$
-Package cleveref Info: loaded `english' language definitions on input line 330.
+Package cleveref Info: loaded `english' language definitions on input line 256.
+ [29]
+Package cleveref Info: loaded `english' language definitions on input line 270.
+ [30]
+Package cleveref Info: loaded `english' language definitions on input line 288.
+ [31]
+Package cleveref Info: loaded `english' language definitions on input line 324.
  [32]
-Package cleveref Info: loaded `english' language definitions on input line 350.
+Package cleveref Info: loaded `english' language definitions on input line 341.
  [33]
-Package cleveref Info: loaded `english' language definitions on input line 372.
+Package cleveref Info: loaded `english' language definitions on input line 361.
  [34]
 
-LaTeX Warning: Reference `neg_weights' on page 1 undefined on input line 377.
+LaTeX Warning: Marginpar on page 35 moved.
 
-Package cleveref Info: loaded `english' language definitions on input line 400.
-[35]
-Package cleveref Info: loaded `english' language definitions on input line 442.
- [36]
 
-LaTeX Warning: Marginpar on page 37 moved.
+LaTeX Warning: Marginpar on page 35 moved.
 
-Package cleveref Info: loaded `english' language definitions on input line 483.
-[37]
-Package cleveref Info: loaded `english' language definitions on input line 521.
- [38]
+
+LaTeX Warning: Marginpar on page 35 moved.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Package cleveref Info: loaded `english' language definitions on input line 385.
+ [35]
+
+LaTeX Warning: Reference `neg_weights' on page 1 undefined on input line 390.
+
+Package cleveref Info: loaded `english' language definitions on input line 413.
+[36]
+Package cleveref Info: loaded `english' language definitions on input line 455.
+ [37]
+
+LaTeX Warning: Marginpar on page 38 moved.
+
+Package cleveref Info: loaded `english' language definitions on input line 496.
+[38]
+Package cleveref Info: loaded `english' language definitions on input line 534.
+ [39]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.534         \Function
+l.547         \Function
                        {roundingProcedure}{$G$, $\{x_e\}_{e \in E(G)}$, $\al...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.535             \State
+l.548             \State
                          $\mathcal C := \varnothing$ \Comment{the output set...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.536             \State
+l.549             \State
                          $S := V(G)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.537             \While
+l.550             \While
                         {$S \neq \varnothing$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.538                 \State
+l.551                 \State
                              Choose an arbitrary $u \in S$ \Comment{this is ...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.539                 \State
+l.552                 \State
                              $T := \{w \in S - \{u\} \mid x_{uw} \le \alpha\...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.540                 \If
+l.553                 \If
                          {$\sum_{w \in T}{x_{uw}} \ge \frac{\alpha}{2}\abs{T}$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.541                     \State
+l.554                     \State
                                  $\mathcal C = \mathcal C \cup \{u\}$ \Comme...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.542                     \State
+l.555                     \State
                                  $S = S - \{u\}$
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package cleveref Info: loaded `english' language definitions on input line 559.
- [39]
+Package cleveref Info: loaded `english' language definitions on input line 572.
+ [40]
 
-LaTeX Warning: Marginpar on page 40 moved.
+LaTeX Warning: Marginpar on page 41 moved.
 
-Package cleveref Info: loaded `english' language definitions on input line 593.
-[40]) (./chapter/4.tex
+Package cleveref Info: loaded `english' language definitions on input line 606.
+[41]) (./chapter/4.tex
 Chapter 4.
-[41
+[42
 
 
 ]
 Underfull \vbox (badness 1629) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 47.
- [42]
+ [43]
 Package cleveref Info: loaded `english' language definitions on input line 56.
- [43]) (./chapter/ack.tex) [44
+ [44]) (./chapter/ack.tex) [45
 
 
-] [45
+] [46
 
 
 ]
 Package cleveref Info: loaded `english' language definitions on input line 217.
- [46]
+ [47]
 Package cleveref Info: loaded `english' language definitions on input line 219.
- [47] (./Thesis.aux
+ [48] (./Thesis.aux
 Package cleveref Info: loaded `english' language definitions on input line 11.
 )
  ***********
@@ -1665,24 +1669,24 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 544E645B723C2FAA70F3C5F07C818FE7;8970.
+(rerunfilecheck)             Checksum: 93B73E5BC67646C6FC56E1BB52708312;8970.
 Package logreq Info: Writing requests to 'Thesis.run.xml'.
 \openout1 = `Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50878 strings out of 476024
- 1054926 string characters out of 5792397
- 1976816 words of memory out of 5000000
+ 50880 strings out of 476024
+ 1054940 string characters out of 5792397
+ 1977036 words of memory out of 5000000
  71553 multiletter control sequences out of 15000+600000
- 698347 words of font info for 313 fonts, out of 8000000 for 9000
+ 698430 words of font info for 314 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,17n,131p,1852b,2572s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (53 pages, 647405 bytes).
+Output written on Thesis.pdf (54 pages, 651202 bytes).
 PDF statistics:
- 1243 PDF objects out of 1440 (max. 8388607)
- 1119 compressed objects within 12 object streams
+ 1261 PDF objects out of 1440 (max. 8388607)
+ 1136 compressed objects within 12 object streams
  304 named destinations out of 1000 (max. 500000)
  77770 words of extra memory for PDF output out of 89155 (max. 10000000)
 
