@@ -51,6 +51,20 @@ The ILP formulation for the simultaneous identification of multiple driver pathw
 
 Additionally, the weight function $W'(M)$ in Multi-Dendrix does not explicitly account for the co-occurrence of mutations between genes in different sets. Instead, it prioritizes gene sets with high coverage and approximate exclusivity, which may lead to co-occurrence due to high coverage alone (e.g., when all gene sets have full coverage). Given that co-occurrence is crucial in large biological pathways, algorithms that optimize for gene sets where mutations frequently co-occur might be more effective in identifying key components of these pathways \cite{multi-dendrix}.
 
-Lastly, I would like to emphasize that the exposition of the ILP was unclear and somewhat imprecise: in particular, while \textcite{multi-dendrix} introduced the MMWSP, the ILP they solved appears to address a slightly different version of the problem. This discrepancy could potentially raise concerns about time complexity, an important consideration given the large scale of data in this field. Moreover, their definitions of some indicator variable sets lacked precision. Nevertheless, it is important to highlight that, according to survey studies \cite{survey}, this approach is not only among the fastest --- thanks to the efficiency of ILP solvers --- but also performs exceptionally well in terms of both precision and recall.
+Lastly, I would like to emphasize that the exposition of their ILP was unclear and somewhat imprecise: in particular, while \textcite{multi-dendrix} introduced the MMWSP, the ILP they solved appears to address a slightly different version of the problem. This discrepancy could potentially raise concerns about time complexity, an important consideration given the large scale of data in this field. Moreover, their definitions of some indicator variable sets lacked precision. Nevertheless, it is important to highlight that, according to survey studies \cite{survey}, this approach is not only among the fastest --- thanks to the efficiency of ILP solvers --- but also performs exceptionally well in terms of both precision and recall.
+
+\section{MDPFinder}
+
+\subsection{The ILP of Dendrix}
+
+To solve the MWSP, \textcite{mdpfinder} formulated an ILP that is both identical in formulation and constraints to the one proposed by \textcite{multi-dendrix}. Although the MDPFinder paper was published in 2012 and the Multi-Dendrix paper in 2013, the latter does not reference the work of \textcite{mdpfinder}, and both papers present the ILP formulation of Dendrix as their own innovation.
+
+For clarity and detailed definitions of the indicator variables, I have chosen to attribute the formulation to \textcite{multi-dendrix}. In fact, despite previous criticisms of their MMWSP's ILP exposition, their presentation of MWSP's ILP was clearer compared to that of \textcite{mdpfinder}, which would have been challenging to comprehend without additional explanations.
+
+\subsection{The GA}
+
+I find the use of genetic algorithms particularly appealing as a conceptual approach for optimizing a given score function, especially when a computationally efficient optimization method is not readily available. Indeed, genetic algorithms offer a flexible and intuitive framework for exploration and optimization. However, a significant drawback is their relatively slow performance compared to other methods. As noted by \textcite{mdpfinder}, their genetic algorithm is considerably slower than the alternatives they tested, being \textit{12 times slower} than the MCMC algorithm and \textit{over 60 times slower} than the ILP.
+
+Despite its undeniable slowness, I appreciate the versatility of this approach. It allows for easy modification of the objective function, and offers a well-suited integration procedure that may be challenging to incorporate into other algorithm types, such as the ILP. Additionally, the ability to explore suboptimal solutions is valuable, as shown in many findings reported in this work. Finally, their explanation of the GA is quite comprehensible, and I value their effort to compare the results across three different approaches.
 
 \cleardoublepage

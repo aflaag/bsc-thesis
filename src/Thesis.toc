@@ -36,21 +36,24 @@
 \contentsline {subsection}{\numberline {3.3.1}The genetic algorithm}{31}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}The integration procedure}{33}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}Results}{34}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Mutex}{35}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}A different greedy method}{35}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.4}Mutex}{36}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}A different greedy method}{36}{subsection.3.4.1}%
 \contentsline {section}{\numberline {3.5}C3}{36}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Multiple versions}{36}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}The standard version}{36}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Integrating network information}{36}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.2}The standard version}{37}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Integrating network information}{37}{subsection.3.5.3}%
 \contentsline {subsection}{\numberline {3.5.4}Integrating expression data}{38}{subsection.3.5.4}%
 \contentsline {subsection}{\numberline {3.5.5}Other versions}{39}{subsection.3.5.5}%
-\contentsline {subsection}{\numberline {3.5.6}The clustering ILP}{39}{subsection.3.5.6}%
-\contentsline {subsection}{\numberline {3.5.7}The rounding procedure}{40}{subsection.3.5.7}%
-\contentsline {chapter}{\numberline {4}Discussion}{42}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Dendrix}{42}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}The deterministic formalization}{42}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Additional considerations}{43}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Multi-Dendrix}{44}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}The ILP of Dendrix}{44}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}The ILP of Multi-Dendrix}{44}{subsection.4.2.2}%
-\contentsline {chapter}{Acknowledgements}{45}{chapter*.36}%
+\contentsline {subsection}{\numberline {3.5.6}The clustering ILP}{40}{subsection.3.5.6}%
+\contentsline {subsection}{\numberline {3.5.7}The rounding procedure}{41}{subsection.3.5.7}%
+\contentsline {chapter}{\numberline {4}Discussion}{43}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Dendrix}{43}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}The deterministic formalization}{43}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Additional considerations}{44}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Multi-Dendrix}{45}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}The ILP of Dendrix}{45}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}The ILP of Multi-Dendrix}{45}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}MDPFinder}{46}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}The ILP of Dendrix}{46}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}The GA}{46}{subsection.4.3.2}%
+\contentsline {chapter}{Acknowledgements}{47}{chapter*.36}%

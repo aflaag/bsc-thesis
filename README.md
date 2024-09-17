@@ -2,15 +2,12 @@
 
 ## Domande
 
-- fare il capitolo 4??
-- discorso MCMC, io ho scritto la MCMC che danno ma non so niente della teoria delle MCMC
-
 ## TODO list
 
 - [use and rework this somewhere](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4590705/)
     Suppose that in a given large set of viable (cancer) cells, a pair of genes exhibits mutual exclusivity with respect to a genetic event – i.e. each gene individually is affected by the genetic event in most large proportions of cells but both genes are simultaneously affected in few or none. We hypothesize that the observed viability of these cells is dependent on, or a consequence of, the mutual exclusivity between the two genes: cells are not viable if the genetic event were to affect both genes simultaneously, and therefore we observe that few if any viable cells in our population carry such an event in both genes (in other words, the mutually exclusive combinations constitute the (clonally) selected combinations amenable to cell survival). Consequently, we infer that the two genes are synthetic lethal with each other.
 
-- consistency nella notazione
+- RIFARE TUTTI I LINK COL SITO DELL'NIH
 
 - CAMBIARE TUTTI GLI ACRONIMI
 
