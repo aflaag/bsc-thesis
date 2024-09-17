@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex Thesis"] 1726504136.86828 "Thesis.aux" "Thesis.bbl" "Thesis" 1726504142.13136 0
-  "./Thesis-blx.bib" 1726504141.72295 344 e588c9a99e172ae2d6714a5a36257b2b ""
+["bibtex Thesis"] 1726567034.94376 "Thesis.aux" "Thesis.bbl" "Thesis" 1726567040.44503 0
+  "./Thesis-blx.bib" 1726567040.02374 344 e588c9a99e172ae2d6714a5a36257b2b ""
   "./references.bib" 1726314225.94656 15484 877d73f90df4f31c35944b162c9242cc ""
   "/usr/share/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1716849630 65484 b7949c47a88ed6dca66ebc7a04577312 ""
-  "Thesis.aux" 1726504141.69961 45443 808622d69f1de0eb0aaf765d8b28f6c0 "pdflatex"
+  "Thesis.aux" 1726567040.00041 44318 de177fc728a0b3b5548bac620f8fc9de "pdflatex"
   (generated)
   "Thesis.bbl"
   "Thesis.blg"
   (rewritten before read)
-["pdflatex"] 1726504136.97744 "Thesis.tex" "Thesis.pdf" "Thesis" 1726504142.13166 0
+["pdflatex"] 1726567035.04906 "Thesis.tex" "Thesis.pdf" "Thesis" 1726567040.44543 0
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1716849630 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1716849630 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1716849630 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -74,7 +74,6 @@
   "/usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb" 1716849630 116427 4a5b1ccaa7cce719091920a86b58608d ""
   "/usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb" 1716849630 23055 2e5b42921de910eaa97b85df04ca4891 ""
   "/usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb" 1716849630 30388 702fae6a5f0e6e9c48a1d872b442ffcf ""
-  "/usr/share/texmf-dist/fonts/type1/public/lm/lmmi5.pfb" 1716849630 31443 ba2241b179aa231f73e052863720cb42 ""
   "/usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb" 1716849630 31113 04b711c9a4c7f8cb4ed784c6fc4cc1c5 ""
   "/usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb" 1716849630 30635 833ec815d446ec453a4913fc26d24cbc ""
   "/usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb" 1716849630 119235 f35b44530a1d90eb90fe15d9cba67ea0 ""
@@ -318,15 +317,15 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1716849630 41588 b43d3e860a4f94167ee1e725ff526a72 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1717316846.80975 5312047 b07fcd2a9090df96fc745b92a3db793b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1717316818 7164989 a606f76bbf99749eaf4dc2739187c19f ""
-  "Thesis.aux" 1726504141.69961 45443 808622d69f1de0eb0aaf765d8b28f6c0 "pdflatex"
-  "Thesis.bbl" 1726504136.95961 48332 a2bd257d937ba8696232c9e8a06a889f "bibtex Thesis"
-  "Thesis.out" 1726504141.71628 8873 13bdd78828b6e53f8c37b52d512db675 "pdflatex"
-  "Thesis.run.xml" 1726504141.72295 2542 4fc7e27be3543dd685c95db0ffd59f1d "pdflatex"
+  "Thesis.aux" 1726567040.00041 44318 de177fc728a0b3b5548bac620f8fc9de "pdflatex"
+  "Thesis.bbl" 1726567035.03707 48332 a2bd257d937ba8696232c9e8a06a889f "bibtex Thesis"
+  "Thesis.out" 1726567040.02041 8970 544e645b723c2faa70f3c5f07c818fe7 "pdflatex"
+  "Thesis.run.xml" 1726567040.02374 2542 4fc7e27be3543dd685c95db0ffd59f1d "pdflatex"
   "Thesis.tex" 1726500150.64644 6007 8043812d9a89aeb5d595798b9f19d13f ""
-  "Thesis.toc" 1726504141.72295 4741 fa2a990584fd3e32640e92d6a052ce90 "pdflatex"
+  "Thesis.toc" 1726567040.02374 4819 534a1f9e65a2a3800a2c6d830b7199c0 "pdflatex"
   "chapter/1.tex" 1726128729.54471 23300 b05d6ce64ab39b7407e401bddbe95aa1 ""
-  "chapter/2.tex" 1726503727.57296 40525 3593fd3a901b219575afa55df9708630 ""
-  "chapter/3.tex" 1726504129.62961 57405 e912714962fcbad3413ec5cfc4baab58 ""
+  "chapter/2.tex" 1726565645.55714 40534 fe3cb10c3610daebaf54d3c07ccbbaa6 ""
+  "chapter/3.tex" 1726567028.89374 58000 23796a47654e3fc8f6cc9d1826206fcc ""
   "chapter/4.tex" 1726498057.62986 7068 1773995f722df7e99571ccb600217efc ""
   "chapter/ack.tex" 1724425608.85996 84 d479507ed92ad97f807b36093f806d80 ""
   "sapienzalogo.pdf" 1724398914 16467 d37335f7ce529baff3eb592202135649 ""

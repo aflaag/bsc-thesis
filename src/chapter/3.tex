@@ -108,25 +108,27 @@ All these findings highlight the ability of the MCMC algorithm to identify signi
 
 \subsection{The genetic algorithm}
 
-placeholder. \todo{sezione in cui scrivo che mpdfinder critica la soluzione esatta trovata da multi-dendrix, che nonostante sia esatta potrebbe non essere reale; in questa sezione va menzionato che l'algoritmo si chiama MDPFinder, e va scritto che è knowledge-based}
+As outlined in the previous chapter, the weight function $W(M)$, has been widely adopted across multiple studies, due to its intuitive nature and its suitability for formalizing mutual exclusivity and coverage. One study that employed this metric --- though not previously discussed, because its approach to mutual exclusivity mirrors that of \textcite{dendrix} --- is the work by \textcite{mdpfinder}, which introduced an algorithm called MDPFinder (\textit{knowledge-based} \cite{survey}).
 
-The approach used by \textcite{mdpfinder} involves a \textit{Genetic Algorithm} (GA), which is versatile and flexible, and can be used to optimize a wide variety of scoring functions. In addition, they state that the GA approach is particularly relevant to the current problem due to its conceptual alignment with the notions of \textit{gene} and \textit{mutation}. It models genetic variation within a population, evolving through a process of random selection, thereby avoiding the need to enumerate all possible solutions.
+Their method utilizes a \textit{Genetic Algorithm} (GA), a flexible and adaptable approach capable of optimizing a wide range of scoring functions. It models genetic variation within a population, evolving through a process of random selection, thereby avoiding the need to enumerate all possible solutions.
+
+Before detailing the genetic procedure, it is necessary to first define the hypothesis space and the genetic operators.
 
 \begin{definition}[Hypothesis space]
-    A \textbf{member} of the population is defined by a binary string of length $n$, i.e. the number of genes. Given a gene set $M$, the value of the $i$-th position of an individual represents the membership of the $i$-th gene in $M$.
-
-    Therefore, the \textbf{hypothesis space} is constituted by all the possible binary strings with length $n$ that have $k$ 1s, namely $$\mathcal H := \left\{(x_1, \ldots, x_n) \mid x_i \in \{0, 1\}, i \in [1, n], \sum_{j = 1}^n {x_j} = k \right\}$$
+    A \textbf{member} of the population is defined by a binary string of length $n$, i.e. the number of genes. Given a gene set $M$, the value of the $i$-th position of an individual represents the membership of the $i$-th gene in $M$. Therefore, if the target gene set has size $k$, the \textbf{hypothesis space} is constituted by all the possible binary strings with length $n$ that have $k$ 1s, namely $$\mathcal H := \left\{(x_1, \ldots, x_n) \mid x_i \in \{0, 1\}, i \in [1, n], \sum_{j = 1}^n {x_j} = k \right\}$$ An individual of the population is denoted as $h_i \in \mathcal H$, and its corresponding gene set as $M_i$.
 \end{definition}
 
 \begin{definition}[Fitness function]
-    The \textbf{fitness} $f_i$ of each individual $h_i$ (its corresponding gene set is $M_i$) of the population is defined as the rank $r_i$ of the score $W(M_i)$, in the ascending order \todo{SECONDO ME È DESCENDING ALTRIMENTI PRENDI QUELLO COL PESO MINORE CHE NON HA SENSO, probabilmente non sto capendo il senso della frase}: $$\forall h_i \in \mathcal H \quad f_i := r_i$$
+    The \textbf{fitness} $f_i$ of each individual $h_i \in \mathcal H$ is defined as the rank $r_i$ of the score $W(M_i)$, in the \textit{ascending order}: $$\forall h_i \in \mathcal H \quad f_i := r_i$$
 \end{definition}
+
+Note that it is used an \textit{ascending order} because $W(M_i)$ has to be \textit{maximized}, and \textit{higher-ranking individuals} are favored in selection for the next generation, such that fitness increases with rank.
 
 \begin{definition}[Selection probability] \label{selection_probability}
-    Given the rank $r_i$ of an individual $h_i$ based on its score, the \textbf{selection probability} is defined as follows: $$p_i = \dfrac{2r_i}{P(P + 1)}$$ where $P$ is the population size. The individual with the highest fitness value is most likely to be transferred into the next generation.
+    Given the rank $r_i$ of an individual $h_i$, the \textbf{selection probability} is defined as follows: $$p_i = \dfrac{2r_i}{P(P + 1)}$$ where $P$ is the population size. The individual with the highest fitness value is most likely to be transferred into the next generation.
 \end{definition}
 
-This selection operator is based on \href{https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)#Roulette_wheel_selection}{roulette wheel selection}, which states that the probability of choosing an individual is equal to $$p_i = \dfrac{f_i}{\sum_{j = 1}^P {f_j}} = \dfrac{r_i}{\frac{P(P + 1)}{2}} = \dfrac{2r_i}{P(P+1)}$$ which is precisely the equation in \cref{selection_probability}.
+This selection operator is based on the \href{https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)#Roulette_wheel_selection}{roulette wheel selection}, which states that the probability of choosing an individual is equal to $$p_i = \dfrac{f_i}{\sum_{j = 1}^P {f_j}} = \dfrac{r_i}{\frac{P(P + 1)}{2}} = \dfrac{2r_i}{P(P+1)}$$ which is precisely the equation in \cref{selection_probability}.
 
 \begin{definition}[Crossover operator]
     The \textbf{crossover operator} specifies the breeding process as follows: the offspring inherits the variables shared by both parents, while the non-shared ones are selected from the symmetric difference of the parents' genetic makeup.
@@ -136,8 +138,10 @@ This selection operator is based on \href{https://en.wikipedia.org/wiki/Selectio
     The \textbf{mutation operator} randomly sets the value of one variable from 1 to 0, and changes another variable value from 0 to 1, ensuring the feasibility of every offspring.
 \end{definition}
 
-\begin{definition}[Local search] \todo{fixa questa definizione}
-    To prevent premature convergence and enhance the accuracy of the algorithm, a local search strategy is employed to improve search performance. In particular, the values of two variables are randomly altered, as the mutation operator. If this adjustment improves the current solution, it is accepted; the search is terminated once all variables have been tested with this routine.
+To prevent premature convergence and enhance the accuracy of the algorithm, \textcite{mdpfinder} employ a local search strategy to improve search performance, which is described below.
+
+\begin{definition}[Local search]
+    The \textbf{local search} procedure is defined as follows: the values of two variables are randomly altered, as the mutation operator; if this adjustment improves the current solution, it is accepted. The search is terminated once all variables have been tested with this routine.
 \end{definition}
 
 \begin{definition}[GA procedure]
@@ -147,21 +151,31 @@ This selection operator is based on \href{https://en.wikipedia.org/wiki/Selectio
         \item \textit{population generation}: a random population of size $P$ and mutation rate $p_m$ is generated, where $P = n$ (i.e. the number of available genes);
         \item \textit{breeding}: for each iteration, $P$ couples are selected from the current population, based on $p_i$, and each couple generates an offspring;
         \item \textit{mutation}: each offspring may optionally receive a mutation with probability $p_m$;
-        \item \textit{selection}: all parents and offspring are ranked based on their scoring values, and the top $P$ individuals are selected to form the next generation (this is referred to as \href{https://en.wikipedia.org/wiki/Truncation_selection}{truncation selection});
+        \item \textit{selection}: all parents and offspring are ranked based on their scoring values, and the top $P$ individuals are selected to form the next generation (this is commonly referred to as \href{https://en.wikipedia.org/wiki/Truncation_selection}{truncation selection});
         \item \textit{local search}: verify if the iteration is stuck in a local solution (e.g. if the maximum scoring value does not improve over two consecutive iterations); if this is the case, perform a local search;
         \item \textit{termination}: proceed as such until the termination criterion is met (e.g. if the current maximum scoring value does not improve over 10 consecutive iterations); if this occurs, then end the procedure.
     \end{enumerate}
 \end{definition}
 
+Note that the algorithm is independent of how $W(M)$ is defined, offering significant versatility in its application. The following section will describe an integration procedure, employed by \textcite{mdpfinder}, to improve the results.
+
 \subsection{The integration procedure}
 
-In practical applications, multiple optimal solutions may exist. Additionally, due to data noise and other factors, the solutions considered optimal --- i.e. the ones with the highest $W(M)$ --- may not necessarily be the most relevant in a biological context. To identify the most biologically meaningful solutions, other types of data are integrated to refine the results. Specifically, the GA procedure is extended by incorporating gene expression data to enhance its performance. The integrative model is developed based on the observation that genes within the same pathway typically collaborate to perform a specific function. Consequently, the expression profiles of gene pairs within the same pathway often exhibit higher correlations than those in different pathways. This characteristic can be leveraged to distinguish between gene sets that have the same score: the model focuses on detecting gene sets whose scores $W(M)$ are close to the optimal solution, but whose member genes display stronger correlations with each other.
+In practical applications, multiple optimal solutions may exist. Additionally, due to data noise and other factors, the solutions considered optimal --- i.e. the ones with the highest $W(M)$ --- may not necessarily be the most relevant in a biological context. To identify the most biologically meaningful solutions, \textcite{mdpfinder} integrate other types of data, to refine the results. Specifically, the GA procedure is extended by incorporating gene expression data to enhance its performance.
+
+The integrative model is developed based on the observation that genes within the same pathway typically collaborate to perform a specific function. Consequently, the expression profiles of gene pairs within the same pathway often exhibit higher correlations than those in different pathways. This characteristic can be leveraged to distinguish between gene sets that have the same score: the model focuses on detecting gene sets whose scores $W(M)$ are close to the optimal solution, but whose member genes display stronger correlations with each other.
 
 \begin{definition}[Integrative measure]
-    Given an $m \times n$ mutation matrix $A$, an expression matrix $E$ with the same dimensions \todo{nel paper non è menzionato cosa questa "expression matrix" contenga all'interno, c'è una foto con dei colori e basta, però ho visto che "expression matrix" è un termine che si usa per indicare un tipo di matrici solamente che contengono una cosa ben specifica, posso assumere che si sappia già di cosa si parla o devo spiegare cosa sono?}, and an $A$'s submatrix $M$ of size $m \times k$, the integrative model is defined by the following \textbf{measure}: $$F_{ME} := W(M) + \lambda \cdot R(E_M)$$ where $E_M$ is $E$'s expression submatrix that corresponds to $M$, and $R(E_M)$ is described by the following equation: $$R(E_M) = \sum_{j_1 = 1}^n {\sum_{j_2 = 1 \atop j_1 \neq j_2} ^n {\dfrac{\abs{\mathrm{pcc}(x_{j_1}, x_{j_2})}}{\frac{k(k - 1)}{2}}}}$$ where $\mathrm{pcc}(\cdot)$ is the \href{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient}{Pearson correlation coefficient}, and $x_j$ is the expression profile of gene $j$ \todo{non è spiegato cosa questo voglia dire ma io assumo sia un vettore colonna di $E$; inoltre, non ho idea di cosa sia il valore $R(E_M)$}.
+    Given an $m \times n$ mutation matrix $A$, an expression matrix $E$ with the same dimensions, and an $A$'s submatrix $M$ of size $m \times k$, the integrative model is defined by the following \textbf{measure}: $$F_{ME} := W(M) + \lambda \cdot R(E_M)$$ where $E_M$ is $E$'s expression submatrix that corresponds to $M$, and $R(E_M)$ is described by the following equation: $$R(E_M) = \sum_{j_1 \neq j_2} {\dfrac{\abs{\mathrm{pcc}(x_{j_1}, x_{j_2})}}{\frac{k(k - 1)}{2}}}$$ where $\mathrm{pcc}(\cdot)$ is the \href{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient}{Pearson correlation coefficient}, and $x_j$ is the expression profile of gene $j$.
 \end{definition}
 
-Note that $$0 \le R(E_m) \le 1$$ and $W(M)$ is an integer, therefore when $\lambda = 1$ the value of $F_{ME}$ can be used to discriminate the gene sets with the same $W(M)$. Moreover, for values of $\lambda \ge 1$, the gene set with strong correlation and approximate exclusivity can be identified.
+In other words, $R(E_M)$ represents the sum of the correlation coefficients for each pair of genes (note that $j_1 \neq j_2$ means that the pair $j_1, j_2$ is counted only once), normalized by the total number of possible gene pairs in $M$.
+
+Note that $$-1 \le \mathrm{pcc}(x_{j_1}, x_{j_2}) \le 1 \implies 0 \le \abs{\mathrm{pcc}(x_{j_1}, x_{j_2})} \le 1 \implies 0 \le R(E_M) \le 1$$ therefore when $\lambda = 1$ the value of $F_{ME}$ can be used to discriminate the gene sets with the same $W(M)$. Moreover, for values of $\lambda \ge 1$, the gene set with strong correlation and approximate exclusivity can be identified. The next section will describe the results obtained by the GA algorithm using the integrative model, with $\lambda$ values set to 1 and 10.
+
+\subsection{Results}
+
+placeholder. \todo{todo}
 
 \section{Mutex}
 
@@ -283,7 +297,7 @@ Moreover, \textcite{multi-dendrix} state that this ILP can be extended to allow 
 where $\Delta$ is the maximum number of gene sets a gene can be a member of, and the following constraint is added:
 
 \begin{equation}
-    \sum_{j = 1}^n {\sum_{\rho = 1}^t \sum_{\rho' = 1 \atop \rho \neq \rho'}^t {{I_{M_\rho} (j) \cdot I_{M_{\rho'}} (j)}}} \le \tau, \quad 1 \le \rho \le t
+    \sum_{j = 1}^n {\sum_{\rho' = 1 \atop \rho \neq \rho'}^t {{I_{M_\rho} (j) \cdot I_{M_{\rho'}} (j)}}} \le \tau, \quad 1 \le \rho \le t
 \end{equation}
 
 where $\tau$ is the maximum size of the intersection between two gene sets.
