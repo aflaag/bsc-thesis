@@ -165,14 +165,42 @@ As previously mentioned, a gene set $M$ can be represented as a column submatrix
     \textbf{Maximum Weight Submatrix Problem} (MWSP): Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find a $m \times k$ submatrix of $A$ that maximizes $W(M)$.
 \end{displayquote}
 
-Finding the solution to this problem is computationally difficult, even for small values of $k$ (e.g. there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes). In fact, the following proof (provided by \textcite{dendrix}) shows that this problem is NP-Complete.
+Finding the solution to this problem is computationally difficult, even for small values of $k$ (e.g. there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes). In fact, the following proof (provided by \textcite{dendrix}) shows that this problem is \NPComplete.
 
-\begin{theorem}[NP-Completeness of the MWSP] \label{mwsp proof} \todo{la prova della polinomialità della costruzione della matrice è giusta?}
-    The Maximum Weight Submatrix Problem is NP-Complete.
+\begin{theorem}[The MWSP is \NPComplete] \label{mwsp proof}
+    The Maximum Weight Submatrix Problem is \NPComplete.
 \end{theorem}
 
 \begin{proof}
-    The proof of NP-Hardness is by reduction from the \href{https://en.wikipedia.org/wiki/Independent_set_(graph_theory)}{Independent Set} Problem (ISP), which is known to be NP-Hard \cite{hochbaum}. In the ISP, it is asked whether there is an independent set of size $k$ in a given graph $G$. An independent set for $G = (V, E)$ is a set of vertices $I \subseteq V(G)$ such that there is no edge among the vertices of $I$, i.e. $$\forall u, v \in I \mid u \neq v \quad (u, v) \notin E(G)$$
+    The associated \href{https://en.wikipedia.org/wiki/Decision_problem}{decision problem} of the MWSP is formulated as follows: $$h\mathrm{-}MWSP := \{\abk{A,h} \mid \exists M \mathrm{\ column \ submatrix \ of \ } A : W(M) = h\}$$ It can be shown that this problem is in \NPclass, as follows. Consider the following verifier $V$, which takes an input $\abk{w, c}$, and computes as described below:
+
+    \begin{itemize}
+        \item interpret $w$ as $\abk{A, h}$, where $A$ is a $m \times n$ matrix, and $c$ as a matrix $M$ with $m$ rows; if the encoding is not correct, \textit{reject};
+        \item if $M$ is not a submatrix of $A$, \textit{reject};
+        \item evaluate $W(M)$; \textit{accept} if and only if $W(M)=h$.
+    \end{itemize}
+
+    It follows that
+
+    \begin{equation*}
+        \begin{split}
+            \abk{A, h} \in h\mathrm{-}MWSP & \implies \exists M \mathrm{\ submatrix \ of \ } A \mid W(M) = h \\
+            & \implies \exists c = M \mid \abk{\abk{A, h}, M} \in L(V)
+        \end{split}
+    \end{equation*}
+
+    \begin{equation*}
+        \begin{split}
+            \abk{A, h} \notin h\mathrm{-}MWSP & \implies \mathrm{incorrect \ coding} \lor \nexists M \mathrm{\ submatrix \ of \ } A \mid W(M) = h \\
+            & \implies \nexists c = M \mid \abk{\abk{A, h}, M} \in L(V)
+        \end{split}
+    \end{equation*}
+
+    therefore $$\abk{A, h} \in h\mathrm{-}MWSP \iff \exists M \mathrm{\ submatrix \ of \ } A \mid \abk{\abk{A, h}, M} \in L(V)$$
+
+    hence $V$ verifies $h\mathrm{-}MWSP$. Note that $V$ operates in polynomial time, as each of its computations can be completed in polynomial time; in particular, computing $W(M)$ for a submatrix $M$ of dimensions $m \times k$ requires $O(m \cdot k)$ time.
+
+    The proof of \NPHard-ness is by reduction from the \href{https://en.wikipedia.org/wiki/Independent_set_(graph_theory)}{Independent Set} Problem (ISP), which is known to be \NPHard \cite{hochbaum}. In the ISP, it is asked whether there is an independent set of size $k$ in a given graph $G$. An independent set for $G = (V, E)$ is a set of vertices $I \subseteq V(G)$ such that there is no edge among the vertices of $I$, i.e. $$\forall u, v \in I \mid u \neq v \quad (u, v) \notin E(G)$$
 
     Given an instance of the ISP, a mutation matrix representing an instance of the MWSP is built in polynomial time as follows:
 
@@ -185,13 +213,13 @@ Finding the solution to this problem is computationally difficult, even for smal
                 \begin{tabular}{c|ccc}
                           & $v_1$ & $\ldots$ & $v_n$ \\
                     \hline
-                    $e_1$ & $\ddots$ & & \\
+                    $s_{e_1}$ & $\ddots$ & & \\
                     $\vdots$ & & $\ddots$ & \\
-                    $e_m$ & & & $\ddots$ \\
+                    $s_{e_m}$ & & & $\ddots$ \\
                     \hline
                     $s_{v_1}^{(1)}$ & $\ddots$ & & \\
                     $\vdots$ & & $\vdots$ & \\
-                    $s_{v_1}^{(\Delta - \deg(v_1))}$ & &  & \\
+                    $s_{v_1}^{(\Delta - \deg(v_1))}$ & & & \\
                     $\vdots$ & & $\vdots$ & \\
                     $s_{v_n}^{(1)}$ & &  & \\
                     $\vdots$ & & $\vdots$ & \\
@@ -210,7 +238,7 @@ Finding the solution to this problem is computationally difficult, even for smal
         \item the vertex $\hat v$ that maximizes $\abs{\mathcal S_{\hat v}}$ is such that $$\deg(\hat v) = 1 \implies \abs{\mathcal S_{\hat v}} = \Delta - \deg(\hat v) = \Delta - 1 = O(\Delta) = O(n)$$ and since there are $n$ sets, the matrix's second half contains $(n \cdot n) \cdot n = n^3$ cells
     \end{itemize}
 
-    therefore the time complexity to create it is $O \rbk{n^2 + nm}$. Moreover, note that:
+    therefore the time complexity to create it is $O \rbk{n^3 + nm}$. Moreover, note that:
 
     \begin{enumerate}[label=\roman*), font=\itshape]
         \item $\forall v \in V(G) \quad \abs{\Gamma(v)} = \Delta$ due to the added variables at the end of each column;
@@ -220,7 +248,7 @@ Finding the solution to this problem is computationally difficult, even for smal
     Hence, consider a set $M = \{v_1, \ldots, v_k\}$ of $k$ columns of $A$. Note that:
 
     \begin{itemize}
-        \item from $(i)$ it follows that $$\sum_{i = 1}^k {\abs{\Gamma \rbk{v_i}}} = k \Delta$$ and consequently $\abs{\Gamma(M)} \le k \Delta$, meaning that the largest value $\abs{\Gamma(M)}$ can have is $k \Delta$; hence, from the equation in \cref{weight}, it follows that the maximum value $W(M)$ can reach is
+        \item from $(i)$ it follows that $$\sum_{i = 1}^k {\abs{\Gamma \rbk{v_i}}} = k \Delta$$ and consequently $\abs{\Gamma(M)} \le k \Delta$, meaning that the largest value $\abs{\Gamma(M)}$ can have is $k \Delta$; thus, from the equation in \cref{weight}, it follows that the maximum value $W(M)$ can reach is
             \begin{equation*}
                 \begin{split}
                     W(M) & = 2 \abs{\Gamma(M)} - \sum_{i = 1}^k{\abs{\Gamma \rbk{v_i}}} \\
@@ -232,7 +260,7 @@ Finding the solution to this problem is computationally difficult, even for smal
         \item from $(ii)$ it follows that $\abs{\Gamma(M)} = k \Delta \iff \forall u, v \in V(G) \quad \Gamma(u) \cap \Gamma(v) = \varnothing \iff \forall u, v \in V(G) \quad (u, v) \notin E(G) \iff M$ is an independent set, by definition.
     \end{itemize}
 
-    This means that $W(M)$ is maximized if and only if $M$ is an independent set; therefore, the MWSP can be solved on $A$ if and only if the ISP can be solved on $G$.
+    This means that $W(M) = k \Delta$, i.e. is maximized, if and only if $M$ is an independent set; therefore, the MWSP can be solved on $A$ if and only if the ISP can be solved on $G$.
 \end{proof}
 
 The approach developed by \textcite{dendrix} will be discussed in the next chapter.

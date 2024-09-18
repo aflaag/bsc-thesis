@@ -143,12 +143,18 @@
 \newcommand{\soe}[2]{\left\{\begin{array}{#1} #2 \end{array}\right.}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \newcommand{\sbk}[1]{\left[#1\right]}
+\newcommand{\resizable}[2]{\resizebox{#1\hsize}{!}{#2}}
+\newcommand{\centeredeq}[2]{\begin{equation*}\resizable{#1}{#2}\end{equation*}}
+\newcommand{\centeredsoe}[1]{\left . \begin{array}{c} #1 \end{array} \right .}
+
+\newcommand{\NPclass}{\textsf{NP}\xspace}
+\newcommand{\NPHard}{\textsf{NP-Hard}\xspace}
+\newcommand{\NPComplete}{\textsf{NP-Complete}\xspace}
 
 % \newcommand{\say}[1]{\flqq\textit{#1}\frqq}
 % \newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
 % \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
 %
-% \newcommand{\TFNP}{\textsf{TFNP}\xspace}
 % \newcommand{\TFNPdt}{\mathsf{TFNP}^{dt}\xspace}
 %
 % \newcommand{\N}{\mathbb{N}}

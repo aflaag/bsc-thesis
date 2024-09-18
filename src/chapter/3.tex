@@ -165,7 +165,7 @@ As outlined in \cref{multi_dendrix_2nd_chap}, \textcite{multi-dendrix} propose t
     \textbf{Multiple Maximum Weight Submatrices Problem} (MMWSP): Given an $m \times n$ mutation matrix $A$, and integer $t > 0$, and two integers $k_{\mathrm{min}}, k_{\mathrm{max}} \ge 0$, find a collection $M = \{M_1, \ldots, M_t\}$ of column submatrices that maximizes $W'(M)$, where each submatrix $M_\rho$ --- for $1 \le \rho \le t$ ---  has size $m \times k_\rho$ for some $k_{\mathrm{min}} \le k_\rho \le k_{\mathrm{max}}$.
 \end{displayquote}
 
-Note that the sets in the optimal collection may vary in size, as different pathways are likely to have different lengths; additionally, note that this problem is NP-Hard, as for the case where $t = 1$ (proof provided in \cref{mwsp proof}). Furthermore, \textcite{multi-dendrix} state that collections $M$ with a large value of $W'(M)$ are also likely to exhibit higher coverage $\Gamma(M_\rho)$, for each individual gene set $M_\rho$. Consequently, optimal solutions tend to produce collections where many patients have mutations in more than one gene set, which may involve pairs or larger groups of co-occurring mutations --- a phenomenon observed in real cancer data.
+Note that the sets in the optimal collection may vary in size, as different pathways are likely to have different lengths; additionally, note that this problem is \NPComplete, as for the case where $t = 1$ (proof provided in \cref{mwsp proof}). Furthermore, \textcite{multi-dendrix} state that collections $M$ with a large value of $W'(M)$ are also likely to exhibit higher coverage $\Gamma(M_\rho)$, for each individual gene set $M_\rho$. Consequently, optimal solutions tend to produce collections where many patients have mutations in more than one gene set, which may involve pairs or larger groups of co-occurring mutations --- a phenomenon observed in real cancer data.
 
 The ILP developed by \textcite{multi-dendrix} to simultaneously search for multiple driver pathways is described below.
 
@@ -539,7 +539,7 @@ In this formulation, $x_e$ allow to describe any clustering of the vertices of $
 
 \subsection{The rounding procedure}
 
-Since solving ILPs is NP-Hard, \textcite{c3} relax the problem by changing \cref{c3_fourth} to an interval constraint $$0 \le x_e \le 1$$ leading to an LP program, the solution of which may be fractional. Hence, to obtain a valid clustering, the fractional solutions have to be rounded. Therefore, instead of solving the LP, \textcite{c3} remove \cref{c3_third} from the linear program, and employ the following rounding procedure.
+Since solving ILPs is \NPHard, \textcite{c3} relax the problem by changing \cref{c3_fourth} to an interval constraint $$0 \le x_e \le 1$$ leading to an LP program, the solution of which may be fractional. Hence, to obtain a valid clustering, the fractional solutions have to be rounded. Therefore, instead of solving the LP, \textcite{c3} remove \cref{c3_third} from the linear program, and employ the following rounding procedure.
 
 \begin{algorithm}[H]
     \caption{

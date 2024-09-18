@@ -19,7 +19,7 @@
 \contentsline {section}{\numberline {2.2}Assessing mutual exclusivity}{10}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Challenges in quantifying mutual exclusivity}{10}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}A deterministic formalization of mutual exclusivity}{11}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}A statistical approach}{15}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}A statistical approach}{16}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Extending the deterministic equation}{17}{subsection.2.2.4}%
 \contentsline {subsection}{\numberline {2.2.5}A clustering approach}{18}{subsection.2.2.5}%
 \contentsline {chapter}{\numberline {3}Finding driver mutations}{21}{chapter.3}%
@@ -56,4 +56,4 @@
 \contentsline {section}{\numberline {4.3}MDPFinder}{46}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}The ILP of Dendrix}{46}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}The GA}{46}{subsection.4.3.2}%
-\contentsline {chapter}{Acknowledgements}{47}{chapter*.36}%
+\contentsline {chapter}{Acknowledgements}{47}{chapter*.35}%
