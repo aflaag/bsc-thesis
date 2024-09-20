@@ -271,58 +271,81 @@ The approach developed by \textcite{dendrix} will be discussed in the next chapt
 
 Before exploring their metric, it is important to note that a uniform alteration frequency across samples may not always hold, particularly for hyper-mutated samples, often resulting from prior mutations in DNA repair mechanisms. Addressing this heterogeneity is challenging, as each overlap in the null model has a different probability. This remains an open problem, and to partially mitigate it, \textcite{mutex} decided to exclude hyper-altered samples from the analysis.
 
-The following definitions will describe the metrics they developed. Consider the following null hypothesis:
+The following definitions will introduce the metrics they developed. Consider the following null hypothesis:
 
 \begin{displayquote}
     $H_0$: \textit{Given a group of genes, a member gene is altered independently from the union of the other alterations in the group}.
 \end{displayquote}
 
-Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $g \in M$, mutations in $\Gamma(g)$ are independent from alterations in $\Gamma(M - \{g\})$. In brief, $H_0$ states that any observed pattern among gene alterations is due to \textit{random chance}, not due to any underlying biological or oncogenic mechanism. Given a single gene $g$, $H_0$ can be tested by evaluating $g$'s co-distribution with the union of the others, through an \textit{hypergeometric test}, which is performed as follows.
+Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every gene $g \in M$, mutations in $\Gamma(g)$ are independent from alterations in $\Gamma(M - \{g\})$. In brief, $H_0$ states that any observed pattern among gene alterations is due to \textit{random chance}, not due to any underlying biological or oncogenic mechanism. Given a single gene $g$, $H_0$ can be tested by evaluating $g$'s co-distribution with the union of the others, through an \textit{hypergeometric test}, which is performed as described below.
 
-To test $H_0$ for a gene $g$ within a given gene set $M$, it is necessary to quantify \textit{the probability that there are $\abs{\Gamma(g)}$ patients that have $g$ mutated}; let this probability be represented by the random variable $X$. This probability can be assessed by using the \href{https://en.wikipedia.org/wiki/Probability_mass_function}{PMF} of the \href{https://en.wikipedia.org/wiki/Hypergeometric_distribution}{hypergeometric distribution}, namely $$P(X = h) = \dfrac{\dbinom{H}{h}\dbinom{T - H}{t - h}}{\dbinom{T}{t}}$$ Note that, in this context:
+\begin{definition}[Notation]
+    Let $M$ be a gene set, and let $g \in M$; define the following variables:
 
-\begin{itemize}
-    \item $T = 2m$, because there are $m$ patients in the mutation matrix, thus $m$ patients can have gene $g$ mutated, and $m$ patients can be in $\Gamma(M - \{g\})$;
-    \item $H = m$, which represents the total number of patients, and it the amount of patients that could potentially have gene $g$ mutated;
-    \item $t = \abs{\Gamma(M)}$, because it is the total number of patients with at least one mutation in $M$;
-    \item $h = \abs{\Gamma(g)}$, since it is the number of patients with gene $g$ mutated, which is the value of interest.
-\end{itemize}
+    \begin{itemize}
+        \item $\Gamma_g := \abs{\Gamma(g)}$
+        \item $\Gamma_M := \abs{\Gamma(M)}$
+        \item $M^g := M - \{g\}$
+        \item $\Gamma_{M^g} := \abs{\Gamma(M - \{g\})}$
+        \item $\inters := \abs{\Gamma(g) \cap \Gamma(M - \{g\})}$
+    \end{itemize}
+\end{definition}
 
-Therefore, the following probability must be evaluated:
+To test $H_0$ for the gene $g \in M$, it is necessary to quantify \textit{the probability that there are $\inters$ patients who have both gene $g$ and any gene in $M$ mutated}; let this probability be represented by the random variable $X$. Since $X$ follows an \href{https://en.wikipedia.org/wiki/Hypergeometric_distribution}{hypergeometric distribution}, denoted as $$X \sim H(m, \Gamma_g, \Gamma_{M^g})$$ this probability can be assessed by using the \href{https://en.wikipedia.org/wiki/Probability_mass_function}{PMF} of the hypergeometric distribution, namely: $$P(X = \inters) = \dfrac{\dbinom{\Gamma_g}{\inters}\dbinom{m - \Gamma_g}{\Gamma_{M^g} - \inters}}{\dbinom{m}{\Gamma_{M^g}}}$$
 
-\begin{equation}
-    P(X = \abs{\Gamma(g)}) = \dfrac{\dbinom{m}{\abs{\Gamma(g)}}\dbinom{2m - m}{\abs{\Gamma(M)} - \abs{\Gamma(g)}}}{\dbinom{2m}{\abs{\Gamma(M)}}} = \dfrac{\dbinom{m}{\abs{\Gamma(g)}}\dbinom{m}{\abs{\Gamma(M - \{g\})}}}{\dbinom{2m}{\abs{\Gamma(M)}}}
-\end{equation}
-
-Note that this probability can also be evaluated using Fisher's exact test, employing the following contingency table:
+Note that, by using the \href{https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_principle}{inclusion-exclusion principle} $$\abs{\Gamma(M)} = \abs{\Gamma(g)} + \abs{\Gamma(M - \{g\})} - \abs{\Gamma(g) \cap \Gamma(M - \{g\})}$$ this probability can also be evaluated using Fisher's exact test, by employing the following contingency table:
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{c|c|c|c}
-              & $g$ & $M - \{g\}$ & \\
-        \hline
-        mutated & $\abs{\Gamma(g)}$ & $\abs{\Gamma(M - \{g\})}$ & $\abs{\Gamma(M)}$ \\
-        \hline
-        not mutated & $m - \abs{\Gamma(g)}$ & $m - \abs{\Gamma(M - \{g\})}$ & $2m - \abs{\Gamma(M)}$ \\
-        \hline
-              & $m$ & $m$ & $2m$
-    \end{tabular}
+    \resizebox{\columnwidth}{!}{%
+        \begin{tabular}{c|c|c|c}
+                  & alterations in $\Gamma(g)$ & alterations \textit{not} in $\Gamma(g)$ & \\
+            \hline
+            alterations in $\Gamma(M - \{g\})$ & $\inters$ & $\Gamma_M - \Gamma_g$ & $\Gamma_{M^g}$ \\
+            \hline
+            alterations \textit{not} in $\Gamma(M - \{g\})$ & $\Gamma_g - \inters$ & $m - \Gamma_M$ & $m - \Gamma_{M^g}$ \\
+            \hline
+                  & $\Gamma_g$ & $m - \Gamma_g$ & $m$
+        \end{tabular}
+    }
     \caption{Fisher's exact test}
 \end{table}
 
-and Fisher proved that the following equality holds $$P(X = \abs{\Gamma(g)}) = \dfrac{m!m!\abs{\Gamma(M)}!(2m - \abs{\Gamma(M)})!}{(2m)!  \abs{\Gamma(g)}! \abs{\Gamma(M - \{g\})}!  (m - \abs{\Gamma(g)})! (m - \abs{\Gamma(M - \{g\})})!}$$
+This probability is used to determine the mutual exclusivity score of $M$, but further details will be discussed in the next chapter, as the scoring method involves multiple functions that are integral to running the algorithm itself.
 
-This probability is the associated $p$-value of $g \in M$.
+% \begin{example}[Intersection]
+%     For instance, consider the gene set $M = \{g_1, g_2, g_3, g_4\}$, and its corresponding submatrix (transposed clarity) \cite{mutex}:
+%
+%     \begin{table}[H]
+%         \centering
+%         \resizebox{\columnwidth}{!}{%
+%             \begin{tabular}{c|ccccccccccccccccccccccc}
+%                 $g_1$ & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 \\
+%                 \hline
+%                 $g_2$ & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 &1 &1 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 \\
+%                 \hline
+%                 $g_3$ & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &0 &0 &1 &1 &1 &1 &1 &1 &0 &0 &0 &0 &0 &0 &0 \\
+%                 \hline
+%                 $g_4$ & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &0 &0 &0 &0 &0 &0 &1 &1 &1 &1 &1 &1 &0 &0 &0
+%             \end{tabular}
+%             }
+%         \caption{An example gene set}
+%     \end{table}
+%
+%     Therefore, 
+% \end{example}
 
-To quantify $M$'s \textit{score} of mutual exclusivity, $H_0$ is first tested for each $g \in M$, by evaluating the co-distribution of $g$ with the union of the others through this test, therefore generating $\abs{M}$ $p$-values, which represent the probabilities for the independent distribution of each member gene. To ensure that every group member contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of $M$. With Dendrix's notation
-
-\begin{equation}
-    s_0 := \max_{g \in M} {H \abk{\Gamma(g), \Gamma(M - \{g\})}}
-\end{equation}
-
-where $s_0$ is the initial score, and $H$ is the aforementioned \textit{hypergeometric test}.
-
-Since multiple groups are being tested, $s_0$ is affected by \href{https://en.wikipedia.org/wiki/Multiple_comparisons_problem}{\textit{multiple hypothesis testing}}, because the probability of finding statistically significant results may increase by chance. To account for it, \todo{finish this section}
+% This probability is the associated $p$-value of $g \in M$.
+%
+% To quantify $M$'s \textit{score} of mutual exclusivity, $H_0$ is first tested for each $g \in M$, by evaluating the co-distribution of $g$ with the union of the others through this test, therefore generating $\abs{M}$ $p$-values, which represent the probabilities for the independent distribution of each member gene. To ensure that every group member contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of $M$. With Dendrix's notation
+%
+% \begin{equation}
+%     s_0 := \max_{g \in M} {H \abk{\Gamma(g), \Gamma(M - \{g\})}}
+% \end{equation}
+%
+% where $s_0$ is the initial score, and $H$ is the aforementioned \textit{hypergeometric test}.
+%
+% Since multiple groups are being tested, $s_0$ is affected by \href{https://en.wikipedia.org/wiki/Multiple_comparisons_problem}{\textit{multiple hypothesis testing}}, because the probability of finding statistically significant results may increase by chance. To account for it, \todo{finish this section}
 
 \subsection{Extending the deterministic equation} \label{multi_dendrix_2nd_chap}
 

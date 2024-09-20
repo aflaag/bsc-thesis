@@ -374,6 +374,12 @@ INPUT /usr/share/texmf-dist/tex/latex/cleveref/cleveref.sty
 INPUT /usr/share/texmf-dist/tex/latex/cleveref/cleveref.sty
 INPUT /usr/share/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 INPUT /usr/share/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+INPUT /usr/share/texmf-dist/tex/latex/leftindex/leftindex.sty
+INPUT /usr/share/texmf-dist/tex/latex/leftindex/leftindex.sty
+INPUT /usr/share/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT /usr/share/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT /usr/share/texmf-dist/tex/latex/mathtools/mhsetup.sty
+INPUT /usr/share/texmf-dist/tex/latex/mathtools/mhsetup.sty
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/biblatex.sty
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/biblatex.sty
 INPUT /usr/share/texmf-dist/tex/latex/logreq/logreq.sty
