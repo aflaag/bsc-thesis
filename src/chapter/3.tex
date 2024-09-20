@@ -379,6 +379,51 @@ placeholder. \todo{una cosa carina sarebbe scrivere lo pseudocodice dell'algorit
     Given a gene graph, the \textbf{proximity} of a gene $G$ includes not only the genes directly adjacent to $g$ but also those that share downstream targets in the pathway with $g$. \todo{QUESTA DEFINIZIONE NON VA QUA}
 \end{definition}
 
+\begin{algorithm}[H]
+    \caption{
+        \textit{TODO}: TODO
+    }
+
+        \label{greedy_mutex}
+    \begin{algorithmic}[1]
+        \Function{greedySearch}{$g$, $k_\mathrm{max}$, $G$, $A$, \texttt{final}}
+            \State $M := \{g\}$
+            \Do
+                \State $M_p := M$
+                \State $M := \texttt{expandGroup}(M, G, k_\mathrm{max}, A, \texttt{final})$
+            \doWhile{$M \neq M_p \land \abs{M} < k_\mathrm{max}$} \Comment{if new genes were added to $M$}
+            \State \textbf{return} $M$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+    \caption{
+        \textit{TODO}: TODO
+    }
+
+        \label{score_mutex}
+    \begin{algorithmic}[1]
+        \Function{score}{$M$, $A$, \texttt{final}, $\mathcal N$}
+            \State $\mathcal P := \texttt{pValues}(M, A)$
+            \If{$\texttt{final}$} \Comment{initial $p$-values correction}
+                \For{$g \in M$}
+                    % \State $c := 0$
+                    \State $\mathcal N_g := \mathcal N\texttt{[}g\texttt{]}$
+                    \State $c := \abs{\{i \mid \mathcal N_g\texttt{[}i\texttt{]} \le \mathcal P \texttt{[}g\texttt{]}\}}$
+                    % \For{$i \in [1, \mathcal N_g.\texttt{len}()]$}
+                    %     \If{$\mathcal N_g\texttt{[}i\texttt{]} \le \mathcal P\texttt{[}g\texttt{]}$}
+                    %         \State $c \texttt{ += } 1$
+                    %     \EndIf
+                    % \EndFor
+                    \State $\mathcal P\texttt{[}g\texttt{]} := \max\rbk{\mathcal P\texttt{[}g\texttt{]}, \dfrac{c}{\mathcal N_g.\texttt{len}()}}$
+                \EndFor
+            \EndIf
+            \State \textbf{return} $\max_{g \in M}{\mathcal P\texttt{[}g\texttt{]}}$ \Comment{the \textit{least} significant is the \textit{largest}}
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
+
 \section{C3}
 
 \subsection{Multiple versions}

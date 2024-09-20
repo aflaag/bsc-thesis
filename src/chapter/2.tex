@@ -311,7 +311,24 @@ Note that, by using the \href{https://en.wikipedia.org/wiki/Inclusion%E2%80%93ex
     \caption{Fisher's exact test}
 \end{table}
 
-This probability is used to determine the mutual exclusivity score of $M$, but further details will be discussed in the next chapter, as the scoring method involves multiple functions that are integral to running the algorithm itself.
+This probability is used to determine the mutual exclusivity score of $M$, but further details will be discussed in the next chapter, as the scoring method involves multiple functions that are integral to running the algorithm itself. The following algorithm will be used to evaluate $M$'s score.
+
+\begin{algorithm}[H]
+    \caption{
+        \textit{$p$-values procedure}: given a gene set $M$, derived from a mutation matrix $A$, the algorithm returns the $p$-values of each gene $g \in M$.
+    }
+
+        \label{p-values_procedure}
+    \begin{algorithmic}[1]
+        \Function{pValues}{$M$, $A$}
+            \State $\mathcal P := \texttt{\{\}}$
+            \For{$g \in M$}
+                \State $\mathcal P.\texttt{add\_entry}(g, P(X \le \inters))$ \Comment{this is $g$'s $p$-value}
+            \EndFor
+            \State \textbf{return} $\mathcal P$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
 
 % \begin{example}[Intersection]
 %     For instance, consider the gene set $M = \{g_1, g_2, g_3, g_4\}$, and its corresponding submatrix (transposed clarity) \cite{mutex}:
