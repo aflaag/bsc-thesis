@@ -402,6 +402,50 @@ placeholder. \todo{una cosa carina sarebbe scrivere lo pseudocodice dell'algorit
         \textit{TODO}: TODO
     }
 
+        \label{expand_group_mutex}
+    \begin{algorithmic}[1]
+        \Function{expandGroup}{$M$, $G$, $k_\mathrm{max}$, $A$, \texttt{final}}
+            \State $\mathcal C := \texttt{getCandidates}(M, G)$ \Comment{TODO}
+            \If{$\mathcal C = \varnothing$}
+                \State \textbf{return} $M$
+            \EndIf
+            \State $b := \texttt{NULL}$ \Comment{$b$ is the current best candidate}
+            \State $b_s := 1$ \Comment{$b_v$ is $b$'s associated score}
+            \State $\mathcal N := \texttt{\{\}}$
+            \If{\texttt{final}}
+                \State $\mathcal P := \texttt{pValues}(M, A)$
+                \For{$g \in M$}
+                    \State $\mathcal N.\texttt{add\_entry}(g, \mathcal N_g)$ \Comment{$\mathcal N_g$ is $g$'s null distribution, based on $\mathcal P \texttt{[} g\texttt{]}$}
+                \EndFor
+            \EndIf
+            \State $m_s := \texttt{score}(M, A, \texttt{final}, \mathcal N)$ \Comment{current $M$'s score}
+            \For{$c \in \mathcal C$}
+                \If{\texttt{final}}
+                    \State $\mathcal P' := \texttt{pValues}\rbk{M \cup \{c\}, A}$
+                    % \State $\mathcal N \texttt{[} c\texttt{]} = \mathcal N_c'$ \Comment{$\mathcal N_c'$ is $c$'s null distribution, based on $\mathcal P' \texttt{[} c \texttt{]}$}
+                    \For{$g \in (M \cup \{c\})$}
+                        \State $\mathcal N \texttt{[}g\texttt{]} = \mathcal N_g'$ \Comment{$\mathcal N_g'$ is $g$'s null distribution, based on $\mathcal P' \texttt{[} g\texttt{]}$}
+                    \EndFor
+                \EndIf
+                \State $c_s := \texttt{score} \rbk{M \cup \{c\}, A, \texttt{final}, \mathcal N}$ \Comment{$c$'s associated score}
+                \If{$c_s < b_s \land c_s < m_s$} \Comment{$c$ discarded if $c_s$ does not improve $M$}
+                    \State $b := c$
+                    \State $b_s := c_s$
+                \EndIf
+            \EndFor
+        \If{$b \neq \texttt{NULL}$}
+            \State \textbf{return} $M \cup \{b\}$
+        \EndIf
+        \State \textbf{return} $M$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+    \caption{
+        \textit{TODO}: TODO
+    }
+
         \label{score_mutex}
     \begin{algorithmic}[1]
         \Function{score}{$M$, $A$, \texttt{final}, $\mathcal N$}
