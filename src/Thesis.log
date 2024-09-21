@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  21 SEP 2024 09:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.2)  21 SEP 2024 22:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1622,21 +1622,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 367.
  [35]
-
-LaTeX Warning: Marginpar on page 36 moved.
-
-
-LaTeX Warning: Marginpar on page 36 moved.
-
-
-LaTeX Warning: Marginpar on page 36 moved.
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.389         \Function
-                       {greedySearch}{$g$, $k_\mathrm{max}$, $G$, $A$, \text...
+                       {greedyMutex}{$g$, $k_\mathrm{max}$, $G$, $A$, \textt...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1656,7 +1646,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) h
 <to be read again> 
                    \relax 
 l.393                 \State
-                             $M := \texttt{expandGroup}(M, G, k_\mathrm{max}...
+                             $M := \texttt{expandGroup}(M, G, A, \texttt{fin...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1675,272 +1665,272 @@ l.396         \EndFunction
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.407         \Function
-                       {expandGroup}{$M$, $G$, $k_\mathrm{max}$, $A$, \textt...
+l.419         \Function
+                       {expandGroup}{$M$, $G$, $A$, \texttt{final}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.408             \State
-                         $\mathcal C := \texttt{getCandidates}(M, G)$ \Comme...
+l.420             \State
+                         $b := \texttt{NULL}$ \Comment{$b$ is the current be...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.409             \If
-                     {$\mathcal C = \varnothing$}
+l.421             \State
+                         $b_s := 1$ \Comment{$b_v$ is $b$'s associated score}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.410                 \State
-                             \textbf{return} $M$
+l.422             \State
+                         $\mathcal N := \texttt{\{\}}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.411             \EndIf
-                        
+l.423             \If
+                     {\texttt{final}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.412             \State
-                         $b := \texttt{NULL}$ \Comment{$b$ is the current be...
+l.424                 \State
+                             $\mathcal P := \texttt{pValues}(M, A)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.413             \State
-                         $b_s := 1$ \Comment{$b_v$ is $b$'s associated score}
+l.425                 \For
+                          {$g \in M$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.414             \State
-                         $\mathcal N := \texttt{\{\}}$
+l.426                     \State
+                                 $\mathcal N.\texttt{add\_entry}(g, \mathcal...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.415             \If
-                     {\texttt{final}}
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Package cleveref Info: loaded `english' language definitions on input line 443.
+l.427                 \EndFor
+                             
+Package cleveref Info: loaded `english' language definitions on input line 451.
  [36]
+Package cleveref Info: loaded `english' language definitions on input line 461.
+ [37]
+Package cleveref Info: loaded `english' language definitions on input line 491.
+ [38]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.451         \Function
+l.505         \Function
                        {score}{$M$, $A$, \texttt{final}, $\mathcal N$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.452             \State
+l.506             \State
                          $\mathcal P := \texttt{pValues}(M, A)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.453             \If
+l.507             \If
                      {$\texttt{final}$} \Comment{initial $p$-values correction}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.454                 \For
+l.508                 \For
                           {$g \in M$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.456                     \State
+l.510                     \State
                                  $\mathcal N_g := \mathcal N\texttt{[}g\text...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.457                     \State
+l.511                     \State
                                  $c := \abs{\{i \mid \mathcal N_g\texttt{[}i...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.463                     \State
+l.517                     \State
                                  $\mathcal P\texttt{[}g\texttt{]} := \max\rb...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.464                 \EndFor
+l.518                 \EndFor
                              
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.465             \EndIf
+l.519             \EndIf
                         
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Package cleveref Info: loaded `english' language definitions on input line 470.
- [37]
-
-LaTeX Warning: Reference `neg_weights' on page 1 undefined on input line 483.
-
-Package cleveref Info: loaded `english' language definitions on input line 504.
-[38
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.504 
-      
+<to be read again> 
+                   \relax 
+l.520             \State
+                         \textbf{return} $\max_{g \in M}{\mathcal P\texttt{[...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.504 
-      ]
-Package cleveref Info: loaded `english' language definitions on input line 526.
- [39]
+<to be read again> 
+                   \relax 
+l.521         \EndFunction
+                          
 
-LaTeX Warning: Marginpar on page 40 moved.
+LaTeX Warning: Reference `neg_weights' on page 1 undefined on input line 537.
 
+Package cleveref Info: loaded `english' language definitions on input line 544.
+[39]
 Package cleveref Info: loaded `english' language definitions on input line 569.
-[40]
-Package cleveref Info: loaded `english' language definitions on input line 612.
- [41]
+ [40]
+
+LaTeX Warning: Marginpar on page 41 moved.
+
+Package cleveref Info: loaded `english' language definitions on input line 609.
+[41]
+Package cleveref Info: loaded `english' language definitions on input line 658.
+ [42]
+Package cleveref Info: loaded `english' language definitions on input line 685.
+ [43]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.640         \Function
+l.694         \Function
                        {roundingProcedure}{$G$, $\{x_e\}_{e \in E(G)}$, $\al...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.641             \State
+l.695             \State
                          $\mathcal C := \varnothing$ \Comment{the output set...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.642             \State
+l.696             \State
                          $S := V(G)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.643             \While
+l.697             \While
                         {$S \neq \varnothing$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.644                 \State
+l.698                 \State
                              Choose an arbitrary $u \in S$ \Comment{this is ...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.645                 \State
+l.699                 \State
                              $T := \{w \in S - \{u\} \mid x_{uw} \le \alpha\...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.646                 \If
+l.700                 \If
                          {$\sum_{w \in T}{x_{uw}} \ge \frac{\alpha}{2}\abs{T}$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.647                     \State
+l.701                     \State
                                  $\mathcal C = \mathcal C \cup \{u\}$ \Comme...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.648                     \State
+l.702                     \State
                                  $S = S - \{u\}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.649                 \ElsIf
+l.703                 \ElsIf
                             {$\abs{T} \le k$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.650                     \State
+l.704                     \State
                                  $\mathcal C = \mathcal C \cup \rbk{\{u\} \c...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.651                     \State
+l.705                     \State
                                  $S = S - \rbk{\{u\} \cup T}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.652                 \Else
+l.706                 \Else
                            
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.653             \State
+l.707             \State
                          Partition $T$ into $\{T_0', T_1, \ldots, T_p\}$, su...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.654                     \State
+l.708                     \State
                                  $T_0 := T_0' \cup \{u\}$ \Comment{$T_0$ has...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.655                     \For
+l.709                     \For
                               {$i \in [0, p]$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.17}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.656                         \State
+l.710                         \State
                                      $\mathcal C = \mathcal C \cup T_i$ \Com...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.18}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.657                     \EndFor
+l.711                     \EndFor
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.19}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.658                     \State
+l.712                     \State
                                  $S = S - \rbk{\{u\} \cup T}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.20}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.659                 \EndIf
+l.713                 \EndIf
                             
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.21}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.660             \EndWhile
+l.714             \EndWhile
                            
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.22}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.661             \State
+l.715             \State
                          \textbf{return} $\mathcal C$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.23}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.662         \EndFunction
+l.716         \EndFunction
                           
-Package cleveref Info: loaded `english' language definitions on input line 665.
- [42]
 
-LaTeX Warning: Marginpar on page 43 moved.
+LaTeX Warning: Marginpar on page 44 moved.
 
-Package cleveref Info: loaded `english' language definitions on input line 699.
-[43]) (./chapter/4.tex
+Package cleveref Info: loaded `english' language definitions on input line 739.
+[44]
+Package cleveref Info: loaded `english' language definitions on input line 753.
+ [45]) (./chapter/4.tex
 Chapter 4.
-[44
+[46
 
 
 ]
 Underfull \vbox (badness 1629) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 47.
- [45]
+ [47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 61.
- [46]
-Package cleveref Info: loaded `english' language definitions on input line 74.
- [47]) (./chapter/ack.tex) [48
+ [48]
+Package cleveref Info: loaded `english' language definitions on input line 75.
+ [49]) (./chapter/ack.tex) [50
 
 
-] [49
+] [51
 
 
 ]
 Package cleveref Info: loaded `english' language definitions on input line 226.
- [50]
+ [52]
 Package cleveref Info: loaded `english' language definitions on input line 228.
- [51] (./Thesis.aux
+ [53] (./Thesis.aux
 Package cleveref Info: loaded `english' language definitions on input line 11.
 )
  ***********
@@ -1958,18 +1948,18 @@ Package logreq Info: Writing requests to 'Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51515 strings out of 476024
- 1066902 string characters out of 5792397
- 1985208 words of memory out of 5000000
- 72157 multiletter control sequences out of 15000+600000
- 698401 words of font info for 314 fonts, out of 8000000 for 9000
+ 51533 strings out of 476024
+ 1067034 string characters out of 5792397
+ 1986942 words of memory out of 5000000
+ 72161 multiletter control sequences out of 15000+600000
+ 698391 words of font info for 315 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,21n,131p,1852b,2828s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (58 pages, 667146 bytes).
+Output written on Thesis.pdf (60 pages, 674044 bytes).
 PDF statistics:
- 1348 PDF objects out of 1440 (max. 8388607)
- 1218 compressed objects within 13 object streams
- 324 named destinations out of 1000 (max. 500000)
+ 1381 PDF objects out of 1440 (max. 8388607)
+ 1249 compressed objects within 13 object streams
+ 336 named destinations out of 1000 (max. 500000)
  77802 words of extra memory for PDF output out of 89155 (max. 10000000)
 

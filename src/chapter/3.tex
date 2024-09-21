@@ -8,7 +8,7 @@ Existing approaches can be categorized into two types: \textbf{\textit{de novo}}
 
 \section{Dendrix}
 
-\subsection{A greedy approach}
+\subsection{A greedy approach} \label{dendrix_first_sub}
 
 \textcite{dendrix} introduced the most widely adopted metric in pathway discovery research, namely $W(M)$ (presented in \cref{weight}). In addition to this, they defined the Maximum Weight Submatrix Problem (MWSP), discussed in \cref{mwsp}, and proposed the following \textit{greedy algorithm}, called Dendrix (\textit{de novo} \cite{survey}), to solve it.
 
@@ -365,50 +365,58 @@ The second dataset used by \textcite{mdpfinder} was sourced from the TCGA \cite{
 
 The final dataset reported by \textcite{mdpfinder} is the \href{https://en.wikipedia.org/wiki/Ovarian_cancer}{ovarian carcinoma} dataset from a recent TCGA study. This dataset includes mRNA expression, microRNA expression, promoter methylation, DNA CNAs from 489 samples, and exon DNA sequences from 316 tumors. After preprocessing, mutation and expression matrices were created, covering 313 samples and 6108 genes. The mutation distribution was uneven as in the first database, with TP53 mutations prevalent in most samples, while TTN mutations were considered artifacts and were removed from the analysis. For $k=2$, the gene pair (\href{https://www.ncbi.nlm.nih.gov/gene/898}{CCNE1}, \href{https://www.ncbi.nlm.nih.gov/gene/4609}{MYC}), involved in cell cycle progression, was identified in 135 samples. At $k=3$, \href{https://www.ncbi.nlm.nih.gov/gene/4815}{NINJ2} was added to this optimal gene set. For $k=4$, the ILP model identified a set of four genes: (KRAS, \href{https://www.ncbi.nlm.nih.gov/gene/5520}{PPP2R2A}, \href{https://www.ncbi.nlm.nih.gov/gene/24148}{PRPF6}, \href{https://www.ncbi.nlm.nih.gov/gene/6262}{RYR2}). In contrast, the integrative model identified an alternative set: (KRAS, \href{https://www.ncbi.nlm.nih.gov/gene/23542}{MAPK8IP2}, NF1, \href{https://www.ncbi.nlm.nih.gov/gene/50861}{STMN3}), which showed stronger correlations among the genes. KRAS, NF1, and MAPK8IP2 are part of the MAPK signaling pathway, while STMN3 is associated with cancer progression. \textcite{mdpfinder} highlight that these findings demonstrate the advantage of the integrative model in identifying gene sets with functional relationships, even when mutation-based scoring results in suboptimal solutions.
 
+placeholder \todo{paragrafetto finale + congiunzione prossima section}
+
 \section{Mutex}
 
 \subsection{A different greedy method}
 
-To identify the most mutually exclusive group, \textcite{mutex} employ a greedy algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which is applied to a directed graph constructed from databases containing information about biological pathways \todo{menziono i database che hanno usato?}.
+The approach developed by \textcite{dendrix} employed a greedy algorithm to search for the most mutually exclusive driver pathway (discussed in \cref{dendrix_first_sub}); given a specific scoring function to optimize, this technique can be adapted to a broad range of such functions. Similarly, \textcite{mutex} also utilized a greedy algorithm in their study, developing an algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which employs a fundamentally different scoring function than $W(M)$, incorporating statistical and probabilistic elements, as mentioned in the previous chapter.
 
-The search begins by initializing a set with an altered gene as the seed and then expanding the group greedily with the next best candidate gene. Candidate genes are selected such that, after their addition, the group still has a common downstream gene that can be accessed without passing through any non-member genes (the common downstream gene may also be a member of the group) \todo{ci sono delle figure con un grafo e l'insieme che viene proressivamente espanso dall'algoritmo, forse potrei riprodurle e inserirle per chiarezza?}. The group is expanded with the candidate that improves the group score the most. The process continues until no candidates remain or the group reaches a preset size threshold. The algorithm outputs a group and its score for each seed gene \todo{qui menzionano una cosa inerente al controllo dell'FDR ma per ora la ometto perché non so che significa, credo andrebbe inserita}.
+The following algorithms will provide a \textit{partial} description of their approach; first, the greedy procedure is described below.
 
-placeholder. \todo{una cosa carina sarebbe scrivere lo pseudocodice dell'algoritmo greedy (sarebbe anche più carino a quel punto dimostrarne la correttezza ma non credo sia possibile vista la natura statistica della ricerca effettuata), loro non lo forniscono e lo trattano solo a parole, provo a farlo?}
-
-\begin{definition}[Proximity]
-    Given a gene graph, the \textbf{proximity} of a gene $G$ includes not only the genes directly adjacent to $g$ but also those that share downstream targets in the pathway with $g$. \todo{QUESTA DEFINIZIONE NON VA QUA}
-\end{definition}
+% To identify the most mutually exclusive group, \textcite{mutex} employ a greedy algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which is applied to a directed graph constructed from databases containing information about biological pathways \todo{menziono i database che hanno usato?}.
+%
+% The search begins by initializing a set with an altered gene as the seed and then expanding the group greedily with the next best candidate gene. Candidate genes are selected such that, after their addition, the group still has a common downstream gene that can be accessed without passing through any non-member genes (the common downstream gene may also be a member of the group) \todo{ci sono delle figure con un grafo e l'insieme che viene proressivamente espanso dall'algoritmo, forse potrei riprodurle e inserirle per chiarezza?}. The group is expanded with the candidate that improves the group score the most. The process continues until no candidates remain or the group reaches a preset size threshold. The algorithm outputs a group and its score for each seed gene \todo{qui menzionano una cosa inerente al controllo dell'FDR ma per ora la ometto perché non so che significa, credo andrebbe inserita}.
 
 \begin{algorithm}[H]
     \caption{
-        \textit{TODO}: TODO
+        \textit{Greedy Mutex}: given a gene $g$, an integer $k_\mathrm{max}$, a directed gene graph $G$, a mutation matrix $A$, and a boolean variable \texttt{final}, the algorithm returns the gene set $M$, of size $\abs{M} < k_\mathrm{max}$, that maximizes Mutex's scoring function --- which will be described later --- using $g$ as the starting gene.
     }
 
         \label{greedy_mutex}
     \begin{algorithmic}[1]
-        \Function{greedySearch}{$g$, $k_\mathrm{max}$, $G$, $A$, \texttt{final}}
+        \Function{greedyMutex}{$g$, $k_\mathrm{max}$, $G$, $A$, \texttt{final}}
             \State $M := \{g\}$
             \Do
                 \State $M_p := M$
-                \State $M := \texttt{expandGroup}(M, G, k_\mathrm{max}, A, \texttt{final})$
+                \State $M := \texttt{expandGroup}(M, G, A, \texttt{final})$
             \doWhile{$M \neq M_p \land \abs{M} < k_\mathrm{max}$} \Comment{if new genes were added to $M$}
             \State \textbf{return} $M$
         \EndFunction
     \end{algorithmic}
 \end{algorithm}
 
+The algorithm proceeds as follows:
+
+\begin{itemize}
+    \item first, $M$ is initialized with only $g$;
+    \item in each iteration, the algorithm saves $M$ in a temporary variable $M_p$, and computes \texttt{expandGroup} (which will be described later);
+    \item if $M = M_p$ (i.e., $M$ was not expanded), or if $\abs{M}$ exceeds the maximum size, the algorithm terminates and returns $M$.
+\end{itemize}
+
+Note that some details from the \href{https://github.com/PathwayAndDataAnalysis/mutex}{original code} were removed for brevity. The roles of $G$, $A$ and \texttt{final} will be clarified in the following pseudocodes.
+
+The next algorithm illustrates the \texttt{expandGroup} procedure in detail.
+
 \begin{algorithm}[H]
     \caption{
-        \textit{TODO}: TODO
+        \textit{Group expansion procedure}: given a gene set $M$, a directed gene graph $G$, a mutation matrix $A$, and a boolean variable \texttt{final}, the algorithm expands $M$, if possible.
     }
 
         \label{expand_group_mutex}
     \begin{algorithmic}[1]
-        \Function{expandGroup}{$M$, $G$, $k_\mathrm{max}$, $A$, \texttt{final}}
-            \State $\mathcal C := \texttt{getCandidates}(M, G)$ \Comment{TODO}
-            \If{$\mathcal C = \varnothing$}
-                \State \textbf{return} $M$
-            \EndIf
+        \Function{expandGroup}{$M$, $G$, $A$, \texttt{final}}
             \State $b := \texttt{NULL}$ \Comment{$b$ is the current best candidate}
             \State $b_s := 1$ \Comment{$b_v$ is $b$'s associated score}
             \State $\mathcal N := \texttt{\{\}}$
@@ -419,12 +427,12 @@ placeholder. \todo{una cosa carina sarebbe scrivere lo pseudocodice dell'algorit
                 \EndFor
             \EndIf
             \State $m_s := \texttt{score}(M, A, \texttt{final}, \mathcal N)$ \Comment{current $M$'s score}
-            \For{$c \in \mathcal C$}
+            \For{$c \in \mathcal \delta(M)$} \Comment{the set of candidates (refer to \cref{proximity})}
                 \If{\texttt{final}}
                     \State $\mathcal P' := \texttt{pValues}\rbk{M \cup \{c\}, A}$
                     % \State $\mathcal N \texttt{[} c\texttt{]} = \mathcal N_c'$ \Comment{$\mathcal N_c'$ is $c$'s null distribution, based on $\mathcal P' \texttt{[} c \texttt{]}$}
                     \For{$g \in (M \cup \{c\})$}
-                        \State $\mathcal N \texttt{[}g\texttt{]} = \mathcal N_g'$ \Comment{$\mathcal N_g'$ is $g$'s null distribution, based on $\mathcal P' \texttt{[} g\texttt{]}$}
+                        \State $\mathcal N \texttt{[}g\texttt{]} = \mathcal N_g'$ \Comment{$\mathcal N_g'$ is based both on $\mathcal P' \texttt{[} g\texttt{]}$ and $\mathcal N_g$}
                     \EndFor
                 \EndIf
                 \State $c_s := \texttt{score} \rbk{M \cup \{c\}, A, \texttt{final}, \mathcal N}$ \Comment{$c$'s associated score}
@@ -440,6 +448,52 @@ placeholder. \todo{una cosa carina sarebbe scrivere lo pseudocodice dell'algorit
         \EndFunction
     \end{algorithmic}
 \end{algorithm}
+
+This procedure is extensive, but it can be divided into smaller sections. However, before delving into its explanation, it is necessary to introduce and discuss the following definitions.
+
+placeholder \todo{spiega cos'è $G$}
+
+\begin{definition}[Proximity] \label{proximity}
+    Given a directed gene graph $G$, and a gene set $M \subseteq V(G)$, the \textbf{proximity} of $M$ is defined as the set of vertices $v$ such that, when added to $M$, there exists a gene $s$ for which all genes in the augmented set still share a \textit{common downstream target} that can be reached without traversing any genes outside of the augmented gene set. Using symbols \centeredeq{0.9}{$\delta(M) := \{v \in V(G) \mid \exists s \in V(G) : \forall u \in M \cup \{v\} \quad \exists u \to s \mathrm{\ only \ traversing \ } M \cup \{s, u\}\}$}
+\end{definition}
+
+This definition is somewhat complex, but the following example \cite{mutex} can help clarifying its meaning.
+
+\begin{example}[Proximity]
+    placeholder \todo{disegnini}
+\end{example}
+
+The \textit{proximity} $\delta(M)$ is utilized in line 2 to define the set of potential candidates that could expand $M$. Indeed, the goal of \textcite{mutex} is to identify mutually exclusive altered groups, where members share a \textbf{common downstream signaling target}. They state that this strategy narrows the search space to areas with a higher concentration of true positives. While this may slightly reduce \href{https://en.wikipedia.org/wiki/Precision_and_recall}{recall}, it also lessens the loss of statistical power associated with \href{https://en.wikipedia.org/wiki/Multiple_comparisons_problem}{multiple hypothesis testing} \todo{sinceramente non spiegano il perché}. Additionally, this approach provides an initial explanation for the observed mutual exclusivity, i.e. \textit{through a shared effect on a downstream gene}.
+
+Another aspect to consider is the \textit{null distribution} of a given gene $g \in M$, which represents $g$'s distribution under $H_0$ (defined in \cref{H_0}), denoted as $\mathcal N_g$ in the algorithm. Given a gene $g \in M$, \textcite{mutex} estimate $g$'s null distribution through a procedure that approximately involves the following steps:
+
+\begin{enumerate}
+    \item \textit{initialization}: define $\mathcal N_g$ as an empty list;
+    \item \textit{iteration}: for $i = 1, \ldots, i_\mathrm{max}$ derive $\mathcal N_g \texttt{[}i\texttt{]}$ as follows:
+
+        \begin{enumerate}
+            \item randomly permute $g$'s alterations --- i.e., permute $g$'s column in $A$ randomly;
+            \item let $M_g := \texttt{greedyMutex}(g, k_\mathrm{max}, G, A, \texttt{false})$;
+            \item let $\mathcal P_g := \texttt{pValues}(M_g, A)$;
+            \item let $\mathcal N_g \texttt{[}i\texttt{]} := \mathcal P_g\texttt{[}g\texttt{]}$.
+        \end{enumerate}
+\end{enumerate}
+
+This is a \textit{sketch} of the complete procedure, and the omitted details extend well beyond the scope of this discussion. The key takeaway from this procedure is that $g$'s \textit{null distribution} is derived from its $p$-value (namely $\mathcal P_g\texttt{[}g\texttt{]}$), computed when its alterations are randomly permuted. This randomization aims to modify $\inters$, simulating a scenario in which $H_0$ holds true, i.e. alterations in $\Gamma(g)$ are independent from mutations in $\Gamma(M - \{g\})$. Note that $\mathcal P_g\texttt{[}g\texttt{]}$ is computed through the \texttt{greedyMutex} function, with \texttt{final} set to \texttt{false} to prevent infinite recursion and avoid recomputing the \textit{null distributions}. In the \texttt{expandGroup} procedure, it will be assumed that for any $g \in M$, $\mathcal N_g$ can be computed as described.
+
+With these definitions established, the \texttt{expandGroup} algorithm can be explained in detail. Specifically, it can be broken down into the following sections:
+
+\begin{enumerate}
+    \item if $\texttt{final} = \texttt{true}$, fill $\mathcal N$ such that $$\forall g \in M \quad \mathcal N \texttt{[}g\texttt{]} = \mathcal N_g$$ where $\mathcal N_g$ is $g$'s \textit{null distribution}, based on $g$'s $p$-value computed on $M$;
+    \item \textit{initialization}: let $m_s$ be $M$'s \textit{score} (refer to \cref{score_mutex});
+    \item \textit{iteration}: for each candidate $c$ in $\delta(M)$, compute as follows:
+        \begin{enumerate}
+            \item if $\texttt{final} = \texttt{true}$, update $\mathcal N$ such that $$\forall g \in (M \cup \{c\}) \quad \mathcal N \texttt{[}g\texttt{]} = \mathcal N_g'$$ where $\mathcal N_g'$ is $g$'s \textit{null distribution}, based both on $g$'s $p$-value computed on $M \cup \{c\}$, and on $\mathcal N_g$;
+            \item let $c_s$ be $(M \cup \{c\})$'s score (refer to \cref{score_mutex});
+            \item if $c_s$ improves \textit{both} the current best score, and $m_s$, update the current best score with $c_s$.
+        \end{enumerate}
+    \item if a \todo{da finire}
+\end{enumerate}
 
 \begin{algorithm}[H]
     \caption{
