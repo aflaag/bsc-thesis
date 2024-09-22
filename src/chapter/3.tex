@@ -468,7 +468,14 @@ Given this directed gene graph $G$, consider the following definition.
 This definition is dense, but the following example \cite{mutex} can help clarify its meaning.
 
 \begin{example}[Proximity]
-    placeholder \todo{disegnini}
+    The figure below shows an example of the expansion of an initial gene set $\{A\}$, using the \cref{greedy_mutex}. Vertices with bold borders represent the elements of the current set $M$, while the grey-colored ones are the current candidates in the \textit{proximity} $\delta(M)$ of $M$.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.27]{../assets/greedy_mutex.png}
+        
+        \caption{Greedy expansion of $\{A\}$ (left to right).}
+    \end{figure}
 \end{example}
 
 The \textit{proximity} $\delta(M)$ is utilized in line 2 of the algorithm to define the set of potential candidates that could expand $M$. Indeed, the goal of \textcite{mutex} is to identify mutually exclusive altered groups, where members share a \textbf{common downstream signaling target}. They state that this strategy narrows the search space to areas with a higher concentration of true positives. While it may slightly reduce \href{https://en.wikipedia.org/wiki/Precision_and_recall}{recall}, it also lessens the loss of statistical power associated with \href{https://en.wikipedia.org/wiki/Multiple_comparisons_problem}{multiple hypothesis testing}. Additionally, this approach provides an initial explanation for the observed mutual exclusivity, i.e. \textit{through a shared effect on a downstream gene}.

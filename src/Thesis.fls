@@ -584,6 +584,11 @@ INPUT ./chapter/3.tex
 INPUT ./chapter/3.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri8.tfm
+INPUT ../assets/greedy_mutex.png
+INPUT ../assets/greedy_mutex.png
+INPUT ../assets/greedy_mutex.png
+INPUT ../assets/greedy_mutex.png
+INPUT ../assets/greedy_mutex.png
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
