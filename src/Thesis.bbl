@@ -17,7 +17,7 @@
 \endgroup
 
 \datalist[entry]{anyt/global//global/global}
-  \entry{g-gen}{article}{}
+  \entry{g_gen}{article}{}
     \name{author}{6}{}{%
       {{hash=BO}{%
          family={Babur},
@@ -394,7 +394,7 @@
     \endverb
   \endentry
 
-  \entry{pathway-commons}{article}{}
+  \entry{pathway_commons}{article}{}
     \name{author}{9}{}{%
       {{hash=CEG}{%
          family={Cerami},
@@ -1214,6 +1214,425 @@
     \field{year}{2020}
   \endentry
 
+  \entry{mutsig}{article}{}
+    \name{author}{65}{}{%
+      {{hash=LMS}{%
+         family={Lawrence},
+         familyi={L\bibinitperiod},
+         given={Michael\bibnamedelima S.},
+         giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=SP}{%
+         family={Stojanov},
+         familyi={S\bibinitperiod},
+         given={Petar},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=PP}{%
+         family={Polak},
+         familyi={P\bibinitperiod},
+         given={Paz},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=KGV}{%
+         family={Kryukov},
+         familyi={K\bibinitperiod},
+         given={Gregory\bibnamedelima V.},
+         giveni={G\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+      {{hash=CK}{%
+         family={Cibulskis},
+         familyi={C\bibinitperiod},
+         given={Kristian},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Sivachenko},
+         familyi={S\bibinitperiod},
+         given={Andrey},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CSL}{%
+         family={Carter},
+         familyi={C\bibinitperiod},
+         given={Scott\bibnamedelima L.},
+         giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Stewart},
+         familyi={S\bibinitperiod},
+         given={Chip},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=MCH}{%
+         family={Mermel},
+         familyi={M\bibinitperiod},
+         given={Craig\bibnamedelima H.},
+         giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=RSA}{%
+         family={Roberts},
+         familyi={R\bibinitperiod},
+         given={Steven\bibnamedelima A.},
+         giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Kiezun},
+         familyi={K\bibinitperiod},
+         given={Adam},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=HPS}{%
+         family={Hammerman},
+         familyi={H\bibinitperiod},
+         given={Peter\bibnamedelima S.},
+         giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={McKenna},
+         familyi={M\bibinitperiod},
+         given={Aaron},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=DY}{%
+         family={Drier},
+         familyi={D\bibinitperiod},
+         given={Yotam},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=ZL}{%
+         family={Zou},
+         familyi={Z\bibinitperiod},
+         given={Lihua},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=RAH}{%
+         family={Ramos},
+         familyi={R\bibinitperiod},
+         given={Alex\bibnamedelima H.},
+         giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=PTJ}{%
+         family={Pugh},
+         familyi={P\bibinitperiod},
+         given={Trevor\bibnamedelima J.},
+         giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Stransky},
+         familyi={S\bibinitperiod},
+         given={Nicolas},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=HE}{%
+         family={Helman},
+         familyi={H\bibinitperiod},
+         given={Elena},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Kim},
+         familyi={K\bibinitperiod},
+         given={Jaegil},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Sougnez},
+         familyi={S\bibinitperiod},
+         given={Carrie},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=AL}{%
+         family={Ambrogio},
+         familyi={A\bibinitperiod},
+         given={Lauren},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=NE}{%
+         family={Nickerson},
+         familyi={N\bibinitperiod},
+         given={Elizabeth},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=SE}{%
+         family={Shefler},
+         familyi={S\bibinitperiod},
+         given={Erica},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=CML}{%
+         family={Cortés},
+         familyi={C\bibinitperiod},
+         given={Maria\bibnamedelima L.},
+         giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=AD}{%
+         family={Auclair},
+         familyi={A\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={Saksena},
+         familyi={S\bibinitperiod},
+         given={Gordon},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=VD}{%
+         family={Voet},
+         familyi={V\bibinitperiod},
+         given={Douglas},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=NM}{%
+         family={Noble},
+         familyi={N\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=DD}{%
+         family={DiCara},
+         familyi={D\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=LP}{%
+         family={Lin},
+         familyi={L\bibinitperiod},
+         given={Pei},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=LL}{%
+         family={Lichtenstein},
+         familyi={L\bibinitperiod},
+         given={Lee},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=HDI}{%
+         family={Heiman},
+         familyi={H\bibinitperiod},
+         given={David\bibnamedelima I.},
+         giveni={D\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+      {{hash=FT}{%
+         family={Fennell},
+         familyi={F\bibinitperiod},
+         given={Timothy},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=IM}{%
+         family={Imielinski},
+         familyi={I\bibinitperiod},
+         given={Marcin},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HB}{%
+         family={Hernandez},
+         familyi={H\bibinitperiod},
+         given={Bryan},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HE}{%
+         family={Hodis},
+         familyi={H\bibinitperiod},
+         given={Eran},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Baca},
+         familyi={B\bibinitperiod},
+         given={Sylvan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=DAM}{%
+         family={Dulak},
+         familyi={D\bibinitperiod},
+         given={Austin\bibnamedelima M.},
+         giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={Lohr},
+         familyi={L\bibinitperiod},
+         given={Jens},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LDA}{%
+         family={Landau},
+         familyi={L\bibinitperiod},
+         given={Dan-Avi},
+         giveni={D\bibinithyphendelim A\bibinitperiod},
+      }}%
+      {{hash=WCJ}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Catherine\bibnamedelima J.},
+         giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=MZJ}{%
+         family={Melendez-Zajgla},
+         familyi={M\bibinithyphendelim Z\bibinitperiod},
+         given={Jorge},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=HMA}{%
+         family={Hidalgo-Miranda},
+         familyi={H\bibinithyphendelim M\bibinitperiod},
+         given={Alfredo},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Koren},
+         familyi={K\bibinitperiod},
+         given={Amnon},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MSA}{%
+         family={McCarroll},
+         familyi={M\bibinitperiod},
+         given={Steven\bibnamedelima A.},
+         giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=MJ}{%
+         family={Mora},
+         familyi={M\bibinitperiod},
+         given={Jaume},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LRS}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Ryan\bibnamedelima S.},
+         giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=CB}{%
+         family={Crompton},
+         familyi={C\bibinitperiod},
+         given={Brian},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=OR}{%
+         family={Onofrio},
+         familyi={O\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Parkin},
+         familyi={P\bibinitperiod},
+         given={Melissa},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=WW}{%
+         family={Winckler},
+         familyi={W\bibinitperiod},
+         given={Wendy},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=AK}{%
+         family={Ardlie},
+         familyi={A\bibinitperiod},
+         given={Kristin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=GSB}{%
+         family={Gabriel},
+         familyi={G\bibinitperiod},
+         given={Stacey\bibnamedelima B.},
+         giveni={S\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+      {{hash=RCWM}{%
+         family={Roberts},
+         familyi={R\bibinitperiod},
+         given={Charles W.\bibnamedelima M.},
+         giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=BJA}{%
+         family={Biegel},
+         familyi={B\bibinitperiod},
+         given={Jaclyn\bibnamedelima A.},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=SK}{%
+         family={Stegmaier},
+         familyi={S\bibinitperiod},
+         given={Kimberly},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=BAJ}{%
+         family={Bass},
+         familyi={B\bibinitperiod},
+         given={Adam\bibnamedelima J.},
+         giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=GLA}{%
+         family={Garraway},
+         familyi={G\bibinitperiod},
+         given={Levi\bibnamedelima A.},
+         giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Meyerson},
+         familyi={M\bibinitperiod},
+         given={Matthew},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GTR}{%
+         family={Golub},
+         familyi={G\bibinitperiod},
+         given={Todd\bibnamedelima R.},
+         giveni={T\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=GDA}{%
+         family={Gordenin},
+         familyi={G\bibinitperiod},
+         given={Dmitry\bibnamedelima A.},
+         giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Sunyaev},
+         familyi={S\bibinitperiod},
+         given={Shamil},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=LES}{%
+         family={Lander},
+         familyi={L\bibinitperiod},
+         given={Eric\bibnamedelima S.},
+         giveni={E\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=GG}{%
+         family={Getz},
+         familyi={G\bibinitperiod},
+         given={Gad},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{LMS+1}
+    \strng{fullhash}{LMSSPPPKGVCKSACSLSCMCHRSAKAHPSMADYZLRAHPTJSNHEKJSCALNESECMLADSGVDNMDDLPLLHDIFTIMHBHEBSDAMLJLDAWCJMZJHMAKAMSAMJLRSCBORPMWWAKGSBRCWMBJASKBAJGLAMMGTRGDASSLESGG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \verb{doi}
+    \verb 10.1038/nature12213
+    \endverb
+    \field{issn}{1476-4687}
+    \field{number}{7457}
+    \field{pages}{214–218}
+    \field{title}{Mutational heterogeneity in cancer and the search for new cancer-associated genes}
+    \verb{url}
+    \verb http://dx.doi.org/10.1038/nature12213
+    \endverb
+    \field{volume}{499}
+    \field{journaltitle}{Nature}
+    \field{month}{06}
+    \field{year}{2013}
+  \endentry
+
   \entry{multi-dendrix}{article}{}
     \name{author}{4}{}{%
       {{hash=LMDM}{%
@@ -1272,6 +1691,116 @@
     \field{journaltitle}{PLoS Computational Biology}
     \field{month}{05}
     \field{year}{2013}
+  \endentry
+
+  \entry{gistic}{article}{}
+    \name{author}{6}{}{%
+      {{hash=MCH}{%
+         family={Mermel},
+         familyi={M\bibinitperiod},
+         given={Craig\bibnamedelima H},
+         giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=SSE}{%
+         family={Schumacher},
+         familyi={S\bibinitperiod},
+         given={Steven\bibnamedelima E},
+         giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=HB}{%
+         family={Hill},
+         familyi={H\bibinitperiod},
+         given={Barbara},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=MML}{%
+         family={Meyerson},
+         familyi={M\bibinitperiod},
+         given={Matthew\bibnamedelima L},
+         giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=BR}{%
+         family={Beroukhim},
+         familyi={B\bibinitperiod},
+         given={Rameen},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=GG}{%
+         family={Getz},
+         familyi={G\bibinitperiod},
+         given={Gad},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{MCH+1}
+    \strng{fullhash}{MCHSSEHBMMLBRGG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1186/gb-2011-12-4-r41
+    \endverb
+    \field{issn}{1474-760X}
+    \field{number}{4}
+    \field{title}{GISTIC2.0 facilitates sensitive and confident localization of the targets of focal somatic copy-number alteration in human cancers}
+    \verb{url}
+    \verb http://dx.doi.org/10.1186/gb-2011-12-4-r41
+    \endverb
+    \field{volume}{12}
+    \field{journaltitle}{Genome Biology}
+    \field{month}{04}
+    \field{year}{2011}
+  \endentry
+
+  \entry{mutation_hotspot}{article}{}
+    \name{author}{3}{}{%
+      {{hash=NAV}{%
+         family={Nesta},
+         familyi={N\bibinitperiod},
+         given={Alex\bibnamedelima V.},
+         giveni={A\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+      {{hash=TD}{%
+         family={Tafur},
+         familyi={T\bibinitperiod},
+         given={Denisse},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BCR}{%
+         family={Beck},
+         familyi={B\bibinitperiod},
+         given={Christine\bibnamedelima R.},
+         giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier BV}%
+    }
+    \strng{namehash}{NAV+1}
+    \strng{fullhash}{NAVTDBCR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \verb{doi}
+    \verb 10.1016/j.tig.2020.10.003
+    \endverb
+    \field{issn}{0168-9525}
+    \field{number}{8}
+    \field{pages}{717–729}
+    \field{title}{Hotspots of Human Mutation}
+    \verb{url}
+    \verb http://dx.doi.org/10.1016/j.tig.2020.10.003
+    \endverb
+    \field{volume}{37}
+    \field{journaltitle}{Trends in Genetics}
+    \field{month}{08}
+    \field{year}{2021}
   \endentry
 
   \entry{spike}{article}{}
@@ -1362,7 +1891,7 @@
     \verb 10.1093/nar/gkq1167
     \endverb
     \field{issn}{1362-4962}
-    \field{number}{suppl_1}
+    \field{number}{suppl\_1}
     \field{pages}{D793–D799}
     \field{title}{SPIKE: a database of highly curated human signaling pathways}
     \verb{url}

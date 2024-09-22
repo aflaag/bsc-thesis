@@ -69,7 +69,30 @@ Despite its undeniable slowness, I appreciate the versatility of this approach. 
 
 \section{Mutex}
 
-% parla del fatto che discardano c se non migliora il set corrente, possibilmente perdendo soluzioni
-% However, \textcite{mutex} add that this represents just one of many possible mechanisms and should serve as a foundation for further biological investigation.
+\subsection{A very complex greedy algorithm}
+
+The clarity of the methodology presented in this paper is notably lacking, leading to significant challenges in understanding their approach. The authors provide a preliminary explanation of their algorithm, yet they omit crucial details, making it very difficult to grasp the complete procedure. The algorithm's recursive nature further complicates matters, as a simplified overview fails to convey the intricacies involved. In an effort to comprehend their methodology, I examined the Java source code included in the supplementary materials; this analysis ultimately clarified the underlying processes and the implementation of their algorithm, and the pseudocodes provided in this work represent a \textit{significantly simplified} version of the complete algorithm, which involves many nuanced aspects.
+
+Particularly perplexing was their description of the \textit{null distribution} estimation, which I found to be very challenging to interpret. However, after reviewing the source code, I recognized that the process is inherently complex: the \textit{null distributions} are constructed recursively, through multiple calls to the \texttt{greedyMutex} procedure (described in \cref{greedy_mutex}), and it incorporates various constants that dictate the evaluation methods, among many other factors. This complexity underscores the challenge of succinctly detailing such an intricate algorithm, and an exhaustive description would be beyond the scope of this work.
+
+Furthermore, I found it particularly surprising that the \textcite{mutex} did not mention a crucial detail regarding their approach, which I would not have discovered had I not reviewed their source code: in their greedy algorithm, they require the \texttt{expandGroup} procedure (discussed in \cref{expand_group_mutex}) to select a candidate that is \textit{not only} the best among those in $\delta(M)$, but \textit{also improves the current score of $M$}. I believe that it is essential to explain the rationale behind this decision, as it is not immediately apparent. This choice implies that Mutex \textit{does not explore suboptimal solutions}, but incorporating a less optimal candidate may ultimately lead to a better solution at the end of the greedy algorithm.
+
+\subsection{Additional considerations}
+
+Despite the aforementioned challenges in fully understanding their method, I believe that a statistical approach, such as the one they employed, is indeed the most appropriate choice, as exact mutual exclusivity rarely occurs in nature, as already mentioned. In fact, survey studies \cite{survey} indicate that this algorithm significantly outperforms others in terms of both \href{https://en.wikipedia.org/wiki/Precision_and_recall}{precision and recall}. Moreover, I found their hypergeometric model particularly intriguing, as it presents a novel way to assign a score to a given group of genes $M$, i.e. by evaluating the probability of overlap between the alterations of a specific gene $g \in M$, and the alterations of the remaining ones $M-\{g\}$.
+
+Finally, \textcite{mutex} mention in their \textit{Discussion} section that they aim to expand their work by exploring additional topological structures within the biological network. In fact, their current method focuses on genes with a common downstream target and necessitates that all group members are directly connected in the network without intermediary non-member nodes. However, incorporating linker nodes could facilitate the identification of more distant mutual exclusion relationships. I believe that this approach could provide a valuable direction for future research.
+
+\section{C3}
+
+placeholder \todo{todo}
+
+\section{Results comparison}
+
+placeholder \todo{todo}
+
+\section{Conclusions}
+
+placeholder \todo{todo}
 
 \cleardoublepage

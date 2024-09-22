@@ -2,11 +2,9 @@
 
 ## TODO list
 
-- mutex chap3
-- mutex chap4
 - c3 chap 3
 - c3 chap 4
-- nell'ultimo capitolo sii più specifico
+- nell'ultimo capitolo sii più specifico nelle correzioni
 
 - FINALE
     - check every TODO

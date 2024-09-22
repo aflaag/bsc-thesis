@@ -102,7 +102,9 @@ They also applied their algorithm to somatic mutations in \href{https://en.wikip
 
 The MCMC algorithm was also applied to mutation data from 84 patients with \href{https://en.wikipedia.org/wiki/Glioblastoma}{glioblastoma multiforme} (GBM), analyzing somatic mutations across 601 genes, resulting in a total of 453 mutations, with 223 genes found to be mutated in at least one patient (filtered using CNAs). For gene sets of size $k = 2$, the most frequently sampled pair was (\href{https://en.wikipedia.org/wiki/CDKN2B}{CDKN2B}, \href{https://en.wikipedia.org/wiki/25-Hydroxyvitamin_D_1-alpha-hydroxylase}{CYP27B1}), appearing 18\% of the time, and for $k = 3$, the triplet (CDKN2B, RB1, CYP27B1) was sampled 10\% of the time --- a permutation test confirmed the significance of this triplet. The analysis revealed that CYP27B1 had a nearly identical mutation profile to a metagene composed of six adjacent genes, but was excluded due to an additional mutation in a single patient. The metagene's amplification likely targeted \href{https://en.wikipedia.org/wiki/Cyclin-dependent_kinase_4}{CDK4}, suggesting that the key triplet of interest was (CDKN2B, RB1, CDK4), which is part of the \href{https://en.wikipedia.org/wiki/Retinoblastoma_protein}{RB1} signaling pathway, associated with shorter survival in GBM patients. After removing this triplet, the pair (TP53, \href{https://en.wikipedia.org/wiki/CDKN2A}{CDKN2A}) was sampled with 30\% frequency, linked to the \href{https://en.wikipedia.org/wiki/P53}{p53} tumor suppression pathway. Further analysis, after removing both sets, revealed the pair (\href{https://en.wikipedia.org/wiki/Neurofibromatosis_type_I}{NF1}, EGFR), which was sampled 44\% of the time and is part of the \href{https://en.wikipedia.org/wiki/Receptor_tyrosine_kinase}{RTK} pathway, crucial for cell proliferation and survival.
 
-All these findings highlight the ability of the MCMC algorithm to identify significant gene sets related to known cancer pathways. The following section will introduce an extension of the MWSP, along with a modification to the weight function $W(M)$.
+All these findings highlight the ability of the MCMC algorithm to identify significant gene sets related to known cancer pathways.
+
+The following section will introduce an extension of the MWSP, along with a modification to the weight function $W(M)$.
 
 \section{Multi-Dendrix}
 
@@ -274,6 +276,8 @@ When applying the two algorithms to the BRCA dataset, at first the algorithms gr
 
 To summarize, despite some differences in specific results, Multi-Dendrix and Iter-Dendrix produced largely consistent findings; Multi-Dendrix, however, was \textit{significantly} faster. Both methods successfully identified key gene modules across the GBM and BRCA datasets, uncovering important cancer-related pathways and patterns of mutual exclusivity.
 
+The following section will discuss a method that utilizes the same scoring function $W(M)$, but is based on a genetic algorithm.
+
 \section{MDPFinder}
 
 \subsection{The genetic algorithm}
@@ -365,7 +369,9 @@ The second dataset used by \textcite{mdpfinder} was sourced from the TCGA \cite{
 
 The final dataset reported by \textcite{mdpfinder} is the \href{https://en.wikipedia.org/wiki/Ovarian_cancer}{ovarian carcinoma} dataset from a recent TCGA study. This dataset includes mRNA expression, microRNA expression, promoter methylation, DNA CNAs from 489 samples, and exon DNA sequences from 316 tumors. After preprocessing, mutation and expression matrices were created, covering 313 samples and 6108 genes. The mutation distribution was uneven as in the first database, with TP53 mutations prevalent in most samples, while TTN mutations were considered artifacts and were removed from the analysis. For $k=2$, the gene pair (\href{https://www.ncbi.nlm.nih.gov/gene/898}{CCNE1}, \href{https://www.ncbi.nlm.nih.gov/gene/4609}{MYC}), involved in cell cycle progression, was identified in 135 samples. At $k=3$, \href{https://www.ncbi.nlm.nih.gov/gene/4815}{NINJ2} was added to this optimal gene set. For $k=4$, the ILP model identified a set of four genes: (KRAS, \href{https://www.ncbi.nlm.nih.gov/gene/5520}{PPP2R2A}, \href{https://www.ncbi.nlm.nih.gov/gene/24148}{PRPF6}, \href{https://www.ncbi.nlm.nih.gov/gene/6262}{RYR2}). In contrast, the integrative model identified an alternative set: (KRAS, \href{https://www.ncbi.nlm.nih.gov/gene/23542}{MAPK8IP2}, NF1, \href{https://www.ncbi.nlm.nih.gov/gene/50861}{STMN3}), which showed stronger correlations among the genes. KRAS, NF1, and MAPK8IP2 are part of the MAPK signaling pathway, while STMN3 is associated with cancer progression. \textcite{mdpfinder} highlight that these findings demonstrate the advantage of the integrative model in identifying gene sets with functional relationships, even when mutation-based scoring results in suboptimal solutions.
 
-placeholder \todo{paragrafetto finale + congiunzione prossima section}
+In summary, the comparison performed by \textcite{mdpfinder} demonstrated the ILP's efficiency in identifying significant gene sets across various cancer datasets, and their findings showcased their integrative model's strength in revealing functional relationships among genes.
+
+The following section will explore the specifics of a very distinct algorithm, that employs statistical approach and a different scoring function.
 
 \section{Mutex}
 
@@ -405,7 +411,7 @@ The algorithm proceeds as follows:
     \item if $M = M_p$ (i.e., $M$ was not expanded), or if $\abs{M}$ exceeds the maximum size, the algorithm terminates and returns $M$.
 \end{itemize}
 
-Note that some details from the \href{https://github.com/PathwayAndDataAnalysis/mutex}{original code} were removed for brevity. The roles of $G$, $A$ and \texttt{final} will be clarified in the following pseudocodes.
+Note that the roles of $G$, $A$ and \texttt{final} will be clarified in the following pseudocodes.
 
 The next algorithm illustrates the \texttt{expandGroup} procedure in detail.
 
@@ -451,23 +457,23 @@ The next algorithm illustrates the \texttt{expandGroup} procedure in detail.
 
 This procedure is extensive, but it can be divided into smaller sections. However, before delving into the details, it is necessary to introduce and discuss some key pieces of information.
 
-First, the algorithm expects a directed gene graph $G$ as input. This graph is constructed by \textcite{mutex} using data from the Pathway Commons \cite{pathway-commons}, SPIKE \cite{spike}, and SignaLink \cite{signalink} databases. In this graph, the vertices represent genes, and the directed edges indicate signaling relationships between genes or proteins --- the authors describe the generation of this graph in another work \cite{g-gen}.
+First, the algorithm expects a directed gene graph $G$ as input. This graph is constructed by \textcite{mutex} using data from the Pathway Commons \cite{pathway_commons}, SPIKE \cite{spike}, and SignaLink \cite{signalink} databases. In this graph, the vertices represent genes, and the directed edges indicate signaling relationships between genes or proteins --- the authors describe the generation of this graph in another work \cite{g_gen}.
 
-Given the directed gene graph $G$, consider the following definition.
+Given this directed gene graph $G$, consider the following definition.
 
 \begin{definition}[Proximity] \label{proximity}
-    Given a directed gene graph $G$, and a gene set $M \subseteq V(G)$, the \textbf{proximity} of $M$ is defined as the set of vertices $v$ such that, when added to $M$, there exists a gene $s$ for which all genes in the augmented set still share a \textit{common downstream target} that can be reached without traversing any genes outside of the augmented gene set. Using symbols \centeredeq{0.9}{$\delta(M) := \{v \in V(G) \mid \exists s \in V(G) : \forall u \in M \cup \{v\} \quad \exists u \to s \mathrm{\ only \ traversing \ } M \cup \{s, u\}\}$}
+    Given a directed gene graph $G$, and a gene set $M \subseteq V(G)$, the \textbf{proximity} of $M$ is defined as the set of vertices $v$ such that, when added to $M$, there exists a gene $s \in V(G)$ for which all genes in the augmented set still share a \textit{common downstream target} that can be reached without traversing any genes outside of the augmented gene set. Using symbols \centeredeq{0.9}{$\delta(M) := \{v \in V(G) \mid \exists s \in V(G) : \forall u \in M \cup \{v\} \quad \exists u \to s \mathrm{\ only \ traversing \ } M \cup \{s, u\}\}$} where $u \to s$ is a path that starts in $u$ and ends in $s$.
 \end{definition}
 
-This definition is somewhat complex, but the following example \cite{mutex} can help clarifying its meaning.
+This definition is dense, but the following example \cite{mutex} can help clarify its meaning.
 
 \begin{example}[Proximity]
     placeholder \todo{disegnini}
 \end{example}
 
-The \textit{proximity} $\delta(M)$ is utilized in line 2 to define the set of potential candidates that could expand $M$. Indeed, the goal of \textcite{mutex} is to identify mutually exclusive altered groups, where members share a \textbf{common downstream signaling target}. They state that this strategy narrows the search space to areas with a higher concentration of true positives. While this may slightly reduce \href{https://en.wikipedia.org/wiki/Precision_and_recall}{recall}, it also lessens the loss of statistical power associated with \href{https://en.wikipedia.org/wiki/Multiple_comparisons_problem}{multiple hypothesis testing} \todo{sinceramente non spiegano il perché}. Additionally, this approach provides an initial explanation for the observed mutual exclusivity, i.e. \textit{through a shared effect on a downstream gene}.
+The \textit{proximity} $\delta(M)$ is utilized in line 2 of the algorithm to define the set of potential candidates that could expand $M$. Indeed, the goal of \textcite{mutex} is to identify mutually exclusive altered groups, where members share a \textbf{common downstream signaling target}. They state that this strategy narrows the search space to areas with a higher concentration of true positives. While it may slightly reduce \href{https://en.wikipedia.org/wiki/Precision_and_recall}{recall}, it also lessens the loss of statistical power associated with \href{https://en.wikipedia.org/wiki/Multiple_comparisons_problem}{multiple hypothesis testing}. Additionally, this approach provides an initial explanation for the observed mutual exclusivity, i.e. \textit{through a shared effect on a downstream gene}.
 
-Another aspect to consider is the \textit{null distribution} of a given gene $g \in M$, which represents $g$'s distribution under $H_0$ (defined in \cref{H_0}), denoted as $\mathcal N_g$ in the algorithm. Given a gene $g \in M$, \textcite{mutex} estimate $g$'s null distribution through a procedure that approximately involves the following steps:
+Another aspect to discuss is the \textit{null distribution} of a given gene $g \in M$, which represents $g$'s distribution under $H_0$ (defined in \cref{H_0}), denoted as $\mathcal N_g$ in the algorithm. Given a gene $g \in M$, \textcite{mutex} estimate $g$'s null distribution through a procedure that approximately involves the following steps:
 
 \begin{enumerate}
     \item \textit{initialization}: define $\mathcal N_g$ as an empty list;
@@ -481,7 +487,7 @@ Another aspect to consider is the \textit{null distribution} of a given gene $g 
         \end{enumerate}
 \end{enumerate}
 
-This is a \textit{sketch} of the complete procedure, and the omitted details extend well beyond the scope of this discussion. The key takeaway from this procedure is that $g$'s \textit{null distribution} is derived from its $p$-value (namely $\mathcal P_g\texttt{[}g\texttt{]}$), computed when its alterations are randomly permuted. This randomization aims to modify $\inters$, simulating a scenario in which $H_0$ holds true, i.e. alterations in $\Gamma(g)$ are independent from mutations in $\Gamma(M - \{g\})$. Note that $\mathcal P_g\texttt{[}g\texttt{]}$ is computed through the \texttt{greedyMutex} function, with \texttt{final} set to \texttt{false} to prevent infinite recursion and avoid recomputing the \textit{null distributions}. In the \texttt{expandGroup} procedure, it will be assumed that for any $g \in M$, $\mathcal N_g$ can be computed as described.
+This is a \textit{sketch} of the complete procedure, and the omitted details extend well beyond the scope of this discussion. The key takeaway from this algorithm is that $g$'s \textit{null distribution} is derived from its $p$-value (namely $\mathcal P_g\texttt{[}g\texttt{]}$), computed when its alterations are randomly permuted. This randomization aims to modify $\inters$, simulating a scenario in which $H_0$ holds true, i.e. alterations in $\Gamma(g)$ are independent from mutations in $\Gamma(M - \{g\})$. Note that $\mathcal P_g\texttt{[}g\texttt{]}$ is computed through the \texttt{greedyMutex} function, with \texttt{final} set to \texttt{false} to prevent infinite recursion and avoid recomputing the \textit{null distributions}. In the \texttt{expandGroup} procedure, it will be assumed that for any $g \in M$, $\mathcal N_g$ can be computed as described.
 
 With these definitions established, the \texttt{expandGroup} algorithm can be explained in detail. Specifically, it can be broken down into the following sections:
 
@@ -497,9 +503,9 @@ With these definitions established, the \texttt{expandGroup} algorithm can be ex
     \item if the best candidate $b$ could be determined, return $M \cup \{b\}$; otherwise, return $M$.
 \end{enumerate}
 
-% Note that this procedure requires $c_s$ to improve \textit{both} the current best score and $M$'s base score, meaning that suboptimal solutions are not explored by the algorithm.
+Note that this procedure requires $c_s$ to improve \textit{both} the current best score and $M$'s base score, meaning that suboptimal solutions are not explored by the algorithm.
 
-Finally, the last algorithm, which computes the mutual exclusivity score of a given gene set, can be introduced. Although this score is a crucial part of the metric developed by \textcite{mutex} to assess mutual exclusivity within a gene set, this procedure could not be introduced in the previous chapter because it relies on the \textit{null distribution} dictionary $\mathcal{N}$, defined in \cref{expand_group_mutex}, which in turn depends on the \textit{null distribution} estimation, based on \cref{greedy_mutex} (with $\texttt{final} = \texttt{false}$).
+Finally, the last procedure, which computes the mutual exclusivity score of a given gene set, can be introduced. Although this score is a crucial part of the metric developed by \textcite{mutex} to assess mutual exclusivity within a gene set, this algorithm could not be introduced in the previous chapter because it relies on the \textit{null distribution} dictionary $\mathcal{N}$, defined in \cref{expand_group_mutex}, which in turn depends on the \textit{null distribution} estimation, based on \cref{greedy_mutex} (with $\texttt{final} = \texttt{false}$).
 
 \begin{algorithm}[H]
     \caption{
@@ -528,13 +534,23 @@ Finally, the last algorithm, which computes the mutual exclusivity score of a gi
     \end{algorithmic}
 \end{algorithm}
 
-First, the algorithm evaluates $\mathcal P$, the $p$-value dictionary; then, if $\texttt{final} = \texttt{true}$, $\mathcal P$ is corrected for \textit{multiple hypothesis testing}. Finally, the largest value in $\mathcal P$ is returned. Note that both in line 7 and line 10, the largest value is chosen: this is because the \textit{larger} the $p$-value, the \textit{less significant} it is. Therefore, in line 7, the goal is to be as cautious as possible, while in line 10, the goal is to ensure that each member of $M$ contributes to the pattern. Finally, the boolean variable \texttt{final} ensures that, during the evaluation of the \textit{null distributions}, the scores being used remain uncorrected.
+First, the algorithm evaluates $\mathcal P$, the $p$-value dictionary; then, if $\texttt{final} = \texttt{true}$, $\mathcal P$ is corrected for \textit{multiple hypothesis testing}. Finally, the largest value in $\mathcal P$ is returned. Note that both in line 7 and line 10, the largest value is chosen: this is because the \textit{larger} the $p$-value, the \textit{less significant} it is. Therefore, in line 7, the focus is on being as cautious as possible, while in line 10, the aim is to ensure that each member of $M$ contributes to the pattern. Lastly, the boolean variable \texttt{final} ensures that, during the evaluation of the \textit{null distributions}, the scores being used remain uncorrected.
 
-The complete algorithm works by calling \texttt{greedyMutex} for each possible $g \in \mathcal G$ with \texttt{final} set to \texttt{true}, and then comparing the resulting sets. Finally, these sets may optionally undergo an \href{https://en.wikipedia.org/wiki/False_discovery_rate}{FDR} control procedure, which lies outside the scope of this work.
+The complete algorithm works by calling \texttt{greedyMutex} for each possible $g \in \mathcal G$ with \texttt{final} set to \texttt{true}, and then comparing the resulting sets. Finally, these sets may optionally undergo an \href{https://en.wikipedia.org/wiki/False_discovery_rate}{FDR} control procedure, which lies outside the scope of this work. Note that many details from the \href{https://github.com/PathwayAndDataAnalysis/mutex}{original code} have been removed for brevity, in each described algorithm.
 
 \subsection{Results}
 
-placeholder \todo{todo}
+\textcite{mutex} applied their algorithm to identify mutual exclusion patterns in mutation and copy number profiles from multiple TCGA studies. The gene network they employed was cropped to the \textit{proximity} of significantly mutated genes (derived from MutSig \cite{mutsig}) and significantly altered genes (provided by GISTIC \cite{gistic}). Lastly, to reduce noise, genes with low alteration rates were filtered out in each study, and groups of up to 5 genes were examined.
+
+They identified a total of 199 genes in their results, with 31 appearing in at least two studies. Notably, TP53 was the most recurrent gene, followed by well-known tumor suppressors and oncogenes such as PTEN, KRAS, and MYC. Among less recognized genes, \href{https://www.ncbi.nlm.nih.gov/gene/84033}{OBSCN} and \href{https://www.ncbi.nlm.nih.gov/gene/8289}{ARID1A} are highlighted for their potential roles in cancer --- the latter has previously been shown to act as a tumor suppressor in \href{https://en.wikipedia.org/wiki/Gastrointestinal_cancer}{gastrointestinal cancers} (GI). The most frequent common targets among the result groups include PIK3R1, HRAS, BRAF, MYC, RAC1, and \href{https://www.ncbi.nlm.nih.gov/gene/389}{RHOC}, with mutually exclusive alterations observed upstream of RHOC in five datasets. Although RHOC alterations are infrequent in TCGA samples, its overexpression is associated with cancer cell metastasis, suggesting that its activation may represent a significant downstream effect of driver alterations.
+
+To assess the novelty of the findings, \textcite{mutex} examined co-citations of the recurrent genes with the term \curlyquotes{cancer}, using CoCiter. The last 10 genes on the list had fewer than 25 co-citations, indicating they are not well-established cancer drivers. However, further investigation revealed that 5 of these genes --- \href{https://www.ncbi.nlm.nih.gov/gene/8295}{TRRAP}, OBSCN, \href{https://www.ncbi.nlm.nih.gov/gene/6016}{RIT1}, \href{https://www.ncbi.nlm.nih.gov/gene/116986}{AGAP2}, and \href{https://www.ncbi.nlm.nih.gov/gene/6097}{RORC} --- contain so called \textit{mutation hotspots}. Mutation hotspots are DNA segments particularly prone to genetic alterations \cite{mutation_hotspot}, and are considered indicators of driver mutations, as changes in different regions of a driver gene can confer varying levels of selective advantage to a cancer cell --- passenger mutations are typically randomly distributed \cite{mutex}. Among the remaining 5 genes, the gene pair (\href{https://www.ncbi.nlm.nih.gov/gene/29956}{CERS2}, \href{https://www.ncbi.nlm.nih.gov/gene/23385}{NCSTN}) showed copy number alterations in the results.
+
+Additionally, \textcite{mutex} compared the performance of their method with several previously published studies, including Dendrix \cite{dendrix}, MDPFinder \cite{mdpfinder}, and Multi-Dendrix \cite{multi-dendrix}. They derived a large dataset from breast cancer data in \href{https://www.cbioportal.org/}{cBioPortal}, which included 830 genes with an alteration rate of at least 3\% across 958 samples. This dataset was constructed through several steps aimed at randomizing gene alterations while preserving alteration ratios. Mutex outperformed the other methods, significantly improving the \href{https://en.wikipedia.org/wiki/Receiver_operating_characteristic}{receiver operating characteristic} (ROC) curves; notably, a modified version of Mutex that \textit{did not} use signaling networks showed decreased performance, highlighting the advantages of incorporating pathway information. In contrast, Dendrix, MDPFinder, and Multi-Dendrix performed poorly due to their reliance on the same weight function $W(M)$, which favors noise over signal. Moreover, other methods' generative models also struggled because they assumed equal alteration chances among group members. Mutex demonstrated improved scoring criteria and efficiency, exhibiting strong scalability in terms of memory and runtime, comparable to MDPFinder, and significantly more efficient than Dendrix and similar algorithms.
+
+In conclusion, the greedy algorithm developed by \textcite{mutex} identified known mutually exclusive driver pathways, and highlighted potential roles for lesser-known genes, namely OBSCN, ARID1A and RHOC.
+
+The following section will outline the different versions of the clustering algorithm, anticipated in the previous chapter.
 
 \section{C3}
 
