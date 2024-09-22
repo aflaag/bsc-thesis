@@ -371,7 +371,7 @@ placeholder \todo{paragrafetto finale + congiunzione prossima section}
 
 \subsection{A different greedy method}
 
-The approach developed by \textcite{dendrix} employed a greedy algorithm to search for the most mutually exclusive driver pathway (discussed in \cref{dendrix_first_sub}); given a specific scoring function to optimize, this technique can be adapted to a broad range of such functions. Similarly, \textcite{mutex} also utilized a greedy algorithm in their study, developing an algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which employs a fundamentally different scoring function than $W(M)$, incorporating statistical and probabilistic elements, as mentioned in the previous chapter.
+The approach developed by \textcite{dendrix} employed a greedy algorithm to search for the most mutually exclusive driver pathway (discussed in \cref{dendrix_first_sub}); this technique is highly versatile, as it can be adapted to a broad range of scoring functions. Similarly, \textcite{mutex} also utilized a greedy algorithm in their study, developing an algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which employs a fundamentally different scoring function than $W(M)$, incorporating statistical and probabilistic elements, as mentioned in the previous chapter.
 
 The following algorithms will provide a \textit{partial} description of their approach; first, the greedy procedure is described below.
 
@@ -381,7 +381,7 @@ The following algorithms will provide a \textit{partial} description of their ap
 
 \begin{algorithm}[H]
     \caption{
-        \textit{Greedy Mutex}: given a gene $g$, an integer $k_\mathrm{max}$, a directed gene graph $G$, a mutation matrix $A$, and a boolean variable \texttt{final}, the algorithm returns the gene set $M$, of size $\abs{M} < k_\mathrm{max}$, that maximizes Mutex's scoring function --- which will be described later --- using $g$ as the starting gene.
+        \textit{Greedy Mutex}: given a gene $g$, an integer $k_\mathrm{max}$, a directed gene graph $G$, a mutation matrix $A$, and a boolean variable \texttt{final}, the algorithm returns the gene set $M$, of size $\abs{M} < k_\mathrm{max}$, that maximizes the Mutex's scoring function --- which will be described later --- using $g$ as the starting gene.
     }
 
         \label{greedy_mutex}
@@ -390,7 +390,7 @@ The following algorithms will provide a \textit{partial} description of their ap
             \State $M := \{g\}$
             \Do
                 \State $M_p := M$
-                \State $M := \texttt{expandGroup}(M, G, A, \texttt{final})$
+                \State $M := \texttt{expandGroup}(M, G, A, \texttt{final})$ \Comment{refer to \cref{expand_group_mutex}}
             \doWhile{$M \neq M_p \land \abs{M} < k_\mathrm{max}$} \Comment{if new genes were added to $M$}
             \State \textbf{return} $M$
         \EndFunction
@@ -421,7 +421,7 @@ The next algorithm illustrates the \texttt{expandGroup} procedure in detail.
             \State $b_s := 1$ \Comment{$b_v$ is $b$'s associated score}
             \State $\mathcal N := \texttt{\{\}}$
             \If{\texttt{final}}
-                \State $\mathcal P := \texttt{pValues}(M, A)$
+                \State $\mathcal P := \texttt{pValues}(M, A)$ \Comment{refer to \cref{p-values_procedure}}
                 \For{$g \in M$}
                     \State $\mathcal N.\texttt{add\_entry}(g, \mathcal N_g)$ \Comment{$\mathcal N_g$ is $g$'s null distribution, based on $\mathcal P \texttt{[} g\texttt{]}$}
                 \EndFor
@@ -449,9 +449,11 @@ The next algorithm illustrates the \texttt{expandGroup} procedure in detail.
     \end{algorithmic}
 \end{algorithm}
 
-This procedure is extensive, but it can be divided into smaller sections. However, before delving into its explanation, it is necessary to introduce and discuss the following definitions.
+This procedure is extensive, but it can be divided into smaller sections. However, before delving into the details, it is necessary to introduce and discuss some key pieces of information.
 
-placeholder \todo{spiega cos'è $G$}
+First, the algorithm expects a directed gene graph $G$ as input. This graph is constructed by \textcite{mutex} using data from the Pathway Commons \cite{pathway-commons}, SPIKE \cite{spike}, and SignaLink \cite{signalink} databases. In this graph, the vertices represent genes, and the directed edges indicate signaling relationships between genes or proteins --- the authors describe the generation of this graph in another work \cite{g-gen}.
+
+Given the directed gene graph $G$, consider the following definition.
 
 \begin{definition}[Proximity] \label{proximity}
     Given a directed gene graph $G$, and a gene set $M \subseteq V(G)$, the \textbf{proximity} of $M$ is defined as the set of vertices $v$ such that, when added to $M$, there exists a gene $s$ for which all genes in the augmented set still share a \textit{common downstream target} that can be reached without traversing any genes outside of the augmented gene set. Using symbols \centeredeq{0.9}{$\delta(M) := \{v \in V(G) \mid \exists s \in V(G) : \forall u \in M \cup \{v\} \quad \exists u \to s \mathrm{\ only \ traversing \ } M \cup \{s, u\}\}$}
@@ -489,15 +491,19 @@ With these definitions established, the \texttt{expandGroup} algorithm can be ex
     \item \textit{iteration}: for each candidate $c$ in $\delta(M)$, compute as follows:
         \begin{enumerate}
             \item if $\texttt{final} = \texttt{true}$, update $\mathcal N$ such that $$\forall g \in (M \cup \{c\}) \quad \mathcal N \texttt{[}g\texttt{]} = \mathcal N_g'$$ where $\mathcal N_g'$ is $g$'s \textit{null distribution}, based both on $g$'s $p$-value computed on $M \cup \{c\}$, and on $\mathcal N_g$;
-            \item let $c_s$ be $(M \cup \{c\})$'s score (refer to \cref{score_mutex});
+            \item let $c_s$ be $(M \cup \{c\})$'s score;
             \item if $c_s$ improves \textit{both} the current best score, and $m_s$, update the current best score with $c_s$.
         \end{enumerate}
-    \item if a \todo{da finire}
+    \item if the best candidate $b$ could be determined, return $M \cup \{b\}$; otherwise, return $M$.
 \end{enumerate}
+
+% Note that this procedure requires $c_s$ to improve \textit{both} the current best score and $M$'s base score, meaning that suboptimal solutions are not explored by the algorithm.
+
+Finally, the last algorithm, which computes the mutual exclusivity score of a given gene set, can be introduced. Although this score is a crucial part of the metric developed by \textcite{mutex} to assess mutual exclusivity within a gene set, this procedure could not be introduced in the previous chapter because it relies on the \textit{null distribution} dictionary $\mathcal{N}$, defined in \cref{expand_group_mutex}, which in turn depends on the \textit{null distribution} estimation, based on \cref{greedy_mutex} (with $\texttt{final} = \texttt{false}$).
 
 \begin{algorithm}[H]
     \caption{
-        \textit{TODO}: TODO
+        \textit{Scoring procedure}: given a gene set $M$, a mutation matrix $A$, a boolean variable \texttt{final}, and a \textit{null distribution} dictionary $\mathcal N$, the algorithm computes $M$'s mutual exclusivity score.
     }
 
         \label{score_mutex}
@@ -521,6 +527,14 @@ With these definitions established, the \texttt{expandGroup} algorithm can be ex
         \EndFunction
     \end{algorithmic}
 \end{algorithm}
+
+First, the algorithm evaluates $\mathcal P$, the $p$-value dictionary; then, if $\texttt{final} = \texttt{true}$, $\mathcal P$ is corrected for \textit{multiple hypothesis testing}. Finally, the largest value in $\mathcal P$ is returned. Note that both in line 7 and line 10, the largest value is chosen: this is because the \textit{larger} the $p$-value, the \textit{less significant} it is. Therefore, in line 7, the goal is to be as cautious as possible, while in line 10, the goal is to ensure that each member of $M$ contributes to the pattern. Finally, the boolean variable \texttt{final} ensures that, during the evaluation of the \textit{null distributions}, the scores being used remain uncorrected.
+
+The complete algorithm works by calling \texttt{greedyMutex} for each possible $g \in \mathcal G$ with \texttt{final} set to \texttt{true}, and then comparing the resulting sets. Finally, these sets may optionally undergo an \href{https://en.wikipedia.org/wiki/False_discovery_rate}{FDR} control procedure, which lies outside the scope of this work.
+
+\subsection{Results}
+
+placeholder \todo{todo}
 
 \section{C3}
 

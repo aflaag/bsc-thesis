@@ -17,6 +17,70 @@
 \endgroup
 
 \datalist[entry]{anyt/global//global/global}
+  \entry{g-gen}{article}{}
+    \name{author}{6}{}{%
+      {{hash=BO}{%
+         family={Babur},
+         familyi={B\bibinitperiod},
+         given={\"{O}zg\"{u}n},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=ABA}{%
+         family={Aksoy},
+         familyi={A\bibinitperiod},
+         given={B\"{u}lent\bibnamedelima Arman},
+         giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=RI}{%
+         family={Rodchenkov},
+         familyi={R\bibinitperiod},
+         given={Igor},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=SSO}{%
+         family={S\"{u}mer},
+         familyi={S\bibinitperiod},
+         given={Sel\c{c}uk\bibnamedelima Onur},
+         giveni={S\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Sander},
+         familyi={S\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=DE}{%
+         family={Demir},
+         familyi={D\bibinitperiod},
+         given={Emek},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press (OUP)}%
+    }
+    \strng{namehash}{BO+1}
+    \strng{fullhash}{BOABARISSOSCDE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1093/bioinformatics/btt539
+    \endverb
+    \field{issn}{1367-4803}
+    \field{number}{1}
+    \field{pages}{139–140}
+    \field{title}{Pattern search in BioPAX models}
+    \verb{url}
+    \verb http://dx.doi.org/10.1093/bioinformatics/btt539
+    \endverb
+    \field{volume}{30}
+    \field{journaltitle}{Bioinformatics}
+    \field{month}{09}
+    \field{year}{2013}
+  \endentry
+
   \entry{mutex}{article}{}
     \name{author}{7}{}{%
       {{hash=BO}{%
@@ -330,6 +394,88 @@
     \endverb
   \endentry
 
+  \entry{pathway-commons}{article}{}
+    \name{author}{9}{}{%
+      {{hash=CEG}{%
+         family={Cerami},
+         familyi={C\bibinitperiod},
+         given={E.\bibnamedelima G.},
+         giveni={E\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=GBE}{%
+         family={Gross},
+         familyi={G\bibinitperiod},
+         given={B.\bibnamedelima E.},
+         giveni={B\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=DE}{%
+         family={Demir},
+         familyi={D\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=RI}{%
+         family={Rodchenkov},
+         familyi={R\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=BO}{%
+         family={Babur},
+         familyi={B\bibinitperiod},
+         given={O.},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=AN}{%
+         family={Anwar},
+         familyi={A\bibinitperiod},
+         given={N.},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Schultz},
+         familyi={S\bibinitperiod},
+         given={N.},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=BGD}{%
+         family={Bader},
+         familyi={B\bibinitperiod},
+         given={G.\bibnamedelima D.},
+         giveni={G\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Sander},
+         familyi={S\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press (OUP)}%
+    }
+    \strng{namehash}{CEG+1}
+    \strng{fullhash}{CEGGBEDERIBOANSNBGDSC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1093/nar/gkq1039
+    \endverb
+    \field{issn}{1362-4962}
+    \field{number}{Database}
+    \field{pages}{D685–D690}
+    \field{title}{Pathway Commons, a web resource for biological pathway data}
+    \verb{url}
+    \verb http://dx.doi.org/10.1093/nar/gkq1039
+    \endverb
+    \field{volume}{39}
+    \field{journaltitle}{Nucleic Acids Research}
+    \field{month}{11}
+    \field{year}{2010}
+  \endentry
+
   \entry{mutual_exclusivity_expls}{article}{}
     \name{author}{2}{}{%
       {{hash=CJ}{%
@@ -603,6 +749,112 @@
     \verb http://dx.doi.org/10.1016/b978-0-08-009056-6.50015-4
     \endverb
     \field{year}{1960}
+  \endentry
+
+  \entry{signalink}{article}{}
+    \name{author}{13}{}{%
+      {{hash=FD}{%
+         family={Fazekas},
+         familyi={F\bibinitperiod},
+         given={Dávid},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Koltai},
+         familyi={K\bibinitperiod},
+         given={Mihály},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=TD}{%
+         family={T\"{u}rei},
+         familyi={T\bibinitperiod},
+         given={Dénes},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Módos},
+         familyi={M\bibinitperiod},
+         given={Dezső},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Pálfy},
+         familyi={P\bibinitperiod},
+         given={Máté},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=DZ}{%
+         family={Dúl},
+         familyi={D\bibinitperiod},
+         given={Zoltán},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=ZL}{%
+         family={Zsákai},
+         familyi={Z\bibinitperiod},
+         given={Lilian},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SBM}{%
+         family={Szalay-Bekő},
+         familyi={S\bibinithyphendelim B\bibinitperiod},
+         given={Máté},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LK}{%
+         family={Lenti},
+         familyi={L\bibinitperiod},
+         given={Katalin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=FIJ}{%
+         family={Farkas},
+         familyi={F\bibinitperiod},
+         given={Illés\bibnamedelima J},
+         giveni={I\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=VT}{%
+         family={Vellai},
+         familyi={V\bibinitperiod},
+         given={Tibor},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=CP}{%
+         family={Csermely},
+         familyi={C\bibinitperiod},
+         given={Péter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=KT}{%
+         family={Korcsmáros},
+         familyi={K\bibinitperiod},
+         given={Tamás},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{FD+1}
+    \strng{fullhash}{FDKMTDMDPMDZZLSBMLKFIJVTCPKT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \verb{doi}
+    \verb 10.1186/1752-0509-7-7
+    \endverb
+    \field{issn}{1752-0509}
+    \field{number}{1}
+    \field{title}{SignaLink 2 – a signaling pathway resource with multi-layered regulatory networks}
+    \verb{url}
+    \verb http://dx.doi.org/10.1186/1752-0509-7-7
+    \endverb
+    \field{volume}{7}
+    \field{journaltitle}{BMC Systems Biology}
+    \field{month}{01}
+    \field{year}{2013}
   \endentry
 
   \entry{cgc}{article}{}
@@ -1020,6 +1272,106 @@
     \field{journaltitle}{PLoS Computational Biology}
     \field{month}{05}
     \field{year}{2013}
+  \endentry
+
+  \entry{spike}{article}{}
+    \name{author}{12}{}{%
+      {{hash=PA}{%
+         family={Paz},
+         familyi={P\bibinitperiod},
+         given={Arnon},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BZ}{%
+         family={Brownstein},
+         familyi={B\bibinitperiod},
+         given={Zippora},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=BY}{%
+         family={Ber},
+         familyi={B\bibinitperiod},
+         given={Yaara},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Bialik},
+         familyi={B\bibinitperiod},
+         given={Shani},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=DE}{%
+         family={David},
+         familyi={D\bibinitperiod},
+         given={Eyal},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Sagir},
+         familyi={S\bibinitperiod},
+         given={Dorit},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=UI}{%
+         family={Ulitsky},
+         familyi={U\bibinitperiod},
+         given={Igor},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=ER}{%
+         family={Elkon},
+         familyi={E\bibinitperiod},
+         given={Ran},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Kimchi},
+         familyi={K\bibinitperiod},
+         given={Adi},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=AKB}{%
+         family={Avraham},
+         familyi={A\bibinitperiod},
+         given={Karen\bibnamedelima B.},
+         giveni={K\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+      {{hash=SY}{%
+         family={Shiloh},
+         familyi={S\bibinitperiod},
+         given={Yosef},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Shamir},
+         familyi={S\bibinitperiod},
+         given={Ron},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press (OUP)}%
+    }
+    \strng{namehash}{PA+1}
+    \strng{fullhash}{PABZBYBSDESDUIERKAAKBSYSR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \verb{doi}
+    \verb 10.1093/nar/gkq1167
+    \endverb
+    \field{issn}{1362-4962}
+    \field{number}{suppl_1}
+    \field{pages}{D793–D799}
+    \field{title}{SPIKE: a database of highly curated human signaling pathways}
+    \verb{url}
+    \verb http://dx.doi.org/10.1093/nar/gkq1167
+    \endverb
+    \field{volume}{39}
+    \field{journaltitle}{Nucleic Acids Research}
+    \field{month}{11}
+    \field{year}{2010}
   \endentry
 
   \entry{nih_se}{misc}{}
