@@ -1072,6 +1072,37 @@
     \field{year}{2000}
   \endentry
 
+  \entry{karp}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=KRM}{%
+         family={Karp},
+         familyi={K\bibinitperiod},
+         given={Richard\bibnamedelima M.},
+         giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer US}%
+    }
+    \strng{namehash}{KRM1}
+    \strng{fullhash}{KRM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{Complexity of Computer Computations}
+    \verb{doi}
+    \verb 10.1007/978-1-4684-2001-2_9
+    \endverb
+    \field{isbn}{9781468420012}
+    \field{pages}{85–103}
+    \field{title}{Reducibility among Combinatorial Problems}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/978-1-4684-2001-2_9
+    \endverb
+    \field{year}{1972}
+  \endentry
+
   \entry{three_mutations}{article}{}
     \name{author}{19}{}{%
       {{hash=KS}{%

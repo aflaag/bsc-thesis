@@ -543,6 +543,7 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
+INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 OUTPUT Thesis.toc
 INPUT ./chapter/1.tex
 INPUT ./chapter/1.tex
@@ -563,7 +564,6 @@ INPUT ./chapter/2.tex
 INPUT ./chapter/2.tex
 INPUT ./chapter/2.tex
 INPUT ./chapter/2.tex
-INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
@@ -584,9 +584,22 @@ INPUT ./chapter/3.tex
 INPUT ./chapter/3.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri8.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr12.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi12.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT ../assets/frequency_c3.jpeg
+INPUT ../assets/frequency_c3.jpeg
+INPUT ../assets/frequency_c3.jpeg
+INPUT ../assets/frequency_c3.jpeg
+INPUT ../assets/frequency_c3.jpeg
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
 INPUT ./chapter/4.tex
 INPUT ./chapter/4.tex
@@ -612,6 +625,7 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb

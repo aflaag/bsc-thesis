@@ -596,9 +596,10 @@ To precisely quantify the network distances between driver variants, \textcite{c
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.6]{../assets/frequency_c3.jpeg}
+    \includegraphics[scale=0.6]{../assets/frequency_c3.jpeg}}
     
-    \caption{Distribution of distances between genes in the network.} \label{frequency_c3}
+    \label{frequency_c3}
+    \caption{Histogram of shortest distances between randomly selected genes and driver genes in the network}
 \end{figure}
 
 These findings indicate that network distance and connectivity information should be considered when identifying potential driver mutations. This can be achieved by adjusting the positive weight of edges connecting two genes: specifically, if both endpoint genes are drivers, they should be sufficiently central within a given pathway, close to other known drivers, or to each other.
