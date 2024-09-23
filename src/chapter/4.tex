@@ -61,7 +61,7 @@ To solve the MWSP, \textcite{mdpfinder} formulated an ILP that is both identical
 
 For clarity and detailed definitions of the indicator variables, I have chosen to attribute the formulation to \textcite{multi-dendrix}. In fact, despite previous criticisms of their MMWSP's ILP exposition, their presentation of MWSP's ILP was clearer compared to that of \textcite{mdpfinder}, which would have been challenging to comprehend without additional explanations.
 
-\subsection{The GA}
+\subsection{The genetic algorithm}
 
 I find the use of genetic algorithms particularly appealing as a conceptual approach for optimizing a given score function, especially when a computationally efficient optimization method is not readily available. Indeed, genetic algorithms offer a flexible and intuitive framework for exploration and optimization. However, a significant drawback is their relatively slow performance compared to other methods. As noted by \textcite{mdpfinder}, their genetic algorithm is considerably slower than the alternatives they tested, being \textit{12 times slower} than the MCMC algorithm and \textit{over 60 times slower} than the ILP.
 
@@ -83,10 +83,13 @@ Despite the aforementioned challenges in fully understanding their method, I bel
 
 Finally, \textcite{mutex} mention in their \textit{Discussion} section that they aim to expand their work by exploring additional topological structures within the biological network. In fact, their current method focuses on genes with a common downstream target and necessitates that all group members are directly connected in the network without intermediary non-member nodes. However, incorporating linker nodes could facilitate the identification of more distant mutual exclusion relationships. I believe that this approach could provide a valuable direction for future research.
 
-\section{C3}
+\section{$\mathrm{C}^3$}
 
-placeholder \todo{todo}
-% scrivi che hanno scritto male ex-me-co
+\subsection{The clustering approach}
+
+The algorithm proposed by \textcite{c3} presents a particularly intriguing approach, as applying a clustering method to this problem is not an immediately obvious solution. A potential avenue for further exploration could involve a modified version of the algorithm, where a single weight $w$ is assigned to each edge, and a function is introduced to evaluate it, depending on the trade-off between $w^-$ and $w^+$. Despite this potential variation, the ILP formulation of the clustering problem is well constructed, and the rounding procedure is intuitively compelling. In addition, their method demonstrates considerable versatility, both in terms of the flexibility of cluster sizes and the potential for integration with external data. The framework allows for the incorporation of any external data directly into the edge weights, further enhancing its adaptability to different contexts and datasets.
+
+Lastly, it is worth noting that several aspects of their exposition were somewhat unclear. For example, they provided minimal detail regarding the dataset and its relative size, and there is no mention of the source for the vectors representing the time-evolving expression values of the genes. Additionally, they included a misleading figure in their work: the figure implies that in the \textbf{EX-ME-CO} version of their algorithm, $w^+$ is derived from \textit{coverage}, \textit{expression data}, and \textit{network information}. However, this contradicts the related paragraph, where $w^+$ is defined without using \textit{network information}. Although they suggest that the definition could be optionally extended to include \textit{network information} as shown in the figure, this inconsistency creates confusion. As a result, I am uncertain about how \textbf{EX-ME-CO} was precisely defined, and to avoid ambiguity, I chose to define \textbf{EX-ME-CO} and \textbf{NI-EX-ME-CO} as two distinct versions of the algorithm \todo{controlla che quello che è scritto qui è consistente con la sezione risultati}.
 
 \section{Results comparison}
 

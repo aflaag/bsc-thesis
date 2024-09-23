@@ -611,6 +611,7 @@ INPUT ./chapter/4.tex
 INPUT ./chapter/4.tex
 INPUT ./chapter/4.tex
 INPUT ./chapter/4.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
 INPUT ./chapter/ack.tex
 INPUT ./chapter/ack.tex
 INPUT ./chapter/ack.tex

@@ -57,11 +57,12 @@
 \contentsline {subsection}{\numberline {4.2.2}The ILP of Multi-Dendrix}{52}{subsection.4.2.2}%
 \contentsline {section}{\numberline {4.3}MDPFinder}{53}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}The ILP of Dendrix}{53}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}The GA}{53}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.2}The genetic algorithm}{53}{subsection.4.3.2}%
 \contentsline {section}{\numberline {4.4}Mutex}{53}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}A very complex greedy algorithm}{53}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Additional considerations}{54}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}C3}{54}{section.4.5}%
+\contentsline {section}{\numberline {4.5}$\mathrm {C}^3$}{55}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}The clustering approach}{55}{subsection.4.5.1}%
 \contentsline {section}{\numberline {4.6}Results comparison}{55}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Conclusions}{55}{section.4.7}%
 \contentsline {chapter}{Acknowledgements}{56}{chapter*.21}%
