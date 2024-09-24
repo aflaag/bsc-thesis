@@ -283,29 +283,28 @@ Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every 
     Let $M$ be a gene set, and let $g \in M$; define the following variables:
 
     \begin{itemize}
-        \item $\Gamma_g := \abs{\Gamma(g)}$
-        \item $\Gamma_M := \abs{\Gamma(M)}$
-        \item $M^g := M - \{g\}$
-        \item $\Gamma_{M^g} := \abs{\Gamma(M - \{g\})}$
-        \item $\inters := \abs{\Gamma(g) \cap \Gamma(M - \{g\})}$
+        \item $\gamma(g) := \abs{\Gamma(g)}$
+        \item $\gamma(M) := \abs{\Gamma(M)}$
+        \item $M_g := M - \{g\}$
+        \item $\gamma(g, M_g) := \abs{\Gamma(g) \cap \Gamma(M_g)}$
     \end{itemize}
 \end{definition}
 
-To test $H_0$ for the gene $g \in M$, it is necessary to quantify \textit{the probability that there are $\inters$ patients who have both gene $g$ and any gene in $M$ mutated}; let this probability be represented by the random variable $X$. Since $X$ follows an \href{https://en.wikipedia.org/wiki/Hypergeometric_distribution}{hypergeometric distribution}, denoted as $$X \sim H(m, \Gamma_g, \Gamma_{M^g})$$ this probability can be assessed by using the \href{https://en.wikipedia.org/wiki/Probability_mass_function}{PMF} of the hypergeometric distribution, namely: $$P(X = \inters) = \dfrac{\dbinom{\Gamma_g}{\inters}\dbinom{m - \Gamma_g}{\Gamma_{M^g} - \inters}}{\dbinom{m}{\Gamma_{M^g}}}$$
+To test $H_0$ for the gene $g \in M$, it is necessary to quantify \textit{the probability that there are $\gamma(g, M_g)$ patients who have both gene $g$ and any gene in $M$ mutated}; let this probability be represented by the random variable $X$. Since $X$ follows an \href{https://en.wikipedia.org/wiki/Hypergeometric_distribution}{hypergeometric distribution}, denoted as $$X \sim H(m, \gamma(g), \gamma(M_g))$$ this probability can be assessed by using the \href{https://en.wikipedia.org/wiki/Probability_mass_function}{PMF} of the hypergeometric distribution, namely: $$P(X = \gamma(g, M_g)) = \dfrac{\dbinom{\gamma(g)}{\gamma(g, M_g)}\dbinom{m - \gamma(g)}{\gamma(M_g) - \gamma(g, M_g)}}{\dbinom{m}{\gamma(M_g)}}$$
 
 Note that, by using the \href{https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_principle}{inclusion-exclusion principle} $$\abs{\Gamma(M)} = \abs{\Gamma(g)} + \abs{\Gamma(M - \{g\})} - \abs{\Gamma(g) \cap \Gamma(M - \{g\})}$$ this probability can also be evaluated using Fisher's exact test, by employing the following contingency table:
 
-\begin{table}[H]
+\begin{table}[H] \label{contingency}
     \centering
     \resizebox{\columnwidth}{!}{%
         \begin{tabular}{c|c|c|c}
                   & alterations in $\Gamma(g)$ & alterations \textit{not} in $\Gamma(g)$ & \\
             \hline
-            alterations in $\Gamma(M - \{g\})$ & $\inters$ & $\Gamma_M - \Gamma_g$ & $\Gamma_{M^g}$ \\
+            alterations in $\Gamma(M - \{g\})$ & $\gamma(g, M_g)$ & $\gamma(M_g) - \gamma(g, M_g)$ & $\gamma(M_g)$ \\
             \hline
-            alterations \textit{not} in $\Gamma(M - \{g\})$ & $\Gamma_g - \inters$ & $m - \Gamma_M$ & $m - \Gamma_{M^g}$ \\
+            alterations \textit{not} in $\Gamma(M - \{g\})$ & $\gamma(g) - \gamma(g, M_g)$ & $m - \gamma(M)$ & $m - \gamma(M_g)$ \\
             \hline
-                  & $\Gamma_g$ & $m - \Gamma_g$ & $m$
+                  & $\gamma(g)$ & $m - \gamma(g)$ & $m$
         \end{tabular}
     }
     \caption{Fisher's exact test}
@@ -323,7 +322,7 @@ This probability is used to determine the mutual exclusivity score of $M$, but f
         \Function{pValues}{$M$, $A$}
             \State $\mathcal P := \texttt{\{\}}$
             \For{$g \in M$}
-                \State $\mathcal P.\texttt{add\_entry}(g, P(X \le \inters))$ \Comment{this is $g$'s $p$-value}
+                \State $\mathcal P.\texttt{add\_entry}(g, P(X \le \gamma(g, M_g)))$ \Comment{this is $g$'s $p$-value}
             \EndFor
             \State \textbf{return} $\mathcal P$
         \EndFunction

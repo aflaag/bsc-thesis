@@ -1724,6 +1724,58 @@
     \field{year}{2013}
   \endentry
 
+  \entry{comet}{article}{}
+    \name{author}{4}{}{%
+      {{hash=LMD}{%
+         family={Leiserson},
+         familyi={L\bibinitperiod},
+         given={Mark\bibnamedelima DM},
+         giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=WHT}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Hsin-Ta},
+         giveni={H\bibinithyphendelim T\bibinitperiod},
+      }}%
+      {{hash=VF}{%
+         family={Vandin},
+         familyi={V\bibinitperiod},
+         given={Fabio},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RBJ}{%
+         family={Raphael},
+         familyi={R\bibinitperiod},
+         given={Benjamin\bibnamedelima J.},
+         giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{LMD+1}
+    \strng{fullhash}{LMDWHTVFRBJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \verb{doi}
+    \verb 10.1186/s13059-015-0700-7
+    \endverb
+    \field{issn}{1474-760X}
+    \field{number}{1}
+    \field{title}{CoMEt: a statistical approach to identify combinations of mutually exclusive alterations in cancer}
+    \verb{url}
+    \verb http://dx.doi.org/10.1186/s13059-015-0700-7
+    \endverb
+    \field{volume}{16}
+    \field{journaltitle}{Genome Biology}
+    \field{month}{08}
+    \field{year}{2015}
+  \endentry
+
   \entry{gistic}{article}{}
     \name{author}{6}{}{%
       {{hash=MCH}{%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  23 SEP 2024 22:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  24 SEP 2024 19:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1469,13 +1469,13 @@ Package cleveref Info: loaded `english' language definitions on input line 238.
 [14]
 Package cleveref Info: loaded `english' language definitions on input line 271.
  [15]
-Package cleveref Info: loaded `english' language definitions on input line 294.
+Package cleveref Info: loaded `english' language definitions on input line 295.
  [16]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 319.
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 318.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 324.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 323.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1483,13 +1483,13 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package cleveref Info: loaded `english' language definitions on input line 372.
+Package cleveref Info: loaded `english' language definitions on input line 373.
  [17]
-Package cleveref Info: loaded `english' language definitions on input line 396.
+Package cleveref Info: loaded `english' language definitions on input line 399.
  [18]
-Package cleveref Info: loaded `english' language definitions on input line 427.
+Package cleveref Info: loaded `english' language definitions on input line 429.
  [19]
-Package cleveref Info: loaded `english' language definitions on input line 458.
+Package cleveref Info: loaded `english' language definitions on input line 457.
  [20]) (./chapter/3.tex
 Chapter 3.
 
@@ -1928,23 +1928,27 @@ Package cleveref Info: loaded `english' language definitions on input line 787.
  [47]
 Package cleveref Info: loaded `english' language definitions on input line 799.
  [48]
-Package cleveref Info: loaded `english' language definitions on input line 834.
- [49]) (./chapter/4.tex
+Package cleveref Info: loaded `english' language definitions on input line 835.
+ [49]
+Package cleveref Info: loaded `english' language definitions on input line 852.
+ [50]
+Package cleveref Info: loaded `english' language definitions on input line 857.
+ [51]) (./chapter/4.tex
 Chapter 4.
-[50
+[52
 
 
 ]
 Underfull \vbox (badness 1629) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 47.
- [51]
+ [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 61.
- [52]
+ [54]
 Package cleveref Info: loaded `english' language definitions on input line 75.
- [53]
+ [55]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 86.
@@ -1961,21 +1965,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 91.
- [54]
-Package cleveref Info: loaded `english' language definitions on input line 102.
- [55]) (./chapter/ack.tex) [56
+ [56]
+Package cleveref Info: loaded `english' language definitions on input line 104.
+ [57]) (./chapter/ack.tex) [58
 
 
-] [57
+] [59
 
 
 ]
 Package cleveref Info: loaded `english' language definitions on input line 226.
- [58]
+ [60]
 Package cleveref Info: loaded `english' language definitions on input line 226.
- [59]
+ [61]
 Package cleveref Info: loaded `english' language definitions on input line 228.
- [60] (./Thesis.aux
+ [62] (./Thesis.aux
 Package cleveref Info: loaded `english' language definitions on input line 11.
 )
  ***********
@@ -1983,24 +1987,24 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 29F75600DA2D1DC054D080272F776491;10593.
+(rerunfilecheck)             Checksum: 651C58168536F5EDA5E2C120ED080972;10593.
 Package logreq Info: Writing requests to 'Thesis.run.xml'.
 \openout1 = `Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51546 strings out of 476024
- 1067133 string characters out of 5792396
- 1977635 words of memory out of 5000000
+ 51554 strings out of 476024
+ 1067233 string characters out of 5792396
+ 1977767 words of memory out of 5000000
  72119 multiletter control sequences out of 15000+600000
- 713077 words of font info for 341 fonts, out of 8000000 for 9000
+ 713326 words of font info for 344 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,21n,131p,1852b,2803s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (67 pages, 874016 bytes).
+Output written on Thesis.pdf (69 pages, 880890 bytes).
 PDF statistics:
- 1543 PDF objects out of 1728 (max. 8388607)
- 1399 compressed objects within 14 object streams
- 353 named destinations out of 1000 (max. 500000)
+ 1573 PDF objects out of 1728 (max. 8388607)
+ 1426 compressed objects within 15 object streams
+ 355 named destinations out of 1000 (max. 500000)
  86068 words of extra memory for PDF output out of 89155 (max. 10000000)
 
