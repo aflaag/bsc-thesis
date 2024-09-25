@@ -8,6 +8,7 @@
     - fai tbf e tit per leggibilità
     - capire come aumentare lo spazio tra table e caption (?)
     - check thesis.tex
+    - check impagination
     - check links
     - check references.bib
         - check if refs are correct

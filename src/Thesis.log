@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  25 SEP 2024 19:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  25 SEP 2024 19:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1402,12 +1402,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 187--187
 
 [2
 
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [3
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] (./chapter/abstract.tex [3
 
 
 ] [4
 
-] (./Thesis.toc
+]) [5] (./Thesis.toc
 Package cleveref Info: loaded `english' language definitions on input line 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 3.
@@ -1415,16 +1415,17 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 3.
- [5
+ [6
+
 
 ]
 Package cleveref Info: loaded `english' language definitions on input line 62.
- [6{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}])
+ [7{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}])
 \tf@toc=\write7
 \openout7 = `Thesis.toc'.
 
-Package cleveref Info: loaded `english' language definitions on input line 202.
- [7] (./chapter/1.tex
+Package cleveref Info: loaded `english' language definitions on input line 203.
+ [8] (./chapter/1.tex
 Chapter 1.
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 3.
 [1
@@ -1442,40 +1443,40 @@ Package cleveref Info: loaded `english' language definitions on input line 92.
 Package cleveref Info: loaded `english' language definitions on input line 103.
  [6]) (./chapter/2.tex
 Chapter 2.
-[7
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7
 
 
 ]
-Package cleveref Info: loaded `english' language definitions on input line 37.
+Package cleveref Info: loaded `english' language definitions on input line 28.
  [8]
-Package cleveref Info: loaded `english' language definitions on input line 53.
+Package cleveref Info: loaded `english' language definitions on input line 47.
  [9]
-Package cleveref Info: loaded `english' language definitions on input line 67.
+Package cleveref Info: loaded `english' language definitions on input line 61.
  [10]
 Package cleveref Info: loaded `english' language definitions on input line 102.
- [11{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
-Package cleveref Info: loaded `english' language definitions on input line 142.
- [12{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+ [11{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+Package cleveref Info: loaded `english' language definitions on input line 138.
+ [12]
 Package cleveref Info: loaded `english' language definitions on input line 178.
  [13]
-Overfull \hbox (0.71504pt too wide) in paragraph at lines 196--196
+Overfull \hbox (0.71504pt too wide) in paragraph at lines 183--183
 []\T1/lmr/m/n/10.95 (-20) let $\OT1/lmr/m/n/10.95 (-20) ^^A := [][] []$\T1/lmr/m/n/10.95 (-20) , and for each $\OML/lmm/m/it/10.95 v \OMS/lmsy/m/n/10.95 2 \OML/lmm/m/it/10.95 V\OT1/lmr/m/n/10.95 (-20) (\OML/lmm/m/it/10.95 G\OT1/lmr/m/n/10.95 (-20) )$ \T1/lmr/m/n/10.95 (-20) let $\OMS/lmsy/m/n/10.95 S[] \OT1/lmr/m/n/10.95 (-20) := []$
  []
 
-
-Underfull \vbox (badness 7012) has occurred while \output is active []
-
-Package cleveref Info: loaded `english' language definitions on input line 218.
- [14]
-Package cleveref Info: loaded `english' language definitions on input line 240.
+Package cleveref Info: loaded `english' language definitions on input line 213.
+[14]
+Package cleveref Info: loaded `english' language definitions on input line 247.
  [15]
-Package cleveref Info: loaded `english' language definitions on input line 271.
+Package cleveref Info: loaded `english' language definitions on input line 270.
  [16]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 308.
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 295.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 313.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 300.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1483,16 +1484,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package cleveref Info: loaded `english' language definitions on input line 321.
+Package cleveref Info: loaded `english' language definitions on input line 314.
  [17]
-Package cleveref Info: loaded `english' language definitions on input line 337.
+Package cleveref Info: loaded `english' language definitions on input line 335.
  [18]
-Package cleveref Info: loaded `english' language definitions on input line 362.
+Package cleveref Info: loaded `english' language definitions on input line 366.
  [19]
-Package cleveref Info: loaded `english' language definitions on input line 399.
- [20]
-Package cleveref Info: loaded `english' language definitions on input line 410.
- [21]) (./chapter/3.tex
+Package cleveref Info: loaded `english' language definitions on input line 397.
+ [20]) (./chapter/3.tex
 Chapter 3.
 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
@@ -1532,31 +1531,31 @@ l.26             \State
                         \textbf{return} $M$
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22
+ [21
 
 
 ]
 Package cleveref Info: loaded `english' language definitions on input line 56.
- [23]
+ [22]
 Package cleveref Info: loaded `english' language definitions on input line 74.
- [24]
+ [23]
 Package cleveref Info: loaded `english' language definitions on input line 98.
- [25]
+ [24]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 104.
- [26]
+ [25]
 Package cleveref Info: loaded `english' language definitions on input line 152.
- [27]
+ [26]
 Package cleveref Info: loaded `english' language definitions on input line 172.
- [28]
+ [27]
 
 Package amsmath Warning: Foreign command \atop;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 213.
 
 Package cleveref Info: loaded `english' language definitions on input line 221.
-[29]
+[28]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1598,21 +1597,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) h
 l.236             \State
                          \textbf{return} $M$
 Package cleveref Info: loaded `english' language definitions on input line 256.
- [30]
+ [29]
 Package cleveref Info: loaded `english' language definitions on input line 270.
- [31]
+ [30]
 Package cleveref Info: loaded `english' language definitions on input line 290.
- [32]
+ [31]
 Package cleveref Info: loaded `english' language definitions on input line 325.
- [33]
+ [32]
 Package cleveref Info: loaded `english' language definitions on input line 343.
- [34]
+ [33]
 Package cleveref Info: loaded `english' language definitions on input line 363.
- [35]
+ [34]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 369.
- [36]
+ [35]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1654,7 +1653,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) h
 l.396         \EndFunction
                           
 Package cleveref Info: loaded `english' language definitions on input line 406.
- [37]
+ [36]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1701,14 +1700,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) h
 l.427                 \EndFor
                              
 Package cleveref Info: loaded `english' language definitions on input line 456.
- [38]
+ [37]
 <../assets/greedy_mutex.png, id=965, 1408.51219pt x 234.1247pt>
 File: ../assets/greedy_mutex.png Graphic file (type png)
 <use ../assets/greedy_mutex.png>
 Package pdftex.def Info: ../assets/greedy_mutex.png  used on input line 469.
 (pdftex.def)             Requested size: 380.30338pt x 63.21451pt.
 Package cleveref Info: loaded `english' language definitions on input line 488.
- [39 <../assets/greedy_mutex.png (PNG copy)>]
+ [38 <../assets/greedy_mutex.png (PNG copy)>]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1765,9 +1764,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) 
 l.534         \EndFunction
                           
 Package cleveref Info: loaded `english' language definitions on input line 537.
- [40]
+ [39]
 Package cleveref Info: loaded `english' language definitions on input line 547.
- [41]
+ [40]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <14.4> on input line 556.
 
@@ -1784,22 +1783,22 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 556.
 
 Package cleveref Info: loaded `english' language definitions on input line 564.
-[42]
+[41]
 Package cleveref Info: loaded `english' language definitions on input line 595.
- [43]
+ [42]
 <../assets/frequency_c3.jpeg, id=1063, 391.4625pt x 394.47375pt>
 File: ../assets/frequency_c3.jpeg Graphic file (type jpg)
 <use ../assets/frequency_c3.jpeg>
 Package pdftex.def Info: ../assets/frequency_c3.jpeg  used on input line 600.
 (pdftex.def)             Requested size: 234.8793pt x 236.68607pt.
 Package cleveref Info: loaded `english' language definitions on input line 614.
- [44 <../assets/frequency_c3.jpeg>]
+ [43 <../assets/frequency_c3.jpeg>]
 Package cleveref Info: loaded `english' language definitions on input line 655.
- [45]
+ [44]
 Package cleveref Info: loaded `english' language definitions on input line 704.
- [46]
+ [45]
 Package cleveref Info: loaded `english' language definitions on input line 740.
- [47]
+ [46]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1918,28 +1917,28 @@ l.778         \EndFunction
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 781.
- [48]
+ [47]
 Package cleveref Info: loaded `english' language definitions on input line 793.
- [49]
+ [48]
 Package cleveref Info: loaded `english' language definitions on input line 829.
- [50]
+ [49]
 Package cleveref Info: loaded `english' language definitions on input line 846.
- [51]
+ [50]
 Package cleveref Info: loaded `english' language definitions on input line 853.
- [52]) (./chapter/4.tex
+ [51]) (./chapter/4.tex
 Chapter 4.
-[53
+[52
 
 
 ]
 Package cleveref Info: loaded `english' language definitions on input line 47.
- [54]
+ [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 61.
- [55]
+ [54]
 Package cleveref Info: loaded `english' language definitions on input line 75.
- [56]
+ [55]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 86.
@@ -1956,23 +1955,23 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 91.
- [57]
+ [56]
 Package cleveref Info: loaded `english' language definitions on input line 96.
- [58]) (./chapter/conclusions.tex) (./chapter/ack.tex [59
+ [57]) (./chapter/conclusions.tex) (./chapter/ack.tex [58
 
 
-]) [60
+]) [59
 
-] [61
+] [60
 
 
 ]
-Package cleveref Info: loaded `english' language definitions on input line 225.
+Package cleveref Info: loaded `english' language definitions on input line 226.
+ [61]
+Package cleveref Info: loaded `english' language definitions on input line 226.
  [62]
-Package cleveref Info: loaded `english' language definitions on input line 225.
- [63]
-Package cleveref Info: loaded `english' language definitions on input line 227.
- [64] (./Thesis.aux
+Package cleveref Info: loaded `english' language definitions on input line 228.
+ [63] (./Thesis.aux
 Package cleveref Info: loaded `english' language definitions on input line 11.
 )
  ***********
@@ -1986,15 +1985,15 @@ Package logreq Info: Writing requests to 'Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51456 strings out of 476024
- 1065191 string characters out of 5792396
- 1971341 words of memory out of 5000000
- 72032 multiletter control sequences out of 15000+600000
+ 51465 strings out of 476024
+ 1065448 string characters out of 5792396
+ 1970337 words of memory out of 5000000
+ 72039 multiletter control sequences out of 15000+600000
  712932 words of font info for 342 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 98i,21n,131p,1852b,2803s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,21n,131p,1852b,2793s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (71 pages, 871582 bytes).
+Output written on Thesis.pdf (71 pages, 870601 bytes).
 PDF statistics:
  1566 PDF objects out of 1728 (max. 8388607)
  1417 compressed objects within 15 object streams
