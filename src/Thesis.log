@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  25 SEP 2024 17:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  25 SEP 2024 19:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1437,45 +1437,45 @@ Package cleveref Info: loaded `english' language definitions on input line 57.
  [3]
 Package cleveref Info: loaded `english' language definitions on input line 71.
  [4]
-Package cleveref Info: loaded `english' language definitions on input line 130.
+Package cleveref Info: loaded `english' language definitions on input line 92.
  [5]
-Package cleveref Info: loaded `english' language definitions on input line 141.
+Package cleveref Info: loaded `english' language definitions on input line 103.
  [6]) (./chapter/2.tex
 Chapter 2.
-
-Underfull \vbox (badness 7451) has occurred while \output is active []
-
- [7
+[7
 
 
 ]
-Package cleveref Info: loaded `english' language definitions on input line 43.
+Package cleveref Info: loaded `english' language definitions on input line 37.
  [8]
-Package cleveref Info: loaded `english' language definitions on input line 72.
+Package cleveref Info: loaded `english' language definitions on input line 53.
  [9]
-Package cleveref Info: loaded `english' language definitions on input line 86.
+Package cleveref Info: loaded `english' language definitions on input line 67.
  [10]
-Package cleveref Info: loaded `english' language definitions on input line 127.
- [11{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-Package cleveref Info: loaded `english' language definitions on input line 163.
- [12]
-Package cleveref Info: loaded `english' language definitions on input line 203.
+Package cleveref Info: loaded `english' language definitions on input line 102.
+ [11{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+Package cleveref Info: loaded `english' language definitions on input line 142.
+ [12{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+Package cleveref Info: loaded `english' language definitions on input line 178.
  [13]
-Overfull \hbox (0.71504pt too wide) in paragraph at lines 208--208
+Overfull \hbox (0.71504pt too wide) in paragraph at lines 196--196
 []\T1/lmr/m/n/10.95 (-20) let $\OT1/lmr/m/n/10.95 (-20) ^^A := [][] []$\T1/lmr/m/n/10.95 (-20) , and for each $\OML/lmm/m/it/10.95 v \OMS/lmsy/m/n/10.95 2 \OML/lmm/m/it/10.95 V\OT1/lmr/m/n/10.95 (-20) (\OML/lmm/m/it/10.95 G\OT1/lmr/m/n/10.95 (-20) )$ \T1/lmr/m/n/10.95 (-20) let $\OMS/lmsy/m/n/10.95 S[] \OT1/lmr/m/n/10.95 (-20) := []$
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 238.
-[14]
-Package cleveref Info: loaded `english' language definitions on input line 271.
+
+Underfull \vbox (badness 7012) has occurred while \output is active []
+
+Package cleveref Info: loaded `english' language definitions on input line 218.
+ [14]
+Package cleveref Info: loaded `english' language definitions on input line 240.
  [15]
-Package cleveref Info: loaded `english' language definitions on input line 295.
+Package cleveref Info: loaded `english' language definitions on input line 271.
  [16]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 318.
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 308.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 323.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 313.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1483,470 +1483,463 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package cleveref Info: loaded `english' language definitions on input line 373.
+Package cleveref Info: loaded `english' language definitions on input line 321.
  [17]
-Package cleveref Info: loaded `english' language definitions on input line 399.
+Package cleveref Info: loaded `english' language definitions on input line 337.
  [18]
-Package cleveref Info: loaded `english' language definitions on input line 429.
+Package cleveref Info: loaded `english' language definitions on input line 362.
  [19]
-Package cleveref Info: loaded `english' language definitions on input line 457.
- [20]) (./chapter/3.tex
+Package cleveref Info: loaded `english' language definitions on input line 399.
+ [20]
+Package cleveref Info: loaded `english' language definitions on input line 410.
+ [21]) (./chapter/3.tex
 Chapter 3.
 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.22         \Function
+l.20         \Function
                       {greedyDendrix}{$\mathcal G$, $k$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.23             \State
+l.21             \State
                         $M := \{g_1, g_2\}$ such that $M$ maximizes $W(M)$ \...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.24             \For
+l.22             \For
                      {$i \in [3, k]$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.25                 \State
-                            $\hat g := \argmax_{g \in \mathcal G}{W \rbk{M \...
+l.23                 \State
+                            Choose $\hat g \in \argmax_{g \in \mathcal G}{W ...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.26                 \State
+l.24                 \State
                             $M = M \cup \{\hat g\}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.27             \EndFor
+l.25             \EndFor
                         
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28             \State
+l.26             \State
                         \textbf{return} $M$
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [21
+ [22
 
 
 ]
-
-LaTeX Warning: Marginpar on page 22 moved.
-
-
-LaTeX Warning: Marginpar on page 22 moved.
-
-
-LaTeX Warning: Marginpar on page 22 moved.
-
-Package cleveref Info: loaded `english' language definitions on input line 58.
-[22]
-Package cleveref Info: loaded `english' language definitions on input line 76.
+Package cleveref Info: loaded `english' language definitions on input line 56.
  [23]
-Package cleveref Info: loaded `english' language definitions on input line 100.
+Package cleveref Info: loaded `english' language definitions on input line 74.
  [24]
+Package cleveref Info: loaded `english' language definitions on input line 98.
+ [25]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package cleveref Info: loaded `english' language definitions on input line 106.
- [25]
-Package cleveref Info: loaded `english' language definitions on input line 154.
+Package cleveref Info: loaded `english' language definitions on input line 104.
  [26]
-Package cleveref Info: loaded `english' language definitions on input line 174.
+Package cleveref Info: loaded `english' language definitions on input line 152.
  [27]
+Package cleveref Info: loaded `english' language definitions on input line 172.
+ [28]
 
 Package amsmath Warning: Foreign command \atop;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 215.
+(amsmath)                 on input line 213.
 
-Package cleveref Info: loaded `english' language definitions on input line 223.
-[28]
+Package cleveref Info: loaded `english' language definitions on input line 221.
+[29]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.231         \Function
+l.229         \Function
                        {iterDendrix}{$\mathcal G$, $k$, $t$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.232             \State
+l.230             \State
                          $M := \varnothing$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.233             \For
+l.231             \For
                       {$i \in [1, t]$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.234             \State
+l.232             \State
                          $M_i := \texttt{greedyDendrix}(\mathcal G, k)$ \Com...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.235                 \State
+l.233                 \State
                              $M = M \cup \{M_i\}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.236                 \State
+l.234                 \State
                              $\mathcal G = \mathcal G - M_i$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.237             \EndFor
+l.235             \EndFor
                          
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.238             \State
+l.236             \State
                          \textbf{return} $M$
-Package cleveref Info: loaded `english' language definitions on input line 258.
- [29]
-Package cleveref Info: loaded `english' language definitions on input line 272.
+Package cleveref Info: loaded `english' language definitions on input line 256.
  [30]
-Package cleveref Info: loaded `english' language definitions on input line 292.
+Package cleveref Info: loaded `english' language definitions on input line 270.
  [31]
-Package cleveref Info: loaded `english' language definitions on input line 327.
+Package cleveref Info: loaded `english' language definitions on input line 290.
  [32]
-Package cleveref Info: loaded `english' language definitions on input line 345.
+Package cleveref Info: loaded `english' language definitions on input line 325.
  [33]
-Package cleveref Info: loaded `english' language definitions on input line 365.
+Package cleveref Info: loaded `english' language definitions on input line 343.
  [34]
+Package cleveref Info: loaded `english' language definitions on input line 363.
+ [35]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package cleveref Info: loaded `english' language definitions on input line 371.
- [35]
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.395         \Function
-                       {greedyMutex}{$g$, $k_\mathrm{max}$, $G$, $A$, \textt...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.396             \State
-                         $M := \{g\}$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.397             \Do
-                     
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.398                 \State
-                             $M_p := M$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.399                 \State
-                             $M := \texttt{expandGroup}(M, G, A, \texttt{fin...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.400             \doWhile
-                          {$M \neq M_p \land \abs{M} < k_\mathrm{max}$} \Com...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.401             \State
-                         \textbf{return} $M$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.402         \EndFunction
-                          
-Package cleveref Info: loaded `english' language definitions on input line 412.
+Package cleveref Info: loaded `english' language definitions on input line 369.
  [36]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.425         \Function
+l.389         \Function
+                       {greedyMutex}{$g$, $k_\mathrm{max}$, $G$, $A$, \textt...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.390             \State
+                         $M := \{g\}$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.391             \Do
+                     
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.392                 \State
+                             $M_p := M$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.393                 \State
+                             $M := \texttt{expandGroup}(M, G, A, \texttt{fin...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.394             \doWhile
+                          {$M \neq M_p \land \abs{M} < k_\mathrm{max}$} \Com...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.395             \State
+                         \textbf{return} $M$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.396         \EndFunction
+                          
+Package cleveref Info: loaded `english' language definitions on input line 406.
+ [37]
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.419         \Function
                        {expandGroup}{$M$, $G$, $A$, \texttt{final}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.426             \State
+l.420             \State
                          $b := \texttt{NULL}$ \Comment{$b$ is the current be...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.427             \State
+l.421             \State
                          $b_s := 1$ \Comment{$b_v$ is $b$'s associated score}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.428             \State
+l.422             \State
                          $\mathcal N := \texttt{\{\}}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.429             \If
+l.423             \If
                      {\texttt{final}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.430                 \State
+l.424                 \State
                              $\mathcal P := \texttt{pValues}(M, A)$ \Comment...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.431                 \For
+l.425                 \For
                           {$g \in M$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.432                     \State
+l.426                     \State
                                  $\mathcal N.\texttt{add\_entry}(g, \mathcal...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.433                 \EndFor
+l.427                 \EndFor
                              
-Package cleveref Info: loaded `english' language definitions on input line 462.
- [37]
-<../assets/greedy_mutex.png, id=968, 1408.51219pt x 234.1247pt>
+Package cleveref Info: loaded `english' language definitions on input line 456.
+ [38]
+<../assets/greedy_mutex.png, id=965, 1408.51219pt x 234.1247pt>
 File: ../assets/greedy_mutex.png Graphic file (type png)
 <use ../assets/greedy_mutex.png>
-Package pdftex.def Info: ../assets/greedy_mutex.png  used on input line 475.
+Package pdftex.def Info: ../assets/greedy_mutex.png  used on input line 469.
 (pdftex.def)             Requested size: 380.30338pt x 63.21451pt.
-Package cleveref Info: loaded `english' language definitions on input line 494.
- [38 <../assets/greedy_mutex.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 488.
+ [39 <../assets/greedy_mutex.png (PNG copy)>]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.524         \Function
+l.518         \Function
                        {score}{$M$, $A$, \texttt{final}, $\mathcal N$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.525             \State
+l.519             \State
                          $\mathcal P := \texttt{pValues}(M, A)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.526             \If
+l.520             \If
                      {$\texttt{final}$} \Comment{initial $p$-values correction}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.527                 \For
+l.521                 \For
                           {$g \in M$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.529                     \State
+l.523                     \State
                                  $\mathcal N_g := \mathcal N\texttt{[}g\text...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.530                     \State
+l.524                     \State
                                  $c := \abs{\{i \mid \mathcal N_g\texttt{[}i...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.536                     \State
+l.530                     \State
                                  $\mathcal P\texttt{[}g\texttt{]} := \max\rb...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.537                 \EndFor
+l.531                 \EndFor
                              
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.538             \EndIf
+l.532             \EndIf
                         
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.539             \State
+l.533             \State
                          \textbf{return} $\max_{g \in M}{\mathcal P\texttt{[...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.540         \EndFunction
+l.534         \EndFunction
                           
-Package cleveref Info: loaded `english' language definitions on input line 543.
- [39]
-Package cleveref Info: loaded `english' language definitions on input line 553.
+Package cleveref Info: loaded `english' language definitions on input line 537.
  [40]
+Package cleveref Info: loaded `english' language definitions on input line 547.
+ [41]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 562.
+(Font)              <14.4> on input line 556.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 562.
+(hyperref)                removing `math shift' on input line 556.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 562.
+(hyperref)                removing `superscript' on input line 556.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 562.
+(hyperref)                removing `math shift' on input line 556.
 
-Package cleveref Info: loaded `english' language definitions on input line 570.
-[41]
-Package cleveref Info: loaded `english' language definitions on input line 601.
- [42]
-<../assets/frequency_c3.jpeg, id=1066, 391.4625pt x 394.47375pt>
+Package cleveref Info: loaded `english' language definitions on input line 564.
+[42]
+Package cleveref Info: loaded `english' language definitions on input line 595.
+ [43]
+<../assets/frequency_c3.jpeg, id=1063, 391.4625pt x 394.47375pt>
 File: ../assets/frequency_c3.jpeg Graphic file (type jpg)
 <use ../assets/frequency_c3.jpeg>
-Package pdftex.def Info: ../assets/frequency_c3.jpeg  used on input line 606.
+Package pdftex.def Info: ../assets/frequency_c3.jpeg  used on input line 600.
 (pdftex.def)             Requested size: 234.8793pt x 236.68607pt.
-Package cleveref Info: loaded `english' language definitions on input line 620.
- [43 <../assets/frequency_c3.jpeg>]
-Package cleveref Info: loaded `english' language definitions on input line 661.
- [44]
-Package cleveref Info: loaded `english' language definitions on input line 710.
+Package cleveref Info: loaded `english' language definitions on input line 614.
+ [44 <../assets/frequency_c3.jpeg>]
+Package cleveref Info: loaded `english' language definitions on input line 655.
  [45]
-Package cleveref Info: loaded `english' language definitions on input line 746.
+Package cleveref Info: loaded `english' language definitions on input line 704.
  [46]
+Package cleveref Info: loaded `english' language definitions on input line 740.
+ [47]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.762         \Function
+l.756         \Function
                        {roundingProcedure}{$G$, $\{x_e\}_{e \in E(G)}$, $\al...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.763             \State
+l.757             \State
                          $\mathcal C := \varnothing$ \Comment{the output set...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.764             \State
+l.758             \State
                          $S := V(G)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.765             \While
+l.759             \While
                         {$S \neq \varnothing$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.766                 \State
+l.760                 \State
                              Choose an arbitrary $u \in S$ \Comment{this is ...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.767                 \State
+l.761                 \State
                              $T := \{w \in S - \{u\} \mid x_{uw} \le \alpha\...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.768                 \If
+l.762                 \If
                          {$\sum_{w \in T}{x_{uw}} \ge \frac{\alpha}{2}\abs{T}$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.769                     \State
+l.763                     \State
                                  $\mathcal C = \mathcal C \cup \{\{u\}\}$ \C...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.770                     \State
+l.764                     \State
                                  $S = S - \{u\}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.771                 \ElsIf
+l.765                 \ElsIf
                             {$\abs{T} \le k$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.772                     \State
+l.766                     \State
                                  $\mathcal C = \mathcal C \cup \{\{u\} \cup ...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.773                     \State
+l.767                     \State
                                  $S = S - \rbk{\{u\} \cup T}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.774                 \Else
+l.768                 \Else
                            
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.775             \State
+l.769             \State
                          Partition $T$ into $\{T_0', T_1, \ldots, T_p\}$, su...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.776                     \State
+l.770                     \State
                                  $T_0 := T_0' \cup \{u\}$ \Comment{$T_0$ has...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.777                     \For
+l.771                     \For
                               {$i \in [0, p]$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.17}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.778                         \State
+l.772                         \State
                                      $\mathcal C = \mathcal C \cup \{T_i\}$ ...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.18}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.779                     \EndFor
+l.773                     \EndFor
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.19}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.780                     \State
+l.774                     \State
                                  $S = S - \rbk{\{u\} \cup T}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.20}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.781                 \EndIf
+l.775                 \EndIf
                             
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.21}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.782             \EndWhile
+l.776             \EndWhile
                            
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.22}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.783             \State
+l.777             \State
                          \textbf{return} $\mathcal C$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.23}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.784         \EndFunction
+l.778         \EndFunction
                           
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package cleveref Info: loaded `english' language definitions on input line 787.
- [47]
-Package cleveref Info: loaded `english' language definitions on input line 799.
+Package cleveref Info: loaded `english' language definitions on input line 781.
  [48]
-Package cleveref Info: loaded `english' language definitions on input line 835.
+Package cleveref Info: loaded `english' language definitions on input line 793.
  [49]
-Package cleveref Info: loaded `english' language definitions on input line 852.
+Package cleveref Info: loaded `english' language definitions on input line 829.
  [50]
-Package cleveref Info: loaded `english' language definitions on input line 859.
- [51]) (./chapter/4.tex
+Package cleveref Info: loaded `english' language definitions on input line 846.
+ [51]
+Package cleveref Info: loaded `english' language definitions on input line 853.
+ [52]) (./chapter/4.tex
 Chapter 4.
-[52
+[53
 
 
 ]
 Package cleveref Info: loaded `english' language definitions on input line 47.
- [53]
+ [54]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 61.
- [54]
-Package cleveref Info: loaded `english' language definitions on input line 75.
  [55]
+Package cleveref Info: loaded `english' language definitions on input line 75.
+ [56]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 86.
@@ -1963,23 +1956,23 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package cleveref Info: loaded `english' language definitions on input line 91.
- [56]
+ [57]
 Package cleveref Info: loaded `english' language definitions on input line 96.
- [57]) (./chapter/conclusions.tex) (./chapter/ack.tex [58
+ [58]) (./chapter/conclusions.tex) (./chapter/ack.tex [59
 
 
-]) [59
+]) [60
 
-] [60
+] [61
 
 
 ]
 Package cleveref Info: loaded `english' language definitions on input line 225.
- [61]
-Package cleveref Info: loaded `english' language definitions on input line 225.
  [62]
+Package cleveref Info: loaded `english' language definitions on input line 225.
+ [63]
 Package cleveref Info: loaded `english' language definitions on input line 227.
- [63] (./Thesis.aux
+ [64] (./Thesis.aux
 Package cleveref Info: loaded `english' language definitions on input line 11.
 )
  ***********
@@ -1987,24 +1980,24 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: EFD2AA95841F5E4AFF2EE7DB1763236C;10436.
+(rerunfilecheck)             Checksum: 1863F3E60041792494857181F78C31B8;10488.
 Package logreq Info: Writing requests to 'Thesis.run.xml'.
 \openout1 = `Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51537 strings out of 476024
- 1066903 string characters out of 5792396
- 1977478 words of memory out of 5000000
- 72100 multiletter control sequences out of 15000+600000
- 713337 words of font info for 345 fonts, out of 8000000 for 9000
+ 51456 strings out of 476024
+ 1065191 string characters out of 5792396
+ 1971341 words of memory out of 5000000
+ 72032 multiletter control sequences out of 15000+600000
+ 712932 words of font info for 342 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,21n,131p,1852b,2803s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (70 pages, 885576 bytes).
+Output written on Thesis.pdf (71 pages, 871582 bytes).
 PDF statistics:
- 1571 PDF objects out of 1728 (max. 8388607)
- 1423 compressed objects within 15 object streams
- 352 named destinations out of 1000 (max. 500000)
+ 1566 PDF objects out of 1728 (max. 8388607)
+ 1417 compressed objects within 15 object streams
+ 345 named destinations out of 1000 (max. 500000)
  86060 words of extra memory for PDF output out of 89155 (max. 10000000)
 

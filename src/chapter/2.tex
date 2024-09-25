@@ -1,9 +1,17 @@
-\chapter{Classifying mutations} \label{chap:classifying_mutations}
+\chapter{Pathways identification criteria} \label{chap:pathways_identification_criteria}
+
+The first part of this chapter discusses the \textit{two categories} of mutations that occur in cancer, one of which is significantly more influential in tumor development. Distinguishing between these categories is essential for understanding cancer mechanisms, as the most lethal mutations may serve as critical targets for future targeted therapies.
+
+However, classifying cancerous mutations is not straightforward and poses several challenges, which will be outlined in the following sections. To address these difficulties, research has increasingly focused on identifying patterns within patients' genomic data for further analysis.
+
+% However, classification of cancerous mutations is not straightforward, and poses several challenges, which will be detailed in the following sections. To address these difficulties, research has increasingly focused on finding some pattern within patients' genomic data to leverage.
+
+Recent analyses of genomic data from numerous patients have revealed patterns that may lead to significant therapeutic discoveries, and assist in categorizing mutations into the two described types. The second half of this chapter introduces \textit{four} different approaches aimed at identifying cellular signaling and regulatory pathways critical to cancer development. The focus will be on the metrics developed by these approaches to assess patterns in patient data.
 
 % ------- TODO USE THIS
 % estimates suggest that the human genome contains more than 50,000 genes \cite{n-genes}
 
-placeholder \todo{introduction to the chapter, tell why we have multiple algorithms (use comment), also change chapter name?}
+% placeholder \todo{introduction to the chapter, tell why we have multiple algorithms (use comment), also change chapter name?}
 
 \section{Mutations and pathways}
 
@@ -14,16 +22,6 @@ In the previous sections, it was discussed how mutations play a critical role in
 Although the general consensus is that mutations are divided into these two categories, some studies do not fully agree with this dichotomous model \cite{three_mutations}. Further complicating matters, the term \textit{driver gene} has two distinct meanings in cancer research. Originally, the \textit{driver-versus-passenger} concept was used to differentiate mutations that provide a selective growth advantage from those that do not. According to this definition, genes without driver mutations cannot be classified as driver genes. However, many genes that have few or no driver mutations are still referred to as driver genes in the literature. This includes genes that are overexpressed, underexpressed, or epigenetically altered in tumors. Although some of these genes might contribute significantly to cancer development, classifying all of them as \textit{driver genes} may be misleading \cite{vogelstein2013}.
 
 Despite these complexities, it is generally accepted that mutations can be categorized into the two described types. This classification is essential, as identifying driver mutations can significantly advance the development of targeted therapies, which may specifically target these driver mutations directly.
-
-% A \textbf{driver gene} is a gene that harbors at least one driver mutation, though it may also contain passenger mutations \todo{\href{https://www.aiom.it/wp-content/uploads/2019/02/20190524RM_21_Tommasi.pdf}{DO I ADD THIS AS A CITATION???}}. A driver pathway consists of at least one driver gene. Driver mutations, genes, and pathways are of significant scientific interest due to their crucial role in cancer proliferation. \todo{expand this section}
-
-% \subsection{Importance of pathways}
-%
-% placeholder \todo{questa sezione fa riscritta perché la roba che sta scritta qui non mi piace}
-%
-% \textbf{Cell signaling} is the process by which cells interact with each other, themselves, or their environment. It concerns the transduction of signals, which can be chemical, or can involve various types such as pressure, temperature, or light signals \cite{cell_signaling}. \textbf{Pathways} are sequences of molecular interactions within a cell that lead to a change in the cell or the production of a specific product \cite{pathway}. These pathways have a direction in which the actions occur, with the terms \textit{upstream} and \textit{downstream} indicating the initial and final stages of these processes, respectively.
-%
-% In cancer research, \textbf{signaling pathways} are of particular interest because they mediate the transduction of cell signals. Identifying and targeting the signaling pathways responsible for cancer growth could potentially halt the development of the disease. \todo{\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8002322/}{check this out}, also check if what i wrote is actually true, i think i read it somewhere but can't find the source right now; expand on cell signaling? expand of pathways? if yes, make subsections}
 
 \subsection{Problems with frequency analyses}
 
@@ -44,16 +42,6 @@ An alternative method to assessing the recurrence of individual mutations or gen
 However, pathway analysis relies on the prior identification of gene groups within known pathways. While some of them are well-documented and cataloged in multiple databases, our understanding remains incomplete. In particular, many databases aggregate all elements of pathways but often lack details on which specific components are active in particular cell types.
 
 These limitations, along with the increasing number of sequenced cancer genomes, raise the question of whether it is possible to automatically identify groups of genes with driver mutations or mutated driver pathways directly from somatic mutation data, collected from a large number of patients \cite{dendrix}. This topic will be explored in the following sections, which will discuss the various techniques developed for identifiying driver pathways based on mutation data.
-
-% All \textit{known} driver genes can be categorized into one or more of \textbf{12 pathways}. These pathways can be further grouped into three fundamental cellular processes, namely \textbf{cell fate}, \textbf{cell survival} and \textbf{genome maintenance} \cite{vogelstein2013}.
-%
-% Understanding these pathways is essential for comprehending patient heterogeneity. For instance, different lung cancers may harbor \textit{distinct mutations} affecting the \textbf{same cellular signaling pathways}. For instance, mutations might occur in growth factor receptors, KRAS, NF1, or BRAF, all of which impact signaling mechanisms that drive tumor growth. 
-%
-% inactivation of any tumor suppressor gene is expected to lead to the activation of growth-promoting signals further downstream in the pathway.
-
-% Moreover, multiple alternative driver alterations in different genes may lead to similar downstream effects. In such instances, the selective advantage is distributed among the alterations frequencies of these genes \cite{mutex}.
-%
-% Therefore, studies should be conducted at the pathway level, as it is well established that different mutations can affect the same pathway across multiple samples \cite{multi-dendrix}. However, since each pathway involves multiple genes, numerous possible combinations of driver mutations could impact a crucial cancer pathway, making it computationally unfeasible to test every possible gene permutation \cite{dendrix} --- estimates suggest that the human genome contains more than 50,000 genes \cite{n-genes}. Hence, it is necessary to identify a property to leverage to search efficiently.
 
 \subsection{Searching for driver pathways}
 
@@ -267,11 +255,13 @@ The approach developed by \textcite{dendrix} will be discussed in the next chapt
 
 \subsection{A statistical approach} \label{mutex_chap2}
 
-\textcite{mutex} criticize the metric developed by \textcite{dendrix}, because it has a strong bias toward highly mutated genes, and in some instances the excessive emphasis on coverage leads to false positives and negatives. Therefore, they propose a metric that extends Fisher's exact test --- also known as \textit{hypergeometric test} --- to quantify the mutual exclusivity within a gene set.
+Given that exact mutual exclusivity in real somatic data is unlikely, a common approach in this field is to rely on statistical methods. The following section will describe the metric developed by \textcite{mutex}, that employs statistical analysis to identify driver pathways.
+
+To begin with, \textcite{mutex} criticize the metric developed by \textcite{dendrix}, because it has a strong bias toward highly mutated genes, and in some instances the excessive emphasis on coverage leads to false positives and negatives. Therefore, they propose a metric that extends Fisher's exact test --- also known as \textit{hypergeometric test} --- to quantify the mutual exclusivity within a gene set.
 
 Before exploring their metric, it is important to note that a uniform alteration frequency across samples may not always hold, particularly for hyper-mutated samples, often resulting from prior mutations in DNA repair mechanisms. Addressing this heterogeneity is challenging, as each overlap in the null model has a different probability. This remains an open problem, and to partially mitigate it, \textcite{mutex} decided to exclude hyper-altered samples from the analysis.
 
-The following definitions will introduce the metrics they developed. Consider the following null hypothesis:
+The following definitions will introduce the metric they developed. Consider the following null hypothesis:
 
 \begin{displayquote} \label{H_0}
     $H_0$: \textit{Given a group of genes, a member gene is altered independently from the union of the other alterations in the group}.
@@ -329,40 +319,6 @@ This probability is used to determine the mutual exclusivity score of $M$, but f
     \end{algorithmic}
 \end{algorithm}
 
-% \begin{example}[Intersection]
-%     For instance, consider the gene set $M = \{g_1, g_2, g_3, g_4\}$, and its corresponding submatrix (transposed clarity) \cite{mutex}:
-%
-%     \begin{table}[H]
-%         \centering
-%         \resizebox{\columnwidth}{!}{%
-%             \begin{tabular}{c|ccccccccccccccccccccccc}
-%                 $g_1$ & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 \\
-%                 \hline
-%                 $g_2$ & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 &1 &1 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 &0 \\
-%                 \hline
-%                 $g_3$ & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &0 &0 &1 &1 &1 &1 &1 &1 &0 &0 &0 &0 &0 &0 &0 \\
-%                 \hline
-%                 $g_4$ & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &0 &0 &0 &0 &0 &0 &1 &1 &1 &1 &1 &1 &0 &0 &0
-%             \end{tabular}
-%             }
-%         \caption{An example gene set}
-%     \end{table}
-%
-%     Therefore, 
-% \end{example}
-
-% This probability is the associated $p$-value of $g \in M$.
-%
-% To quantify $M$'s \textit{score} of mutual exclusivity, $H_0$ is first tested for each $g \in M$, by evaluating the co-distribution of $g$ with the union of the others through this test, therefore generating $\abs{M}$ $p$-values, which represent the probabilities for the independent distribution of each member gene. To ensure that every group member contributes to the pattern, the least significant --- i.e. the largest --- $p$-value of the group is used as the initial score of $M$. With Dendrix's notation
-%
-% \begin{equation}
-%     s_0 := \max_{g \in M} {H \abk{\Gamma(g), \Gamma(M - \{g\})}}
-% \end{equation}
-%
-% where $s_0$ is the initial score, and $H$ is the aforementioned \textit{hypergeometric test}.
-%
-% Since multiple groups are being tested, $s_0$ is affected by \href{https://en.wikipedia.org/wiki/Multiple_comparisons_problem}{\textit{multiple hypothesis testing}}, because the probability of finding statistically significant results may increase by chance. To account for it, \todo{finish this section}
-
 \subsection{Extending the deterministic equation} \label{multi_dendrix_2nd_chap}
 
 While identifying individual driver pathways is crucial for cancer research and treatment, most cancer patients are likely to have driver mutations across multiple pathways. The metrics discussed so far do not account for multiple pathways simultaneously. As will be shown in the next chapter, these formalizations can be applied iteratively to identify multiple driver pathways, though this may not be the most precise approach. \textcite{multi-dendrix} refine the weight function of \textcite{dendrix} to extend their metric, enabling the assessment of mutual exclusivity across multiple driver pathways.
@@ -387,9 +343,6 @@ First, the structure of the graph will be described. Let $G = (V, E)$ be a \text
 \end{itemize}
 
 The clustering algorithm aims to identify clusters of vertices (i.e. genes) that exhibit both \textit{high coverage and mutual exclusivity within clusters}.
-
-%%% TODO QUESTO COMMENTO VA NEL QUARTO CAPITOLO
-% These weights are calculated using four types of datasets: gene mutation data, \href{https://www.genome.gov/genetics-glossary/Copy-Number-Variation}{copy number variation (CNV)}, network information, and gene expression data. To appropriately combine the sources from which the information was obtained, linear combinations were utilized to account for the reliability of the sources from which the data was drawn.
 
 As mentioned earlier, this algorithm is quite flexible and allows the integration of weight values with information derived from external data. Specifically, \textcite{c3} present multiple versions of their algorithm, depending on the type of information used to define the weights between edges. The following labels will be used to distinguish the components of the weights:
 

@@ -1,6 +1,4 @@
-\chapter{Finding driver mutations} \label{chap:finding_driver_mutations}
-
-% Although the true explanation for mutual exclusivity remains unknown, and its therapeutic potential is still uncertain, this phenomenon is frequently observed in data and may lead to discoveries in cancer treatment.
+\chapter{Finding driver pathways} \label{chap:finding_driver_pathways}
 
 In the previous chapter, various studies were discussed in terms of how they formalized biological assumptions, with particular emphasis on the metrics developed to assess \textit{coverage} and \textit{mutual exclusivity} within gene groups. This chapter will delve deeper into the algorithms employed by these studies to identify driver pathways using their respective metrics and hypotheses.
 
@@ -22,7 +20,7 @@ Existing approaches can be categorized into two types: \textbf{\textit{de novo}}
         \Function{greedyDendrix}{$\mathcal G$, $k$}
             \State $M := \{g_1, g_2\}$ such that $M$ maximizes $W(M)$ \Comment{pick the best gene pair}
             \For{$i \in [3, k]$}
-                \State $\hat g := \argmax_{g \in \mathcal G}{W \rbk{M \cup \{g\}}}$ \Comment{TODO \href{http://web.archive.org/web/20220805140851/https://compbio.cs.brown.edu/software/}{SOURCE} PER PARIM?}
+                \State Choose $\hat g \in \argmax_{g \in \mathcal G}{W \rbk{M \cup \{g\}}}$
                 \State $M = M \cup \{\hat g\}$
             \EndFor
             \State \textbf{return} $M$
@@ -32,14 +30,14 @@ Existing approaches can be categorized into two types: \textbf{\textit{de novo}}
 
 Clearly, the time complexity of the algorithm is $O\rbk{n^2 + kn} = O\rbk{n^2}$ --- where $n = \abs{\mathcal G}$, therefore $k \le n$ --- because finding $\{g_1, g_2\}$ in line 2 requires $O\rbk{n^2}$ and the $\argmax{}$ in line 4 has cost $O(n)$. 
 
-While this algorithm is efficient, there is generally no guarantee that it will identify the optimal set $\hat M$ that maximizes $W(\hat M)$. However, \textcite{dendrix} prove that \cref{greedy_dendrix} can correctly identify $\hat M$ with high probability when the mutation data come from the \textit{Gene Independence Model} (GIM), which is described below. \todo{ne forniscono una dimostrazione nel materiale supplementare, ma è lunga 3 pagine, e non credo sia oppurtuno inserire una cosa cosi lunga qui, penso che sia \curlyquotes{beyond the scope}}
+While this algorithm is efficient, there is generally no guarantee that it will identify the optimal set $\hat M$ that maximizes $W(\hat M)$. However, \textcite{dendrix} prove that \cref{greedy_dendrix} can correctly identify $\hat M$ with high probability when the mutation data come from the \textit{Gene Independence Model} (GIM), which is described below
 
-\begin{definition}[Gene Independence Model] \todo{capire bene questo modello}
+\begin{definition}[Gene Independence Model]
     Let $A$ be an $m \times n$ mutation matrix, such that $\hat M$ is the \textit{maximum weight submatrix} of $A$, and $|\hat M| = k$; the matrix $A$ satisfies the \textbf{Gene Independence Model} (GIM) if and only if:
 
     \begin{enumerate}[label=\roman*), font=\itshape]
-        \item each gene $g \notin \hat M$ is mutated in each patient with probability $p_g \in \sbk{p_L, p_U}$ \todo{WHAT ARE THESE??}, independently of all other events;
-        \item $W (\hat M)= \Omega(m)$; \todo{qua scrivono che la definizione di $Omega$ è che $W (\hat M) = rm$ per $0 < r \le 1$???????}
+        \item each gene $g \notin \hat M$ is mutated in each patient with probability $p_g \in \sbk{p_L, p_U}$, independently of all other events, for some $0 \le p_L, p_U \le 1$;
+        \item $W (\hat M)= rm$ for some $0 < r \le 1$;
         \item for all $M \subset \hat M$ of cardinality $l := \abs{M}$, it exists $0 \le d < 1$ such that $$W(M) \le \frac{l + d}{k} W(\hat M)$$
     \end{enumerate}
 \end{definition}
@@ -242,7 +240,7 @@ Since the greedy algorithm of Dendrix can identify a single driver pathway, find
 
 This procedure runs the greedy algorithm iteratively, removing the chosen set from $\mathcal{G}$ after each iteration. \textcite{dendrix} discussed this approach toward the end of their work, highlighting certain limitations. In particular, if the gene sets corresponding to each pathway are disjoint, Iter-Dendrix can be effective in identifying these sets, successfully finding disjoint sets $M_1$ and $M_2$ with high weight, as exclusivity is only evaluated within sets, not between them. However, if $M_1$ and $M_2$ share genes, removing one set could also remove part of the other. In cases where the overlap is minimal, this approach may still identify the remaining portion of the second set. However, if the sets significantly intersect, Iter-Dendrix is likely to fail \cite{dendrix}.
 
-\textcite{multi-dendrix} compare the outputs of their ILP with Iter-Dendrix: denoting with $M$ and $I$ the collections of gene sets obtained from Multi-Dendrix and Iter-Dendrix respectively, they state that $W'(M) \ge W'(I)$ \todo{loro dicono che sia ovvio ma non capisco perché dovrebbe essere così ovvio}. They also argue that $M$ could contain sets with strictly greater weight than the ones comprising $I$, due to several factors:
+\textcite{multi-dendrix} compare the outputs of their ILP with Iter-Dendrix: denoting with $M$ and $I$ the collections of gene sets obtained from Multi-Dendrix and Iter-Dendrix respectively, they state that $W'(M) \ge W'(I)$. They also argue that $M$ could contain sets with strictly greater weight than the ones comprising $I$, due to several factors:
 
 \begin{itemize}
     \item there may be multiple gene sets $I_\rho$ that maximize $W(I_\rho)$ on the $\rho$-th iteration of Iter-Dendrix, and this version of Dendrix can only extend one of them;
@@ -380,10 +378,6 @@ The following section will explore the specifics of a very distinct algorithm, t
 The approach developed by \textcite{dendrix} employed a greedy algorithm to search for the most mutually exclusive driver pathway (discussed in \cref{dendrix_first_sub}); this technique is highly versatile, as it can be adapted to a broad range of scoring functions. Similarly, \textcite{mutex} also utilized a greedy algorithm in their study, developing an algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which employs a fundamentally different scoring function than $W(M)$, incorporating statistical and probabilistic elements, as mentioned in the previous chapter.
 
 The following algorithms will provide a \textit{partial} description of their approach; first, the greedy procedure is described below.
-
-% To identify the most mutually exclusive group, \textcite{mutex} employ a greedy algorithm called Mutex (\textit{knowledge-based} \cite{survey}), which is applied to a directed graph constructed from databases containing information about biological pathways \todo{menziono i database che hanno usato?}.
-%
-% The search begins by initializing a set with an altered gene as the seed and then expanding the group greedily with the next best candidate gene. Candidate genes are selected such that, after their addition, the group still has a common downstream gene that can be accessed without passing through any non-member genes (the common downstream gene may also be a member of the group) \todo{ci sono delle figure con un grafo e l'insieme che viene proressivamente espanso dall'algoritmo, forse potrei riprodurle e inserirle per chiarezza?}. The group is expanded with the candidate that improves the group score the most. The process continues until no candidates remain or the group reaches a preset size threshold. The algorithm outputs a group and its score for each seed gene \todo{qui menzionano una cosa inerente al controllo dell'FDR ma per ora la ometto perché non so che significa, credo andrebbe inserita}.
 
 \begin{algorithm}[H]
     \caption{
@@ -652,7 +646,7 @@ The next section will describe a third variant, that incorporates gene expressio
 
 Another valuable type of data that could be integrated into the positive weights for clustering is \textbf{gene expression data}. This is based on the assumption that co-expressed genes are likely to be involved in the same function or cancer pathway. Therefore, genes with strong positive or negative co-expression should be clustered together. The following paragrpahs will describe how \textcite{c3} include expression data into $w^+$.
 
-Given a vertex $u \in V(G)$, let $\mathrm {\mathbf z(u)}$ be the vector of the time-evolving expression values of $u$ \todo{la prima volta che lessi questo paper non trovai niente sul dove presero queste informazioni, e tutt'ora non mi pare che lo menzionino da nessuna parte; scrivono solo che le informazioni le prendono dal TCGA e dal KEGG, suppongo a questo punto che queste info siano ottenibili dal TCGA ma dovrei controllare manualmente}. Thus, let
+Given a vertex $u \in V(G)$, let $\mathrm {\mathbf z(u)}$ be the vector of the time-evolving expression values of $u$. Thus, let
 
 \begin{equation}
     g(u, v) := \dfrac{\abs{\abk{\mathrm{\mathbf z(u)}, \mathrm{\mathbf z(v)}}}}{\abs{\abs{\mathrm{\mathbf z(u)}}} \abs{\abs{\mathrm{\mathbf z(v)}}}}
