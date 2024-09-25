@@ -1,6 +1,6 @@
 \chapter{Discussion} \label{chap:discussion}
 
-placeholder. \todo{introduction to the chapter}
+The following chapter will provide a discussion of the studies presented, including personal insights into the methodologies they employed and an evaluation of the clarity and quality of their written presentation. \todo{allungare?}
 
 \section{Dendrix}
 
@@ -27,7 +27,7 @@ I want to commend \textcite{dendrix} for their precise and methodical explanatio
 As a final note, I believe that conducting a comparative analysis between the MCMC approach and a \href{https://en.wikipedia.org/wiki/Random_search}{random search} method would be interesting. For instance, consider the following algorithm:
 
 \begin{enumerate}
-    \item \textit{initialization}: given the set of all genes $\mathcal G$, choose an arbitrary subset $M_0 \subseteq \mathcal G$ ok $k$ genes;
+    \item \textit{initialization}: given the set of all genes $\mathcal G$, choose an arbitrary subset $M_0 \subseteq \mathcal G$ of $k$ genes;
     \item \textit{iteration}: for $t = 1, 2, \ldots$ derive $M_{t + 1}$ from $M_t$ as follows:
 
     \begin{enumerate}
@@ -89,16 +89,8 @@ Finally, \textcite{mutex} mention in their \textit{Discussion} section that they
 
 The algorithm proposed by \textcite{c3} presents a particularly intriguing approach, as applying a clustering method to this problem is not an immediately obvious solution. A potential avenue for further exploration could involve a modified version of the algorithm, where a single weight $w$ is assigned to each edge, and a function is introduced to evaluate it, depending on the trade-off between $w^-$ and $w^+$. Despite this potential variation, the ILP formulation of the clustering problem is well constructed, and the rounding procedure is intuitively compelling. In addition, their method demonstrates considerable versatility, both in terms of the flexibility of cluster sizes and the potential for integration with external data. The framework allows for the incorporation of any external data directly into the edge weights, further enhancing its adaptability to different contexts and datasets.
 
-Lastly, it is worth noting that several aspects of their exposition were somewhat unclear. For example, they provided minimal detail regarding the dataset and its relative size, and there is no mention of the source for the vectors representing the time-evolving expression values of the genes. Additionally, they included a misleading figure in their work: the figure implies that in the \textbf{EX-ME-CO} version of their algorithm, $w^+$ is derived from \textit{coverage}, \textit{expression data}, and \textit{network information}. However, this contradicts the related paragraph, where $w^+$ is defined without using \textit{network information}. Although they suggest that the definition could be optionally extended to include \textit{network information} as shown in the figure, this inconsistency creates confusion. As a result, I am uncertain about how \textbf{EX-ME-CO} was precisely defined, and to avoid ambiguity, I chose to define \textbf{EX-ME-CO} and \textbf{NI-EX-ME-CO} as two distinct versions of the algorithm \todo{controlla che quello che è scritto qui è consistente con la sezione risultati}.
+It is worth noting that several aspects of their exposition were somewhat unclear. For example, they provided minimal detail regarding the dataset and its relative size, and there is no mention of the source for the vectors representing the time-evolving expression values of the genes. Additionally, they included a misleading figure in their work: the figure implies that in the \textbf{EX-ME-CO} version of their algorithm, $w^+$ is derived from \textit{coverage}, \textit{expression data}, and \textit{network information}. However, this contradicts the related paragraph, where $w^+$ is defined without using \textit{network information}. Although they suggest that the definition could be optionally extended to include \textit{network information} as shown in the figure, this inconsistency creates confusion. As a result, I am uncertain about how \textbf{EX-ME-CO} was precisely defined, and to avoid ambiguity, I chose to define \textbf{EX-ME-CO} and \textbf{NI-EX-ME-CO} as two distinct versions of the algorithm.
 
-% TODO PARLA DEL FATTO CHE DICONO CHE BABUR ET AL FANNO PAIRWISE EXCLUSIVITY MA È LETTERALMENTE FALSO
-
-\section{Results comparison}
-
-placeholder \todo{todo}
-
-\section{Conclusions}
-
-placeholder \todo{todo}
+Lastly, in their \textit{Evaluation Methods} section, they stated that they assess mutual exclusivity within a cluster using the probability of pairwise mutual exclusivity, defined by a hypergeometric distribution. They also stated that the pairwise Fisher’s method was used by the Mutex algorithm, developed by \textcite{mutex}, which was discussed earlier in this work. However, this is incorrect. As outlined in \cref{mutex_chap2}, \textcite{mutex} did not compute pairwise mutual exclusivity. Instead, they calculated multiple $p$-values between each single gene and the rest of the group. This discrepancy is unusual and raises concerns about the accuracy of their description.
 
 \cleardoublepage

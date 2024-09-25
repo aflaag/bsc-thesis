@@ -63,6 +63,5 @@
 \contentsline {subsection}{\numberline {4.4.2}Additional considerations}{56}{subsection.4.4.2}%
 \contentsline {section}{\numberline {4.5}$\mathrm {C}^3$}{57}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}The clustering approach}{57}{subsection.4.5.1}%
-\contentsline {section}{\numberline {4.6}Results comparison}{57}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Conclusions}{57}{section.4.7}%
-\contentsline {chapter}{Acknowledgements}{58}{chapter*.20}%
+\contentsline {chapter}{Conclusions}{58}{chapter*.17}%
+\contentsline {chapter}{Acknowledgements}{59}{chapter*.18}%

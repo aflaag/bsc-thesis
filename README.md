@@ -2,7 +2,6 @@
 
 ## TODO list
 
-- c3 chap 4
 - nell'ultimo capitolo sii più specifico nelle correzioni
 
 - FINALE
