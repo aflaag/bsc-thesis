@@ -559,8 +559,6 @@ INPUT ./chapter/1.tex
 INPUT ./chapter/1.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ts1-lmr10.tfm
@@ -589,6 +587,7 @@ INPUT ./chapter/3.tex
 INPUT ./chapter/3.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri8.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri7.tfm
 INPUT ../assets/greedy_mutex.png
 INPUT ../assets/greedy_mutex.png
 INPUT ../assets/greedy_mutex.png
@@ -616,6 +615,7 @@ INPUT ./chapter/4.tex
 INPUT ./chapter/4.tex
 INPUT ./chapter/4.tex
 INPUT ./chapter/4.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
 INPUT ./chapter/conclusions.tex
 INPUT ./chapter/conclusions.tex
