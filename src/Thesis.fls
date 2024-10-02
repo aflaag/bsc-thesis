@@ -1711,7 +1711,6 @@ INPUT ./chapter/4.tex
 INPUT ./chapter/4.tex
 INPUT ./chapter/4.tex
 INPUT ./chapter/4.tex
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
 INPUT ./chapter/conclusions.tex
 INPUT ./chapter/conclusions.tex
@@ -1747,7 +1746,6 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmri7.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb
