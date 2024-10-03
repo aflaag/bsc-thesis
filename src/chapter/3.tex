@@ -60,7 +60,7 @@ Therefore, in practical applications, the effectivness of this greedy algorithm 
 
 To overcome the drawbacks of the aforementioned greedy algorithm, \textcite{dendrix} developed a \href{https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo}{\textit{Markov Chain Monte Carlo}} (MCMC) approach, which does not rely on assumptions about the distribution of mutation data or the number of patients. In particular, this MCMC method does not assume independence among mutations in different genes, making it particularly useful for analyzing copy-number aberrations (CNAs), which often involve correlated mutations due to amplification or deletion of adjacent genes.
 
-\textcite{dendrix} employed a \href{https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm}{Metropolis-Hastings} algorithm to sample sets $M \subseteq \mathcal G$ of $k$ genes, with the following stationary distribution, proportional to $e^{cW(M)}$, for some constant $c > 0$ $$\pi(M) = \dfrac{e^{cW(M)}}{\sum_{R \in \mathcal M_k}{e^{cW(R)}}}$$ where $\mathcal M_k := \{M \subset \mathcal G : \abs{M} = k\}$. While there are no guarantees on the rate of convergence of the Metropolis-Hasting algorithm to the stationary distribution, \textcite{dendrix} prove that their MCMC is rapidly mixing, therefore the stationary distribution is effectively reached in a practical number of steps.
+\textcite{dendrix} employed the \href{https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm}{Metropolis-Hastings} algorithm to sample sets $M \subseteq \mathcal G$ of $k$ genes, with the following stationary distribution, proportional to $e^{cW(M)}$, for some constant $c > 0$ $$\pi(M) = \dfrac{e^{cW(M)}}{\sum_{R \in \mathcal M_k}{e^{cW(R)}}}$$ where $\mathcal M_k := \{M \subset \mathcal G : \abs{M} = k\}$. While there are no guarantees on the rate of convergence of the Metropolis-Hasting algorithm to the stationary distribution, \textcite{dendrix} prove that their MCMC is rapidly mixing, therefore the stationary distribution is effectively reached in a practical number of steps.
 
 The main idea of the MCMC algorithm involves constructing a \href{https://en.wikipedia.org/wiki/Markov_chain}{Markov chain}, where each state represents a collection of $k$ columns from a given mutation matrix $A$, and transitions between these states occur by swapping one gene. Further details of the algorithm are discussed below.
 
@@ -324,7 +324,7 @@ To prevent premature convergence and enhance the accuracy of the algorithm, \tex
     \begin{enumerate}
         \item \textit{population generation}: a random population of size $P$ and mutation rate $p_m$ is generated, where $P = n$ (i.e. the number of available genes);
         \item \textit{breeding}: for each iteration, $P$ couples are selected from the current population, based on $p_i$, and each couple generates an offspring;
-        \item \textit{mutation}: each offspring may optionally receive a mutation with probability $p_m$;
+        \item \textit{mutation}: each offspring may optionally mutate with probability $p_m$;
         \item \textit{selection}: all parents and offspring are ranked based on their scoring values, and the top $P$ individuals are selected to form the next generation (this is commonly referred to as \href{https://en.wikipedia.org/wiki/Truncation_selection}{truncation selection});
         \item \textit{local search}: verify if the iteration is stuck in a local solution (e.g. if the maximum scoring value does not improve over two consecutive iterations); if this is the case, perform a local search;
         \item \textit{termination}: proceed as such until the termination criterion is met (e.g. if the current maximum scoring value does not improve over 10 consecutive iterations); if this occurs, then end the procedure.
@@ -369,7 +369,7 @@ The final dataset reported by \textcite{mdpfinder} is the \href{https://en.wikip
 
 In summary, the comparison performed by \textcite{mdpfinder} demonstrated the ILP's efficiency in identifying significant gene sets across various cancer datasets, and their findings showcased their integrative model's strength in revealing functional relationships among genes.
 
-The following section will explore the specifics of a very distinct algorithm, that employs statistical approach and a different scoring function.
+The following section will explore the specifics of a different algorithm, that employs statistical approach and a different scoring function.
 
 \section{Mutex}
 
