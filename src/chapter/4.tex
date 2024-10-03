@@ -9,7 +9,7 @@ This chapter provides a discussion of the studies presented, evaluating their me
 \textcite{dendrix} provided one of the first mathematical formalizations of the phenomena of mutual exclusivity and coverage, in the context of gene mutations. Specifically, the definitions introduced offer a very intuitive approach to formalizing these biological concepts:
 
 \begin{itemize}
-    \item the coverage of a gene is defined as the set of patients exhibiting a mutation of the gene, equivalent to the number of 1s in its column of the mutation matrix;
+    \item the coverage of a gene is defined as the set of patients exhibiting a mutation of that gene, equivalent to the number of 1s in its column of the mutation matrix;
     \item a set of genes is defined to be mutually exclusive if no patient has more than one mutated gene in the set, i.e. no row of the set's associated matrix has more than 1 one;
     \item the coverage of a gene set is the set of patients with at least one mutation in the set;
     \item the coverage overlap of a gene set is the count of patients who possess more than one mutation within the gene set;
@@ -22,7 +22,7 @@ This metric stands out as one of the most elegant among those discussed in this 
 
 \subsection{Additional considerations}
 
-The work of \textcite{dendrix} is precise and methodical, and mathematical analysis is also thorough and well-supported. The supplemental material includes extensive proofs, such as the \NPHard-ness of the MWSP (provided in \cref{mwsp proof}), the correctness of the greedy algorithm, and the rapid mixing property of the MCMC approach. The clarity of this presentation greatly facilitates the understanding of the study and stands out compared to other papers analyzed, which often lack this level of explanation, as discussed in subsequent sections.
+The work of \textcite{dendrix} is precise and methodical, and mathematical analysis is also thorough and well-supported. The supplemental material includes extensive proofs, such as the \NPHard-ness of the MWSP (provided in \cref{mwsp proof}), the correctness of the greedy algorithm, and the rapid mixing property of their MCMC approach. The clarity of this presentation greatly facilitates the understanding of the study and stands out compared to other papers analyzed, which often lack this level of explanation, as discussed in subsequent sections.
 
 As a final note, conducting a comparative analysis between the MCMC approach and a \href{https://en.wikipedia.org/wiki/Random_search}{random search} method would be interesting. For instance, consider the following algorithm:
 
@@ -51,17 +51,17 @@ The ILP formulation for the simultaneous identification of multiple driver pathw
 
 Additionally, the weight function $W'(M)$ in Multi-Dendrix does not explicitly account for the co-occurrence of mutations between genes in different sets. Instead, it prioritizes gene sets with high coverage and approximate exclusivity, which may lead to co-occurrence due to high coverage alone (e.g., when all gene sets have full coverage). Given that co-occurrence is crucial in large biological pathways, algorithms that optimize for gene sets where mutations frequently co-occur might be more effective in identifying key components of these pathways \cite{multi-dendrix}.
 
-Lastly, it is important to note that the exposition of the ILP of Multi-Dendrix lacks clarity and precision. Specifically, in the definition of the MMWSP, each set in the collection is of size exactly $m \times k$ for a \textit{fixed} $k$. However, the ILP formulation for does not include an equation defining the sizes of the sets in the collection. Based on the context, it seems likely that the intention was for each gene set to have a variable size, ranging between $k_\mathrm{min}$ and $k_\mathrm{max}$. This discrepancy could potentially raise concerns regarding time complexity, a critical consideration given the large-scale data typical in this field.
+Lastly, it is is worth emphasizing that, according to survey studies \cite{survey}, this approach remains one of the fastest --- due to the efficiency of ILP solvers --- and performs exceptionally well.
 
-Nonetheless, it is worth emphasizing that, according to survey studies \cite{survey}, this approach remains one of the fastest --- due to the efficiency of ILP solvers --- and performs exceptionally well in terms of both precision and recall.
+\subsection{Additional considerations}
+
+As a final note, it is important to note that the exposition of the ILP of Multi-Dendrix lacks clarity and precision. Specifically, in the definition of the MMWSP, each set in the collection is of size exactly $m \times k$ for a \textit{fixed} $k$. However, the ILP formulation for does not include an equation defining the sizes of the sets in the collection. Based on the context, it seems likely that the intention was for each gene set to have a variable size, ranging between $k_\mathrm{min}$ and $k_\mathrm{max}$. This discrepancy could potentially raise concerns regarding time complexity, a critical consideration given the large-scale data typical in this field.
 
 \section{MDPFinder}
 
 \subsection{The ILP of Dendrix}
 
-To solve the MWSP, \textcite{mdpfinder} formulated an ILP that is both identical in formulation and constraints to the one proposed by \textcite{multi-dendrix}. Although the MDPFinder paper was published in 2012 and the Multi-Dendrix paper in 2013, the latter does not reference the work of \textcite{mdpfinder}, and both studies present the ILP formulation of Dendrix as their own innovation.
-
-For greater clarity and detailed definitions of the indicator variables, in this work the formulation was attributed to \textcite{multi-dendrix}, because their presentation of MWSP's ILP was clearer compared to that of \textcite{mdpfinder}.
+To solve the MWSP, \textcite{mdpfinder} formulated an ILP that is both identical in formulation and constraints to the one proposed by \textcite{multi-dendrix}. Although the MDPFinder paper was published in 2012 and the Multi-Dendrix paper in 2013, the latter does not reference the work of \textcite{mdpfinder}, and both studies present the ILP formulation of Dendrix as their own innovation. For greater clarity and more detailed definitions of the indicator variables, in this work the formulation was attributed to \textcite{multi-dendrix}, because their presentation of the MWSP's ILP was clearer compared to that of \textcite{mdpfinder}.
 
 \subsection{The genetic algorithm}
 
@@ -71,7 +71,13 @@ Despite its undeniable slowness, the versatility of this approach is notable. It
 
 \section{Mutex}
 
-\subsection{A very complex greedy algorithm}
+\subsection{The statistical approach}
+
+As mentioned in previous sections, a statistical approach, such as the one employed by \textcite{mutex}, appears to be the most suitable choice in this field, as exact mutual exclusivity rarely occurs in nature. In fact, survey studies \cite{survey} indicate that this algorithm significantly outperforms others in terms of both \href{https://en.wikipedia.org/wiki/Precision_and_recall}{precision and recall}. Moreover, their hypergeometric model is particularly interesting, as it presents a novel way to assign a score to a given group of genes $M$, i.e. by evaluating the probability of overlap between the alterations of a specific gene $g \in M$, and the alterations of the remaining ones $M-\{g\}$.
+
+Additionally, \textcite{mutex} mention in their \textit{Discussion} section that they aim to expand their work by exploring additional topological structures within the biological network. In fact, their current method focuses on genes with a common downstream target, and necessitates that all group members are directly connected in the network without intermediary non-member nodes. However, incorporating linker nodes could facilitate the identification of more distant mutual exclusion relationships \cite{mutex}.
+
+\subsection{Additional considerations}
 
 The methodology presented in this paper lacks clarity, creating significant challenges in understanding thir approach. While a preliminary explanation of the algorithm is provided by the authors, essential details are omitted, making it difficult to fully comprehend the procedure. The recursive nature of the algorithm further complicates matters, as the simplified overview does not capture its full complexity. To gain a clearer understanding of the methodology, the Java source code provided in the supplementary materials was examined. This analysis helped clarify the underlying processes and the implementation of the algorithm, revealing that the pseudocode included in the paper is a \textit{significantly simplified} version of the complete algorithm, which contains numerous nuanced aspects.
 
@@ -79,18 +85,10 @@ The description of the \textit{null distribution} estimation proved particularly
 
 As a final note, it is particularly surprising that \textcite{mutex} did not mention a crucial detail regarding their approach, which became apparent only after reviewing their source code: in their greedy algorithm, the \texttt{expandGroup} procedure (discussed in \cref{expand_group_mutex}) requires selecting a candidate that is \textit{not only} the best among those in $\delta(M)$, but also improves the current score of $M$. The rationale behind this decision is not immediately clear and would benefit from further explanation. This choice implies that Mutex \textit{does not explore suboptimal solutions}, although incorporating a less optimal candidate could potentially lead to a better overall solution at the end of the greedy algorithm.
 
-\subsection{Additional considerations}
-
-Despite the aforementioned challenges in fully understanding their method, a statistical approach, such as the one they employed, appears to be the most suitable choice, as exact mutual exclusivity rarely occurs in nature, as already mentioned. In fact, survey studies \cite{survey} indicate that this algorithm significantly outperforms others in terms of both \href{https://en.wikipedia.org/wiki/Precision_and_recall}{precision and recall}. Moreover, their hypergeometric model is particularly interesting, as it presents a novel way to assign a score to a given group of genes $M$, i.e. by evaluating the probability of overlap between the alterations of a specific gene $g \in M$, and the alterations of the remaining ones $M-\{g\}$.
-
-Finally, \textcite{mutex} mention in their \textit{Discussion} section that they aim to expand their work by exploring additional topological structures within the biological network. In fact, their current method focuses on genes with a common downstream target and necessitates that all group members are directly connected in the network without intermediary non-member nodes. However, incorporating linker nodes could facilitate the identification of more distant mutual exclusion relationships \cite{mutex}.
-
 \section{$\mathrm{C}^3$}
 
 \subsection{The clustering approach}
 
 The algorithm proposed by \textcite{c3} presents a particularly intriguing approach, as applying a clustering method to this problem is not an immediately obvious solution. A potential avenue for further exploration could involve a modified version of the algorithm, where a single weight $w$ is assigned to each edge, and a function is introduced to evaluate it, depending on the trade-off between $w^-$ and $w^+$. Despite this potential variation, the ILP formulation of the clustering problem is well constructed, and the rounding procedure is intuitively compelling. In addition, their method demonstrates considerable versatility, both in terms of the flexibility of cluster sizes and the potential for integration with external data.
-
-Lastly, in their \textit{Evaluation Methods} section, they stated that they assess mutual exclusivity within a cluster using the probability of pairwise mutual exclusivity, defined by a hypergeometric distribution. They also stated that the \textit{same} pairwise Fisher’s method was used by the Mutex algorithm, developed by \textcite{mutex}, which was discussed earlier in this work. However, this is incorrect. As outlined in \cref{mutex_chap2}, \textcite{mutex} did not compute pairwise mutual exclusivity; instead, they calculated multiple $p$-values between each individual gene and the rest of the group, which led to some confusion.
 
 \cleardoublepage
