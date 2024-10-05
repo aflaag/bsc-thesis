@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  3 OCT 2024 21:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  5 OCT 2024 21:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1694,7 +1694,7 @@ l.427                 \EndFor
                              
 Package cleveref Info: loaded `english' language definitions on input line 456.
  [37]
-<../assets/greedy_mutex.png, id=963, 1408.51219pt x 234.1247pt>
+<../assets/greedy_mutex.png, id=962, 1408.51219pt x 234.1247pt>
 File: ../assets/greedy_mutex.png Graphic file (type png)
 <use ../assets/greedy_mutex.png>
 Package pdftex.def Info: ../assets/greedy_mutex.png  used on input line 469.
@@ -1779,7 +1779,7 @@ Package cleveref Info: loaded `english' language definitions on input line 564.
 [41]
 Package cleveref Info: loaded `english' language definitions on input line 595.
  [42]
-<../assets/frequency_c3.jpeg, id=1061, 391.4625pt x 394.47375pt>
+<../assets/frequency_c3.jpeg, id=1060, 391.4625pt x 394.47375pt>
 File: ../assets/frequency_c3.jpeg Graphic file (type jpg)
 <use ../assets/frequency_c3.jpeg>
 Package pdftex.def Info: ../assets/frequency_c3.jpeg  used on input line 600.
@@ -1971,16 +1971,16 @@ Package logreq Info: Writing requests to 'Thesis.run.xml'.
 Here is how much of TeX's memory you used:
  51344 strings out of 476024
  1062754 string characters out of 5792396
- 1969077 words of memory out of 5000000
+ 1970077 words of memory out of 5000000
  71928 multiletter control sequences out of 15000+600000
  708315 words of font info for 338 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,21n,131p,1852b,2789s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (69 pages, 856110 bytes).
+Output written on Thesis.pdf (69 pages, 855886 bytes).
 PDF statistics:
- 1554 PDF objects out of 1728 (max. 8388607)
- 1409 compressed objects within 15 object streams
+ 1553 PDF objects out of 1728 (max. 8388607)
+ 1408 compressed objects within 15 object streams
  341 named destinations out of 1000 (max. 500000)
  84020 words of extra memory for PDF output out of 89155 (max. 10000000)
 
