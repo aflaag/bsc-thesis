@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  5 OCT 2024 21:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  6 OCT 2024 12:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1437,7 +1437,7 @@ Chapter 1.
 ]
 Package cleveref Info: loaded `english' language definitions on input line 34.
  [2]
-Package cleveref Info: loaded `english' language definitions on input line 56.
+Package cleveref Info: loaded `english' language definitions on input line 57.
  [3]
 Package cleveref Info: loaded `english' language definitions on input line 70.
  [4]
@@ -1454,21 +1454,21 @@ Package cleveref Info: loaded `english' language definitions on input line 30.
  [8]
 Package cleveref Info: loaded `english' language definitions on input line 49.
  [9]
-Package cleveref Info: loaded `english' language definitions on input line 63.
+Package cleveref Info: loaded `english' language definitions on input line 61.
  [10]
-Package cleveref Info: loaded `english' language definitions on input line 104.
+Package cleveref Info: loaded `english' language definitions on input line 103.
  [11{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-Package cleveref Info: loaded `english' language definitions on input line 140.
+Package cleveref Info: loaded `english' language definitions on input line 139.
  [12]
-Package cleveref Info: loaded `english' language definitions on input line 180.
+Package cleveref Info: loaded `english' language definitions on input line 179.
  [13]
 Overfull \hbox (0.71504pt too wide) in paragraph at lines 185--185
 []\T1/lmr/m/n/10.95 (-20) let $\OT1/lmr/m/n/10.95 (-20) ^^A := [][] []$\T1/lmr/m/n/10.95 (-20) , and for each $\OML/lmm/m/it/10.95 v \OMS/lmsy/m/n/10.95 2 \OML/lmm/m/it/10.95 V\OT1/lmr/m/n/10.95 (-20) (\OML/lmm/m/it/10.95 G\OT1/lmr/m/n/10.95 (-20) )$ \T1/lmr/m/n/10.95 (-20) let $\OMS/lmsy/m/n/10.95 S[] \OT1/lmr/m/n/10.95 (-20) := []$
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 215.
+Package cleveref Info: loaded `english' language definitions on input line 209.
 [14]
-Package cleveref Info: loaded `english' language definitions on input line 249.
+Package cleveref Info: loaded `english' language definitions on input line 248.
  [15]
 Package cleveref Info: loaded `english' language definitions on input line 272.
  [16]
@@ -1969,18 +1969,18 @@ Package logreq Info: Writing requests to 'Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51344 strings out of 476024
- 1062754 string characters out of 5792396
- 1970077 words of memory out of 5000000
- 71928 multiletter control sequences out of 15000+600000
- 708315 words of font info for 338 fonts, out of 8000000 for 9000
+ 51363 strings out of 476024
+ 1062984 string characters out of 5792396
+ 1969073 words of memory out of 5000000
+ 71932 multiletter control sequences out of 15000+600000
+ 714619 words of font info for 347 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  98i,21n,131p,1852b,2789s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Thesis.pdf (69 pages, 855886 bytes).
+Output written on Thesis.pdf (69 pages, 859455 bytes).
 PDF statistics:
  1553 PDF objects out of 1728 (max. 8388607)
  1408 compressed objects within 15 object streams
  341 named destinations out of 1000 (max. 500000)
- 84020 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 88116 words of extra memory for PDF output out of 89155 (max. 10000000)
 
