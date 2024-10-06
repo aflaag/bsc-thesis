@@ -152,6 +152,18 @@
 \newcommand{\NPclass}{\textsf{NP}\xspace}
 \newcommand{\NPHard}{\textsf{NP-Hard}\xspace}
 \newcommand{\NPComplete}{\textsf{NP-Complete}\xspace}
+\newenvironment{nocaptionalg} % environment for algorithms without caption
+{
+    \par\addvspace{\topsep}
+    \centering
+    \begin{minipage}{\linewidth}
+    \hrule\kern2pt
+}
+{
+    \par\kern2pt\hrule
+    \end{minipage}
+    \par\addvspace{\topsep}
+}
 
 % \newcommand{\say}[1]{\flqq\textit{#1}\frqq}
 % \newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}

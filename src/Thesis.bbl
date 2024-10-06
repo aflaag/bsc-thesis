@@ -1986,6 +1986,72 @@
     \field{year}{2010}
   \endentry
 
+  \entry{cociter}{article}{}
+    \name{author}{5}{}{%
+      {{hash=QN}{%
+         family={Qiao},
+         familyi={Q\bibinitperiod},
+         given={Nan},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=HY}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Yi},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=NH}{%
+         family={Naveed},
+         familyi={N\bibinitperiod},
+         given={Hammad},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=GCD}{%
+         family={Green},
+         familyi={G\bibinitperiod},
+         given={Christopher\bibnamedelima D.},
+         giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=HJDJ}{%
+         family={Han},
+         familyi={H\bibinitperiod},
+         given={Jing-Dong\bibnamedelima J.},
+         giveni={J\bibinithyphendelim D\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BVB}{%
+         family={Bajic},
+         familyi={B\bibinitperiod},
+         given={Vladimir\bibnamedelima B.},
+         giveni={V\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Public Library of Science (PLoS)}%
+    }
+    \strng{namehash}{QN+1}
+    \strng{fullhash}{QNHYNHGCDHJDJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Q}
+    \field{sortinithash}{Q}
+    \verb{doi}
+    \verb 10.1371/journal.pone.0074074
+    \endverb
+    \field{issn}{1932-6203}
+    \field{number}{9}
+    \field{pages}{e74074}
+    \field{title}{CoCiter: An Efficient Tool to Infer Gene Function by Assessing the Significance of Literature Co-Citation}
+    \verb{url}
+    \verb http://dx.doi.org/10.1371/journal.pone.0074074
+    \endverb
+    \field{volume}{8}
+    \field{journaltitle}{PLoS ONE}
+    \field{month}{09}
+    \field{year}{2013}
+  \endentry
+
   \entry{nih_se}{misc}{}
     \field{labeltitlesource}{title}
     \field{sortinit}{S}
