@@ -526,12 +526,12 @@ INPUT ./chapter/abstract.tex
 INPUT ./chapter/abstract.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT ./Thesis.toc
 INPUT ./Thesis.toc
 INPUT Thesis.toc
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr6.tfm
