@@ -1,6 +1,8 @@
-# thesis-notes
+# bsc-thesis
 
 ## TODO list
+
+- questo readme
 
 - scrivere dedica all'inizio
 - scrivere acknowledgments alla fine
