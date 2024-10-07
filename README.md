@@ -10,7 +10,4 @@
 - FINALE
     - capire come aumentare lo spazio tra table e caption (?)
     - check thesis.tex
-    - check references.bib
-        - check if refs are correct
-        - remove useless refs (if any)
 
