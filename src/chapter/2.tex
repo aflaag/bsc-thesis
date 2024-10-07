@@ -1,6 +1,6 @@
 \chapter{Pathways identification criteria} \label{chap:pathways_identification_criteria}
 
-This chapter will describe the \textit{two types} of mutations involved in cancer development and the challenges associated with distinguishing between them.
+This chapter will describe the \textit{two types} of mutations involved in cancer development and the challenges associated with \textit{distinguishing} between them.
 
 \section{Mutations and pathways}
 
@@ -269,7 +269,7 @@ Using Dendrix's notation, $H_0$ states that for a given gene set $M$, for every 
     \end{itemize}
 \end{definition}
 
-To test $H_0$ for a gene $g \in M$, it is necessary to quantify \textit{the probability that there are $\gamma(g, M_g)$ patients who have both gene $g$ and any gene in $M$ mutated}; let this probability be represented by the random variable $X$. Since $X$ follows an \href{https://en.wikipedia.org/wiki/Hypergeometric_distribution}{hypergeometric distribution}, denoted as $$X \sim H(m, \gamma(g), \gamma(M_g))$$ this probability can be assessed by using the \href{https://en.wikipedia.org/wiki/Probability_mass_function}{PMF} of the hypergeometric distribution, namely: $$P(X = \gamma(g, M_g)) = \dfrac{\dbinom{\gamma(g)}{\gamma(g, M_g)}\dbinom{m - \gamma(g)}{\gamma(M_g) - \gamma(g, M_g)}}{\dbinom{m}{\gamma(M_g)}}$$
+To test $H_0$ for a gene $g \in M$, it is necessary to quantify \textit{the probability that there are $\gamma(g, M_g)$ patients who have both gene $g$ and any gene in $M$ mutated}; let this probability be represented by the random variable $X$. Since $X$ follows an \href{https://en.wikipedia.org/wiki/Hypergeometric_distribution}{hypergeometric distribution}, denoted as $$X \sim H(m, \gamma(g), \gamma(M_g))$$ this probability can be assessed by using the \href{https://en.wikipedia.org/wiki/Probability_mass_function}{probability mass function} (PMF) of the hypergeometric distribution, namely: $$P(X = \gamma(g, M_g)) = \dfrac{\dbinom{\gamma(g)}{\gamma(g, M_g)}\dbinom{m - \gamma(g)}{\gamma(M_g) - \gamma(g, M_g)}}{\dbinom{m}{\gamma(M_g)}}$$
 
 Note that, by using the \href{https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_principle}{inclusion-exclusion principle} $$\abs{\Gamma(M)} = \abs{\Gamma(g)} + \abs{\Gamma(M - \{g\})} - \abs{\Gamma(g) \cap \Gamma(M - \{g\})}$$ this probability can also be evaluated using Fisher's exact test, by employing the following contingency table:
 
@@ -286,7 +286,7 @@ Note that, by using the \href{https://en.wikipedia.org/wiki/Inclusion%E2%80%93ex
                   & $\gamma(g)$ & $m - \gamma(g)$ & $m$
         \end{tabular}
     }
-    \caption{Fisher's exact test}
+    \caption{The Fisher's exact test performed by \textcite{mutex}.}
 \end{table}
 
 This probability is used to determine the mutual exclusivity score of $M$, but further details will be discussed in the next chapter, as the \textit{scoring method} involves multiple functions that are integral to running the algorithm itself. The following algorithm will be used to evaluate $M$'s score.
