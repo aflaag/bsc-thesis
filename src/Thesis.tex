@@ -5,7 +5,7 @@
 % 
 % Bachelor of Science in Computer Science, Sapienza University of Rome.
 %
-% https://github.com/aflaag/?
+% https://github.com/aflaag/bsc-thesis
 %
 % ============================================== %
 
@@ -41,9 +41,6 @@
 \usepackage{algpseudocode}
 \counterwithin{algorithm}{chapter}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
-
-% ================== CUSTOM PACKAGES ==================
-
 \usepackage{csquotes}
 \usepackage{enumitem}
 \usepackage[noabbrev,capitalize,nameinlink,english]{cleveref}
@@ -115,8 +112,8 @@
 \copyyear{2024}
 \thesistype{Bachelor's Thesis}
 
-% % ================== CUSTOM ENVIRONMENTS ==================
-%
+% ================== CUSTOM ENVIRONMENTS ==================
+
 \newtheorem{lemma}{Lemma}[chapter]
 
 \theoremstyle{definition}
@@ -126,14 +123,6 @@
 \newtheorem{example}{Example}[chapter]
 
 \newtheorem{theorem}{Theorem}[chapter]
-
-% \newtheorem{proposition}{Proposition}[chapter]
-% \newtheorem{corollary}{Corollary}[chapter]
-%
-% \theoremstyle{definition}
-% \newtheorem{claimlemma}{Claim}[lemma]
-% \newtheorem{claimtheorem}{Claim}[theorem]
-% \newtheorem{definition}{Definition}[chapter]
 
 % ================== CUSTOM MACROS ==================
 
@@ -148,7 +137,7 @@
 \newcommand{\centeredeq}[2]{\begin{equation*}\resizable{#1}{#2}\end{equation*}}
 \newcommand{\centeredsoe}[1]{\left . \begin{array}{c} #1 \end{array} \right .}
 \algdef{SE}[DOWHILE]{Do}{doWhile}{\algorithmicdo}[1]{\algorithmicwhile\ #1}%
-
+\newcommand{\say}[1]{\flqq\textit{#1}\frqq}
 \newcommand{\NPclass}{\textsf{NP}\xspace}
 \newcommand{\NPHard}{\textsf{NP-Hard}\xspace}
 \newcommand{\NPComplete}{\textsf{NP-Complete}\xspace}
@@ -165,29 +154,9 @@
     \par\addvspace{\topsep}
 }
 
-% \newcommand{\say}[1]{\flqq\textit{#1}\frqq}
-% \newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
-% \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
-%
-% \newcommand{\TFNPdt}{\mathsf{TFNP}^{dt}\xspace}
-%
-% \newcommand{\N}{\mathbb{N}}
-% \renewcommand{\P}{\mathbb{P}}
-% \newcommand{\Z}{\mathbb{Z}}
-% \newcommand{\F}{\mathbb{F}}
-%
-% \newcommand{\Res}{\mathsf{Res}}
-% \newcommand{\ResP}{\mathsf{Res(\oplus)}}
-% \newcommand{\NS}{\mathsf{NS}}
-% \newcommand{\FNS}{\F_2\text{-}\mathsf{NS}}
-% \newcommand{\enc}{\mathrm{enc}}
-
 % ================== DOCUMENT ==================
 
 \addbibresource{./references.bib}
-
-% \setcounter{tocdepth}{4}
-% \setcounter{secnumdepth}{4}
 
 \begin{document}
 
@@ -200,7 +169,7 @@
 % ================== DEDICATION ==================
 
 \dedication{
-    TODO.
+  \say{To ask the right question is harder than to answer it}\\― Georg Cantor
 }
 
 % ================== ABSTRACT ==================
@@ -224,16 +193,18 @@
 \input{./chapter/4}
 
 % ================== CONCLUSIONS ==================
+
 \input{./chapter/conclusions}
 
 % ================== ACKNOWLEDGMENTS ==================
+
 \input{./chapter/ack}
 
 \backmatter
 \phantomsection
 
 % ================== BIBLIOGRAPHY ==================
-% \addcontentsline{toc}{chapter}{Bibliography}
+
 \definecolor{sapienzared}{HTML}{000000}
 \printbibliography
 
