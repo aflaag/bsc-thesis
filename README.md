@@ -6,5 +6,3 @@ The PDF to my BSc Thesis can be found [here](<https://raw.githubusercontent.com/
 
 - questo readme
 
-- scrivere acknowledgments alla fine
-
