@@ -4,5 +4,5 @@ The PDF to my BSc Thesis can be found [here](<https://raw.githubusercontent.com/
 
 ## TODO list
 
-- questo readme
+- this README.md file
 
