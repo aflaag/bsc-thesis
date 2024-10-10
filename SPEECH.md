@@ -61,6 +61,38 @@ Con la diminuzione del costo del sequenziamento del DNA, è ora possibile catego
 
 Tuttavia, i geni con più di una, ma comunque _relativamente poche mutazioni_, sono molto più comuni, e per questo tipo di geni analisi di frequenza **non sono sufficienti** per identificare in modo _affidabile_ i geni driver.
 
-Inoltre, poiché le mutazioni driver si trovano principalmente in geni coinvolti nei percorsi di segnalazione cellulare, in molti casi diversi pazienti presentano mutazioni in loci di percorsi differenti. Di conseguenza, le mutazioni driver possono variare notevolmente tra i campioni di pazienti, anche all'interno dello stesso tipo di cancro, risultando in una sovrapposizione minima di geni mutati tra coppie di campioni, anche provenienti dallo stesso paziente, il che riduce ulteriormente la potenza statistica delle analisi basate sulla frequenza.
+Inoltre, poiché le _mutazioni driver_ si trovano principalmente in geni coinvolti nei **signaling pathway delle cellule**, in molti casi diversi pazienti presentano mutazioni in punti diversi sullo stesso pathway. Di conseguenza, le mutazioni driver possono _variare notevolmente_ tra i campioni di pazienti, anche all'interno dello stesso tipo di cancro, risultando in una **sovrapposizione minima** di geni mutati tra coppie di campioni.
 
-Pertanto, i metodi basati esclusivamente sulla frequenza di mutazione possono solo dare priorità ai geni per ulteriori indagini e non possono identificare in modo definitivo i geni driver che sono mutati a frequenze relativamente basse.
+Pertanto, i metodi basati esclusivamente sulla frequenza di mutazione **non possono identificare** in modo definitivo i geni driver che sono mutati a _frequenze relativamente basse_.
+
+### Focus sui pathway
+
+Un metodo alternativo per valutare la ricorrenza di _singole mutazioni_ o geni è esaminare le mutazioni nel contesto dei **signaling pathway di cellule e regolatori**, e ulteriori considerazioni biologiche supportano questo approccio. In particolare, più mutazioni driver alternative in geni diversi possono portare a effetti "_a valle_" simili, quindi il **vantaggio selettivo** è _distribuito_ tra le frequenze delle varie alterazioni genetiche, il che significa che _mutazioni diverse_ possono influenzare lo _stesso pathway_ in vari campioni.
+
+Ciò suggerisce che l'attenzione dovrebbe concentrarsi sui **pathway driver** piuttosto che sulle _singole mutazioni driver_. Tuttavia, l'analisi dei percorsi si basa sull'_identificazione di gruppi di geni_ all'interno di **percorsi noti**. Anche se alcuni di questi sono ben documentati e catalogati in vari database, l'attuale comprensione rimane _incompleta_.
+
+Queste _limitazioni_, insieme al numero crescente di genomi del cancro sequenziati, sollevano la domanda se sia possibile identificare automaticamente gruppi di geni con mutazioni driver o percorsi driver mutati direttamente dai dati delle mutazioni somatiche raccolti da un gran numero di pazienti.
+
+### Ricerca di driver pathway
+
+Trovare percorsi driver mutati può sembrare improbabile a causa dell'_gran numero_ di possibili gruppi di geni da testare. Ad esempio, ci sono più di $10^26$ gruppi di 7 geni umani. Questo rende necessario trovare proprietà o caratteristiche specifiche per guidare la ricerca in modo efficiente. Fortunatamente, la nostra attuale comprensione dei processi mutazionali somatici nel cancro suggerisce _vincoli_ sui modelli di mutazione attesi.
+
+In primo luogo, gli studi suggeriscono che un _pathway importante per il cancro_ dovrebbe essere alterato in un _numero significativo di pazienti_, quindi ci si aspetta che la maggior parte dei pazienti presenti aberrazioni in alcuni geni all'interno di tale percorso. Pertanto, si presume che i _geni driver_ che costituiscono un _percorso driver_ siano frequentemente **mutati in molti campioni**, una caratteristica chiamata **copertura**.
+
+In secondo luogo, mentre questa caratteristica è utile per identificare i percorsi driver, la maggior parte delle tecniche sviluppate negli ultimi anni sfrutta una _proprietà statistica molto più forte_ osservata nei dati dei pazienti oncologici: ogni paziente, in genere, ha un _numero relativamente ridotto di mutazioni che colpiscono più patwhay_, quindi ogni percorso conterrà in media _1 mutazione driver per campione_. Questo concetto di **mutua esclusività** tra _mutazioni driver all'interno dello stesso pathway_, viene quindi assiomatizzato e utilizzato dagli algoritmi di ricerca per identificare mutazioni e percorsi driver. Pertanto, un **pathway driver** è costituito da _geni che sono mutati in numerosi pazienti_, con _mutazioni approssimativamente mutuamente esclusive_.
+
+Sebbene la spiegazione precisa del fenomeno della mutua esclusività non sia ancora completamente compresa, esistono diverse ipotesi plausibili:
+- un'ipotesi è che i geni mutuamente esclusivi siano **funzionalmente connessi** all'interno di pathway in comune, creando una **ridondanza funzionale**; di conseguenza, condividerebbero lo stesso _vantaggio selettivo_, il che significa che l'alterazione di un gene mutuamente esclusivo sarebbe _sufficiente_ a interrompere il percorso condiviso, rimuovendo così la _pressione selettiva_ per alterare gli altri;
+- un'altra spiegazione è che la _co-occorrenza_ di alterazioni mutuamente esclusive sia **dannosa per la sopravvivenza del cancro**, portando all'_eliminazione_ delle cellule che ospitano tali _co-occorrenze_, e alcune coppie di geni mutuamente esclusivi potrebbero persino essere **letali sintetici**.
+
+## Quantificare la mutua esclusività
+
+Sebbene i meccanismi esatti dietro la _mutua esclusività_ nelle mutazioni genetiche rimangano poco chiari, questo fenomeno può comunque essere sfruttato efficacemente nella ricerca per identificare i pathway driver.
+
+### Difficoltà nel quantificare la mutua esclusività
+
+Trovare un metodo efficace per quantificare il livello di _mutua esclusività_ non è semplice. Nella letteratura statistica, sono definiti due tipi di mutua esclusività: rigida e flessibile. La mutua esclusività rigida descrive eventi che si presume siano strettamente mutuamente esclusivi, con l'ipotesi nulla che qualsiasi sovrapposizione osservata sia dovuta a errori casuali. Tuttavia, in questo contesto, non è fattibile testare la mutua esclusività rigida, poiché questa è una proprietà osservata statisticamente dai dati dei pazienti. Pertanto, è necessario rilassare il vincolo alla mutua esclusività flessibile, in cui due eventi altrimenti indipendenti si sovrappongono meno del previsto, sia a causa del caso che di qualche interazione statistica.
+
+Inoltre, mentre la mutua esclusività flessibile di una coppia di geni può essere valutata utilizzando il test esatto di Fisher, non esiste un metodo concordato per testare analiticamente la mutua esclusività tra più di due geni. Ad esempio, un approccio intuitivo potrebbe consistere nel verificare se ciascuna coppia di geni all'interno di un gruppo di geni mostra mutua esclusività; tuttavia, questo metodo potrebbe essere eccessivamente rigoroso, poiché un gruppo di geni può mostrare un forte schema di mutua esclusività nel suo insieme anche se nessuna coppia individuale lo dimostra [2].
+
+A causa della complessità della misurazione della mutua esclusività, articoli recenti hanno proposto vari approcci, basati su diverse ipotesi, che saranno discussi nelle sezioni successive.
