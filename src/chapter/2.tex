@@ -139,7 +139,7 @@ This weight assesses the degree of mutual exclusivity among $M$'s genes and the 
 As previously mentioned, a gene set $M$ can be represented as a column submatrix of a mutation matrix $A$. Thus, finding the \textit{optimal gene set} is equivalent to identifying the \textit{optimal $A$'s column submatrix}, which means that the following problem has to be solved.
 
 \begin{displayquote}\label{mwsp}
-    \textbf{Maximum Weight Submatrix Problem} (MWSP): Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find a $m \times k$ submatrix of $A$ that maximizes $W(M)$.
+    \textbf{Maximum Weight Submatrix Problem} (MWSP): Given an $m \times n$ mutation matrix $A$, and an integer $k > 0$, find a $m \times k$ submatrix $M$ of $A$ that maximizes $W(M)$.
 \end{displayquote}
 
 Finding the solution to this problem is computationally difficult, even for small values of $k$ (e.g. there are $\approx 10^{23}$ subsets of size $k = 6$ of 20,000 genes). In fact, the following proof (provided by \textcite{dendrix}) shows that this problem is \NPComplete.
