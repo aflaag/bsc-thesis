@@ -97,6 +97,8 @@ Inoltre, mentre la mutua esclusività di una _coppia_ di geni può essere valuta
 
 A causa della complessità della misurazione della mutua esclusività, articoli recenti hanno proposto vari approcci, basati su diverse ipotesi, che saranno illustrati successivamente.
 
+## Dendrix
+
 ### Una formalizzazione deterministica
 
 Una delle prime e più ampiamente utilizzate formalizzazioni matematiche per modellare e quantificare la mutua esclusività è stata introdotta da Vandin, autore di un algoritmo chiamato Dendrix. Tuttavia, rima di discuterne, sono necessarie alcune definizioni preliminari per fornire contesto. Infatti, tutti i lavori esplorati in questo studio faranno riferimento alle seguenti definizioni.
@@ -110,3 +112,44 @@ $ tale da massimizzare $W(M)$ come segue:
 
 Questa formulazione permette di valutarne la complessità, ed è possibile dimostrare che l'MWSP è NP-completo.
 
+### TODO
+
+PROBABILMENTE PARLA DEGLI ALGORITMI
+
+## Mutex
+
+### Un approccio statistico
+
+Dato che la mutua esclusività _esatta_ nei dati somatici reali è _improbabile_, un approccio comune in questo campo è quello di affidarsi a **metodi statistici**. La sezione seguente descriverà la _metrica_ sviluppata da Babur, che impiega l'analisi statistica per identificare i pathway driver. Babur propone una metrica che estende il _test esatto di Fisher_ per quantificare la mutua esclusività all'interno di un insieme di geni.
+
+Babur definisce la seguente ipotesi nulla $H_0$: _dato un grupo di geni $M$, un membro del gruppo $g \in M$ è alterato indipendentemente dall'unione delle altre alterazioni del gruppo $\Gamma(M - \{g\})$_.
+
+Questa ipotesi nulla assume che qualsiasi pattern osservato all'interno delle alterazioni di $M$ è _dovuto al caso_. Per testare $H_0$ è necessario valutare la probabilità di avere $\Gamma(g) \cap \Gamma(M - \{g\})$ pazienti che hanno sia $g$ sia qualsiasi altro gene di $M$ mutato. Assegnando il valore di tale probabiltà alla variabile aleatoria $X$, poiché $X$ segue una distribuzione ipergeometrica, la seguente è PMF con la quale è possibile calcolare $P(X = \gamma(g, M_g))$. Alternativamente, è possibile visualizzare tale probabilità attraverso la seguente tabella di contingenza per il test esatto di Fisher, compilandola utilizzando il principio di inclusione-esclusione.
+
+Questa probabilità è utilizzata all'interno dell'algoritmo di Babur, ed è utilizzata per assegnare un $p$-value ad ognuno dei geni.
+
+### TODO
+
+PROBABILMENTE PARLA DELL'ALGORITMO
+
+## Multi-Dendrix
+
+### Estensione
+
+Sebbene l'identificazione di _singoli pathway driver_ sia fondamentale per la ricerca e il trattamento del cancro, si è osservato che la maggior parte dei pazienti oncologici presenti mutazioni driver in **molteplici pathway**. Le metriche discusse finora non tengono conto di più pathways simultaneamente. Sebbene tali formalizzazioni possano essere applicate iterativamente per identificare più pathway driver, tale approccio potrebbe non essere sufficientemente preciso.
+
+Per tenere in considerazione questo fatto, Leiserson ha esteso la funzione di peso $W(M)$ di Vandin, consentendo la valutazione della _mutua esclusività_ su **più pathway driver**. $W'(M) := \sum_{\rho = 1}^t{W(M_\rho)}$ questa formula permette di valutare il livello di _copertura_ e _mutua esclusività_ su una **collezione di insiemi di geni**.
+
+### TODO
+
+PROBABILMENTE PARLA DEGLI ALGORITMI
+
+## $\mathrm{C}^3$
+
+### Un metodo di clustering
+
+Un approccio utilizzato in diversi studi per individuare _moduli mutuamente esclusivi_ prevede la costruzione di **grafi di geni** e l'identificazione di **cluster** basati su criteri specifici. Il metodo proposto da Hou consiste in un algoritmo progettato per affrontare le limitazioni delle tecniche precedenti. In particolare, una grande limitazione delle tecniche presentate in precedenza è la necessità di **ristrutturare l'algoritmo** ogni volta che vengono aggiunte _nuove informazioni biologiche_, mentre l'approccio di Hou è notevolmente flessibile.
+
+Sia $G = (V, E)$ un _grafo di geni completo_, in cui per ogni coppia di geni $(u, v) \in E(G)$ sono definiti _due pesi_ $w^+_{uv}$ e $w^-_{uv}$. In particolare, $w^+_{uv}$ rappresenta il _costo di posizionare $u$ e $v$ in cluster diversi_, mentre $w^-_{uv}$ costituisce il _costo di posizionare $u$ e $v$ nello stesso cluster_. L'obiettivo dell'algoritmo di clustering è di generare cluster i cui geni sono tra loro molto mutuamente esclusivi.
+
+La flessibilità del loro algoritmo deriva dalla possibilità di definire i due pesi di ogni arco potendo attingere da molteplici fonti e potendo includere varie informazioni biologiche. In particolare, sono definite 4 componenti attraverso le quali definire i vari pesi degli archi, ossia _mutua esclusività_ $\mathrm{(e)}$, _copertura_ $\mathrm{(c)}$, _informazioni sulla topologia della rete di geni_ $\mathrm{(n)}$ e _dati sull'espressione_ $\mathrm{(x)}$.
