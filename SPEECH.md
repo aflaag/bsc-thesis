@@ -97,6 +97,10 @@ Inoltre, mentre la mutua esclusività di una _coppia_ di geni può essere valuta
 
 A causa della complessità della misurazione della mutua esclusività, articoli recenti hanno proposto vari approcci, basati su diverse ipotesi, che saranno illustrati successivamente.
 
+### Tipi di approcci
+
+Gli approcci esistenti possono essere classificati in _due categorie_: **_de novo_** e **_knowledge-based_**. Gli approcci _de novo_ identificano schemi esclusivi usando _solo i dati genomici dei pazienti_, senza ricorrere a database preesistenti come quelli sui pathway noti o su reti di interazioni proteiche. Tuttavia, poiché mancano di informazioni esterne, potrebbero risultare _meno precisi_. Al contrario, gli approcci _knowledge-based_ integrano dati noti _a priori_, ma sono _limitati_ dalle lacune negli attuali database esistenti, che spesso non rappresentano accuratamente i pathway presenti nelle cellule tumorali.
+
 ## Dendrix
 
 ### Una formalizzazione deterministica
@@ -108,13 +112,39 @@ Questa è una **matrice di mutazione**, una matrice binaria in cui una cella $(i
 Inoltre, si noti che un insieme di geni $M$ può essere rappresentato dalla corrispondente sottomatrice colonna di una matrice di mutazione, poiché l'ordine delle colonne non conta in quanto rappresentano geni. Questa rappresentazione matriciale di set di geni permette di formulare il problema di trovare $M
 $ tale da massimizzare $W(M)$ come segue:
 
-**Maximum Weight Submatrix Problem** (MWSP): Data una matrice di mutazione $m \times n$, ed un intero $k > 0$, si trovi una sottomatrice $m \times k$ di $A$ tale da massimizzare $W(M)$.
+**Maximum Weight Submatrix Problem** (MWSP): Data una matrice di mutazione $A$ di dimensioni $m \times n$, ed un intero $k > 0$, si trovi una sottomatrice $m \times k$ di $A$ tale da massimizzare $W(M)$.
 
 Questa formulazione permette di valutarne la complessità, ed è possibile dimostrare che l'MWSP è NP-completo.
 
-### TODO
+### Un primo approccio greedy
 
-PROBABILMENTE PARLA DEGLI ALGORITMI
+Il primo approccio adottato da Vandin per risolvere l'MWSP è costituito dal seguente _algoritmo greedy_. Questo algoritmo, sebbene computazionalmente efficiente, non garantisce di trovare l'insieme di geni $\hat M$ che massimizza $W(\hat M)$. È possibile dimostrare che questo algoritmo è in grado di trovare $\hat M$ se la matrice di mutazione rispetta un modello che Vandin chiama **Gene Independence Model**, ma questo modello è di difficile applicazione in contesti reali, poiché necessita un numero di pazienti attualmente _proibitivo_.
+
+### Utilizzando le MCMC
+
+Il secondo approccio che Vandin descrive utilizza le **Catene di Markov Monte Carlo**, che _non necessita_ di assunzioni sulla distribuzione dei dati o sul numero di pazienti del dataset. Questa procedura si basa sull'algoritmo di Metropolis-Hasings, attraverso il quale vengono campionati set di insiemi $M$ di $k$ geni. Inoltre, è possibile dimostrare che questa catena ha _tempo di mixing veloce_.
+
+L'idea di questa catena è di rappresentare un possibile insieme $M$ di geni attraverso gli stati della catena, e le transizioni tra gli stati sono dettate da $P(M_t, w, v)$.
+
+TODO ENTRARE NEI DETTAGLI?
+
+## MDPFinder
+
+### L'algoritmo genetico
+
+Come detto in precedenza, la funzione di peso $W(M)$ è ampiamente adottata in diversi studi, grazie alla propria capacità formalizzare la _mutua esclusività_ e la _copertura_ efficaciemente. Un altro studio che utilizza questa metrica, è il lavoro di Zhao, che ha introdotto un **algoritmo genetico** chiamato MDPFinder. Zhao definisce i seguenti **operatori genetici**:
+  - _spazio delle ipotesi_ $\mathcal H$: un membro della popolazione è definito da una stringa composta da $n$ bit, e rappresenta un possibile insieme di geni $M$; in particolare, il bit in $i$-esima posizione è $1$ se e solo se l'$i$-esimo gene è in $M$; dunque, $\mathcal H$ è composto da tutte le possibili stringhe binarie lunghe $n$, aventi $k$ bit pari ad $1$;
+  - la _funzione di fitness_ è data da $W(M)$
+  - la _probabilità di selezione_ è data dal seguente rapporto, proporzionale a $W(M)$
+  - scelti due membri della popolazione, la prole erediterà i geni che i propri genitori hanno in comune, e i restanti verranno scelti casualmente dalla differenza simmetrica
+  - _operatore di mutazione_: ogni nuovo membro, con bassa probabilità, possono _subire una variazione_ di un 2 bit
+  - Zhao introduce una procedura di **local search** per evitare di bloccare l'algoritmo su un minimo locale, che si comporta come l'_operatore di mutazione_
+
+TODO ENTRARE NEI DETTAGLI?
+
+Questo algoritmo è particolarmente flessibile, poiché non dipende da $W(M)$, e poiché è possibile _integrare_ i risultati con dati esterni. In particolare, Zhao presenta una **procedura di integrazione** che permette di incorporare dati esterni sull'**espressione dei geni**
+
+TODO ENTRARE NEI DETTAGLI?
 
 ## Mutex
 
@@ -140,16 +170,47 @@ Sebbene l'identificazione di _singoli pathway driver_ sia fondamentale per la ri
 
 Per tenere in considerazione questo fatto, Leiserson ha esteso la funzione di peso $W(M)$ di Vandin, consentendo la valutazione della _mutua esclusività_ su **più pathway driver**. $W'(M) := \sum_{\rho = 1}^t{W(M_\rho)}$ questa formula permette di valutare il livello di _copertura_ e _mutua esclusività_ su una **collezione di insiemi di geni**.
 
-### TODO
+### Un approccio alternativo per l'MWSP
 
-PROBABILMENTE PARLA DEGLI ALGORITMI
+Inizialmente, Leiserson ha formulato l'MWSP come ILP, attraverso le seguenti funzioni indicatrici:
+  - $I_M(j) = 1 \iff j \in M$, dunque $I_M(j)$ è $1$ se e solo se il gene $j$ è in $M$
+  - $C_i(M) = 1 \iff \exists g \in M \mid i \in \Gamma(g)$, dunque $C_i(M)$ è in $1$ se e solo se il esiste un paziente $i$ con almeno un gene $g$ di $M$ mutato
+
+Attraverso queste funzioni indicatrici, è possibile formulare l'MWSP come mostrato. In particolare, notiamo che il secondo constraint forza $M$ ad avere dimensione $k$, mentre il terzo descrive il comportamento di $C_i(M)$.
+
+### L'ILP di Multi-Dendrix
+
+Successivamente, al fine di poter trovare molteplici driver pathway simultaneamente, Leiserson estende l'MWSP attraverso il seguente problema:
+
+**Multiple Maximum Weight Submatrices Problem** (MMWSP): Data una matrice di mutazioni $A$ di dimensioni $m \times n$, un intero $t > 0$, e due interi $k_\mathrm{min}, k_\mathrm{max} \ge 0$, si trovi la collezione $M = \{M_1, \ldots, M_t\}$ di sottomatrici colonna di $A$ che massimizzi $W'(M)$, dove ogni sottomatrice $M_\rho$ (per ogni $1 \le \rho \le t$) ha dimensioni $m \times k_\rho$, per certi $k_\mathrm{min} \le k_\rho \le k_\mathrm{max}$.
+
+Analogamente al caso $t = 1$, anche questo problema è NP-completo. Per risolvere l'MMWSP, Leiserson ha definito il seguente ILP, che estende quello precedentemente mostrato per l'MWSP. Si noti che il primo ed il secondo constraint sono estensioni dell'ILP precedente, il terzo constraint permette ad ogni set $M_\rho$ di avere dimensione $k_\mathrm{min} \le k \le k_\mathrm{max}$, ed infine il quarto constraint _non permette intersezioni_ tra i set della collezione $M$ (quest'ultimo può essere eventualmente esteso).
+
+### Comparazione tra Multi-Dendrix ed Iter-Dendrix
+
+Notiamo che è possibile definire una procedura per ottenere _molteplici driver pathway_ definendo il seguente algoritmo, denominato da Leiserson Iter-Dendrix. Questa procedura applica l'_algoritmo greedy_ di Vandin $t$ volte, e ad ogni iterazione viene rimosso l'insieme di geni restituito dall'algoritmo dal set totale di geni $\mathcal G$.
+
+Vandin ha discusso questo approccio verso la fine del loro lavoro, evidenziando alcune _limitazioni_. In particolare, se gli insiemi di geni corrispondenti a ciascun pathway sono disgiunti, Iter-Dendrix può identificarli efficacemente, trovando con successo i set disgiunti $M_1$ e $M_2$ con molto peso, poiché la mutua esclusività viene valutata solo **all'interno degli insiemi**, non _tra di essi_. Tuttavia, se $M_1$ e $M_2$ condividono geni, rimuovere un set potrebbe influire sull'altro; se l'intersezione è minima, è ancora possibile identificare una parte del secondo set, ma in caso di sovrapposizione significativa, Iter-Dendrix potrebbe fallire.
+
+In aggiunta, denominando con $M$ ed $I$ le collezioni di insiemi di geni ottenuti rispettivamente da Multi-Dendrix e da Iter-Dendrix, Leiserson delinea ulteriori _limitazioni_:
+  - Iter-Dendrix può estendere solo uno degli insiemi che massimizza $W(I_\rho)$ in ogni iterazione;
+  - l'insieme scelto da Iter-Dendrix potrebbe non appartenere ad $M$, poiché $M$ può includere insiemi subottimali se considerati singolarmente;
+  - se $k_\mathrm{min} < k_\mathrm{max}$, Multi-Dendrix può selezionare insiemi con meno di $k_\mathrm{max}$ geni per massimizzare il peso complessivo $W'(M)$.
 
 ## $\mathrm{C}^3$
 
-### Un metodo di clustering
+### Un metodo che sfrutta il clustering
 
 Un approccio utilizzato in diversi studi per individuare _moduli mutuamente esclusivi_ prevede la costruzione di **grafi di geni** e l'identificazione di **cluster** basati su criteri specifici. Il metodo proposto da Hou consiste in un algoritmo progettato per affrontare le limitazioni delle tecniche precedenti. In particolare, una grande limitazione delle tecniche presentate in precedenza è la necessità di **ristrutturare l'algoritmo** ogni volta che vengono aggiunte _nuove informazioni biologiche_, mentre l'approccio di Hou è notevolmente flessibile.
 
 Sia $G = (V, E)$ un _grafo di geni completo_, in cui per ogni coppia di geni $(u, v) \in E(G)$ sono definiti _due pesi_ $w^+_{uv}$ e $w^-_{uv}$. In particolare, $w^+_{uv}$ rappresenta il _costo di posizionare $u$ e $v$ in cluster diversi_, mentre $w^-_{uv}$ costituisce il _costo di posizionare $u$ e $v$ nello stesso cluster_. L'obiettivo dell'algoritmo di clustering è di generare cluster i cui geni sono tra loro molto mutuamente esclusivi.
 
 La flessibilità del loro algoritmo deriva dalla possibilità di definire i due pesi di ogni arco potendo attingere da molteplici fonti e potendo includere varie informazioni biologiche. In particolare, sono definite 4 componenti attraverso le quali definire i vari pesi degli archi, ossia _mutua esclusività_ $\mathrm{(e)}$, _copertura_ $\mathrm{(c)}$, _informazioni sulla topologia della rete di geni_ $\mathrm{(n)}$ e _dati sull'espressione_ $\mathrm{(x)}$.
+
+La componente della **mutua esclusività** è definita dalla seguente formula (semplificata rispetto all'originale, per brevità) $w_{uv}^-(\mathrm e) := \dfrac{|\Gamma (u) \cap \Gamma (v)|}{ \min(|\Gamma(u)|, |\Gamma (v)|)}$. Questo rapporto è intuitivamente coerente con la definizione di $w_{uv}^-$, poiché quest'ultimo rappresenta il costo di posizionare $u$ e $v$ nello stesso cluster, e questa formula rende $w_{uv}^-$ direttamente proporzionale al numero di pazienti che hanno _sia $u$ che $v$ mutato_. Dunque, minore è l'intersezione, minore è $w_{uv}^-$, e minore sarà il _costo di posizionare $u$ e $v$ nello stesso cluster_, ed infatti $u$ e $v$ dovrebbero essere posizionati nello stesso cluster se sono mutuamente esclusivi.
+
+La componente della **copertura** è definita invece dalla seguente formula (semplificata rispetto all'originale, per brevità) $w_{uv}^+(\mathrm c) := |\Gamma(u) \Delta \Gamma(v)|$. Questa formula è intuitivamente coerente con la definizione di $w_{uv}^+$, poiché quest'ultimo rappresenta il costo di posizionare $u$ e $v$ in cluster diversi, e questa formula rende $w_{uv}^+$ direttamente proporzionale al numero di pazienti che hanno _o $u$ mutato ma non $v$, oppure $v$ mutato ma non $u$_. Dunque, maggiore è la differenza simmetrica, maggiore è $w_{uv}^+$, e maggiore sarà il _costo di posizionare $u$ e $v$ in cluster diversi_ ed infatti $u$ e $v$ dovrebbero essere posizionati nello stesso cluster se hanno alta copertura.
+
+### TODO
+
+PROBABILMENTE PARLA DEGLI ALGORITMI

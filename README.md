@@ -5,4 +5,6 @@ The PDF to my BSc Thesis can be found [here](<https://raw.githubusercontent.com/
 ## TODO list
 
 - this README.md file
+- speech
+    - dire i nomi degli algoritmi
 
