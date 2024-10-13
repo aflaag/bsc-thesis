@@ -160,7 +160,9 @@ Questa probabilità è utilizzata all'interno dell'algoritmo di Babur, ed è uti
 
 ### TODO
 
-PROBABILMENTE PARLA DELL'ALGORITMO
+Babur sfrutta questa metrica all'interno del seguente _algoritmo greedy_, con il quale è possibile estendere iterativamente un set iniziale $M$ composto solamente da un gene $g$. La procedura $\texttt{expandGroup}$ è definita da un algoritmo che espande, se possibile, l'insieme $M$, scegliendo ad ogni iterazione _1 gene_ preso dalla **prossimità di $M$** $\delta(M)$. Questa illustrazione mostra come opera l'algoritmo durante le varie iterazioni: i vertici contornati in grassetto sono quelli che definiscono $M$, mentre i vertici in grigio sono quelli che ne definiscono la _prossimità_ $\delta(M)$. Dunque, $\delta(M)$ rappresenta l'insieme dei possibili candidati da aggiungere ad $M$, e viene scelto il candidato _migliore_ in base ad un punteggio che sfrutta la metrica illustrata in precedenza.
+
+TODO ENTRARE NEI DETTAGLI?
 
 ## Multi-Dendrix
 
@@ -211,6 +213,16 @@ La componente della **mutua esclusività** è definita dalla seguente formula (s
 
 La componente della **copertura** è definita invece dalla seguente formula (semplificata rispetto all'originale, per brevità) $w_{uv}^+(\mathrm c) := |\Gamma(u) \Delta \Gamma(v)|$. Questa formula è intuitivamente coerente con la definizione di $w_{uv}^+$, poiché quest'ultimo rappresenta il costo di posizionare $u$ e $v$ in cluster diversi, e questa formula rende $w_{uv}^+$ direttamente proporzionale al numero di pazienti che hanno _o $u$ mutato ma non $v$, oppure $v$ mutato ma non $u$_. Dunque, maggiore è la differenza simmetrica, maggiore è $w_{uv}^+$, e maggiore sarà il _costo di posizionare $u$ e $v$ in cluster diversi_ ed infatti $u$ e $v$ dovrebbero essere posizionati nello stesso cluster se hanno alta copertura.
 
-### TODO
+Hou ha mostrato che, all'interno dei pathway cellulari, la _distanza media tra driver_ è **significativamente inferiore** rispetto alla distanza che intercorre tra due geni qualsiasi. Questo suggerisce che la distanza tra i geni va _tenuta in considerazione_, e grazie alla flessibilità di $\mathrm{C}^3$, è possibile integrare questa informazione attraverso la seguente componente. La componente delle **informazioni sulla topologia della rete di geni** è definita dalla seguente formula (semplificata rispetto all'originale, per brevità) $w^+_{uv}(\mathrm n) := \dfrac{|\mathcal N'(u) \cap \mathcal N'(v)|}{|\mathcal N'(u) \cup \mathcal N'(v)|}$ dove $\mathcal N '(u) = \mathcal N (u) \cup \{u\}$ e $\mathcal N(u)$ sono i vicini di $u$ all'interno di un grafo $G'$ ottenuto dal database KEGG, che rappresenta le interazioni tra i geni. Questo rapporto è chiamato **coefficiente di similarità di Jaccard**, ed è intuitivamente coerente con la definizione di $w_{uv}^+$, poiché maggiore è il rapporto, e migliore sarà il collegamento in $G'$ tra $u$ e $v$, dunque la loro distanza è relativamente breve, e di conseguenza il _costo di posizionare $u$ e $v$ in cluster diversi deve essere maggiore_. 
 
-PROBABILMENTE PARLA DEGLI ALGORITMI
+Infine, per integrare le informazioni di **espressione genomica**, Hou ha utilizzato la seguente definizione $w_{uv}^+(\mathrm x) := \dfrac{\left\langle \mathrm z(u), \mathrm z (v)\right\rangle}{||\mathrm z(u)|| \cdot || \mathrm z (v)||}$ anche conosciuto come _coseno di simlarità_. Questo rapporto è intuitivamente coerente con la definizione di $w_{uv}^+$, poiché quest'ultimo rappresenta il costo di posizionare $u$ e $v$ nello stesso cluster, e questa formula rende $w_{uv}^+$ direttamente proporzionale a quanto simili sono $\mathrm z(u)$ e $\mathrm z(v)$, che sono i _vettori di espressione di $u$ e $v$ nel tempo_, rispettivamente.
+
+Le formule dei pesi degli archi possono essere generalizzate come mostrato, con opportuni valori per i coefficienti $w_1, w_2$ e $w_3$.
+
+### The ILP
+
+È possibile ora descrivere l'ILP con il quale Hou ha formulato l'algoritmo di clustering di geni. Notiamo che la seconda equazione è la _disuguaglianza triangolare_, che rende l'appartenenza allo stesso cluster una _proprietà transitiva_; inoltre, la terza equazione forza i cluster ad avere dimensione al massimo $k$.
+
+Poiché risolvere questo ILP è particolarmente complesso, Hou presenta una versione diversa di questo problema, nella quale il vincolo $x_e \in \{0, 1\}$ è rilassato ad essere $0 \le x_e \le 1$, trasformandolo in un LP. Ma affinché sia possibile definire cluster sul grafo, sono necessari valori interi delle varie $x_e$. Dunque, Hou ha formulato un **algoritmo di arrotondamento** che permette di arrotondare opportunamente le soluzioni dell'LP per poter definire un clustering.
+
+TODO ENTRARE NEI DETTAGLI?
