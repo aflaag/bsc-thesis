@@ -10,6 +10,13 @@ formulas = [
     r"W(M) := |\Gamma(M)| - \omega(M)",
     r"W(M) := |\Gamma(M)| - 0",
     r"\times",
+    r"\textsf{NP-completo}",
+    r"I_M(j) = 1 \iff j \in M",
+    r"C_i(M) = 1 \iff \exists g \in M \mid i \in \Gamma(g)",
+    r"\mathrm{maximize} \sum_{i = 1}^m {\left (2 \cdot C_i(M) - \sum_{j = 1}^n I_M(j) \cdot a_{i, j} \right)},",
+    r"\mathrm{subject \ to\ } \sum_{j = 1}^n{I_M(j) = k},",
+    r"\sum_{j = 1}^n I_M(j) \cdot {a_{i, j}} \ge C_i(M), \quad 1 \le i \le m.",
+    r"W'(M) := \sum_{\rho = 1}^t{W(M_\rho)}",
 ]
 
 for i in range(len(formulas)):
