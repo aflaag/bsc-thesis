@@ -9,8 +9,7 @@ formulas = [
     r"\omega(M) := \sum_{g \in M} |\Gamma(g)| - |\Gamma(M)|",
     r"W(M) := |\Gamma(M)| - \omega(M)",
     r"W(M) := |\Gamma(M)| - 0",
-    r"\begin{array}{l}\mathbf{Definizione.} \ \mathrm{Data \ una \ matrice \ di \ mutazione} \ A \ \mathrm{di \ dimensioni} \ m \times n, \\ \mathrm{ed \ un \ intero} \ k > 0, \ \mathrm{si \ trovi \ una \ sottomatrice} \ m \times k \\ \mathrm{di} \ A \ \mathrm{tale \ da \ massimizzare} \ W(M).\end{array}",
-
+    r"\times",
 ]
 
 for i in range(len(formulas)):
