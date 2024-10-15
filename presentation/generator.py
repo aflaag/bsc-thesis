@@ -17,6 +17,9 @@ formulas = [
     r"\mathrm{subject \ to\ } \sum_{j = 1}^n{I_M(j) = k},",
     r"\sum_{j = 1}^n I_M(j) \cdot {a_{i, j}} \ge C_i(M), \quad 1 \le i \le m.",
     r"W'(M) := \sum_{\rho = 1}^t{W(M_\rho)}",
+    r"P(X = \gamma(g, M_g)) = \dfrac{\dbinom{\gamma(g)}{\gamma(g, M_g)}\dbinom{m - \gamma(g)}{\gamma(M_g) - \gamma(g, M_g)}}{\dbinom{m}{\gamma(M_g)}}",
+    r"M - \{g_1\}",
+    r"\implies"
 ]
 
 for i in range(len(formulas)):
