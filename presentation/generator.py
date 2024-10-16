@@ -19,7 +19,9 @@ formulas = [
     r"W'(M) := \sum_{\rho = 1}^t{W(M_\rho)}",
     r"P(X = \gamma(g, M_g)) = \dfrac{\dbinom{\gamma(g)}{\gamma(g, M_g)}\dbinom{m - \gamma(g)}{\gamma(M_g) - \gamma(g, M_g)}}{\dbinom{m}{\gamma(M_g)}}",
     r"M - \{g_1\}",
-    r"\implies"
+    r"\implies",
+    r"X \sim H(m, \gamma(g), \gamma(M_g))",
+    r"g_n",
 ]
 
 for i in range(len(formulas)):
