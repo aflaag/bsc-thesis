@@ -24,6 +24,7 @@ formulas = [
     r"g_n",
     r"w^-_{uv} := w^-_{uv}(\mathrm e)",
     r"w^+_{uv} := w_1 w^+_{uv}(\mathrm c) + w_2 w^+_{uv}(\mathrm n) + w_3 w^+_{uv}(\mathrm x)",
+    r"\iff",
 ]
 
 for i in range(len(formulas)):

@@ -2,12 +2,17 @@
 
 \begin{document}
     \[
-        \begin{array}{c|}
-            g_1 \\
-            g_2 \\
-            g_3 \\
-            \vdots \\
-            g_4
+        \begin{array}{c|cccc}
+                       & a & b & c & d \\
+            \hline
+            s_{(a, b)} & 1 & 1 & 0 & 0 \\
+            s_{(a, c)} & 1 & 0 & 1 & 0 \\
+            s_{(b, c)} & 0 & 1 & 1 & 0 \\
+            s_{(c, d)} & 0 & 0 & 1 & 1 \\
+            s_{(b, d)} & 0 & 1 & 0 & 1 \\
+            \hline
+            s_a^{(1)} & 1 & 0 & 0 & 0 \\
+            s_d^{(1)} & 0 & 0 & 0 & 1 \\
         \end{array}
     \]
 \end{document}
