@@ -22,6 +22,8 @@ formulas = [
     r"\implies",
     r"X \sim H(m, \gamma(g), \gamma(M_g))",
     r"g_n",
+    r"w^-_{uv} := w^-_{uv}(\mathrm e)",
+    r"w^+_{uv} := w_1 w^+_{uv}(\mathrm c) + w_2 w^+_{uv}(\mathrm n) + w_3 w^+_{uv}(\mathrm x)",
 ]
 
 for i in range(len(formulas)):
