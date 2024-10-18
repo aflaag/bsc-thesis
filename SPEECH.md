@@ -156,13 +156,16 @@ Questa formulazione permette di valutare la complessità del problema, ed è pos
 
 ### Un ILP per l'MWSP
 
+Una delle implementazioni più dirette dell'MWSP è stata fornita da Leiserson, attraverso un Integer Linear Program (ILP). Per introdurlo, è necessario descrivere le seguenti variabili indicatrici:
+  - $I_M(j)$ è la variabile indicatrice che descrive l'insieme di geni $M$, ed è definita come segue: $I_M(j) = 1 \iff j \in M$, dunque $I_M(j)$ è $1$ se e solo se $j$ appartiene ad $M$;
+  - $C_i(M)$ è la variabile indicatrice che descrive quali pazienti copre $M$, ed è definita come segue: $C_i(M) = 1 \iff \exists g \in M \mid i \in \Gamma(g)$, dunque $C_i(M)$ è $1$ se e solo se esiste un paziente $i$ che ha un gene di $M$ mutato.
+
+Attraverso queste funzioni indicatrici, è possibile formulare l'MWSP come mostrato. In particolare, notiamo che il primo constraint rappresenta $W(M)$, il secondo forza $M$ ad avere dimensione $k$, ed infine il terzo descrive il comportamento di $C_i(M)$.
+
 <!-- Lo studio condotto da Leiserson ha permesso di sviluppare uno degli algoritmi più performanti, sia per risultati che per efficienza. Prima di descrivere il suo algoritmo, introduciamo un primo approccio descritto all'interno del loro studio, che servirà per illustrare meglio il successivo. -->
-<!---->
+
 <!-- Come approccio iniziale, Leiserson ha formulato l'MWSP come ILP, attraverso le seguenti funzioni indicatrici: -->
-<!--   - $I_M(j) = 1 \iff j \in M$, dunque $I_M(j)$ è $1$ se e solo se il gene $j$ è in $M$; -->
-<!--   - $C_i(M) = 1 \iff \exists g \in M \mid i \in \Gamma(g)$, dunque $C_i(M)$ è in $1$ se e solo se il esiste un paziente $i$ con almeno un gene $g$ di $M$ mutato. -->
 <!---->
-<!-- Attraverso queste funzioni indicatrici, è possibile formulare l'MWSP come mostrato [SLIDE: mostro DendrixILP]. In particolare, notiamo che il secondo constraint forza $M$ ad avere dimensione $k$, mentre il terzo descrive il comportamento di $C_i(M)$. -->
 <!---->
 <!-- Sebbene l'identificazione di _singoli pathway driver_ sia fondamentale per la ricerca e il trattamento del cancro, si è osservato che la maggior parte dei pazienti oncologici presenta mutazioni driver in **molteplici pathway**. Le metriche discusse finora non tengono conto di più pathways simultaneamente. Nonostante tali formalizzazioni possano essere applicate iterativamente per identificare più pathway driver, tale approccio potrebbe non essere sufficientemente preciso. -->
 <!---->
