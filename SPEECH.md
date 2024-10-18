@@ -1,80 +1,142 @@
-# Introduzione
+# Speech
 
-## Il cancro
+## Prima parte
 
-Il **cancro** è un gruppo di malattie caratterizzate dalla _crescita incontrollata delle cellule_ che invadono tessuti ed organi e ne compromettono le funzionalità. Esistono oltre 100 tipi di cancro, come _carcinomi_, _sarcomi_ e _leucemie_, ed ogni anno i decessi per il cancro sono nell'ordine dei _milioni_. Ciò mostra quanto sia importante trovare trattamenti efficaci contro questa malattia.
+### Il cancro
 
-Lo **sviluppo del cancro** è un _processo complesso_ e graduale, influenzato da vari fattori, rendendo troppo semplicistico attribuire il cancro ad una sola causa. Ad esempio, **radiazioni** e molti altri _agenti cancerogeni chimici_ agiscono danneggiando il DNA e **causando mutazioni**. Questi sono noti come **agenti innescanti**, perché _innescano cambiamenti genetici_ che portano al cancro. Esempi ne sono le radiazioni ultraviolette solari, ed il fumo di tabacco, che contribuisce a una parte significativa di tutte le morti per cancro.
+Il cancro è un gruppo di malattie caratterizzate dalla crescita incontrollata delle cellule che invadono tessuti ed organi e ne compromettono le funzionalità. Esistono oltre 100 tipi di cancro, come _carcinomi_, _sarcomi_ e _leucemie_, ed ogni anno i decessi per il cancro sono nell'ordine dei milioni. Ciò mostra quanto sia importante trovare trattamenti efficaci contro questa malattia.
 
-Le varie modalità con cui diversi fattori contribuiscono al cancro evidenziano la _complessità della malattia_, e sottolineano l'importanza di sviluppare **approcci terapeutici** efficaci.
+<!-- Lo sviluppo del cancro** è un _processo complesso_ e graduale, influenzato da vari fattori, rendendo troppo semplicistico attribuire il cancro ad una sola causa. Ad esempio, **radiazioni** e molti altri _agenti cancerogeni chimici_ agiscono danneggiando il DNA e **causando mutazioni**. Questi sono noti come **agenti innescanti**, perché _innescano cambiamenti genetici_ che portano al cancro. Esempi ne sono le radiazioni ultraviolette solari, ed il fumo di tabacco, che contribuisce a una parte significativa di tutte le morti per cancro. -->
 
-La caratteristica fondamentale dello sviluppo del cancro è la **clonabilità tumorale**, la proprietà per la quale i tumori si sviluppano spesso da **singole cellule** che iniziano a _proliferare_ in modo anomalo. Tuttavia, l'origine clonale dei tumori non implica che la cellula progenitrice iniziale avesse fin dall'inizio _tutte le caratteristiche_ di una cellula cancerosa. Infatti, il cancro evolve attraverso un _processo multistep_ in cui le cellule acquisiscono _gradualmente caratteristiche maligne_ tramite una serie di **alterazioni**.
+<!-- Le varie modalità con cui diversi fattori contribuiscono al cancro evidenziano la _complessità della malattia_, e sottolineano l'importanza di sviluppare **approcci terapeutici** efficaci. -->
 
-A livello cellulare, lo _sviluppo del cancro_ è visto come un **processo di mutazione e selezione** per cellule con capacità sempre maggiori di proliferare, sopravvivere e metastatizzare. La prima fase, nota come **iniziazione tumorale**, comporta un'alterazione genetica che innesca una _crescita anomala_ in una singola cellula, portando all'espansione di una popolazione di cellule tumorali derivate clonamente. La progressione tumorale continua con l'insorgere di **ulteriori mutazioni**, alcune delle quali offrono un _vantaggio selettivo_, rendendo le cellule portatrici di queste mutazioni vantaggiose _dominanti_ all'interno del tumore, in un processo noto come **selezione clonale**. Questa selezione continua nel corso dell'evoluzione del tumore, facendolo crescere più rapidamente e diventare sempre più maligno.
+<!-- La caratteristica fondamentale dello sviluppo del cancro è la **clonabilità tumorale**, la proprietà per la quale i tumori si sviluppano spesso da **singole cellule** che iniziano a _proliferare_ in modo anomalo. Tuttavia, l'origine clonale dei tumori non implica che la cellula progenitrice iniziale avesse fin dall'inizio _tutte le caratteristiche_ di una cellula cancerosa.  -->
 
-È dunque evidente che le **mutazioni** ricoprono un ruolo fondamentale per lo sviluppo e la progressione del _cancro_. Pertanto, per combattere efficacemente questa malattia, è essenziale acquisire una comprensione completa di come queste _alterazioni genetiche_ si verificano e contribuiscono allo sviluppo del tumore.
+### Cure attuali
 
-## Terapie bersaglio
+La ricerca per trovare cure e trattamenti per il cancro è in continua evoluzione, a causa della gravità e della complessità della malattia. Attualmente, le principali tecniche per rimuovere e gestire il cancro includono chirurgia, radioterapia, chemioterapia e terapia ormonale. Ma nonostante i progressi realizzati, ognuno di questi approcci è tutt'ora significativamente limitato, e può portare a recidive tumorali e numerosi altri effetti collaterali indesiderati.
 
-La ricerca per trovare _cure e trattamenti_ per il cancro è in continua evoluzione, a causa della gravità e della complessità della malattia. Attualmente, le principali tecniche per rimuovere e gestire il cancro includono _chirurgia_, _radioterapia_, _chemioterapia_ e _terapia ormonale_. Ma nonostante i progressi realizzati, ognuno di questi approcci è tutt'ora _significativamente limitato_, e può portare a _recidive tumorali_ e molti altri **effetti collaterali indesiderati**.
+### Terapia a bersaglio
 
-Le problematiche che caratterizzano gli attuali trattamenti del cancro hanno spinto ad un maggiore interesse per le **terapie mirate alle mutazioni**. La **terapia mirata** è un trattamento per il cancro che si _concentra sulle proteine_ responsabili della crescita e della diffusione delle cellule tumorali, costituendo la base della **medicina di precisione**. Il vantaggio cruciale che questo tipo di terapie hanno è che differiscono della chemioterapia standard, che distrugge indiscriminatamente _cellule normali e tumorali_, poiché sono in grado di attaccare _specificamente le proteine anormali_ prodotte da geni mutati. Questo approccio offre una maggiore selettività e riduce gli effetti collaterali.
+Le problematiche che caratterizzano gli attuali trattamenti del cancro hanno spinto ad un maggiore interesse per le terapie bersaglio. La terapia a bersaglio è un trattamento per il cancro che si concentra sulle proteine responsabili della crescita e della diffusione delle cellule tumorali, costituendo la base della medicina di precisione. Questo tipo di terapie sono vantaggiose poiché differiscono della chemioterapia standard, che distrugge indiscriminatamente cellule normali e tumorali, poiché sono in grado di attaccare specificamente le proteine anormali prodotte da geni mutati. Questo approccio offre una maggiore selettività e riduce gli effetti collaterali.
 
-Come evidenziato, le **mutazioni** svolgono un _ruolo cruciale_ nello sviluppo del cancro, e la terapia mirata consente di affrontare specificamente queste mutazioni. Tuttavia, resta ancora complesso sviluppare terapie mirate per alcuni geni, e la loro efficacia può variare in base al paziente. La complessità di sviluppare _terapie mirate_ evidenzia la necessità di una ricerca continua per migliorare i trattamenti contro il cancro.
+Naturalmente, l'efficacia delle terapie a bersaglio dipende direttamente dal target considerato. È necessario dunque porsi una domanda: come è possibile trovare target adeguatamente efficaci per scopi terapeutici?
 
-## Mutazioni e pathway
+### Il ruolo delle mutazioni nel cancro
 
-### Mutazioni passeggere e driver
+<!-- Le **mutazioni** svolgono un _ruolo cruciale_ nello sviluppo del cancro, e la terapia mirata consente di affrontare specificamente queste mutazioni. Tuttavia, resta ancora complesso sviluppare terapie mirate per alcuni geni, e la loro efficacia può variare in base al paziente. La complessità di sviluppare _terapie mirate_ evidenzia la necessità di una ricerca continua per migliorare i trattamenti contro il cancro. -->
 
-È importante sottolineare che _non tutte le anomalie_ presenti in un tumore sono _rilevanti_ per la sua proliferazione. In effetti, le mutazioni del cancro sono generalmente divise in _due categorie_: le **mutazioni passeggere**, che _non conferiscono vantaggi_ diretti alla crescita tumorale, e le **mutazioni driver**, che invece _contribuiscono direttamente_ alla progressione del cancro, fornendo _vantaggio evolutivo_ e promuovendo la proliferazione delle cellule tumorali.
+Il cancro evolve attraverso un processo multistep in cui le cellule acquisiscono gradualmente caratteristiche maligne tramite una serie di mutazioni. Infatti, a livello cellulare, lo sviluppo del cancro è come un processo di mutazione e selezione di cellule con capacità sempre maggiori di proliferare, sopravvivere e metastatizzare.
 
-Questa _classificazione_ è essenziale, poiché identificare le mutazioni driver può contribuire significativamente allo sviluppo di **terapie mirate**, che possono _indirizzarsi direttamente alle mutazioni driver_.
+La prima fase, nota come iniziazione tumorale, comporta un'alterazione genetica che innesca una crescita anomala in una singola cellula. Successivamente, nella fase di selezione clonale, la progressione tumorale continua con l'insorgere di ulteriori mutazioni, alcune delle quali offrono un vantaggio selettivo, rendendo le cellule portatrici di queste mutazioni vantaggiose dominanti all'interno del tumore. Questa selezione continua nel corso dell'evoluzione del tumore, facendolo crescere più rapidamente e diventare sempre più maligno.
 
-### Problemi con analisi di frequenza
+È dunque evidente che le mutazioni ricoprono un ruolo fondamentale per lo sviluppo e la progressione del cancro. Pertanto, per combattere efficacemente questa malattia, è essenziale acquisire una comprensione completa di come queste alterazioni genetiche si verificano e contribuiscono allo sviluppo del tumore.
 
-Per classificare le mutazioni in queste due categorie, è essenziale valutare la loro **funzione biologica**, ma questo rimane tutt'ora difficile da eseguire. Esistono numerosi metodi per prevedere l'impatto funzionale di mutazioni, basati su conoscenze _a priori_. Tuttavia, questi approcci spesso non riescono a integrare le informazioni in modo efficace tra i vari tipi di mutazione e sono limitati dalla loro dipendenza da proteine conosciute, rendendoli _meno efficaci_ per quelle _meno studiate_.
+### Tipi di mutazioni
 
-Con la diminuzione del costo del sequenziamento del DNA, è ora possibile categorizzare le mutazioni esaminandone la **frequenza**, poiché le _mutazioni driver_ sono tipicamente le **più ricorrenti** nei genomi dei pazienti. Per geni con numero _molto elevato_ di mutazioni, come TP53 o KRAS, la maggior parte dei metodi statistici suggerirà fortemente che questi geni siano driver.
+È importante sottolineare che non tutte le anomalie presenti in un tumore sono rilevanti per la sua proliferazione. Infatti, le mutazioni del cancro sono generalmente divise in due categorie: le mutazioni _passenger_, che non conferiscono vantaggi diretti alla crescita tumorale, e le mutazioni _driver_, che invece contribuiscono direttamente alla progressione del cancro, fornendo vantaggio evolutivo e promuovendo la proliferazione delle cellule tumorali.
 
-Tuttavia, i geni con più di una, ma comunque _relativamente poche mutazioni_, sono molto più comuni, e per questo tipo di geni analisi di frequenza **non sono sufficienti** per identificare in modo _affidabile_ i geni driver.
+Dunque, poiché sono le più importanti per lo sviluppo del cancro, le mutazioni _driver_ devono essere il target delle terapie a bersaglio. Di conseguenza, riuscire a classificare le mutazioni in queste due categorie è fondamentale, al fine di riuscire a sviluppare terapie sempre più efficaci.
 
-Inoltre, poiché le _mutazioni driver_ si trovano principalmente in geni coinvolti nei **signaling pathway delle cellule**, in molti casi diversi pazienti presentano mutazioni in punti diversi punti dello stesso pathway. Di conseguenza, le mutazioni driver possono _variare notevolmente_ tra i campioni di pazienti, anche all'interno dello stesso tipo di cancro, rendendo difficile la classificazione.
+### Problemi nel classificare le mutazioni
 
-Pertanto, i metodi basati esclusivamente sulla frequenza di mutazione **non possono identificare** in modo definitivo i geni driver che sono mutati a _frequenze relativamente basse_.
+Per classificare le mutazioni in queste due categorie, è essenziale valutare la loro funzione biologica, ma questo rimane tutt'ora difficile da eseguire. Esistono numerosi metodi per prevedere l'impatto funzionale di mutazioni, basati su conoscenze _a priori_. Tuttavia, questi approcci spesso non riescono a integrare le informazioni in modo efficace tra i vari tipi di mutazione e sono limitati dalla loro dipendenza da proteine conosciute, rendendoli meno efficaci per quelle meno studiate.
 
-### Focus sui pathway
+Con la diminuzione del costo del sequenziamento del DNA, è ora possibile categorizzare le mutazioni esaminandone la frequenza, poiché le mutazioni _driver_ sono tipicamente le più ricorrenti nei genomi dei pazienti.
 
-Un metodo alternativo per valutare la ricorrenza di _singole mutazioni_ o geni è esaminare le mutazioni nel contesto dei **signaling pathway di cellule e regolatori**, e molte considerazioni biologiche supportano questo approccio. In particolare, più mutazioni driver in geni diversi possono portare a simili effetti _downstream_, quindi il **vantaggio selettivo** è _distribuito_ tra le frequenze delle varie alterazioni genetiche, il che significa che _mutazioni diverse_ possono influenzare lo _stesso pathway_ in vari campioni. Ciò suggerisce che l'attenzione dovrebbe concentrarsi sui **pathway driver** piuttosto che sulle _singole mutazioni driver_.
+Per geni con numero molto elevato di mutazioni, come TP53 o KRAS, la maggior parte dei metodi statistici suggerirà fortemente che questi geni siano _driver_. Tuttavia, i geni con più di una, ma comunque relativamente poche mutazioni, sono molto più comuni, e per questo tipo di geni analisi di frequenza non sono sufficienti per identificare in modo affidabile i geni _driver_.
+
+Serve dunque un approccio più efficace per cercare di classificare le mutazioni nelle due tipologie.
+
+<!-- Inoltre, poiché le _mutazioni driver_ si trovano principalmente in geni coinvolti nei **signaling pathway delle cellule**, in molti casi diversi pazienti presentano mutazioni in punti diversi punti dello stesso pathway. Di conseguenza, le mutazioni driver possono _variare notevolmente_ tra i campioni di pazienti, anche all'interno dello stesso tipo di cancro, rendendo difficile la classificazione. -->
+<!---->
+<!-- Pertanto, i metodi basati esclusivamente sulla frequenza di mutazione **non possono identificare** in modo definitivo i geni driver che sono mutati a _frequenze relativamente basse_. -->
+
+### Pathway cellulari
+
+Un pathway cellulare è una serie di reazioni chimiche e interazioni molecolari che si verificano all'interno di una cellula. Questi pathway sono essenziali per regolare le funzioni cellulari, come la crescita, il metabolismo, la risposta a segnali esterni e l'apoptosi.
+
+Ogni pathway cellulare è costituito da una sequenza di eventi regolati da proteine, enzimi, e altre molecole che trasmettono segnali o apportano cambiamenti all'interno della cellula. Queste reazioni avvengono in modo ordinato e coordinato per mantenere l'equilibrio e la funzionalità della cellula.
+
+Come mostrato in figura, è possibile rappresentare le catene di reazioni dei pathway attravreso grafi diretti.
+
+### Cercare i pathway _driver_
+
+TODO DA RIFARE
+
+I pathway cellulari sono importanti poiché attraverso essi è possibile valutare la ricorrenza di singole mutazioni o geni, e molte considerazioni biologiche supportano questo approccio. In particolare, più mutazioni _driver_ in geni diversi possono portare a simili effetti _downstream_, quindi il **vantaggio selettivo** è _distribuito_ tra le frequenze delle varie alterazioni genetiche, il che significa che _mutazioni diverse_ possono influenzare lo _stesso pathway_ in vari campioni. Ciò suggerisce che l'attenzione dovrebbe concentrarsi sui **pathway driver** piuttosto che sulle _singole mutazioni driver_.
 
 Tuttavia, l'attuale analisi dei pathway si basa sull'_identificazione di gruppi di geni_ all'interno di **pathway noti**. Anche se alcuni di questi sono ben documentati e catalogati in vari database, l'attuale comprensione dei pathway rimane _incompleta_. Queste _limitazioni_ hanno spinto a trovare una soluzione più efficace per identificare i pathway driver. Infatti, negli ultimi anni, l'attenzione si è spostata su tentativi per _identificare automaticamente_ pathway driver e gruppi di geni con mutazioni driver, derivandoli direttamente dai dati delle mutazioni somatiche.
 
 ### Ricerca di driver pathway
 
-Trovare pathway driver senza criterio è complesso, per via del _gran numero_ di possibili gruppi di geni da testare. Ad esempio, ci sono più di $10^{26}$ gruppi di $7$ geni umani. Questo rende necessario trovare proprietà o caratteristiche specifiche per guidare la ricerca in modo efficiente. Fortunatamente, la nostra attuale comprensione dei processi mutazionali somatici nel cancro suggerisce _vincoli_ sui modelli di mutazione attesi.
+Trovare pathway driver senza criterio è complesso, per via dell'enorme numero di possibili gruppi di geni da testare. Infatti, poiché il genoma umano contiene all'incirca 20,000 geni che codificano proteine, ci sono più di $10^{26}$ gruppi di $7$ geni possibili.
 
-In primo luogo, gli studi suggeriscono che un _pathway importante per il cancro_ dovrebbe essere alterato in un _numero significativo di pazienti_, quindi ci si aspetta che la maggior parte dei pazienti presenti aberrazioni in alcuni geni all'interno di tale percorso. Pertanto, si presume che i _geni driver_ che costituiscono un _pathway driver_ siano frequentemente **mutati in molti campioni**. Questa caratteristica è misurata dalla cosiddetta **copertura**.
+Questo rende necessario trovare proprietà o caratteristiche specifiche per guidare la ricerca in modo efficiente. Fortunatamente, la nostra attuale comprensione dei processi mutazionali somatici nel cancro suggerisce vincoli sui modelli di mutazione.
 
-In secondo luogo, la maggior parte delle tecniche sviluppate negli ultimi anni sfrutta una _proprietà statistica molto più forte_, osservata nei dati dei pazienti oncologici: ogni paziente, in genere, ha un _numero relativamente ridotto di mutazioni, le quali colpiscono molteplici patwhay_, quindi ogni percorso conterrà in media _1 mutazione driver per campione_. Questo concetto viene assiomatizzato sottoforma di **mutua esclusività** tra _mutazioni driver all'interno dello stesso pathway_, e viene utilizzato dagli algoritmi di ricerca per identificare mutazioni e pathway driver.
+### Copertura
 
-Pertanto, un **pathway driver** è costituito da _geni che sono mutati in numerosi pazienti_, con _mutazioni approssimativamente mutuamente esclusive nel pathway_.
+In primo luogo, gli studi suggeriscono che un pathway importante per il cancro dovrebbe essere alterato in un numero significativo di pazienti, quindi ci si aspetta che la maggior parte dei pazienti presenti aberrazioni in alcuni geni all'interno pathway _driver_.
 
-## Approcci
+Pertanto, si presume che i geni _driver_ che costituiscono un _pathway driver_ frequentemente mutati in molti campioni. Questa caratteristica è misurata dalla cosiddetta **copertura.
 
-Sebbene i meccanismi esatti dietro la _mutua esclusività_ nelle mutazioni genetiche rimangano poco chiari, questo fenomeno può comunque essere sfruttato efficacemente nella ricerca per identificare i pathway driver.
+### Mutua esclusività
 
-Trovare un metodo efficace per quantificare il livello di _mutua esclusività_ non è semplice. Ad esempio, mentre la mutua esclusività di una _coppia_ di geni può essere valutata utilizzando il test esatto di Fisher, non esiste un metodo concordato per testare analiticamente la mutua esclusività tra _più di due_ elementi. Ad esempio, un approccio intuitivo potrebbe consistere nel verificare se _ciascuna coppia_ di geni all'interno di un gruppo mostra mutua esclusività; tuttavia, questo metodo potrebbe non essere corretto, poiché un gruppo di geni può mostrare un forte _pattern_ di mutua esclusività nel suo insieme anche se nessuna coppia individuale lo dimostra.
+In secondo luogo, la maggior parte delle tecniche sviluppate negli ultimi anni sfrutta una proprietà statistica molto più forte, osservata nei dati dei pazienti oncologici: ogni paziente, in genere, ha un numero relativamente ridotto di mutazioni, le quali colpiscono molteplici patwhay, quindi ogni percorso conterrà in media 1 mutazione driver per campione.
 
-A causa della complessità della misurazione della mutua esclusività, articoli recenti hanno proposto vari approcci, basati su diverse ipotesi. Gli approcci esistenti possono essere classificati in _due categorie_: **_de novo_** e **_knowledge-based_**. Gli approcci _de novo_ identificano pattern usando _solo i dati genomici dei pazienti_, senza ricorrere a database preesistenti come quelli sui pathway noti. Tuttavia, poiché mancano di informazioni esterne, potrebbero risultare _meno precisi_. Al contrario, gli approcci _knowledge-based_ integrano dati noti _a priori_, ma sono _limitati_ dalle lacune negli attuali database esistenti, che spesso non rappresentano accuratamente i pathway presenti nelle cellule tumorali.
+Questo concetto viene assiomatizzato sottoforma di mutua esclusività tra mutazioni _driver_ all'interno dello stesso pathway, e viene utilizzato dagli algoritmi di ricerca per identificare mutazioni e pathway _driver_.
 
-### Una formalizzazione deterministica
+### Pathway _driver_
 
-Una delle prime e più ampiamente utilizzate formalizzazioni matematiche per modellare e quantificare la mutua esclusività è stata introdotta da Vandin. Tuttavia, prima di discuterne, sono necessarie alcune definizioni preliminari per fornire adeguato contesto. Infatti, tutti i lavori esplorati in questo studio faranno riferimento alle seguenti definizioni.
+Pertanto, un pathway _driver_ è costituito da geni che sono mutati in numerosi pazienti, con mutazioni approssimativamente mutuamente esclusive nel pathway.
 
-Questa è una **matrice di mutazione**, una matrice binaria in cui la cella $(i, j)$ è pari ad $1$ se e solo se il paziente nella riga $i$ ha il gene nella colonna $j$ mutato. Attraverso questa matrice, è possibile dare delle definizioni ulteriori: $\Gamma(g) := \{i \mid a_{i, g} = 1\}$ è detta **copertura del gene $g$**, ed è rappresentato dall'insieme dei pazienti che hanno il gene $g$ mutato; dato un insieme di geni $M$, la **copertura di $M$** è l'unione delle coperture dei geni di $M$, ovvero $\Gamma(M) := \bigcup_{g \in M}{\Gamma(g)}$. Un insieme di geni $M$ è detto essere **mutuamente esclusivo** se per ogni $g, g' \in M$, si verifica che $\Gamma(g) \cap \Gamma(g') = \varnothing$.
+Di conseguenza, affinché sia possibile cercare driver pathway, è necessario definire metriche efficaci che siano in grado di modellare e quantificare il livello di copertura e di mutua esclusività di un dato gruppo di geni.
 
-Per stabilire se si verifica tale condizione, Vandin ha introdotto la definizione di **sovrapposizione di copertura** di un set di geni, definita come $\omega(M) := \sum_{g \in M}{|\Gamma(g)|} - |\Gamma(M)|$. Questo valore rappresenta il numero di pazienti che hanno _più di una mutazione_ in $M$. Infine, la metrica principale con la quale viene calcolato il livello di ottimalità di un set di geni è dato da $W(M) := |\Gamma(M)| - \omega(M)$. Notiamo che è opportuno che un set di geni $M$ **massimizzi** tale peso $W(M)$, poiché maggiore sarà il peso, maggiore sarà il valore di $|\Gamma(M)|$, che valuta la _copertura_ di $M$, e minore sara $\omega(M)$, che valuta quanta sovrapposizione è presente in $M$. Un set ottimale ha $W(M) = |\Gamma(M)|$, poiché per $\omega(M) = 0$ si verifica che non ci sono pazienti con più di una mutazione in $M$, e dunque $M$ è **mutuamente esclusivo** per definizione.
+<!-- ## Approcci -->
+<!---->
+<!-- Sebbene i meccanismi esatti dietro la _mutua esclusività_ nelle mutazioni genetiche rimangano poco chiari, questo fenomeno può comunque essere sfruttato efficacemente nella ricerca per identificare i pathway driver. -->
+<!---->
+<!-- Trovare un metodo efficace per quantificare il livello di _mutua esclusività_ non è semplice. Ad esempio, mentre la mutua esclusività di una _coppia_ di geni può essere valutata utilizzando il test esatto di Fisher, non esiste un metodo concordato per testare analiticamente la mutua esclusività tra _più di due_ elementi. Ad esempio, un approccio intuitivo potrebbe consistere nel verificare se _ciascuna coppia_ di geni all'interno di un gruppo mostra mutua esclusività; tuttavia, questo metodo potrebbe non essere corretto, poiché un gruppo di geni può mostrare un forte _pattern_ di mutua esclusività nel suo insieme anche se nessuna coppia individuale lo dimostra. -->
+<!---->
+<!-- A causa della complessità della misurazione della mutua esclusività, articoli recenti hanno proposto vari approcci, basati su diverse ipotesi. Gli approcci esistenti possono essere classificati in _due categorie_: **_de novo_** e **_knowledge-based_**. Gli approcci _de novo_ identificano pattern usando _solo i dati genomici dei pazienti_, senza ricorrere a database preesistenti come quelli sui pathway noti. Tuttavia, poiché mancano di informazioni esterne, potrebbero risultare _meno precisi_. Al contrario, gli approcci _knowledge-based_ integrano dati noti _a priori_, ma sono _limitati_ dalle lacune negli attuali database esistenti, che spesso non rappresentano accuratamente i pathway presenti nelle cellule tumorali. -->
 
-La rappresentazione matriciale di set di geni $M$ permette di formulare il problema di trovare $M$ tale da massimizzare $W(M)$ come segue. Questa formulazione permette di valutare la complessità del problema, ed è possibile dimostrare che l'MWSP è $\textsf{NP-complete}$.
+### Matrice di mutazione
+
+Una delle prime e più ampiamente utilizzate formalizzazioni matematiche per modellare e quantificare la mutua esclusività è stata introdotta da Vandin, professore dell'Universià di Padova.
+
+Questa è una matrice di mutazione, una matrice binaria in cui la cella $(i, j)$ è pari ad $1$ se e solo se il paziente nella riga $i$ ha il gene nella colonna $j$ mutato. Attraverso questa matrice, è possibile dare delle definizioni ulteriori.
+
+### Copertura di un gene
+
+Questa formula rappresenta la copertura del gene $g$, che è data dall'insieme dei pazienti che hanno il gene $g$ mutato. Ad esempio, in figura è mostrata la copertura di $g_3$.
+
+### Copertura di un insieme di geni
+
+Dato un insieme di geni $M$, la copertura di $M$ è l'unione delle coperture dei geni di $M$, come mostrato a schermo. Ad esempio, per l'insieme $M = \{g_2, g_3\}$, la sua copertura è l'insieme $\{p_1, p_2, p_3\}$.
+
+### Mutua eslcusività
+
+Un insieme di geni è detto essere mutuamente esclusivo se le coperture dei geni che lo compongono sono a due a due disgiunte. In altre parole, $M$ è mutuamente esclusivo se non vi sono pazzienti con più di una mutazione in $M$, o alternativamente, se ogni riga di $M$ contiene al massimo un $1$.
+
+### Sovrapposizione di un insieme di geni
+
+Per stabilire se un gruppo di geni è mutuamente esclusivo, Vandin ha introdotto la definizione di sovrapposizione di copertura di un set di geni, definita come mostrato.
+
+Notiamo che la prima sommatoria conta tutti gli $1$ all'interno di $M$, e poiché il secondo valore della differenza è la copertura dell'insieme, $\omega(M)$ rappresenta il numero di pazienti che hanno più di una mutazione in $M$. Chiaramente, $M$ è mutuamente esclusivo se e solo se $\omega(M) = 0$.
+
+### Peso di un gruppo di geni
+
+Infine, la metrica principale con la quale viene calcolato il livello di ottimalità di un set di geni è dato dalla formula seguente, che sintetizza il bilanciamento tra quanti geni copre $M$, e quanto sia mutuamente esclusivo. In altre parole, $W(M)$ conta il numero di pazienti che hanno uno ed un solo $1$ all'interno delle righe di $M$.
+
+Notiamo che è opportuno che un set di geni $M$ massimizzi tale peso, poiché maggiore sarà il peso, maggiore sarà la copertura di $M$, e minore sarà la sua sovrapposizione.
+
+<!-- Analogamente al caso precedente, un set ottimale ha $W(M) = m$, poiché per $\omega(M) = 0$ si ha che $M$ è mutuamente esclusivo. -->
+
+### Maximum Weight Submatrix Problem (MWSP)
+
+La rappresentazione matriciale di set di geni $M$ permette di formulare il problema di trovare $M$ tale da massimizzare $W(M)$ come segue. Data una matrice di mutazione $A$ di dimensioni $m \times n$, ed un intero $k > 0$, si trovi una sottomatrice $m \times k$ di $A$ tale da massimizzare $W(M)$.
+
+Questa formulazione permette di valutare la complessità del problema, ed è possibile dimostrare che l'MWSP è $\textsf{NP-completo}$, attraverso una riduzione dall'Independent Set Problem (ISP). In particolare, se fosse possibile risolvere efficientemente l'MWSP, sarebbe possibile risolvere efficientemente anche l'Independent Set Problem, un problema notoriamente $\textsf{NP-completo}$.
 
 <!-- Il primo approccio adottato da Vandin per risolvere l'MWSP è costituito dal seguente _algoritmo greedy_ [SLIDE: mostro l'algoritmo]. Questo algoritmo, sebbene computazionalmente efficiente, non garantisce di trovare l'insieme di geni il peso. È possibile dimostrare che questo algoritmo è in grado di trovare l'insieme di geni migliore se la matrice di mutazione $A$ rispetta un modello che Vandin chiama **Gene Independence Model** [SLIDE: mostro il modello a schermo, senza descriverlo], ma questo modello è di difficile applicazione in contesti reali, poiché necessita di un numero di pazienti attualmente _proibitivo_. -->
 <!---->
@@ -92,17 +154,7 @@ La rappresentazione matriciale di set di geni $M$ permette di formulare il probl
 <!---->
 <!-- Questo algoritmo è particolarmente flessibile, poiché è facile modificare _funzione di fitness_, e poiché è possibile _integrare_ i risultati con ulteriori dati. In particolare, Zhao presenta una **procedura di integrazione** che permette di incorporare dati esterni sull'**espressione dei geni** [SLIDE: mostro le formule della metrica di integrazione]. -->
 
-### Una formalizzazione statistica
-
-Dato che la mutua esclusività _esatta_ nei dati somatici è _difficilmente osservata_, un approccio comune in questo campo è quello di affidarsi a **metodi statistici**, come ad esempio la _metrica_ sviluppata da Babur, che impiega l'analisi statistica per identificare i pathway driver all'interno del proprio algoritmo, denominato **Mutex**. Babur propone una metrica che estende il _test esatto di Fisher_ per quantificare la mutua esclusività all'interno di un insieme di geni.
-
-Babur definisce la seguente ipotesi nulla $H_0$: _dato un grupo di geni $M$, un membro del gruppo $g \in M$ è alterato indipendentemente dall'unione delle altre alterazioni del gruppo $\Gamma(M - \{g\})$_ [SLIDE: mostro $H_0$ a schermo].
-
-Questa ipotesi nulla assume che qualsiasi pattern osservato all'interno delle alterazioni di $M$ è _dovuto al caso_. Per testare $H_0$ è necessario valutare la probabilità di avere $\Gamma(g) \cap \Gamma(M - \{g\})$ pazienti che hanno sia $g$ sia qualsiasi altro gene di $M$ mutato. Assegnando il valore di tale probabiltà alla variabile aleatoria $X$, poiché $X$ segue una distribuzione ipergeometrica [SLIDE: mostro la distribuzione che segue $X$], la seguente è la PMF con la quale è possibile calcolare $P(X = \gamma(g, M_g))$ [SLIDE: mostro la PMF]. Alternativamente, è possibile visualizzare tale probabilità attraverso la seguente tabella di contingenza per il test esatto di Fisher, compilandola utilizzando il principio di inclusione-esclusione [SLIDE: mostro la tabella del test esatto e il PIE applicato].
-
-Babur sfrutta questa metrica all'interno del seguente _algoritmo greedy_, con il quale è possibile estendere iterativamente un set iniziale $M$ composto solamente da un gene $g$ [SLIDE: mostro solo la procedura greedy a schermo]. La procedura $\texttt{expandGroup}$ è definita da un algoritmo che espande, se possibile, l'insieme $M$, scegliendo ad ogni iterazione _1 gene_ preso dalla **prossimità di $M$**, detta $\delta(M)$. Questa illustrazione mostra come opera l'algoritmo durante le varie iterazioni: i vertici contornati in grassetto sono quelli che definiscono $M$, mentre i vertici in grigio sono quelli che ne definiscono la _prossimità_ $\delta(M)$ [SLIDE: mostro la stessa foto che è presente nella tesi]. Dunque, $\delta(M)$ rappresenta l'insieme dei possibili candidati da aggiungere ad $M$, e viene scelto il candidato _migliore_ in base ad un punteggio che sfrutta proprio $P(X = \gamma(g, M_g))$
-
-### Multi-Dendrix
+### Un ILP per l'MWSP
 
 <!-- Lo studio condotto da Leiserson ha permesso di sviluppare uno degli algoritmi più performanti, sia per risultati che per efficienza. Prima di descrivere il suo algoritmo, introduciamo un primo approccio descritto all'interno del loro studio, che servirà per illustrare meglio il successivo. -->
 <!---->
@@ -145,4 +197,14 @@ Babur sfrutta questa metrica all'interno del seguente _algoritmo greedy_, con il
 <!-- Il seguente è l'ILP con il quale Hou ha formulato l'algoritmo di clustering di geni [SLIDE: mostro l'ILP a schermo]. Notiamo che la seconda equazione è la _disuguaglianza triangolare_, che rende l'appartenenza allo stesso cluster una _proprietà transitiva_, mentre la terza equazione forza i cluster ad avere dimensione al massimo $k$. -->
 <!---->
 <!-- Poiché risolvere questo ILP è particolarmente complesso, Hou presenta una versione diversa di questo problema, nella quale il vincolo $x_e \in \{0, 1\}$ è rilassato ad essere $0 \le x_e \le 1$, trasformandolo nel seguente LP [SLIDE: mostro l'LP a schermo]. Ma affinché sia possibile definire un clustering valido sul grafo, sono necessari _valori interi_ dei vari $x_e$. Dunque, Hou ha formulato il seguente **algoritmo di arrotondamento** che permette di arrotondare opportunamente le soluzioni dell'LP per poter definire un clustering valido [SLIDE: mostro l'algoritmo a schermo]. -->
+
+### Una formalizzazione statistica
+
+Dato che la mutua esclusività _esatta_ nei dati somatici è _difficilmente osservata_, un approccio comune in questo campo è quello di affidarsi a **metodi statistici**, come ad esempio la _metrica_ sviluppata da Babur, che impiega l'analisi statistica per identificare i pathway driver all'interno del proprio algoritmo, denominato **Mutex**. Babur propone una metrica che estende il _test esatto di Fisher_ per quantificare la mutua esclusività all'interno di un insieme di geni.
+
+Babur definisce la seguente ipotesi nulla $H_0$: _dato un grupo di geni $M$, un membro del gruppo $g \in M$ è alterato indipendentemente dall'unione delle altre alterazioni del gruppo $\Gamma(M - \{g\})$_ [SLIDE: mostro $H_0$ a schermo].
+
+Questa ipotesi nulla assume che qualsiasi pattern osservato all'interno delle alterazioni di $M$ è _dovuto al caso_. Per testare $H_0$ è necessario valutare la probabilità di avere $\Gamma(g) \cap \Gamma(M - \{g\})$ pazienti che hanno sia $g$ sia qualsiasi altro gene di $M$ mutato. Assegnando il valore di tale probabiltà alla variabile aleatoria $X$, poiché $X$ segue una distribuzione ipergeometrica [SLIDE: mostro la distribuzione che segue $X$], la seguente è la PMF con la quale è possibile calcolare $P(X = \gamma(g, M_g))$ [SLIDE: mostro la PMF]. Alternativamente, è possibile visualizzare tale probabilità attraverso la seguente tabella di contingenza per il test esatto di Fisher, compilandola utilizzando il principio di inclusione-esclusione [SLIDE: mostro la tabella del test esatto e il PIE applicato].
+
+Babur sfrutta questa metrica all'interno del seguente _algoritmo greedy_, con il quale è possibile estendere iterativamente un set iniziale $M$ composto solamente da un gene $g$ [SLIDE: mostro solo la procedura greedy a schermo]. La procedura $\texttt{expandGroup}$ è definita da un algoritmo che espande, se possibile, l'insieme $M$, scegliendo ad ogni iterazione _1 gene_ preso dalla **prossimità di $M$**, detta $\delta(M)$. Questa illustrazione mostra come opera l'algoritmo durante le varie iterazioni: i vertici contornati in grassetto sono quelli che definiscono $M$, mentre i vertici in grigio sono quelli che ne definiscono la _prossimità_ $\delta(M)$ [SLIDE: mostro la stessa foto che è presente nella tesi]. Dunque, $\delta(M)$ rappresenta l'insieme dei possibili candidati da aggiungere ad $M$, e viene scelto il candidato _migliore_ in base ad un punteggio che sfrutta proprio $P(X = \gamma(g, M_g))$
 
