@@ -6,12 +6,6 @@
 
 Il cancro è un gruppo di malattie caratterizzate dalla crescita incontrollata delle cellule che invadono tessuti ed organi e ne compromettono le funzionalità. Esistono oltre 100 tipi di cancro, come _carcinomi_, _sarcomi_ e _leucemie_, ed ogni anno i decessi per il cancro sono nell'ordine dei milioni. Ciò mostra quanto sia importante trovare trattamenti efficaci contro questa malattia.
 
-<!-- Lo sviluppo del cancro** è un _processo complesso_ e graduale, influenzato da vari fattori, rendendo troppo semplicistico attribuire il cancro ad una sola causa. Ad esempio, **radiazioni** e molti altri _agenti cancerogeni chimici_ agiscono danneggiando il DNA e **causando mutazioni**. Questi sono noti come **agenti innescanti**, perché _innescano cambiamenti genetici_ che portano al cancro. Esempi ne sono le radiazioni ultraviolette solari, ed il fumo di tabacco, che contribuisce a una parte significativa di tutte le morti per cancro. -->
-
-<!-- Le varie modalità con cui diversi fattori contribuiscono al cancro evidenziano la _complessità della malattia_, e sottolineano l'importanza di sviluppare **approcci terapeutici** efficaci. -->
-
-<!-- La caratteristica fondamentale dello sviluppo del cancro è la **clonabilità tumorale**, la proprietà per la quale i tumori si sviluppano spesso da **singole cellule** che iniziano a _proliferare_ in modo anomalo. Tuttavia, l'origine clonale dei tumori non implica che la cellula progenitrice iniziale avesse fin dall'inizio _tutte le caratteristiche_ di una cellula cancerosa.  -->
-
 ### Cure attuali
 
 La ricerca per trovare cure e trattamenti per il cancro è in continua evoluzione, a causa della gravità e della complessità della malattia. Attualmente, le principali tecniche per rimuovere e gestire il cancro includono chirurgia, radioterapia, chemioterapia e terapia ormonale. Ma nonostante i progressi realizzati, ognuno di questi approcci è tutt'ora significativamente limitato, e può portare a recidive tumorali e numerosi altri effetti collaterali indesiderati.
@@ -23,8 +17,6 @@ Le problematiche che caratterizzano gli attuali trattamenti del cancro hanno spi
 Naturalmente, l'efficacia delle terapie a bersaglio dipende direttamente dal target considerato. È necessario dunque porsi una domanda: come è possibile trovare target adeguatamente efficaci per scopi terapeutici?
 
 ### Il ruolo delle mutazioni nel cancro
-
-<!-- Le **mutazioni** svolgono un _ruolo cruciale_ nello sviluppo del cancro, e la terapia mirata consente di affrontare specificamente queste mutazioni. Tuttavia, resta ancora complesso sviluppare terapie mirate per alcuni geni, e la loro efficacia può variare in base al paziente. La complessità di sviluppare _terapie mirate_ evidenzia la necessità di una ricerca continua per migliorare i trattamenti contro il cancro. -->
 
 Il cancro evolve attraverso un processo multistep in cui le cellule acquisiscono gradualmente caratteristiche maligne tramite una serie di mutazioni. Infatti, a livello cellulare, lo sviluppo del cancro è come un processo di mutazione e selezione di cellule con capacità sempre maggiori di proliferare, sopravvivere e metastatizzare.
 
@@ -47,10 +39,6 @@ Con la diminuzione del costo del sequenziamento del DNA, è ora possibile catego
 Per geni con numero molto elevato di mutazioni, come TP53 o KRAS, la maggior parte dei metodi statistici suggerirà fortemente che questi geni siano _driver_. Tuttavia, i geni con più di una, ma comunque relativamente poche mutazioni, sono molto più comuni, e per questo tipo di geni analisi di frequenza non sono sufficienti per identificare in modo affidabile i geni _driver_.
 
 Serve dunque un approccio più efficace per cercare di classificare le mutazioni nelle due tipologie.
-
-<!-- Inoltre, poiché le _mutazioni driver_ si trovano principalmente in geni coinvolti nei **signaling pathway delle cellule**, in molti casi diversi pazienti presentano mutazioni in punti diversi punti dello stesso pathway. Di conseguenza, le mutazioni driver possono _variare notevolmente_ tra i campioni di pazienti, anche all'interno dello stesso tipo di cancro, rendendo difficile la classificazione. -->
-<!---->
-<!-- Pertanto, i metodi basati esclusivamente sulla frequenza di mutazione **non possono identificare** in modo definitivo i geni driver che sono mutati a _frequenze relativamente basse_. -->
 
 ### Pathway cellulari
 
@@ -92,14 +80,6 @@ Pertanto, un pathway _driver_ è costituito da geni che sono mutati in numerosi 
 
 Di conseguenza, affinché sia possibile cercare driver pathway, è necessario definire metriche efficaci che siano in grado di modellare e quantificare il livello di copertura e di mutua esclusività di un dato gruppo di geni.
 
-<!-- ## Approcci -->
-<!---->
-<!-- Sebbene i meccanismi esatti dietro la _mutua esclusività_ nelle mutazioni genetiche rimangano poco chiari, questo fenomeno può comunque essere sfruttato efficacemente nella ricerca per identificare i pathway driver. -->
-<!---->
-<!-- Trovare un metodo efficace per quantificare il livello di _mutua esclusività_ non è semplice. Ad esempio, mentre la mutua esclusività di una _coppia_ di geni può essere valutata utilizzando il test esatto di Fisher, non esiste un metodo concordato per testare analiticamente la mutua esclusività tra _più di due_ elementi. Ad esempio, un approccio intuitivo potrebbe consistere nel verificare se _ciascuna coppia_ di geni all'interno di un gruppo mostra mutua esclusività; tuttavia, questo metodo potrebbe non essere corretto, poiché un gruppo di geni può mostrare un forte _pattern_ di mutua esclusività nel suo insieme anche se nessuna coppia individuale lo dimostra. -->
-<!---->
-<!-- A causa della complessità della misurazione della mutua esclusività, articoli recenti hanno proposto vari approcci, basati su diverse ipotesi. Gli approcci esistenti possono essere classificati in _due categorie_: **_de novo_** e **_knowledge-based_**. Gli approcci _de novo_ identificano pattern usando _solo i dati genomici dei pazienti_, senza ricorrere a database preesistenti come quelli sui pathway noti. Tuttavia, poiché mancano di informazioni esterne, potrebbero risultare _meno precisi_. Al contrario, gli approcci _knowledge-based_ integrano dati noti _a priori_, ma sono _limitati_ dalle lacune negli attuali database esistenti, che spesso non rappresentano accuratamente i pathway presenti nelle cellule tumorali. -->
-
 ## Seconda parte
 
 ### Matrice di mutazione
@@ -132,29 +112,11 @@ Infine, la metrica principale con la quale viene calcolato il livello di ottimal
 
 Notiamo che è opportuno che un set di geni $M$ massimizzi tale peso, poiché maggiore sarà il peso, maggiore sarà la copertura di $M$, e minore sarà la sua sovrapposizione.
 
-<!-- Analogamente al caso precedente, un set ottimale ha $W(M) = m$, poiché per $\omega(M) = 0$ si ha che $M$ è mutuamente esclusivo. -->
-
 ### Maximum Weight Submatrix Problem (MWSP)
 
 La rappresentazione matriciale di set di geni $M$ permette di formulare il problema di trovare $M$ tale da massimizzare $W(M)$ come segue. Data una matrice di mutazione $A$ di dimensioni $m \times n$, ed un intero $k > 0$, si trovi una sottomatrice $m \times k$ di $A$ tale da massimizzare $W(M)$.
 
 Questa formulazione permette di valutare la complessità del problema, ed è possibile dimostrare che l'MWSP è $\textsf{NP-completo}$, attraverso una riduzione dall'Independent Set Problem (ISP). In particolare, se fosse possibile risolvere efficientemente l'MWSP, sarebbe possibile risolvere efficientemente anche l'Independent Set Problem, un problema notoriamente $\textsf{NP-completo}$.
-
-<!-- Il primo approccio adottato da Vandin per risolvere l'MWSP è costituito dal seguente _algoritmo greedy_ [SLIDE: mostro l'algoritmo]. Questo algoritmo, sebbene computazionalmente efficiente, non garantisce di trovare l'insieme di geni il peso. È possibile dimostrare che questo algoritmo è in grado di trovare l'insieme di geni migliore se la matrice di mutazione $A$ rispetta un modello che Vandin chiama **Gene Independence Model** [SLIDE: mostro il modello a schermo, senza descriverlo], ma questo modello è di difficile applicazione in contesti reali, poiché necessita di un numero di pazienti attualmente _proibitivo_. -->
-<!---->
-<!-- Il secondo approccio che Vandin descrive utilizza le **Catene di Markov Monte Carlo**, che _non necessita_ di assunzioni sulla distribuzione dei dati o sul numero di pazienti del dataset [SLIDE: mostro l'algoritmo]. Questa procedura si basa sull'algoritmo di Metropolis-Hastings, attraverso il quale vengono campionati set di insiemi $M$ di $k$ geni [SLIDE: mostro una catena coi geni che variano]. Inoltre, è possibile dimostrare che questa catena ha _tempo di mixing veloce_. -->
-<!---->
-<!-- ### MDPFinder -->
-<!---->
-<!-- Un altro studio che utilizza questa metrica di peso $W(M)$, è il lavoro di Zhao, che ha introdotto un _algoritmo genetico_ chiamato **MDPFinder**, definito dai seguenti **operatori genetici** [SLIDE: mostro tutti gli operatori a schermo]: -->
-<!--   - _spazio delle ipotesi_ $\mathcal H$: un membro della popolazione è definito da una stringa binaria composta da $n$ bit, ognuna delle quali rappresenta un possibile insieme di geni $M$; in particolare, il bit in $i$-esima posizione è $1$ se e solo se l'$i$-esimo gene è in $M$; dunque, $\mathcal H$ è composto da tutte le possibili stringhe binarie lunghe $n$, aventi $k$ bit pari ad $1$; -->
-<!--   - la _funzione di fitness_ è data da $W(M)$; -->
-<!--   - la _probabilità di selezione_ è data dal rapporto mostrato, proporzionale a $W(M)$; -->
-<!--   - scelti due membri della popolazione, la prole erediterà i geni che i propri genitori hanno in comune, e i restanti verranno scelti casualmente dalla loro differenza simmetrica; -->
-<!--   - _operatore di mutazione_: ogni nuovo membro, con bassa probabilità, può _subire una variazione_ di un 2 bit; -->
-<!--   - infine, Zhao introduce una procedura di **local search** per evitare che l'algoritmo si blocchi su un minimo locale, la quale si comporta come l'_operatore di mutazione_. -->
-<!---->
-<!-- Questo algoritmo è particolarmente flessibile, poiché è facile modificare _funzione di fitness_, e poiché è possibile _integrare_ i risultati con ulteriori dati. In particolare, Zhao presenta una **procedura di integrazione** che permette di incorporare dati esterni sull'**espressione dei geni** [SLIDE: mostro le formule della metrica di integrazione]. -->
 
 ### Un ILP per l'MWSP
 
@@ -164,12 +126,6 @@ Una delle implementazioni più dirette dell'MWSP è stata fornita da Leiserson, 
 
 Attraverso queste funzioni indicatrici, è possibile formulare l'MWSP come mostrato. In particolare, notiamo che il primo constraint rappresenta $W(M)$, il secondo forza $M$ ad avere dimensione $k$, ed infine il terzo descrive il comportamento di $C_i(M)$.
 
-<!-- Lo studio condotto da Leiserson ha permesso di sviluppare uno degli algoritmi più performanti, sia per risultati che per efficienza. Prima di descrivere il suo algoritmo, introduciamo un primo approccio descritto all'interno del loro studio, che servirà per illustrare meglio il successivo. -->
-
-<!-- Come approccio iniziale, Leiserson ha formulato l'MWSP come ILP, attraverso le seguenti funzioni indicatrici: -->
-<!---->
-<!---->
-
 ### Multiple Maximum Weight Submatrix Problem (MMWSP)
 
 Sebbene l'identificazione di singoli pathway driver sia fondamentale per la ricerca e il trattamento del cancro, si è osservato che la maggior parte dei pazienti oncologici presenta mutazioni driver in molteplici pathway. Per questo motivo, studi successivi hanno esteso l'MWSP, al fine di trovare più _driver_ pathway contemporaneamente. In particolare, questo problema utilizza $W'(M)$, una metrica permette di valutare il livello di copertura e mutua esclusività di una collezione di insiemi di geni.
@@ -177,34 +133,6 @@ Sebbene l'identificazione di singoli pathway driver sia fondamentale per la rice
 **Multiple Maximum Weight Submatrices Problem** (MMWSP): Data una matrice di mutazione $A$ di dimensioni $m \times n$, ed un intero $t > 0$, si trovi la collezione $M = \{M_1, \ldots, M_t\}$ di sottomatrici colonna di $A$ che massimizzi $W'(M) := \sum_{\rho = 1}^t{W(M)}$.
 
 Analogamente al caso $t = 1$, anche questo problema è $\textsf{NP-completo}$.
-
-<!-- Per risolvere l'MMWSP, Leiserson ha definito il seguente ILP, chiamato **Multi-Dendrix**, che estende quello precedentemente mostrato per l'MWSP [SLIDE: mostro l'ILP]. Si noti che il primo ed il secondo constraint sono estensioni dell'ILP precedente, il terzo constraint permette ad ogni set $M_\rho$ di avere dimensione $k_\mathrm{min} \le k \le k_\mathrm{max}$, ed infine il quarto constraint _non permette intersezioni_ tra i set della collezione $M$ --- quest'ultimo può essere eventualmente esteso. -->
-<!---->
-<!-- Notiamo che è possibile definire una procedura per ottenere _molteplici driver pathway_ definendo il seguente algoritmo, denominato da Leiserson **Iter-Dendrix**. Questa procedura applica l'_algoritmo greedy_ di Vandin $t$ volte, e ad ogni iterazione viene rimosso l'insieme di geni restituito dall'algoritmo dal set totale di geni $\mathcal G$. -->
-<!---->
-<!-- Vandin ha discusso questo approccio verso la fine del loro lavoro, evidenziando alcune _limitazioni_. In particolare, se gli insiemi di geni corrispondenti a ciascun pathway sono disgiunti, Iter-Dendrix può identificarli efficacemente, trovando con successo i set disgiunti $M_1$ e $M_2$ con molto peso, poiché la mutua esclusività viene valutata solo **all'interno degli insiemi**, non _tra di essi_. Tuttavia, se $M_1$ e $M_2$ condividono geni, rimuovere un set potrebbe influire sull'altro; se l'intersezione è minima, è ancora possibile identificare una parte del secondo set, ma in caso di sovrapposizione significativa, Iter-Dendrix potrebbe fallire. -->
-<!---->
-<!-- ### $\mathrm{C}^3$ -->
-<!---->
-<!-- Un approccio utilizzato in diversi studi per individuare _moduli mutuamente esclusivi_ prevede la costruzione di **grafi di geni** e l'identificazione di **cluster** basati su criteri specifici. Il metodo proposto da Hou consiste in un algoritmo che sfrutta questa tecnica, denominato $\mathrm{C}^3$, progettato per affrontare le limitazioni delle tecniche precedenti. In particolare, una grande limitazione di molti degli algoritmi presentati è la necessità di **ristrutturare l'algoritmo** ogni volta che vengono aggiunte _nuove informazioni biologiche_, mentre l'approccio di Hou è notevolmente flessibile. -->
-<!---->
-<!-- Sia $G = (V, E)$ un _grafo di geni completo_, in cui per ogni coppia di geni $(u, v) \in E(G)$ sono definiti _due pesi_ $w^+_{uv}$ e $w^-_{uv}$. In particolare, $w^+_{uv}$ rappresenta il _costo di posizionare $u$ e $v$ in cluster diversi_, mentre $w^-_{uv}$ costituisce il _costo di posizionare $u$ e $v$ nello stesso cluster_. L'obiettivo dell'algoritmo di clustering è di generare cluster i cui geni sono tra loro mutuamente esclusivi ed hanno alta copertura [SLIDE: mostro grafo, pesi e cluster]. -->
-<!---->
-<!-- La flessibilità di questo algoritmo deriva dalla possibilità di definire i due pesi di ogni arco potendo attingere da molteplici fonti e potendo includere varie informazioni biologiche. In particolare, sono definite le seguenti 4 componenti attraverso le quali definire i vari pesi degli archi, ossia _mutua esclusività_ $\mathrm{(e)}$, _copertura_ $\mathrm{(c)}$, _informazioni sulla topologia della rete di geni_ $\mathrm{(n)}$ e _dati sull'espressione_ $\mathrm{(x)}$ [SLIDE: mostrale a schermo]. -->
-<!---->
-<!-- La componente della **mutua esclusività** è definita dalla seguente formula (semplificata rispetto all'originale, per brevità) $w_{uv}^-(\mathrm e) := \dfrac{|\Gamma (u) \cap \Gamma (v)|}{ \min(|\Gamma(u)|, |\Gamma (v)|)}$ [SLIDE: mostra la formula a schermo]. Questo rapporto è intuitivamente coerente con la definizione di $w_{uv}^-$, poiché quest'ultimo rappresenta il costo di posizionare $u$ e $v$ nello stesso cluster, e questa formula rende $w_{uv}^-$ direttamente proporzionale al numero di pazienti che hanno _sia $u$ che $v$ mutato_. Dunque, minore è l'intersezione, minore è $w_{uv}^-$, e minore sarà il _costo di posizionare $u$ e $v$ nello stesso cluster_, ed infatti $u$ e $v$ dovrebbero essere posizionati nello stesso cluster se sono mutuamente esclusivi. -->
-<!---->
-<!-- La componente della **copertura** è definita invece dalla seguente formula (semplificata rispetto all'originale, per brevità) $w_{uv}^+(\mathrm c) := |\Gamma(u) \Delta \Gamma(v)|$ [SLIDE: mostro la formula a schermo]. Questa formula è intuitivamente coerente con la definizione di $w_{uv}^+$, poiché quest'ultimo rappresenta il costo di posizionare $u$ e $v$ in cluster diversi, e questa formula rende $w_{uv}^+$ direttamente proporzionale al numero di pazienti che hanno _o $u$ mutato ma non $v$, oppure $v$ mutato ma non $u$_. Dunque, maggiore è la differenza simmetrica, maggiore è $w_{uv}^+$, e maggiore sarà il _costo di posizionare $u$ e $v$ in cluster diversi_, ed infatti $u$ e $v$ dovrebbero essere posizionati nello stesso cluster se hanno alta copertura. -->
-<!---->
-<!-- Hou ha mostrato che, all'interno dei pathway cellulari, la _distanza media tra driver_ è **significativamente inferiore** rispetto alla distanza che intercorre tra due geni qualsiasi. Questo suggerisce che la distanza tra i geni va _tenuta in considerazione_, e grazie alla flessibilità di $\mathrm{C}^3$, è possibile integrare questa informazione attraverso la seguente componente. La componente delle **informazioni sulla topologia della rete di geni** è definita dalla seguente formula (semplificata rispetto all'originale, per brevità) $w^+_{uv}(\mathrm n) := \dfrac{|\mathcal N'(u) \cap \mathcal N'(v)|}{|\mathcal N'(u) \cup \mathcal N'(v)|}$ [SLIDE: mostro la formula a schermo, con disegno] dove $\mathcal N '(u) = \mathcal N (u) \cup \{u\}$ e $\mathcal N(u)$ sono i vicini di $u$ all'interno di un grafo $G'$ ottenuto dal database KEGG, che rappresenta le interazioni tra i geni. Questo rapporto è chiamato **coefficiente di similarità di Jaccard**, ed è coerente con la definizione di $w_{uv}^+$. -->
-<!---->
-<!-- Infine, per integrare le informazioni di **espressione dei geni**, Hou ha utilizzato la seguente definizione $w_{uv}^+(\mathrm x) := \dfrac{\left\langle \mathrm z(u), \mathrm z (v)\right\rangle}{||\mathrm z(u)|| \cdot || \mathrm z (v)||}$ anche conosciuto come _coseno di simlarità_ [SLIDE: mostro la formula a schermo]. -->
-<!---->
-<!-- Le formule dei pesi degli archi possono essere generalizzate come mostrato, con opportuni valori per i coefficienti $w_1, w_2$ e $w_3$ [SLIDE: mostra la versione più generale possibile dei pesi]. -->
-<!---->
-<!-- Il seguente è l'ILP con il quale Hou ha formulato l'algoritmo di clustering di geni [SLIDE: mostro l'ILP a schermo]. Notiamo che la seconda equazione è la _disuguaglianza triangolare_, che rende l'appartenenza allo stesso cluster una _proprietà transitiva_, mentre la terza equazione forza i cluster ad avere dimensione al massimo $k$. -->
-<!---->
-<!-- Poiché risolvere questo ILP è particolarmente complesso, Hou presenta una versione diversa di questo problema, nella quale il vincolo $x_e \in \{0, 1\}$ è rilassato ad essere $0 \le x_e \le 1$, trasformandolo nel seguente LP [SLIDE: mostro l'LP a schermo]. Ma affinché sia possibile definire un clustering valido sul grafo, sono necessari _valori interi_ dei vari $x_e$. Dunque, Hou ha formulato il seguente **algoritmo di arrotondamento** che permette di arrotondare opportunamente le soluzioni dell'LP per poter definire un clustering valido [SLIDE: mostro l'algoritmo a schermo]. -->
 
 ### Approcci statistici
 
@@ -224,5 +152,33 @@ Sia $X$ la variabile aleatoria che rappresenta il numero di pazienti aventi sia 
 
 Dunque, il $p$-value associato ad un gene è proprio la probabilità di avere $X = \Gamma(g) \cap \Gamma(M - \{g\})$, ed il punteggio di un insieme di geni $M$ è dato dal massimo dei $p$-value dei geni di $M$. Viene scelto il massimo per rimanere conservativi sul punteggio ottenuto.
 
-<!-- Alternativamente, è possibile visualizzare tale probabilità attraverso la seguente tabella di contingenza per il test esatto di Fisher, compilandola utilizzando il principio di inclusione-esclusione [SLIDE: mostro la tabella del test esatto e il PIE applicato]. -->
+### Algoritmo genetico
+
+Esistono anche molti altri approcci che permettono di trovare pathway _driver_. Un esempio è dato dall'algoritmo genetico di Zhao che utilizza il peso di Vandin come funzione di _fitness_.
+
+Nel suo algoritmo genetico, ogni membro della popolazione è una stringa binaria che rappresenta un possibile insieme di geni $M$: l'$i$-esimo bit è 1 se e solo se l'$i$-esimo gene è in $M$. Dunque, lo spazio dei membri possibili è dato da tutte le stringhe binarie lunghe $n$ aventi $k$ bit pari ad $1$.
+
+Infine, il _crossover_ tra membri della popolazione è definito come mostrato: dati due membri della popolazione, i bit uguali vengono ereditati dalla prole, mentre i bit diversi vengono scelti casualmente.
+
+### Algoritmo di clustering
+
+In ultimo, sono presenti in letteratura anche approcci clustering di vertici su grafi completamente conenssi i cui vertici rappresentano geni, ed i cluster sono i pathway _driver_ cercati.
+
+Un esempio di questo approccio è dato dall'algoritmo di Hou, che dato un grafo di geni come mostrato, assegna ad ogni arco 2 pesi, uno positivo ed uno negativo, e definisce i pesi attraverso combinazioni lineari di componenti di:
+  - mutua esclusività
+  - copertura
+  - informazioni sulla topologia della rete
+  - informazioni sull'espressione genomica
+
+### Conclusioni
+
+TODO
+
+### Lavori futuri
+
+TODO
+
+### Grazie per l'attenzione
+
+Grazie per l'attenzione.
 
