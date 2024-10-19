@@ -26,6 +26,10 @@ formulas = [
     r"w^+_{uv} := w_1 w^+_{uv}(\mathrm c) + w_2 w^+_{uv}(\mathrm n) + w_3 w^+_{uv}(\mathrm x)",
     r"\iff",
     r"= m",
+    r"\Gamma(g) \cap \Gamma(M - \{g\})",
+    r"X \sim H(m, \Gamma(g), \Gamma(M - \{g\}))",
+    r"s_M := \max_{g \in M}{p_g}",
+    r"p_g := P(X = \Gamma(g) \cap \Gamma(M - \{g\}))",
 ]
 
 for i in range(len(formulas)):

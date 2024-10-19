@@ -100,6 +100,8 @@ Di conseguenza, affinché sia possibile cercare driver pathway, è necessario de
 <!---->
 <!-- A causa della complessità della misurazione della mutua esclusività, articoli recenti hanno proposto vari approcci, basati su diverse ipotesi. Gli approcci esistenti possono essere classificati in _due categorie_: **_de novo_** e **_knowledge-based_**. Gli approcci _de novo_ identificano pattern usando _solo i dati genomici dei pazienti_, senza ricorrere a database preesistenti come quelli sui pathway noti. Tuttavia, poiché mancano di informazioni esterne, potrebbero risultare _meno precisi_. Al contrario, gli approcci _knowledge-based_ integrano dati noti _a priori_, ma sono _limitati_ dalle lacune negli attuali database esistenti, che spesso non rappresentano accuratamente i pathway presenti nelle cellule tumorali. -->
 
+## Seconda parte
+
 ### Matrice di mutazione
 
 Una delle prime e più ampiamente utilizzate formalizzazioni matematiche per modellare e quantificare la mutua esclusività è stata introdotta da Vandin, professore dell'Universià di Padova.
@@ -116,7 +118,7 @@ Dato un insieme di geni $M$, la copertura di $M$ è l'unione delle coperture dei
 
 ### Mutua eslcusività
 
-Un insieme di geni è detto essere mutuamente esclusivo se le coperture dei geni che lo compongono sono a due a due disgiunte. In altre parole, $M$ è mutuamente esclusivo se non vi sono pazzienti con più di una mutazione in $M$, o alternativamente, se ogni riga di $M$ contiene al massimo un $1$.
+Un insieme di geni è detto essere mutuamente esclusivo se le coperture dei geni che lo compongono sono a due a due disgiunte. In altre parole, $M$ è mutuamente esclusivo se non vi sono pazienti con più di una mutazione in $M$, o alternativamente, se ogni riga di $M$ contiene al massimo un $1$.
 
 ### Sovrapposizione di un insieme di geni
 
@@ -167,13 +169,16 @@ Attraverso queste funzioni indicatrici, è possibile formulare l'MWSP come mostr
 <!-- Come approccio iniziale, Leiserson ha formulato l'MWSP come ILP, attraverso le seguenti funzioni indicatrici: -->
 <!---->
 <!---->
-<!-- Sebbene l'identificazione di _singoli pathway driver_ sia fondamentale per la ricerca e il trattamento del cancro, si è osservato che la maggior parte dei pazienti oncologici presenta mutazioni driver in **molteplici pathway**. Le metriche discusse finora non tengono conto di più pathways simultaneamente. Nonostante tali formalizzazioni possano essere applicate iterativamente per identificare più pathway driver, tale approccio potrebbe non essere sufficientemente preciso. -->
-<!---->
-<!-- Per risolvere questo problema, Leiserson ha esteso la funzione di peso $W(M)$ di Vandin, affinché potesse quantificare la _mutua esclusività_ su **più pathway driver contemporaneamente**, denominata $W'(M)$. Tale metrica permette di valutare il livello di _copertura_ e _mutua esclusività_ di una **collezione di insiemi di geni**, ed è utilizzata per definire il seguente problema, estensione dell'MWSP [SLIDE: mostro l'MMWSP e una foto]. -->
-<!---->
-<!-- **Multiple Maximum Weight Submatrices Problem** (MMWSP): Data una matrice di mutazione $A$ di dimensioni $m \times n$, un intero $t > 0$, e due interi $k_\mathrm{min}, k_\mathrm{max} \ge 0$, si trovi la collezione $M = \{M_1, \ldots, M_t\}$ di sottomatrici colonna di $A$ che massimizzi $W'(M) := \sum_{\rho = 1}^t{W(M)}$, dove ogni sottomatrice $M_\rho$ (per ogni $1 \le \rho \le t$) ha dimensioni $m \times k_\rho$, per certi $k_\mathrm{min} \le k_\rho \le k_\mathrm{max}$. -->
-<!---->
-<!-- Analogamente al caso $t = 1$, anche questo problema è $\textsf{NP-completo}$. Per risolvere l'MMWSP, Leiserson ha definito il seguente ILP, chiamato **Multi-Dendrix**, che estende quello precedentemente mostrato per l'MWSP [SLIDE: mostro l'ILP]. Si noti che il primo ed il secondo constraint sono estensioni dell'ILP precedente, il terzo constraint permette ad ogni set $M_\rho$ di avere dimensione $k_\mathrm{min} \le k \le k_\mathrm{max}$, ed infine il quarto constraint _non permette intersezioni_ tra i set della collezione $M$ --- quest'ultimo può essere eventualmente esteso. -->
+
+### Multiple Maximum Weight Submatrix Problem (MMWSP)
+
+Sebbene l'identificazione di singoli pathway driver sia fondamentale per la ricerca e il trattamento del cancro, si è osservato che la maggior parte dei pazienti oncologici presenta mutazioni driver in molteplici pathway. Per questo motivo, studi successivi hanno esteso l'MWSP, al fine di trovare più _driver_ pathway contemporaneamente. In particolare, questo problema utilizza $W'(M)$, una metrica permette di valutare il livello di copertura e mutua esclusività di una collezione di insiemi di geni.
+
+**Multiple Maximum Weight Submatrices Problem** (MMWSP): Data una matrice di mutazione $A$ di dimensioni $m \times n$, ed un intero $t > 0$, si trovi la collezione $M = \{M_1, \ldots, M_t\}$ di sottomatrici colonna di $A$ che massimizzi $W'(M) := \sum_{\rho = 1}^t{W(M)}$.
+
+Analogamente al caso $t = 1$, anche questo problema è $\textsf{NP-completo}$.
+
+<!-- Per risolvere l'MMWSP, Leiserson ha definito il seguente ILP, chiamato **Multi-Dendrix**, che estende quello precedentemente mostrato per l'MWSP [SLIDE: mostro l'ILP]. Si noti che il primo ed il secondo constraint sono estensioni dell'ILP precedente, il terzo constraint permette ad ogni set $M_\rho$ di avere dimensione $k_\mathrm{min} \le k \le k_\mathrm{max}$, ed infine il quarto constraint _non permette intersezioni_ tra i set della collezione $M$ --- quest'ultimo può essere eventualmente esteso. -->
 <!---->
 <!-- Notiamo che è possibile definire una procedura per ottenere _molteplici driver pathway_ definendo il seguente algoritmo, denominato da Leiserson **Iter-Dendrix**. Questa procedura applica l'_algoritmo greedy_ di Vandin $t$ volte, e ad ogni iterazione viene rimosso l'insieme di geni restituito dall'algoritmo dal set totale di geni $\mathcal G$. -->
 <!---->
@@ -201,13 +206,23 @@ Attraverso queste funzioni indicatrici, è possibile formulare l'MWSP come mostr
 <!---->
 <!-- Poiché risolvere questo ILP è particolarmente complesso, Hou presenta una versione diversa di questo problema, nella quale il vincolo $x_e \in \{0, 1\}$ è rilassato ad essere $0 \le x_e \le 1$, trasformandolo nel seguente LP [SLIDE: mostro l'LP a schermo]. Ma affinché sia possibile definire un clustering valido sul grafo, sono necessari _valori interi_ dei vari $x_e$. Dunque, Hou ha formulato il seguente **algoritmo di arrotondamento** che permette di arrotondare opportunamente le soluzioni dell'LP per poter definire un clustering valido [SLIDE: mostro l'algoritmo a schermo]. -->
 
-### Una formalizzazione statistica
+### Approcci statistici
 
-Dato che la mutua esclusività _esatta_ nei dati somatici è _difficilmente osservata_, un approccio comune in questo campo è quello di affidarsi a **metodi statistici**, come ad esempio la _metrica_ sviluppata da Babur, che impiega l'analisi statistica per identificare i pathway driver all'interno del proprio algoritmo, denominato **Mutex**. Babur propone una metrica che estende il _test esatto di Fisher_ per quantificare la mutua esclusività all'interno di un insieme di geni.
+La metrica sviluppata da Vandin, ossia il peso $W(M)$, ha un'importante limitazione: assume che i pathway _driver_ abbiano i geni esattamente mutuamente esclusivi, ma nei dati somatici reali, l'esatta mutua eslcusività si verifica raremente. Questo significa che risolvere l'MWSP potrebbe non tenere in considerazione di soluzioni subottimali che non necessariamente massimizzano $W(M)$, ma che sono comunque pathway _driver_ nella realtà. Per questo motivo, approcci statistici tendono a performare meglio per questa tipologia di ricerca. Ad esempio, Babur ha sviluppato una metrica basata su una distribuzione ipergeometrica, che verrà ora illustrata.
 
-Babur definisce la seguente ipotesi nulla $H_0$: _dato un grupo di geni $M$, un membro del gruppo $g \in M$ è alterato indipendentemente dall'unione delle altre alterazioni del gruppo $\Gamma(M - \{g\})$_ [SLIDE: mostro $H_0$ a schermo].
+### Ipotesi nulla
 
-Questa ipotesi nulla assume che qualsiasi pattern osservato all'interno delle alterazioni di $M$ è _dovuto al caso_. Per testare $H_0$ è necessario valutare la probabilità di avere $\Gamma(g) \cap \Gamma(M - \{g\})$ pazienti che hanno sia $g$ sia qualsiasi altro gene di $M$ mutato. Assegnando il valore di tale probabiltà alla variabile aleatoria $X$, poiché $X$ segue una distribuzione ipergeometrica [SLIDE: mostro la distribuzione che segue $X$], la seguente è la PMF con la quale è possibile calcolare $P(X = \gamma(g, M_g))$ [SLIDE: mostro la PMF]. Alternativamente, è possibile visualizzare tale probabilità attraverso la seguente tabella di contingenza per il test esatto di Fisher, compilandola utilizzando il principio di inclusione-esclusione [SLIDE: mostro la tabella del test esatto e il PIE applicato].
+Babur definisce la seguente ipotesi nulla $H_0$: _dato un grupo di geni $M$, un membro del gruppo $g \in M$ è alterato indipendentemente dall'unione delle altre alterazioni del gruppo $\Gamma(M - \{g\})$_.
 
-Babur sfrutta questa metrica all'interno del seguente _algoritmo greedy_, con il quale è possibile estendere iterativamente un set iniziale $M$ composto solamente da un gene $g$ [SLIDE: mostro solo la procedura greedy a schermo]. La procedura $\texttt{expandGroup}$ è definita da un algoritmo che espande, se possibile, l'insieme $M$, scegliendo ad ogni iterazione _1 gene_ preso dalla **prossimità di $M$**, detta $\delta(M)$. Questa illustrazione mostra come opera l'algoritmo durante le varie iterazioni: i vertici contornati in grassetto sono quelli che definiscono $M$, mentre i vertici in grigio sono quelli che ne definiscono la _prossimità_ $\delta(M)$ [SLIDE: mostro la stessa foto che è presente nella tesi]. Dunque, $\delta(M)$ rappresenta l'insieme dei possibili candidati da aggiungere ad $M$, e viene scelto il candidato _migliore_ in base ad un punteggio che sfrutta proprio $P(X = \gamma(g, M_g))$
+Ad esempio, se consideriamo il seguente gruppo di geni $M = \{g_1, g_2, g_3, g_4\}$ e le loro rispettive alterazioni nei pazienti. Questa ipotesi nulla assume che qualsiasi pattern osservato all'interno delle alterazioni di $M$ è dovuto al caso.
+
+Per testare $H_0$ è necessario valutare la probabilità di avere $\Gamma(g) \cap \Gamma(M - \{g\})$ pazienti che hanno sia $g$ sia qualsiasi altro gene di $M$ mutato.
+
+### $p$-value di un gene
+
+Sia $X$ la variabile aleatoria che rappresenta il numero di pazienti aventi sia $g$ che un qualsiasi altro gene di $M - {g}$ mutato. Chiaramente, $X$ segue una distribuzione ipergeometrica.
+
+Dunque, il $p$-value associato ad un gene è proprio la probabilità di avere $X = \Gamma(g) \cap \Gamma(M - \{g\})$, ed il punteggio di un insieme di geni $M$ è dato dal massimo dei $p$-value dei geni di $M$. Viene scelto il massimo per rimanere conservativi sul punteggio ottenuto.
+
+<!-- Alternativamente, è possibile visualizzare tale probabilità attraverso la seguente tabella di contingenza per il test esatto di Fisher, compilandola utilizzando il principio di inclusione-esclusione [SLIDE: mostro la tabella del test esatto e il PIE applicato]. -->
 
