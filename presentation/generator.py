@@ -30,6 +30,7 @@ formulas = [
     r"X \sim H(m, \Gamma(g), \Gamma(M - \{g\}))",
     r"s_M := \max_{g \in M}{p_g}",
     r"p_g := P(X = \Gamma(g) \cap \Gamma(M - \{g\}))",
+    r"\left.\begin{array}{c} . \\ . \\ . \\ \end{array}\right \}",
 ]
 
 for i in range(len(formulas)):
