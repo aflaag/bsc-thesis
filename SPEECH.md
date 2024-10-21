@@ -28,21 +28,21 @@ Non tutte le anomalie presenti in un tumore sono rilevanti per la sua proliferaz
 
 Dunque, poiché sono le più importanti per lo sviluppo del cancro, le mutazioni _driver_ devono essere il target delle terapie a bersaglio. Di conseguenza, riuscire a classificare le mutazioni in queste due categorie è fondamentale, al fine di riuscire a sviluppare terapie sempre più efficaci.
 
-### Problemi nel classificare le mutazioni
-
-Per classificare le mutazioni in queste due categorie, è essenziale valutare la loro funzione biologica, ma questo rimane tutt'ora difficile da eseguire. Esistono numerosi metodi per prevedere l'impatto funzionale di mutazioni, basati su conoscenze _a priori_. Tuttavia, questi approcci spesso non riescono a integrare le informazioni in modo efficace tra i vari tipi di mutazione e sono limitati dalla loro dipendenza da proteine conosciute, rendendoli meno efficaci per quelle meno studiate.
-
-Con la diminuzione del costo del sequenziamento del DNA, è ora possibile categorizzare le mutazioni esaminandone la frequenza, poiché le mutazioni _driver_ sono tipicamente le più ricorrenti nei genomi dei pazienti.
-
-Per geni con numero molto elevato di mutazioni, come TP53 o KRAS, la maggior parte dei metodi statistici suggerirà fortemente che questi geni siano _driver_. Tuttavia, i geni con più di una, ma comunque relativamente poche mutazioni, sono molto più comuni, e per questo tipo di geni analisi di frequenza non sono sufficienti per identificare in modo affidabile i geni _driver_.
-
-Serve dunque un approccio più efficace per cercare di classificare le mutazioni nelle due tipologie.
+<!-- ### Problemi nel classificare le mutazioni -->
+<!---->
+<!-- Per classificare le mutazioni in queste due categorie, è essenziale valutare la loro funzione biologica, ma questo rimane tutt'ora difficile da eseguire. Esistono numerosi metodi per prevedere l'impatto funzionale di mutazioni, basati su conoscenze _a priori_. Tuttavia, questi approcci spesso non riescono a integrare le informazioni in modo efficace tra i vari tipi di mutazione e sono limitati dalla loro dipendenza da proteine conosciute, rendendoli meno efficaci per quelle meno studiate. -->
+<!---->
+<!-- Con la diminuzione del costo del sequenziamento del DNA, è ora possibile categorizzare le mutazioni esaminandone la frequenza, poiché le mutazioni _driver_ sono tipicamente le più ricorrenti nei genomi dei pazienti. -->
+<!---->
+<!-- Per geni con numero molto elevato di mutazioni, come TP53 o KRAS, la maggior parte dei metodi statistici suggerirà fortemente che questi geni siano _driver_. Tuttavia, i geni con più di una, ma comunque relativamente poche mutazioni, sono molto più comuni, e per questo tipo di geni analisi di frequenza non sono sufficienti per identificare in modo affidabile i geni _driver_. -->
+<!---->
+<!-- Serve dunque un approccio più efficace per cercare di classificare le mutazioni nelle due tipologie. -->
 
 ### Pathway cellulari
 
 Un pathway cellulare è una serie di reazioni chimiche e interazioni molecolari che si verificano all'interno di una cellula. Questi pathway sono essenziali per regolare le funzioni cellulari, come la crescita, il metabolismo, la risposta a segnali esterni e l'apoptosi.
 
-Come mostrato in figura, è possibile rappresentare le catene di reazioni dei pathway attravreso grafi diretti.
+Come mostrato in figura, è possibile rappresentare le catene di reazioni dei pathway attravreso grafi diretti. La ricerca è interessata ai geni che compongono i pathway.
 
 ### Cercare i pathway _driver_
 
@@ -56,19 +56,15 @@ Trovare pathway _driver_ senza criterio è complesso, per via dell'enorme numero
 
 Questo rende necessario trovare proprietà o caratteristiche specifiche per guidare la ricerca in modo efficiente. Fortunatamente, la nostra attuale comprensione dei processi mutazionali somatici nel cancro suggerisce vincoli sui modelli di mutazione.
 
-### Copertura
+### Formalizzazione dei pathway _driver_
 
 In primo luogo, gli studi suggeriscono che un pathway importante per il cancro dovrebbe essere alterato in un numero significativo di pazienti, quindi ci si aspetta che la maggior parte dei pazienti presenti aberrazioni in alcuni geni all'interno pathway _driver_.
 
 Pertanto, si presume che i geni _driver_ che costituiscono un pathway driver frequentemente mutati in molti campioni. Questa caratteristica è misurata dalla cosiddetta copertura.
 
-### Mutua esclusività
-
 In secondo luogo, la maggior parte delle tecniche sviluppate negli ultimi anni sfrutta una proprietà statistica molto più forte, osservata nei dati dei pazienti oncologici: ogni paziente, in genere, ha un numero relativamente ridotto di mutazioni, le quali colpiscono molteplici pathway, quindi ogni percorso conterrà in media 1 mutazione driver per campione.
 
 Questo concetto viene assiomatizzato sottoforma di mutua esclusività tra mutazioni _driver_ all'interno dello stesso pathway, e viene utilizzato dagli algoritmi di ricerca per identificare mutazioni e pathway _driver_.
-
-### Pathway _driver_
 
 Pertanto, un pathway _driver_ è costituito da geni che sono mutati in numerosi pazienti, con mutazioni approssimativamente mutuamente esclusive nel pathway.
 
@@ -114,13 +110,13 @@ La rappresentazione matriciale di set di geni $M$ permette di formulare il probl
 
 Questa formulazione permette di valutare la complessità del problema, ed è possibile dimostrare che l'MWSP è $\textsf{NP-completo}$, attraverso una riduzione dall'Independent Set Problem (ISP).
 
-### Un ILP per l'MWSP
-
-Una delle implementazioni più dirette dell'MWSP è stata fornita da Leiserson, attraverso un Integer Linear Program (ILP). Per introdurlo, è necessario descrivere le seguenti variabili indicatrici:
-  - $I_M(j)$ è la variabile indicatrice che descrive l'insieme di geni $M$, ed è definita come segue: $I_M(j) = 1 \iff j \in M$, dunque $I_M(j)$ è $1$ se e solo se $j$ appartiene ad $M$;
-  - $C_i(M)$ è la variabile indicatrice che descrive quali pazienti copre $M$, ed è definita come segue: $C_i(M) = 1 \iff \exists g \in M \mid i \in \Gamma(g)$, dunque $C_i(M)$ è $1$ se e solo se esiste un paziente $i$ che ha un gene di $M$ mutato.
-
-Attraverso queste funzioni indicatrici, è possibile formulare l'MWSP come mostrato. In particolare, notiamo che il primo constraint rappresenta $W(M)$, il secondo forza $M$ ad avere dimensione $k$, ed infine il terzo descrive il comportamento di $C_i(M)$.
+<!-- ### Un ILP per l'MWSP -->
+<!---->
+<!-- Una delle implementazioni più dirette dell'MWSP è stata fornita da Leiserson, attraverso un Integer Linear Program (ILP). Per introdurlo, è necessario descrivere le seguenti variabili indicatrici: -->
+<!--   - $I_M(j)$ è la variabile indicatrice che descrive l'insieme di geni $M$, ed è definita come segue: $I_M(j) = 1 \iff j \in M$, dunque $I_M(j)$ è $1$ se e solo se $j$ appartiene ad $M$; -->
+<!--   - $C_i(M)$ è la variabile indicatrice che descrive quali pazienti copre $M$, ed è definita come segue: $C_i(M) = 1 \iff \exists g \in M \mid i \in \Gamma(g)$, dunque $C_i(M)$ è $1$ se e solo se esiste un paziente $i$ che ha un gene di $M$ mutato. -->
+<!---->
+<!-- Attraverso queste funzioni indicatrici, è possibile formulare l'MWSP come mostrato. In particolare, notiamo che il primo constraint rappresenta $W(M)$, il secondo forza $M$ ad avere dimensione $k$, ed infine il terzo descrive il comportamento di $C_i(M)$. -->
 
 ### Multiple Maximum Weight Submatrix Problem (MMWSP)
 
@@ -142,7 +138,7 @@ Ad esempio, se consideriamo il seguente gruppo di geni $M = \{g_1, g_2, g_3, g_4
 
 Per testare $H_0$ è necessario valutare la probabilità di avere $\Gamma(g) \cap \Gamma(M - \{g\})$ pazienti che hanno sia $g$ sia qualsiasi altro gene di $M$ mutato.
 
-### $p$-value di un gene
+### Punteggio di un insieme di geni
 
 Sia $X$ la variabile aleatoria che rappresenta il numero di pazienti aventi sia $g$ che un qualsiasi altro gene di $M - {g}$ mutato. Chiaramente, $X$ segue una distribuzione ipergeometrica.
 
@@ -166,6 +162,15 @@ Un esempio di questo approccio è dato dall'algoritmo di Hou, che dato un grafo 
   - informazioni sulla topologia della rete
   - informazioni sull'espressione genomica
 
+### Risultati
+
+TODO DA SISTEMARE
+
+p53 signaling pathway involving TP53, CDKN2A is found in Dendrix, Multi-Dendrix, and MDPFinder.
+RTK/RAS/PI(3)K signaling pathway involving EGFR, PTEN, PIK3R1, PIK3CA appears in Dendrix, Multi-Dendrix, and MDPFinder.
+RB signaling pathway involving RB1, CDK4 and others is identified in Dendrix and Multi-Dendrix for GBM.
+Common genes in GBM, such as EGFR, RB1, BRAF, and GLI1, are highlighted in Dendrix, Multi-Dendrix, MDPFinder, and C³.
+
 ### Lavori futuri
 
 L'identificazione dei pathway _driver_ e la capacità di misurare fenomeni genomici chiave offrono prospettive promettenti per migliorare l'efficacia delle terapie a bersaglio, che potrebbero portare a trattamenti più personalizzate ed adattati ai profili genetici unici di ogni paziente.
@@ -176,66 +181,56 @@ Future ricerche potrebbero integrare tecnologie emergenti, come il _single-cell 
 
 Grazie per l'attenzione.
 
-
-
-
-
-
-
-
-****
-
-
-## Dendrix
-
-- lung adenocarcinoma
-    - novel triplet (EGFR, KRAS, STK11), only the pair (EGFR, KRAS) was known
-    - novel pair (ATM, TP53)
-- GBM
-    - novel pair (CDKN2B, CYP27B1)
-    - novel triplet (CDKN2B, RB1, CDK4), important for the RB1 signaling pathway
-    - novel pair (TP53, CDKN2A), linked to the p53 tumor suppressor pathway
-    - novel pair (NF1, EGFR), part of the RTK pathway
-
-## Multi-Dendrix
-
-- GBM
-    - IRF5
-    - MSL3 in RB signaling pathway
-    - IDH1 mutually exclusive with (PTEN,PIK3CA, PIK3R1) in RTK/RAS/PI(3)K pathway
-    - NPAS3 in p53 signaling pathway
-    - (EGFR, PDGFRA, RB1) in RTK/RAS/PI(3)K and RB pathways
-- BRCA
-    - 12p in PI(3)K/AKT pathway
-    - (TP53, CDH1, GATA3, CTCF, GPRIN2) in p53 signaling pathway
-    - (MAP2K4, MAP3K1, PPEF1, SMARCA4, WWP2) in p38-JNK1 signaling pathway
-    - (CCDN1, MAP2K4, RB1, GRID1) in cell cycle progression
-
-## MDPFinder
-
-- HNSCC
-    - (ANO4, CDKN2A, NFE2L2, NOTCH1, SYNE1, TP63) linked to squamous epithelia differentiation
-    - (CDKN2A, NOTCH1, TP63, SYNE1)
-- GBM
-    - novel pair (CDKN2A, TP53) in p53 signaling pathway
-    - novel 5-tuple (PTEN, EGFR, PIK3R1, PIK3CA, GRIA2) in RTK/RAS/PI(3)K signaling pathway
-- ovarian carcinoma
-    - (KRAS, NF1, MAPK8IP2) linked to MAPK signaling pathway
-
-## Mutex
-
-- N/A
-    - OBSCN
-    - ARID1
-    - RHOC in cancer metastasis
-    - TRRAP, OBSCN, RIT1, AGAP2, and RORC contain mutation hotspots
-    - (CERS2, NCSTN) showed CNAs
-
-## C^3
-
-- N/A
-    - novel cluster (PTEN, HUWE1, CNTNAP2, GRID2, CACNA1B, CYSLTR2, MYH1)
-    - HUWE1, CNTNAP2, and GLI1 potential drivers
-- GBM
-    - novel cluster (GLI1, WNT2, BRAF, PLCG1, ...) linked to many cell processes
-
+<!-- ## Dendrix -->
+<!---->
+<!-- - lung adenocarcinoma -->
+<!--     - novel triplet (EGFR, KRAS, STK11), only the pair (EGFR, KRAS) was known -->
+<!--     - novel pair (ATM, TP53) -->
+<!-- - GBM -->
+<!--     - novel pair (CDKN2B, CYP27B1) -->
+<!--     - novel triplet (CDKN2B, RB1, CDK4), important for the RB1 signaling pathway -->
+<!--     - novel pair (TP53, CDKN2A), linked to the p53 tumor suppressor pathway -->
+<!--     - novel pair (NF1, EGFR), part of the RTK pathway -->
+<!---->
+<!-- ## Multi-Dendrix -->
+<!---->
+<!-- - GBM -->
+<!--     - IRF5 -->
+<!--     - MSL3 in RB signaling pathway -->
+<!--     - IDH1 mutually exclusive with (PTEN,PIK3CA, PIK3R1) in RTK/RAS/PI(3)K pathway -->
+<!--     - NPAS3 in p53 signaling pathway -->
+<!--     - (EGFR, PDGFRA, RB1) in RTK/RAS/PI(3)K and RB pathways -->
+<!-- - BRCA -->
+<!--     - 12p in PI(3)K/AKT pathway -->
+<!--     - (TP53, CDH1, GATA3, CTCF, GPRIN2) in p53 signaling pathway -->
+<!--     - (MAP2K4, MAP3K1, PPEF1, SMARCA4, WWP2) in p38-JNK1 signaling pathway -->
+<!--     - (CCDN1, MAP2K4, RB1, GRID1) in cell cycle progression -->
+<!---->
+<!-- ## MDPFinder -->
+<!---->
+<!-- - HNSCC -->
+<!--     - (ANO4, CDKN2A, NFE2L2, NOTCH1, SYNE1, TP63) linked to squamous epithelia differentiation -->
+<!--     - (CDKN2A, NOTCH1, TP63, SYNE1) -->
+<!-- - GBM -->
+<!--     - novel pair (CDKN2A, TP53) in p53 signaling pathway -->
+<!--     - novel 5-tuple (PTEN, EGFR, PIK3R1, PIK3CA, GRIA2) in RTK/RAS/PI(3)K signaling pathway -->
+<!-- - ovarian carcinoma -->
+<!--     - (KRAS, NF1, MAPK8IP2) linked to MAPK signaling pathway -->
+<!---->
+<!-- ## Mutex -->
+<!---->
+<!-- - N/A -->
+<!--     - OBSCN -->
+<!--     - ARID1 -->
+<!--     - RHOC in cancer metastasis -->
+<!--     - TRRAP, OBSCN, RIT1, AGAP2, and RORC contain mutation hotspots -->
+<!--     - (CERS2, NCSTN) showed CNAs -->
+<!---->
+<!-- ## C^3 -->
+<!---->
+<!-- - N/A -->
+<!--     - novel cluster (PTEN, HUWE1, CNTNAP2, GRID2, CACNA1B, CYSLTR2, MYH1) -->
+<!--     - HUWE1, CNTNAP2, and GLI1 potential drivers -->
+<!-- - GBM -->
+<!--     - novel cluster (GLI1, WNT2, BRAF, PLCG1, ...) linked to many cell processes -->
+<!---->
