@@ -164,12 +164,15 @@ Un esempio di questo approccio è dato dall'algoritmo di Hou, che dato un grafo 
 
 ### Risultati
 
-TODO DA SISTEMARE
+TODO DA RISCRIVERE
 
-p53 signaling pathway involving TP53, CDKN2A is found in Dendrix, Multi-Dendrix, and MDPFinder.
-RTK/RAS/PI(3)K signaling pathway involving EGFR, PTEN, PIK3R1, PIK3CA appears in Dendrix, Multi-Dendrix, and MDPFinder.
-RB signaling pathway involving RB1, CDK4 and others is identified in Dendrix and Multi-Dendrix for GBM.
-Common genes in GBM, such as EGFR, RB1, BRAF, and GLI1, are highlighted in Dendrix, Multi-Dendrix, MDPFinder, and C³.
+Il signaling pathway p53 che coinvolge TP53 e CDKN2A è stato identificato da Dendrix, Multi-Dendrix e MDPFinder.
+
+Il signaling pathway RTK/RAS/PI(3)K, che include geni come EGFR, PTEN, PIK3R1 e PIK3CA, appare nei risultati di Dendrix, Multi-Dendrix e MDPFinder.
+
+Il signaling pathway RB, che coinvolge geni come RB1 e CDK4, è stato identificato sia in Dendrix che in Multi-Dendrix, in particolare per il glioblastoma multiforme (GBM).
+
+Infine, geni comuni rilevanti per il GBM, come EGFR, RB1, BRAF e GLI1, sono stati evidenziati nei metodi Dendrix, Multi-Dendrix, MDPFinder e $\mathrm{C}^3$.
 
 ### Lavori futuri
 
