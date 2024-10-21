@@ -228,21 +228,14 @@ Grazie per l'attenzione.
     - OBSCN
     - ARID1
     - RHOC in cancer metastasis
+    - TRRAP, OBSCN, RIT1, AGAP2, and RORC contain mutation hotspots
+    - (CERS2, NCSTN) showed CNAs
 
-3. **Novel Genes with Mutation Hotspots**:
-   - The study finds that five of the lesser-known genes with fewer than 25 cancer-related co-citations contain **mutation hotspots**: **TRRAP, OBSCN, RIT1, AGAP2**, and **RORC**. Mutation hotspots are important indicators of driver mutations, so this discovery suggests that these genes may play significant roles in cancer, despite their underrepresentation in the literature. This is a novel contribution to the understanding of driver mutations in cancer.
+## C^3
 
-4. **Gene Pair with Copy Number Alterations**:
-   - The gene pair **CERS2** and **NCSTN** showed **copy number alterations**, adding another layer of significance to their potential role in cancer. This is a new observation in the context of mutually exclusive alterations.
+- N/A
+    - novel cluster (PTEN, HUWE1, CNTNAP2, GRID2, CACNA1B, CYSLTR2, MYH1)
+    - HUWE1, CNTNAP2, and GLI1 potential drivers
+- GBM
+    - novel cluster (GLI1, WNT2, BRAF, PLCG1, ...) linked to many cell processes
 
-5. **Improvement in Algorithm Performance**:
-   - The **Mutex algorithm** is shown to outperform previous methods like Dendrix, MDPFinder, and Multi-Dendrix, particularly by incorporating signaling networks. This methodological improvement is important because it shows that using pathway information can significantly enhance the identification of mutually exclusive driver genes. This improvement in the algorithm's **ROC curve performance** and its efficiency represents a **novel contribution** to computational cancer genomics.
-
-### Summary of New Discoveries:
-- The potential roles of **OBSCN** and **ARID1A** in cancer.
-- **RHOC** as a key downstream target in cancer metastasis, activated indirectly by mutually exclusive alterations.
-- The discovery of **mutation hotspots** in **TRRAP, OBSCN, RIT1, AGAP2**, and **RORC**, suggesting they may be driver genes.
-- The identification of copy number alterations in the **CERS2-NCSTN** gene pair.
-- The superior performance of **Mutex** over previous methods, especially due to the inclusion of pathway information, representing an advance in algorithm development.
-
-These findings contribute to understanding both known and novel driver genes and pathways in cancer.
