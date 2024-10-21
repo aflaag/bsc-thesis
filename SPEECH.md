@@ -176,3 +176,73 @@ Future ricerche potrebbero integrare tecnologie emergenti, come il _single-cell 
 
 Grazie per l'attenzione.
 
+
+
+
+
+
+
+
+****
+
+
+## Dendrix
+
+- lung adenocarcinoma
+    - novel triplet (EGFR, KRAS, STK11), only the pair (EGFR, KRAS) was known
+    - novel pair (ATM, TP53)
+- GBM
+    - novel pair (CDKN2B, CYP27B1)
+    - novel triplet (CDKN2B, RB1, CDK4), important for the RB1 signaling pathway
+    - novel pair (TP53, CDKN2A), linked to the p53 tumor suppressor pathway
+    - novel pair (NF1, EGFR), part of the RTK pathway
+
+## Multi-Dendrix
+
+- GBM
+    - IRF5
+    - MSL3 in RB signaling pathway
+    - IDH1 mutually exclusive with (PTEN,PIK3CA, PIK3R1) in RTK/RAS/PI(3)K pathway
+    - NPAS3 in p53 signaling pathway
+    - (EGFR, PDGFRA, RB1) in RTK/RAS/PI(3)K and RB pathways
+- BRCA
+    - 12p in PI(3)K/AKT pathway
+    - (TP53, CDH1, GATA3, CTCF, GPRIN2) in p53 signaling pathway
+    - (MAP2K4, MAP3K1, PPEF1, SMARCA4, WWP2) in p38-JNK1 signaling pathway
+    - (CCDN1, MAP2K4, RB1, GRID1) in cell cycle progression
+
+## MDPFinder
+
+- HNSCC
+    - (ANO4, CDKN2A, NFE2L2, NOTCH1, SYNE1, TP63) linked to squamous epithelia differentiation
+    - (CDKN2A, NOTCH1, TP63, SYNE1)
+- GBM
+    - novel pair (CDKN2A, TP53) in p53 signaling pathway
+    - novel 5-tuple (PTEN, EGFR, PIK3R1, PIK3CA, GRIA2) in RTK/RAS/PI(3)K signaling pathway
+- ovarian carcinoma
+    - (KRAS, NF1, MAPK8IP2) linked to MAPK signaling pathway
+
+## Mutex
+
+- N/A
+    - OBSCN
+    - ARID1
+    - RHOC in cancer metastasis
+
+3. **Novel Genes with Mutation Hotspots**:
+   - The study finds that five of the lesser-known genes with fewer than 25 cancer-related co-citations contain **mutation hotspots**: **TRRAP, OBSCN, RIT1, AGAP2**, and **RORC**. Mutation hotspots are important indicators of driver mutations, so this discovery suggests that these genes may play significant roles in cancer, despite their underrepresentation in the literature. This is a novel contribution to the understanding of driver mutations in cancer.
+
+4. **Gene Pair with Copy Number Alterations**:
+   - The gene pair **CERS2** and **NCSTN** showed **copy number alterations**, adding another layer of significance to their potential role in cancer. This is a new observation in the context of mutually exclusive alterations.
+
+5. **Improvement in Algorithm Performance**:
+   - The **Mutex algorithm** is shown to outperform previous methods like Dendrix, MDPFinder, and Multi-Dendrix, particularly by incorporating signaling networks. This methodological improvement is important because it shows that using pathway information can significantly enhance the identification of mutually exclusive driver genes. This improvement in the algorithm's **ROC curve performance** and its efficiency represents a **novel contribution** to computational cancer genomics.
+
+### Summary of New Discoveries:
+- The potential roles of **OBSCN** and **ARID1A** in cancer.
+- **RHOC** as a key downstream target in cancer metastasis, activated indirectly by mutually exclusive alterations.
+- The discovery of **mutation hotspots** in **TRRAP, OBSCN, RIT1, AGAP2**, and **RORC**, suggesting they may be driver genes.
+- The identification of copy number alterations in the **CERS2-NCSTN** gene pair.
+- The superior performance of **Mutex** over previous methods, especially due to the inclusion of pathway information, representing an advance in algorithm development.
+
+These findings contribute to understanding both known and novel driver genes and pathways in cancer.
