@@ -2,6 +2,10 @@
 
 ## Prima parte
 
+### Intro
+
+Buongiorno, in questa presentazione descriveremo algoritmi che permettono di identificare target ottimali a fini terapeutici contro il cancro.
+
 ### Il cancro
 
 Il cancro è un gruppo di malattie caratterizzate dalla crescita incontrollata delle cellule che invadono tessuti ed organi e ne compromettono le funzionalità. Esistono oltre 100 tipi di cancro, come carcinomi, sarcomi e leucemie, ed ogni anno i decessi per il cancro sono nell'ordine dei milioni. Dunque, è fondamentale trovare trattamenti efficaci contro questa malattia.
