@@ -4,7 +4,7 @@
 
 ### Il cancro
 
-Il cancro è un gruppo di malattie caratterizzate dalla crescita incontrollata delle cellule che invadono tessuti ed organi e ne compromettono le funzionalità. Esistono oltre 100 tipi di cancro, come _carcinomi_, _sarcomi_ e _leucemie_, ed ogni anno i decessi per il cancro sono nell'ordine dei milioni. Dunque, è fondamentale trovare trattamenti efficaci contro questa malattia.
+Il cancro è un gruppo di malattie caratterizzate dalla crescita incontrollata delle cellule che invadono tessuti ed organi e ne compromettono le funzionalità. Esistono oltre 100 tipi di cancro, come carcinomi, sarcomi e leucemie, ed ogni anno i decessi per il cancro sono nell'ordine dei milioni. Dunque, è fondamentale trovare trattamenti efficaci contro questa malattia.
 
 ### Cure attuali
 
@@ -12,13 +12,13 @@ La ricerca per trovare cure e trattamenti per il cancro è in continua evoluzion
 
 ### Terapia a bersaglio
 
-Le problematiche che caratterizzano gli attuali trattamenti del cancro hanno spinto ad un maggiore interesse per le cosiddette terapie a bersaglio. La terapia a bersaglio è un trattamento per il cancro che si concentra sulle proteine responsabili della crescita e della diffusione delle cellule tumorali. Questo terapie sono vantaggiose in quanto differiscono dai trattamenti standard, che distruggono indiscriminatamente cellule normali e tumorali, poiché sono in grado di attaccare specificamente le proteine anormali prodotte da geni mutati, offrendo dunque maggiore selettività e riducendo gli effetti collaterali.
+Le problematiche che caratterizzano gli attuali trattamenti del cancro hanno spinto ad un maggiore interesse per le cosiddette terapie a bersaglio. La terapia a bersaglio è un trattamento per il cancro che si concentra sulle proteine responsabili della crescita e della diffusione delle cellule tumorali. Queste terapie sono vantaggiose in quanto differiscono dai trattamenti standard, che distruggono indiscriminatamente cellule normali e tumorali, poiché sono in grado di attaccare specificamente le proteine anormali prodotte da geni mutati, offrendo dunque maggiore selettività e riducendo gli effetti collaterali.
 
 Naturalmente, l'efficacia delle terapie a bersaglio dipende direttamente dal target considerato. È necessario dunque chiedersi quali target possano massimizzare la resa terapeutica.
 
 ### Il ruolo delle mutazioni nel cancro
 
-Il cancro evolve attraverso un processo _multistep_ in cui le cellule acquisiscono gradualmente caratteristiche maligne tramite una serie di mutazioni. Infatti, lo sviluppo del cancro è come un processo di mutazione e selezione di cellule con capacità sempre maggiori di proliferare, sopravvivere e metastatizzare.
+Il cancro evolve attraverso un processo _multistep_ in cui le cellule acquisiscono gradualmente caratteristiche maligne tramite una serie di mutazioni. Infatti, lo sviluppo del cancro consiste in un processo di mutazione e selezione di cellule con capacità sempre maggiori di proliferare, sopravvivere e metastatizzare.
 
 È dunque evidente che le mutazioni ricoprono un ruolo fondamentale per lo sviluppo e la progressione del cancro. Pertanto, per combattere efficacemente questa malattia, è essenziale acquisire una comprensione completa di come queste alterazioni genetiche si verificano e contribuiscono allo sviluppo del tumore.
 
@@ -30,29 +30,19 @@ Dunque, poiché sono le più importanti per lo sviluppo del cancro, le mutazioni
 
 Di conseguenza, riuscire a classificare le mutazioni in queste due categorie è fondamentale, al fine di riuscire a sviluppare terapie sempre più efficaci.
 
-<!-- ### Problemi nel classificare le mutazioni -->
-<!---->
-<!-- Per classificare le mutazioni in queste due categorie, è essenziale valutare la loro funzione biologica, ma questo rimane tutt'ora difficile da eseguire. Esistono numerosi metodi per prevedere l'impatto funzionale di mutazioni, basati su conoscenze _a priori_. Tuttavia, questi approcci spesso non riescono a integrare le informazioni in modo efficace tra i vari tipi di mutazione e sono limitati dalla loro dipendenza da proteine conosciute, rendendoli meno efficaci per quelle meno studiate. -->
-<!---->
-<!-- Con la diminuzione del costo del sequenziamento del DNA, è ora possibile categorizzare le mutazioni esaminandone la frequenza, poiché le mutazioni _driver_ sono tipicamente le più ricorrenti nei genomi dei pazienti. -->
-<!---->
-<!-- Per geni con numero molto elevato di mutazioni, come TP53 o KRAS, la maggior parte dei metodi statistici suggerirà fortemente che questi geni siano _driver_. Tuttavia, i geni con più di una, ma comunque relativamente poche mutazioni, sono molto più comuni, e per questo tipo di geni analisi di frequenza non sono sufficienti per identificare in modo affidabile i geni _driver_. -->
-<!---->
-<!-- Serve dunque un approccio più efficace per cercare di classificare le mutazioni nelle due tipologie. -->
-
 ### Pathway cellulari
 
-Un pathway cellulare è una serie di reazioni chimiche e interazioni molecolari che si verificano all'interno di una cellula. Questi pathway sono essenziali per regolare le funzioni cellulari, come la crescita, il metabolismo, la risposta a segnali esterni e l'apoptosi.
+Un pathway cellulare è una serie di reazioni chimiche e interazioni molecolari che si verificano all'interno di una cellula. I pathway cellulari sono essenziali per regolare le funzioni cellulari, come la crescita, il metabolismo, la risposta a segnali esterni e l'apoptosi.
 
 Come mostrato in figura, è possibile rappresentare le catene di reazioni dei pathway attravreso grafi diretti. La ricerca è interessata ai geni che compongono i pathway.
 
 ### Cercare i pathway _driver_
 
-I pathway cellulari sono importanti poiché attraverso essi è possibile valutare la ricorrenza di singole mutazioni o geni, e molte considerazioni biologiche supportano questo approccio.
+I pathway cellulari sono importanti poiché attraverso essi è possibile classificare le mutazioni del cancro, e molte considerazioni biologiche supportano questo approccio.
 
 In particolare, più mutazioni driver in geni diversi possono portare a simili effetti _downstream_, quindi il vantaggio selettivo è distribuito tra le frequenze delle varie alterazioni genetiche, ed infatti mutazioni diverse possono influenzare lo stesso pathway in vari campioni.
 
-Infatti, negli ultimi anni, l'attenzione si è spostata su tentativi per identificare automaticamente pathway _driver_ e gruppi di geni con mutazioni _driver_, derivandoli direttamente dai dati delle mutazioni somatiche.
+Negli ultimi anni, l'attenzione si è spostata su tentativi per identificare automaticamente pathway _driver_ e gruppi di geni con mutazioni _driver_, derivandoli direttamente dai dati delle mutazioni somatiche.
 
 ### Problemi nel cercare i pathway
 
@@ -62,13 +52,9 @@ Questo rende necessario trovare proprietà o caratteristiche specifiche per guid
 
 ### Formalizzazione dei pathway _driver_
 
-In primo luogo, gli studi suggeriscono che un pathway importante per il cancro dovrebbe essere alterato in un numero significativo di pazienti, quindi ci si aspetta che la maggior parte dei pazienti presenti aberrazioni in alcuni geni all'interno pathway _driver_.
+In primo luogo, gli studi suggeriscono che un pathway importante per il cancro dovrebbe essere alterato in un numero significativo di pazienti, quindi ci si aspetta che la maggior parte dei pazienti presenti aberrazioni in alcuni geni all'interno pathway _driver_. Pertanto, si presume che i geni _driver_ che costituiscono un pathway driver siano frequentemente mutati in molti campioni. Questa caratteristica è misurata dalla cosiddetta copertura.
 
-Pertanto, si presume che i geni _driver_ che costituiscono un pathway driver frequentemente mutati in molti campioni. Questa caratteristica è misurata dalla cosiddetta copertura.
-
-In secondo luogo, la maggior parte delle tecniche sviluppate negli ultimi anni sfrutta una proprietà statistica molto più forte, osservata nei dati dei pazienti oncologici: ogni paziente, in genere, ha un numero relativamente ridotto di mutazioni, le quali colpiscono molteplici pathway, quindi ogni percorso conterrà in media 1 mutazione driver per campione.
-
-Questo concetto viene assiomatizzato sottoforma di mutua esclusività tra mutazioni _driver_ all'interno dello stesso pathway, e viene utilizzato dagli algoritmi di ricerca per identificare mutazioni e pathway _driver_.
+In secondo luogo, la maggior parte delle tecniche sviluppate negli ultimi anni sfrutta una proprietà statistica molto più forte, osservata nei dati dei pazienti oncologici: ogni paziente, in genere, ha un numero relativamente ridotto di mutazioni, le quali colpiscono molteplici pathway, quindi ogni percorso conterrà in media 1 mutazione driver per campione.' Questo concetto viene assiomatizzato sottoforma di mutua esclusività tra mutazioni _driver_ all'interno dello stesso pathway, e viene utilizzato dagli algoritmi di ricerca per identificare mutazioni e pathway _driver_.
 
 Pertanto, un pathway _driver_ è costituito da geni che sono mutati in numerosi pazienti, con mutazioni approssimativamente mutuamente esclusive nel pathway.
 
@@ -96,13 +82,13 @@ Un insieme di geni è detto essere mutuamente esclusivo se le coperture dei geni
 
 ### Sovrapposizione di un insieme di geni
 
-Per stabilire se un gruppo di geni è mutuamente esclusivo, Vandin ha introdotto la definizione di sovrapposizione di copertura di un set di geni, definita come mostrato.
+Per stabilire se un gruppo di geni è mutuamente esclusivo, possiamo introdurre la definizione di sovrapposizione di copertura di un set di geni, definita come mostrato.
 
 Notiamo che la prima sommatoria conta tutti gli $1$ all'interno di $M$, e poiché il secondo valore della differenza è la copertura dell'insieme, $\omega(M)$ rappresenta il numero di pazienti che hanno più di una mutazione in $M$. Chiaramente, $M$ è mutuamente esclusivo se e solo se $\omega(M) = 0$.
 
 ### Peso di un gruppo di geni
 
-Infine, la metrica principale con la quale viene calcolato il livello di ottimalità di un set di geni è dato dalla formula seguente, che sintetizza il bilanciamento tra quanti geni copre $M$, e quanto sia mutuamente esclusivo. In altre parole, $W(M)$ conta il numero di pazienti che hanno uno ed un solo $1$ all'interno delle righe di $M$.
+Infine, la metrica principale con la quale viene calcolato il livello di ottimalità di un set di geni è dato dalla formula seguente, che sintetizza il bilanciamento tra quanti geni copre $M$, e quanto $M$ sia mutuamente esclusivo. In altre parole, $W(M)$ conta il numero di pazienti che hanno uno ed un solo $1$ all'interno delle righe di $M$.
 
 Notiamo che è opportuno che un set di geni $M$ massimizzi tale peso, poiché maggiore sarà il peso, maggiore sarà la copertura di $M$, e minore sarà la sua sovrapposizione.
 
@@ -120,31 +106,17 @@ Gli studi analizzati adottano principalmente le seguenti 4 tecniche: ILP, approc
 
 ### Un ILP per l'MWSP
 
-<!-- Una delle implementazioni più dirette dell'MWSP è stata fornita da Leiserson, attraverso un Integer Linear Program (ILP). Per introdurlo, è necessario descrivere le seguenti variabili indicatrici: -->
-<!--   - $I_M(j)$ è la variabile indicatrice che descrive l'insieme di geni $M$, ed è definita come segue: $I_M(j) = 1 \iff j \in M$, dunque $I_M(j)$ è $1$ se e solo se $j$ appartiene ad $M$; -->
-<!--   - $C_i(M)$ è la variabile indicatrice che descrive quali pazienti copre $M$, ed è definita come segue: $C_i(M) = 1 \iff \exists g \in M \mid i \in \Gamma(g)$, dunque $C_i(M)$ è $1$ se e solo se esiste un paziente $i$ che ha un gene di $M$ mutato. -->
-
-Partendo dalla prima, definendo delle variabili indicatrici, è possibile definire l'ILP come mostrato; in particolare, notiamo che il primo constraint rappresenta $W(M)$, il secondo forza $M$ ad avere dimensione $k$, ed infine il terzo descrive il comportamento di $C_i(M)$.
+Partendo dalla prima, definendo delle variabili indicatrici, è possibile definire il seguente ILP; in particolare, notiamo che il primo constraint rappresenta $W(M)$, il secondo forza $M$ ad avere dimensione $k$, ed infine il terzo descrive il comportamento di una delle variabili indicatrici.
 
 Questo approccio, sebbene sia molto veloce nella pratica grazie alla velocità degli ILP solver, non riduce la complessità del problema, poiché risolvere gli ILP è anch'esso un problema $\textsf{NP-completo}$.
 
-<!-- ### Multiple Maximum Weight Submatrix Problem (MMWSP) -->
-<!---->
-<!-- Sebbene l'identificazione di singoli pathway driver sia fondamentale per la ricerca e il trattamento del cancro, si è osservato che la maggior parte dei pazienti oncologici presenta mutazioni driver in molteplici pathway. Per questo motivo, studi successivi hanno esteso l'MWSP, al fine di trovare più _driver_ pathway contemporaneamente. In particolare, questo problema utilizza $W'(M)$, una metrica permette di valutare il livello di copertura e mutua esclusività di una collezione di insiemi di geni. -->
-<!---->
-<!-- **Multiple Maximum Weight Submatrices Problem** (MMWSP): Data una matrice di mutazione $A$ di dimensioni $m \times n$, ed un intero $t > 0$, si trovi la collezione $M = \{M_1, \ldots, M_t\}$ di sottomatrici colonna di $A$ che massimizzi $W'(M) := \sum_{\rho = 1}^t{W(M)}$. -->
-<!---->
-<!-- Analogamente al caso $t = 1$, anche questo problema è $\textsf{NP-completo}$. -->
-
 ### Approccio probabilistico
 
-<!-- La metrica di peso descritta ha un'importante limitazione: assume che i pathway _driver_ abbiano i geni esattamente mutuamente esclusivi, ma nei dati somatici reali, l'esatta mutua eslcusività si verifica raremente. Questo significa che risolvere l'MWSP potrebbe non tenere in considerazione di soluzioni subottimali che non necessariamente massimizzano $W(M)$, ma che sono comunque pathway _driver_ nella realtà. Per questo motivo, approcci statistici tendono a performare meglio per questa tipologia di ricerca. Ad esempio, Babur ha sviluppato una metrica basata su una distribuzione ipergeometrica, che verrà ora illustrata. -->
-
-Consideriamo la seguente ipotesi nulla: _dato un grupo di geni $M$, un membro del gruppo $g \in M$ è alterato indipendentemente dall'unione delle altre alterazioni del gruppo $\Gamma(M - \{g\})$_. Questa ipotesi nulla asserisce che ogni pattern presente al'interno delle mutazioni dei pazienti è puramente dovuto al caso.
+Consideriamo dunque il seguente approccio probabilistico, basato sulla seguente ipotesi nulla: _dato un grupo di geni $M$, un membro del gruppo $g \in M$ è alterato indipendentemente dall'unione delle altre alterazioni del gruppo $\Gamma(M - \{g\})$_.
 
 Ad esempio, se consideriamo il seguente gruppo di geni $M = \{g_1, g_2, g_3, g_4\}$ e le loro rispettive alterazioni nei pazienti. Questa ipotesi nulla assume che qualsiasi pattern osservato all'interno delle alterazioni di $M$ è dovuto al caso.
 
-Per testare tale ipotesi nulla, è necessario valutare la probabilità di avere $\Gamma(g) \cap \Gamma(M - \{g\})$ pazienti che hanno sia $g$ sia qualsiasi altro gene di $M$ mutato.
+Per testare tale ipotesi nulla, è necessario valutare la probabilità di avere $\Gamma(g) \cap \Gamma(M - \{g\})$ pazienti che hanno sia $g$ sia qualsiasi altro gene di $M - \{g\}$ mutato.
 
 Sia dunque $X$ la variabile aleatoria che rappresenta il numero di pazienti aventi sia $g$ che un qualsiasi altro gene di $M - {g}$ mutato. Chiaramente, $X$ segue una distribuzione ipergeometrica.
 
@@ -152,9 +124,7 @@ Dunque, il $p$-value associato ad un gene è proprio la probabilità di avere $X
 
 ### Approccio genetico
 
-Esistono anche molti altri approcci che permettono di trovare pathway _driver_. Un esempio è dato dall'algoritmo genetico di Zhao che utilizza il peso di Vandin come funzione di _fitness_.
-
-Nel suo algoritmo genetico, ogni membro della popolazione è una stringa binaria che rappresenta un possibile insieme di geni $M$: l'$i$-esimo bit è 1 se e solo se l'$i$-esimo gene è in $M$. Dunque, lo spazio dei membri possibili è dato da tutte le stringhe binarie lunghe $n$ aventi $k$ bit pari ad $1$.
+Passando all'approccio successivo, l'algoritmo genetico utilizza la stessa funzione di peso $W(M)$ precedentemente definita, ed ogni membro della popolazione è una stringa binaria che rappresenta un possibile insieme di geni $M$: l'$i$-esimo bit è 1 se e solo se l'$i$-esimo gene è in $M$. Dunque, lo spazio dei membri possibili è dato da tutte le stringhe binarie lunghe $n$ aventi $k$ bit pari ad $1$.
 
 Infine, il _crossover_ tra membri della popolazione è definito come mostrato: dati due membri della popolazione, i bit uguali vengono ereditati dalla prole, mentre i bit diversi vengono scelti casualmente.
 
@@ -162,7 +132,7 @@ Infine, il _crossover_ tra membri della popolazione è definito come mostrato: d
 
 In ultimo, sono presenti in letteratura anche approcci clustering di vertici su grafi completamente conenssi i cui vertici rappresentano geni, ed i cluster sono i pathway _driver_ cercati.
 
-Un esempio di questo approccio è dato dall'algoritmo di Hou, che dato un grafo di geni come mostrato, assegna ad ogni arco 2 pesi, uno positivo ed uno negativo, e definisce i pesi attraverso combinazioni lineari di componenti di:
+Un esempio di questo è descritto come segue, in cui ad ogni arco sono assegnati arco 2 pesi, uno positivo ed uno negativo, e vengono definiti pesi attraverso combinazioni lineari di formule che calcolano:
   - mutua esclusività
   - copertura
   - informazioni sulla topologia della rete
@@ -170,13 +140,13 @@ Un esempio di questo approccio è dato dall'algoritmo di Hou, che dato un grafo 
 
 ### Risultati
 
-A schermo sono mostrati l'insiemi dei gruppi di geni che massimizzano copertura e mutua esclusività, trovati dai vari algoritmi analizzati all'interno di questo lavoro.
+A schermo sono mostrati gli insiemi dei gruppi di geni che massimizzano copertura e mutua esclusività, trovati dai vari algoritmi analizzati all'interno di questo lavoro.
 
-In particolare, Dendrix è descritto dall'ILP descritto precedentemente, Multi-Dendrix estende l'MWSP per cercare una collezione di insiemi che massimizzi la somma dei pesi, MDPFinder utilizza l'algoritmo genetico, e $\mathrm{C}^3$ sfrutta un algoritmo di clustering descritto attraverso un LP.
+In particolare, Dendrix è descritto dall'ILP trattato precedentemente, Multi-Dendrix estende l'MWSP per cercare una collezione di insiemi che massimizzi la somma dei pesi, MDPFinder utilizza l'algoritmo genetico, e $\mathrm{C}^3$ sfrutta un algoritmo di clustering descritto attraverso un LP.
 
 ### Lavori futuri
 
-L'identificazione dei pathway _driver_ e la capacità di misurare fenomeni genomici chiave offrono prospettive promettenti per migliorare l'efficacia delle terapie a bersaglio, che potrebbero portare a trattamenti più personalizzate ed adattati ai profili genetici unici di ogni paziente.
+L'identificazione dei pathway _driver_ e la capacità di misurare fenomeni genomici chiave offrono prospettive promettenti per migliorare l'efficacia delle terapie a bersaglio, che potrebbero portare a trattamenti più personalizzati ed adattati ai profili genetici unici di ogni paziente.
 
 Future ricerche potrebbero integrare tecnologie emergenti, come il _single-cell sequencing_, per affinare ulteriormente la comprensione dei pathway _driver_.
 
