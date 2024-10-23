@@ -4,7 +4,7 @@
 
 ### Intro
 
-Buongiorno, in questa presentazione descriveremo algoritmi che permettono di identificare target ottimali a fini terapeutici contro il cancro.
+Buongiorno, in questa presentazione descriveremo approcci computazionali che permettono di identificare target ottimali a fini terapeutici per cure contro il cancro.
 
 ### Il cancro
 
